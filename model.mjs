@@ -8,7 +8,7 @@
 // ranked by value, not by who is simply most likely to win. Markets: Win / Top-5 /
 // Top-10 / Top-20, so each-way and place value both surface.
 
-import { noteFor } from './player-notes.mjs';
+import { noteFor, storyFor } from './player-notes.mjs';
 
 // oddschecker market slugs for the "Back it" deep links
 const OC_MARKET = { win: 'winner', top5: 'top-5-finish', top10: 'top-10-finish', top20: 'top-20-finish' };
@@ -70,7 +70,11 @@ function formText(p) {
 }
 
 // ---- post-event let-down --------------------------------------------------
-const LETDOWN = { majorWinner: 0.42, majorTop5: 0.20, majorTop15: 0.09, regularWinner: 0.20 };
+// Evidence (June 2026): a broad "major hangover" for everyone who contends is NOT supported
+// by data - it's anecdotal. What IS real: backing up a win the next week is rare (~16
+// back-to-back PGA Tour wins in 8 seasons). So we ONLY fade last week's winner; players who
+// merely contended are not penalised - we just show their finish.
+const LETDOWN = { majorWinner: 0.30, regularWinner: 0.15 };
 function applyLetdown(rows, prev) {
   if (!prev || !prev.name) return;
   const champ = prev.champion ? norm(prev.champion) : null;
@@ -79,16 +83,11 @@ function applyLetdown(rows, prev) {
     const fr = pos?.get(r.playerId);
     r.playedLastWeek = pos ? !!fr : null;          // null if we have no leaderboard
     r.lastWeekFinish = fr ? (fr.cut ? 'MC' : fr.posText) : null;
-    const finishPos = fr && !fr.cut ? fr.pos : null;
-    let penalty = 0, flag = null;
     if (champ && norm(r.name) === champ) {
-      penalty = prev.isMajor ? LETDOWN.majorWinner : LETDOWN.regularWinner;
-      flag = prev.isMajor ? `Won the ${prev.name} last week - winners almost never back up the next week` : `Won last week - watch for a winner's let-down`;
-    } else if (prev.isMajor && Number.isFinite(finishPos)) {
-      if (finishPos <= 5) { penalty = LETDOWN.majorTop5; flag = `Finished ${r.lastWeekFinish} at the ${prev.name} (a major) last week - real fatigue risk`; }
-      else if (finishPos <= 20) { penalty = LETDOWN.majorTop15; flag = `Played the ${prev.name} last week (${r.lastWeekFinish}) - mild fatigue watch`; }
+      r.composite -= prev.isMajor ? LETDOWN.majorWinner : LETDOWN.regularWinner;
+      r.letdownPenalty = true;
+      r.letdownFlag = `Won the ${prev.name} last week - backing up a win the next week is rare (only ~16 in 8 seasons), so modestly faded`;
     }
-    if (penalty > 0) { r.composite -= penalty; r.letdownPenalty = penalty; r.letdownFlag = flag; }
   }
 }
 
@@ -112,7 +111,7 @@ function runSim(comps) {
 }
 
 // ---- the model ------------------------------------------------------------
-export function buildModel({ field, profile, sg, driving, recentEvents, previousEvent, weekNumber, bankrollPoints = 20, eventSlug = '', affiliate = '' }) {
+export function buildModel({ field, profile, sg, driving, recentEvents, previousEvent, weekNumber, bankrollPoints = 100, eventSlug = '', affiliate = '' }) {
   const players = field.players.filter((p) => !p.amateur);
   const sgVal = (which, id) => sg[which]?.get(String(id))?.values?.Avg;
 
@@ -196,7 +195,12 @@ export function buildModel({ field, profile, sg, driving, recentEvents, previous
     else if (r.lastWeekFinish && !r.letdownFlag) bits.push(`finished ${r.lastWeekFinish} last week`);
     if (r.playerNote) bits.push(r.playerNote.note);
     else if (r.letdownFlag) bits.push(r.letdownFlag.toLowerCase());
-    bits.push(`the value: model makes him ${pct(modelProb)} to finish ${label} where the market implies about ${pct(marketProb)} - a +${Math.round(edge * 100)}% edge at ${r['m_' + m].fractional}`);
+    const valueLine = `the value: the model makes him ${pct(modelProb)} to finish ${label} where the best price implies about ${pct(marketProb)} - a +${Math.round(edge * 100)}% edge`;
+    bits.push(valueLine);
+    const dataRationale = bits.map((b) => b.charAt(0).toUpperCase() + b.slice(1)).join('. ') + '.';
+    // an editorial storyline (player-notes) takes over the lead, with the value line kept
+    const story = storyFor(r.name, m);
+    const rationale = story ? `${story} ${valueLine.charAt(0).toUpperCase() + valueLine.slice(1)}.` : dataRationale;
     return {
       playerId: r.playerId, name: r.name, headshot: r.headshot, country: r.countryFlag || r.country, owgr: r.owgr,
       market: m, marketLabel: MK_LABEL[m], eachWay: m === 'win',
@@ -205,8 +209,8 @@ export function buildModel({ field, profile, sg, driving, recentEvents, previous
       sg: r.sg, recentSG: r.recentSG, recentEvents: r.recentEvents, dataThin: r.dataThin,
       letdownFlag: r.letdownFlag || null, playerNote: r.playerNote ? r.playerNote.note : null, playerNoteTag: r.playerNote ? r.playerNote.tag : null,
       lastWeekFinish: r.lastWeekFinish || null, playedLastWeek: r.playedLastWeek ?? null,
-      backLink: `https://www.oddschecker.com/golf/${eventSlug}/${OC_MARKET[m]}${affiliate ? '?' + affiliate : ''}`,
-      rationale: bits.map((b) => b.charAt(0).toUpperCase() + b.slice(1)).join('. ') + '.',
+      ocLink: `https://www.oddschecker.com/golf/${eventSlug}/${OC_MARKET[m]}${affiliate ? '?' + affiliate : ''}`,
+      rationale,
     };
   }
   const bestMarket = (r) => MARKETS.filter((m) => r[m].prob >= FLOOR[m] && r['edge_' + m] >= EDGE_MIN)
@@ -216,8 +220,9 @@ export function buildModel({ field, profile, sg, driving, recentEvents, previous
   for (const r of rows) { const bm = bestMarket(r); if (bm && !r.dataThin) candidates.push(candidate(r, bm.m)); }
   candidates.sort((a, b) => b.valueScore - a.valueScore);
 
-  // five best value bets (any market)...
-  const valueBets = candidates.slice(0, 5);
+  // up to five best value bets - but only genuine conviction makes the card:
+  // a real edge (>=15%) AND at least 2 recent starts of form (no thin samples).
+  const valueBets = candidates.filter((c) => c.edgePct >= 15 && c.recentEvents >= 2).slice(0, 5);
   const valueIds = new Set(valueBets.map((c) => c.playerId));
   // ...plus a guaranteed EACH-WAY TO-WIN bet for the big P&L upside: best win-market value
   // among genuine contenders, skipping anyone injured/flagged or already picked.
@@ -230,11 +235,10 @@ export function buildModel({ field, profile, sg, driving, recentEvents, previous
   if (winBet) trackedBets.push(winBet);
   const valueStake = [3, 2, 2, 1, 1];
   valueBets.forEach((c, i) => { c.points = valueStake[i] || 1; });
-  if (winBet) winBet.points = 2; // small stake each-way, big return if it lands
+  if (winBet) winBet.points = 2; // small each-way stake, big return if it lands
   trackedBets.forEach((c) => {
-    c.tracked = true; c.stakeGBP = c.points * 5;
+    c.tracked = true; // stakes are in POINTS/units only - no monetary value (users set their own)
     c.priceDecimal = c.marketOdds.decimal; c.priceFractional = c.marketOdds.fractional;
-    if (c.eachWay) { c.ewWin = c.stakeGBP / 2; c.ewPlace = c.stakeGBP / 2; }
   });
   const trackedIds = new Set(trackedBets.map((c) => c.playerId));
   const bestBet = valueBets[0] || null;
@@ -245,7 +249,7 @@ export function buildModel({ field, profile, sg, driving, recentEvents, previous
   if (fav) flutters.push({ ...candidate(fav, 'win'), kind: 'Favourite punt', tracked: false });
   const longshot = byWin.slice(0, 25).filter((r) => !trackedIds.has(r.playerId) && r.win.decimal >= 40 && !flutters.find((f) => f.playerId === r.playerId)).sort((a, b) => b.composite - a.composite)[0];
   if (longshot) flutters.push({ ...candidate(longshot, 'win'), kind: 'Longshot punt', tracked: false });
-  flutters.forEach((f) => { f.suggestGBP = 5; });
+  flutters.forEach((f) => { f.points = 1; }); // a small fun stake, not tracked
 
   // watchlist: ones to watch we are NOT backing - injury/news flags first, then improvers
   const usedIds = new Set([...trackedIds, ...flutters.map((f) => f.playerId)]);
@@ -284,6 +288,6 @@ export function buildModel({ field, profile, sg, driving, recentEvents, previous
     top5Sel: selFor('top5', 6), top10Sel: selFor('top10', 6), top20Sel: selFor('top20', 8),
     placesTable, fieldRanking, worldRankings,
     ewTerms: '5 places at 1/5 odds (Bet365 often enhances places - check before betting)',
-    bankroll: { startPoints: bankrollPoints, startGBP: bankrollPoints * 5, unitGBP: 5, stakedThisWeekPoints: totalPts, stakedThisWeekGBP: totalPts * 5, weekNumber },
+    bankroll: { startPoints: bankrollPoints, stakedThisWeekPoints: totalPts, weekNumber },
   };
 }

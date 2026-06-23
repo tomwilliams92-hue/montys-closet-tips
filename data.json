@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-23T08:30:54.366Z",
+  "generatedAt": "2026-06-23T09:26:18.684Z",
   "event": {
     "id": "R2026034",
     "name": "Travelers Championship",
@@ -43,52 +43,51 @@
   },
   "trackedBets": [
     {
-      "playerId": "40098",
-      "name": "Matt Fitzpatrick",
-      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_40098.png",
-      "country": "ENG",
-      "owgr": "4",
-      "market": "top5",
-      "marketLabel": "Top 5",
+      "playerId": "52955",
+      "name": "Ludvig Åberg",
+      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_52955.png",
+      "country": "SWE",
+      "owgr": "14",
+      "market": "top10",
+      "marketLabel": "Top 10",
       "eachWay": false,
-      "modelProb": 0.2339375,
+      "modelProb": 0.253125,
       "modelOdds": {
-        "prob": 0.2339375,
-        "decimal": 4.2746460058776385,
-        "fractional": "7/2"
+        "prob": 0.253125,
+        "decimal": 3.9506172839506175,
+        "fractional": "3/1"
       },
-      "marketProb": 0.170875,
+      "marketProb": 0.1893125,
       "marketOdds": {
-        "prob": 0.170875,
-        "decimal": 5.852231163130944,
-        "fractional": "5/1"
+        "prob": 0.1893125,
+        "decimal": 5.282271376691978,
+        "fractional": "9/2"
       },
-      "edgePct": 37,
-      "valueScore": 0.17850179110894024,
-      "confidence": 2,
-      "trend": "flat",
+      "edgePct": 34,
+      "valueScore": 0.16958755897363462,
+      "confidence": 1,
+      "trend": "down",
       "sg": {
-        "total": 1.486,
-        "ott": 0.23,
-        "app": 0.776,
-        "arg": 0.557,
-        "putt": -0.078
+        "total": 1.521,
+        "ott": 0.533,
+        "app": 0.551,
+        "arg": 0.165,
+        "putt": 0.272
       },
-      "recentSG": 1.4146666666666665,
+      "recentSG": 0.9159999999999999,
       "recentEvents": 3,
       "dataThin": false,
       "letdownFlag": null,
       "playerNote": null,
       "playerNoteTag": null,
-      "lastWeekFinish": "22",
+      "lastWeekFinish": "T17",
       "playedLastWeek": true,
-      "backLink": "https://www.oddschecker.com/golf/travelers-championship/top-5-finish",
-      "rationale": "Fits TPC River Highlands - strongest on approach, what wins here. Steady (1.41 SG/rd over last 3 starts). Finished 22 last week. The value: model makes him 23% to finish top 5 where the market implies about 17% - a +37% edge at 5/1.",
+      "ocLink": "https://www.oddschecker.com/golf/travelers-championship/top-10-finish",
+      "rationale": "Sweden's smooth-swinging heir apparent has looked a major champion in waiting since turning pro, a runner-up at the 2024 Masters in his very first start there. His game is built on towering, pure iron play, the single most valuable skill on a tight, second-shot course like River Highlands, and he arrives in good order off a T17 at the U.S. Open. The value: the model makes him 25% to finish top 10 where the best price implies about 19% - a +34% edge.",
       "points": 3,
       "tracked": true,
-      "stakeGBP": 15,
-      "priceDecimal": 5.852231163130944,
-      "priceFractional": "5/1"
+      "priceDecimal": 5.282271376691978,
+      "priceFractional": "9/2"
     },
     {
       "playerId": "60004",
@@ -99,20 +98,20 @@
       "market": "top20",
       "marketLabel": "Top 20",
       "eachWay": false,
-      "modelProb": 0.38275,
+      "modelProb": 0.3615625,
       "modelOdds": {
-        "prob": 0.38275,
-        "decimal": 2.612671456564337,
-        "fractional": "6/4"
+        "prob": 0.3615625,
+        "decimal": 2.765773552290406,
+        "fractional": "7/4"
       },
-      "marketProb": 0.29975,
+      "marketProb": 0.299,
       "marketOdds": {
-        "prob": 0.29975,
-        "decimal": 3.3361134278565467,
+        "prob": 0.299,
+        "decimal": 3.3444816053511706,
         "fractional": "9/4"
       },
-      "edgePct": 28,
-      "valueScore": 0.17130754855543504,
+      "edgePct": 21,
+      "valueScore": 0.12581563006141833,
       "confidence": 1,
       "trend": "flat",
       "sg": {
@@ -130,158 +129,204 @@
       "playerNoteTag": null,
       "lastWeekFinish": "T39",
       "playedLastWeek": true,
-      "backLink": "https://www.oddschecker.com/golf/travelers-championship/top-20-finish",
-      "rationale": "Gaining on putting (+0.76/rd). Steady (0.91 SG/rd over last 3 starts). Finished T39 last week. The value: model makes him 38% to finish top 20 where the market implies about 30% - a +28% edge at 9/4.",
+      "ocLink": "https://www.oddschecker.com/golf/travelers-championship/top-20-finish",
+      "rationale": "One of the most improved young Americans on tour, Bridgeman has quietly become a relentless scorer with a red-hot putter (+0.76 strokes a round). On a birdie-fest where someone always goes deep, a player holing everything is dangerous at a three-figure-friendly price. The value: the model makes him 36% to finish top 20 where the best price implies about 30% - a +21% edge.",
       "points": 2,
       "tracked": true,
-      "stakeGBP": 10,
-      "priceDecimal": 3.3361134278565467,
+      "priceDecimal": 3.3444816053511706,
       "priceFractional": "9/4"
     },
     {
-      "playerId": "52955",
-      "name": "Ludvig Åberg",
-      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_52955.png",
-      "country": "SWE",
-      "owgr": "14",
+      "playerId": "40098",
+      "name": "Matt Fitzpatrick",
+      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_40098.png",
+      "country": "ENG",
+      "owgr": "4",
       "market": "top10",
       "marketLabel": "Top 10",
       "eachWay": false,
-      "modelProb": 0.234875,
+      "modelProb": 0.42625,
       "modelOdds": {
-        "prob": 0.234875,
-        "decimal": 4.25758382118148,
-        "fractional": "7/2"
+        "prob": 0.42625,
+        "decimal": 2.3460410557184748,
+        "fractional": "11/8"
       },
-      "marketProb": 0.19025,
+      "marketProb": 0.364875,
       "marketOdds": {
-        "prob": 0.19025,
-        "decimal": 5.256241787122208,
-        "fractional": "9/2"
+        "prob": 0.364875,
+        "decimal": 2.7406646111682083,
+        "fractional": "7/4"
       },
-      "edgePct": 23,
-      "valueScore": 0.11367683154690243,
-      "confidence": 1,
-      "trend": "down",
+      "edgePct": 17,
+      "valueScore": 0.10981953314295119,
+      "confidence": 2,
+      "trend": "flat",
       "sg": {
-        "total": 1.521,
-        "ott": 0.533,
-        "app": 0.551,
-        "arg": 0.165,
-        "putt": 0.272
+        "total": 1.486,
+        "ott": 0.23,
+        "app": 0.776,
+        "arg": 0.557,
+        "putt": -0.078
       },
-      "recentSG": 0.9159999999999999,
+      "recentSG": 1.4146666666666665,
       "recentEvents": 3,
       "dataThin": false,
-      "letdownFlag": "Played the U.S. Open last week (T17) - mild fatigue watch",
+      "letdownFlag": null,
+      "playerNote": null,
+      "playerNoteTag": null,
+      "lastWeekFinish": "22",
+      "playedLastWeek": true,
+      "ocLink": "https://www.oddschecker.com/golf/travelers-championship/top-10-finish",
+      "rationale": "Golf's great perfectionist, the 2022 U.S. Open champion who logs every shot he hits and sharpens his approach play to a razor's edge. That precision iron game is tailor-made for River Highlands' small greens, and he was already in the mix (22nd) at Shinnecock last week. The value: the model makes him 43% to finish top 10 where the best price implies about 36% - a +17% edge.",
+      "points": 2,
+      "tracked": true,
+      "priceDecimal": 2.7406646111682083,
+      "priceFractional": "7/4"
+    },
+    {
+      "playerId": "56630",
+      "name": "Akshay Bhatia",
+      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_56630.png",
+      "country": "USA",
+      "owgr": "31",
+      "market": "top10",
+      "marketLabel": "Top 10",
+      "eachWay": false,
+      "modelProb": 0.2203125,
+      "modelOdds": {
+        "prob": 0.2203125,
+        "decimal": 4.539007092198582,
+        "fractional": "7/2"
+      },
+      "marketProb": 0.1808125,
+      "marketOdds": {
+        "prob": 0.1808125,
+        "decimal": 5.530591081921881,
+        "fractional": "9/2"
+      },
+      "edgePct": 22,
+      "valueScore": 0.10253879606539708,
+      "confidence": 1,
+      "trend": "up",
+      "sg": {
+        "total": 0.997,
+        "ott": -0.21,
+        "app": 0.33,
+        "arg": 0.248,
+        "putt": 0.629
+      },
+      "recentSG": 1.4434999999999998,
+      "recentEvents": 2,
+      "dataThin": false,
+      "letdownFlag": null,
       "playerNote": null,
       "playerNoteTag": null,
       "lastWeekFinish": "T17",
       "playedLastWeek": true,
-      "backLink": "https://www.oddschecker.com/golf/travelers-championship/top-10-finish",
-      "rationale": "Fits TPC River Highlands - strongest on approach, what wins here. Form cooling (0.92 SG/rd over 3 starts). Played the u.s. open last week (t17) - mild fatigue watch. The value: model makes him 23% to finish top 10 where the market implies about 19% - a +23% edge at 9/2.",
-      "points": 2,
+      "ocLink": "https://www.oddschecker.com/golf/travelers-championship/top-10-finish",
+      "rationale": "The aggressive young left-hander is one of the tour's most natural scorers, and when the irons are sharp he goes very low. A short, attackable course plays straight into his birdie-making hands. The value: the model makes him 22% to finish top 10 where the best price implies about 18% - a +22% edge.",
+      "points": 1,
       "tracked": true,
-      "stakeGBP": 10,
-      "priceDecimal": 5.256241787122208,
+      "priceDecimal": 5.530591081921881,
       "priceFractional": "9/2"
     },
     {
-      "playerId": "47591",
-      "name": "Eric Cole",
-      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_47591.png",
+      "playerId": "48081",
+      "name": "Xander Schauffele",
+      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_48081.png",
       "country": "USA",
-      "owgr": "66",
+      "owgr": "11",
       "market": "top10",
       "marketLabel": "Top 10",
       "eachWay": false,
-      "modelProb": 0.27375,
+      "modelProb": 0.2193125,
       "modelOdds": {
-        "prob": 0.27375,
-        "decimal": 3.6529680365296806,
-        "fractional": "11/4"
-      },
-      "marketProb": 0.225875,
-      "marketOdds": {
-        "prob": 0.225875,
-        "decimal": 4.427227448810183,
+        "prob": 0.2193125,
+        "decimal": 4.559703619264748,
         "fractional": "7/2"
       },
-      "edgePct": 21,
-      "valueScore": 0.11089646060407829,
+      "marketProb": 0.190625,
+      "marketOdds": {
+        "prob": 0.190625,
+        "decimal": 5.245901639344263,
+        "fractional": "4/1"
+      },
+      "edgePct": 15,
+      "valueScore": 0.0704765342307889,
       "confidence": 1,
+      "trend": "flat",
+      "sg": {
+        "total": 1.226,
+        "ott": 0.518,
+        "app": 0.391,
+        "arg": 0.032,
+        "putt": 0.286
+      },
+      "recentSG": 1.2485,
+      "recentEvents": 2,
+      "dataThin": false,
+      "letdownFlag": null,
+      "playerNote": null,
+      "playerNoteTag": null,
+      "lastWeekFinish": "T11",
+      "playedLastWeek": true,
+      "ocLink": "https://www.oddschecker.com/golf/travelers-championship/top-10-finish",
+      "rationale": "Mr Consistency. The 2024 PGA and Open champion is the hardest man in golf to leave off a leaderboard, he turns up, contends and stacks top-10s. On a course that rewards all-round excellence, he is about as solid a top-10 play as exists. The value: the model makes him 22% to finish top 10 where the best price implies about 19% - a +15% edge.",
+      "points": 1,
+      "tracked": true,
+      "priceDecimal": 5.245901639344263,
+      "priceFractional": "4/1"
+    },
+    {
+      "playerId": "46046",
+      "name": "Scottie Scheffler",
+      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_46046.png",
+      "country": "USA",
+      "owgr": "1",
+      "market": "win",
+      "marketLabel": "To Win",
+      "eachWay": true,
+      "modelProb": 0.20075,
+      "modelOdds": {
+        "prob": 0.20075,
+        "decimal": 4.9813200498132,
+        "fractional": "4/1"
+      },
+      "marketProb": 0.18625,
+      "marketOdds": {
+        "prob": 0.18625,
+        "decimal": 5.369127516778524,
+        "fractional": "9/2"
+      },
+      "edgePct": 8,
+      "valueScore": 0.034881849003993395,
+      "confidence": 4,
       "trend": "up",
       "sg": {
-        "total": 0.771,
-        "ott": -0.613,
-        "app": 0.253,
-        "arg": 0.471,
-        "putt": 0.66
+        "total": 2.204,
+        "ott": 0.68,
+        "app": 0.54,
+        "arg": 0.516,
+        "putt": 0.467
       },
-      "recentSG": 2.138333333333333,
+      "recentSG": 2.6833333333333336,
       "recentEvents": 3,
       "dataThin": false,
       "letdownFlag": null,
       "playerNote": null,
       "playerNoteTag": null,
-      "lastWeekFinish": null,
-      "playedLastWeek": false,
-      "backLink": "https://www.oddschecker.com/golf/travelers-championship/top-10-finish",
-      "rationale": "Gaining on putting (+0.66/rd). Trending up (2.14 SG/rd over last 3 starts). Did not play last week, so arrives fresh. The value: model makes him 27% to finish top 10 where the market implies about 23% - a +21% edge at 7/2.",
-      "points": 1,
-      "tracked": true,
-      "stakeGBP": 5,
-      "priceDecimal": 4.427227448810183,
-      "priceFractional": "7/2"
-    },
-    {
-      "playerId": "24502",
-      "name": "Adam Scott",
-      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_24502.png",
-      "country": "AUS",
-      "owgr": "52",
-      "market": "top20",
-      "marketLabel": "Top 20",
-      "eachWay": false,
-      "modelProb": 0.3984375,
-      "modelOdds": {
-        "prob": 0.3984375,
-        "decimal": 2.5098039215686274,
-        "fractional": "6/4"
-      },
-      "marketProb": 0.348,
-      "marketOdds": {
-        "prob": 0.348,
-        "decimal": 2.873563218390805,
-        "fractional": "15/8"
-      },
-      "edgePct": 14,
-      "valueScore": 0.09148595192683864,
-      "confidence": 1,
-      "trend": "up",
-      "sg": {
-        "total": 0.881,
-        "ott": 0.27,
-        "app": 0.726,
-        "arg": -0.039,
-        "putt": -0.076
-      },
-      "recentSG": 1.611,
-      "recentEvents": 1,
-      "dataThin": false,
-      "letdownFlag": null,
-      "playerNote": null,
-      "playerNoteTag": null,
-      "lastWeekFinish": "MC",
+      "lastWeekFinish": "T4",
       "playedLastWeek": true,
-      "backLink": "https://www.oddschecker.com/golf/travelers-championship/top-20-finish",
-      "rationale": "Fits TPC River Highlands - strongest on approach, what wins here. Trending up (1.61 SG/rd over last 1 start). Finished MC last week. The value: model makes him 40% to finish top 20 where the market implies about 35% - a +14% edge at 15/8.",
-      "points": 1,
+      "ocLink": "https://www.oddschecker.com/golf/travelers-championship/winner",
+      "rationale": "The world number one and the best ball-striker on the planet, whose floor is most players' ceiling. He contended again at the U.S. Open (T4), and on a scoreable course the only question is whether the putter behaves, which is exactly why each-way is the smart way in at this price. The value: the model makes him 20% to finish to win where the best price implies about 19% - a +8% edge.",
+      "marquee": "Each-way to win",
+      "points": 2,
       "tracked": true,
-      "stakeGBP": 5,
-      "priceDecimal": 2.873563218390805,
-      "priceFractional": "15/8"
-    },
+      "priceDecimal": 5.369127516778524,
+      "priceFractional": "9/2"
+    }
+  ],
+  "flutters": [
     {
       "playerId": "37455",
       "name": "Si Woo Kim",
@@ -291,20 +336,20 @@
       "market": "win",
       "marketLabel": "To Win",
       "eachWay": true,
-      "modelProb": 0.065125,
+      "modelProb": 0.0579375,
       "modelOdds": {
-        "prob": 0.065125,
-        "decimal": 15.355086372360844,
-        "fractional": "14/1"
-      },
-      "marketProb": 0.058625,
-      "marketOdds": {
-        "prob": 0.058625,
-        "decimal": 17.057569296375267,
+        "prob": 0.0579375,
+        "decimal": 17.25997842502697,
         "fractional": "16/1"
       },
-      "edgePct": 11,
-      "valueScore": 0.028294652796123355,
+      "marketProb": 0.0596875,
+      "marketOdds": {
+        "prob": 0.0596875,
+        "decimal": 16.75392670157068,
+        "fractional": "16/1"
+      },
+      "edgePct": -3,
+      "valueScore": -0.007057234288031498,
       "confidence": 2,
       "trend": "up",
       "sg": {
@@ -322,64 +367,11 @@
       "playerNoteTag": null,
       "lastWeekFinish": "MC",
       "playedLastWeek": true,
-      "backLink": "https://www.oddschecker.com/golf/travelers-championship/winner",
-      "rationale": "Fits TPC River Highlands - strongest on approach, what wins here. Trending up (3.08 SG/rd over last 2 starts). Finished MC last week. The value: model makes him 6.5% to finish to win where the market implies about 5.9% - a +11% edge at 16/1.",
-      "marquee": "Each-way to win",
-      "points": 2,
-      "tracked": true,
-      "stakeGBP": 10,
-      "priceDecimal": 17.057569296375267,
-      "priceFractional": "16/1",
-      "ewWin": 5,
-      "ewPlace": 5
-    }
-  ],
-  "flutters": [
-    {
-      "playerId": "59018",
-      "name": "Ryan Gerard",
-      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_59018.png",
-      "country": "USA",
-      "owgr": "27",
-      "market": "win",
-      "marketLabel": "To Win",
-      "eachWay": true,
-      "modelProb": 0.0375625,
-      "modelOdds": {
-        "prob": 0.0375625,
-        "decimal": 26.622296173044926,
-        "fractional": "25/1"
-      },
-      "marketProb": 0.036875,
-      "marketOdds": {
-        "prob": 0.036875,
-        "decimal": 27.118644067796613,
-        "fractional": "25/1"
-      },
-      "edgePct": 2,
-      "valueScore": 0.0036134156250247087,
-      "confidence": 2,
-      "trend": "up",
-      "sg": {
-        "total": 0.814,
-        "ott": 0.119,
-        "app": 0.616,
-        "arg": -0.276,
-        "putt": 0.356
-      },
-      "recentSG": 2.931,
-      "recentEvents": 2,
-      "dataThin": false,
-      "letdownFlag": null,
-      "playerNote": null,
-      "playerNoteTag": null,
-      "lastWeekFinish": "MC",
-      "playedLastWeek": true,
-      "backLink": "https://www.oddschecker.com/golf/travelers-championship/winner",
-      "rationale": "Fits TPC River Highlands - strongest on approach, what wins here. Trending up (2.93 SG/rd over last 2 starts). Finished MC last week. The value: model makes him 3.8% to finish to win where the market implies about 3.7% - a +2% edge at 25/1.",
+      "ocLink": "https://www.oddschecker.com/golf/travelers-championship/winner",
+      "rationale": "Fits TPC River Highlands - strongest on approach, what wins here. Trending up (3.08 SG/rd over last 2 starts). Finished MC last week. The value: the model makes him 5.8% to finish to win where the best price implies about 6.0% - a +-3% edge.",
       "kind": "Favourite punt",
       "tracked": false,
-      "suggestGBP": 5
+      "points": 1
     },
     {
       "playerId": "50525",
@@ -390,20 +382,20 @@
       "market": "win",
       "marketLabel": "To Win",
       "eachWay": true,
-      "modelProb": 0.0233125,
+      "modelProb": 0.024,
       "modelOdds": {
-        "prob": 0.0233125,
-        "decimal": 42.89544235924933,
+        "prob": 0.024,
+        "decimal": 41.666666666666664,
         "fractional": "40/1"
       },
-      "marketProb": 0.0218125,
+      "marketProb": 0.0216875,
       "marketOdds": {
-        "prob": 0.0218125,
-        "decimal": 45.845272206303726,
-        "fractional": "40/1"
+        "prob": 0.0216875,
+        "decimal": 46.10951008645534,
+        "fractional": "50/1"
       },
-      "edgePct": 7,
-      "valueScore": 0.010499780963623489,
+      "edgePct": 11,
+      "valueScore": 0.01651877623166277,
       "confidence": 1,
       "trend": "up",
       "sg": {
@@ -416,65 +408,64 @@
       "recentSG": 1.5665,
       "recentEvents": 2,
       "dataThin": false,
-      "letdownFlag": "Played the U.S. Open last week (T17) - mild fatigue watch",
+      "letdownFlag": null,
       "playerNote": null,
       "playerNoteTag": null,
       "lastWeekFinish": "T17",
       "playedLastWeek": true,
-      "backLink": "https://www.oddschecker.com/golf/travelers-championship/winner",
-      "rationale": "Fits TPC River Highlands - strongest on approach, what wins here. Trending up (1.57 SG/rd over last 2 starts). Played the u.s. open last week (t17) - mild fatigue watch. The value: model makes him 2.3% to finish to win where the market implies about 2.2% - a +7% edge at 40/1.",
+      "ocLink": "https://www.oddschecker.com/golf/travelers-championship/winner",
+      "rationale": "Fits TPC River Highlands - strongest on approach, what wins here. Trending up (1.57 SG/rd over last 2 starts). Finished T17 last week. The value: the model makes him 2.4% to finish to win where the best price implies about 2.2% - a +11% edge.",
       "kind": "Longshot punt",
       "tracked": false,
-      "suggestGBP": 5
+      "points": 1
     }
   ],
   "bestBet": {
-    "playerId": "40098",
-    "name": "Matt Fitzpatrick",
-    "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_40098.png",
-    "country": "ENG",
-    "owgr": "4",
-    "market": "top5",
-    "marketLabel": "Top 5",
+    "playerId": "52955",
+    "name": "Ludvig Åberg",
+    "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_52955.png",
+    "country": "SWE",
+    "owgr": "14",
+    "market": "top10",
+    "marketLabel": "Top 10",
     "eachWay": false,
-    "modelProb": 0.2339375,
+    "modelProb": 0.253125,
     "modelOdds": {
-      "prob": 0.2339375,
-      "decimal": 4.2746460058776385,
-      "fractional": "7/2"
+      "prob": 0.253125,
+      "decimal": 3.9506172839506175,
+      "fractional": "3/1"
     },
-    "marketProb": 0.170875,
+    "marketProb": 0.1893125,
     "marketOdds": {
-      "prob": 0.170875,
-      "decimal": 5.852231163130944,
-      "fractional": "5/1"
+      "prob": 0.1893125,
+      "decimal": 5.282271376691978,
+      "fractional": "9/2"
     },
-    "edgePct": 37,
-    "valueScore": 0.17850179110894024,
-    "confidence": 2,
-    "trend": "flat",
+    "edgePct": 34,
+    "valueScore": 0.16958755897363462,
+    "confidence": 1,
+    "trend": "down",
     "sg": {
-      "total": 1.486,
-      "ott": 0.23,
-      "app": 0.776,
-      "arg": 0.557,
-      "putt": -0.078
+      "total": 1.521,
+      "ott": 0.533,
+      "app": 0.551,
+      "arg": 0.165,
+      "putt": 0.272
     },
-    "recentSG": 1.4146666666666665,
+    "recentSG": 0.9159999999999999,
     "recentEvents": 3,
     "dataThin": false,
     "letdownFlag": null,
     "playerNote": null,
     "playerNoteTag": null,
-    "lastWeekFinish": "22",
+    "lastWeekFinish": "T17",
     "playedLastWeek": true,
-    "backLink": "https://www.oddschecker.com/golf/travelers-championship/top-5-finish",
-    "rationale": "Fits TPC River Highlands - strongest on approach, what wins here. Steady (1.41 SG/rd over last 3 starts). Finished 22 last week. The value: model makes him 23% to finish top 5 where the market implies about 17% - a +37% edge at 5/1.",
+    "ocLink": "https://www.oddschecker.com/golf/travelers-championship/top-10-finish",
+    "rationale": "Sweden's smooth-swinging heir apparent has looked a major champion in waiting since turning pro, a runner-up at the 2024 Masters in his very first start there. His game is built on towering, pure iron play, the single most valuable skill on a tight, second-shot course like River Highlands, and he arrives in good order off a T17 at the U.S. Open. The value: the model makes him 25% to finish top 10 where the best price implies about 19% - a +34% edge.",
     "points": 3,
     "tracked": true,
-    "stakeGBP": 15,
-    "priceDecimal": 5.852231163130944,
-    "priceFractional": "5/1"
+    "priceDecimal": 5.282271376691978,
+    "priceFractional": "9/2"
   },
   "watchlist": [
     {
@@ -525,7 +516,7 @@
       "trend": "up",
       "recentSG": 3.51175,
       "recentEvents": 4,
-      "winOdds": "18/1",
+      "winOdds": "16/1",
       "why": "Form spiking (3.51 SG/rd lately) but no value at the current price - watch for a bigger number.",
       "tag": "In form"
     },
@@ -543,16 +534,16 @@
       "tag": null
     },
     {
-      "playerId": "49771",
-      "name": "J.T. Poston",
-      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_49771.png",
+      "playerId": "59018",
+      "name": "Ryan Gerard",
+      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_59018.png",
       "country": "USA",
-      "owgr": "32",
+      "owgr": "27",
       "trend": "up",
-      "recentSG": 2.2493333333333334,
-      "recentEvents": 3,
-      "winOdds": "100/1",
-      "why": "Form spiking (2.25 SG/rd lately) but no value at the current price - watch for a bigger number.",
+      "recentSG": 2.931,
+      "recentEvents": 2,
+      "winOdds": "28/1",
+      "why": "Form spiking (2.93 SG/rd lately) but no value at the current price - watch for a bigger number.",
       "tag": "In form"
     }
   ],
@@ -566,20 +557,20 @@
       "market": "top5",
       "marketLabel": "Top 5",
       "eachWay": false,
-      "modelProb": 0.2339375,
+      "modelProb": 0.2150625,
       "modelOdds": {
-        "prob": 0.2339375,
-        "decimal": 4.2746460058776385,
+        "prob": 0.2150625,
+        "decimal": 4.649811101424005,
         "fractional": "7/2"
       },
-      "marketProb": 0.170875,
+      "marketProb": 0.174125,
       "marketOdds": {
-        "prob": 0.170875,
-        "decimal": 5.852231163130944,
-        "fractional": "5/1"
+        "prob": 0.174125,
+        "decimal": 5.7430007178750895,
+        "fractional": "9/2"
       },
-      "edgePct": 37,
-      "valueScore": 0.17850179110894024,
+      "edgePct": 24,
+      "valueScore": 0.10902912654750108,
       "confidence": 2,
       "trend": "flat",
       "sg": {
@@ -597,94 +588,8 @@
       "playerNoteTag": null,
       "lastWeekFinish": "22",
       "playedLastWeek": true,
-      "backLink": "https://www.oddschecker.com/golf/travelers-championship/top-5-finish",
-      "rationale": "Fits TPC River Highlands - strongest on approach, what wins here. Steady (1.41 SG/rd over last 3 starts). Finished 22 last week. The value: model makes him 23% to finish top 5 where the market implies about 17% - a +37% edge at 5/1."
-    },
-    {
-      "playerId": "47591",
-      "name": "Eric Cole",
-      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_47591.png",
-      "country": "USA",
-      "owgr": "66",
-      "market": "top5",
-      "marketLabel": "Top 5",
-      "eachWay": false,
-      "modelProb": 0.1273125,
-      "modelOdds": {
-        "prob": 0.1273125,
-        "decimal": 7.854688267059402,
-        "fractional": "7/1"
-      },
-      "marketProb": 0.103625,
-      "marketOdds": {
-        "prob": 0.103625,
-        "decimal": 9.650180940892643,
-        "fractional": "9/1"
-      },
-      "edgePct": 23,
-      "valueScore": 0.08156243950958206,
-      "confidence": 1,
-      "trend": "up",
-      "sg": {
-        "total": 0.771,
-        "ott": -0.613,
-        "app": 0.253,
-        "arg": 0.471,
-        "putt": 0.66
-      },
-      "recentSG": 2.138333333333333,
-      "recentEvents": 3,
-      "dataThin": false,
-      "letdownFlag": null,
-      "playerNote": null,
-      "playerNoteTag": null,
-      "lastWeekFinish": null,
-      "playedLastWeek": false,
-      "backLink": "https://www.oddschecker.com/golf/travelers-championship/top-5-finish",
-      "rationale": "Gaining on putting (+0.66/rd). Trending up (2.14 SG/rd over last 3 starts). Did not play last week, so arrives fresh. The value: model makes him 13% to finish top 5 where the market implies about 10% - a +23% edge at 9/1."
-    },
-    {
-      "playerId": "37455",
-      "name": "Si Woo Kim",
-      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_37455.png",
-      "country": "KOR",
-      "owgr": "21",
-      "market": "top5",
-      "marketLabel": "Top 5",
-      "eachWay": false,
-      "modelProb": 0.310625,
-      "modelOdds": {
-        "prob": 0.310625,
-        "decimal": 3.2193158953722336,
-        "fractional": "9/4"
-      },
-      "marketProb": 0.29275,
-      "marketOdds": {
-        "prob": 0.29275,
-        "decimal": 3.4158838599487615,
-        "fractional": "5/2"
-      },
-      "edgePct": 6,
-      "valueScore": 0.03403042318289848,
-      "confidence": 2,
-      "trend": "up",
-      "sg": {
-        "total": 1.348,
-        "ott": 0.504,
-        "app": 0.735,
-        "arg": 0.243,
-        "putt": -0.135
-      },
-      "recentSG": 3.082,
-      "recentEvents": 2,
-      "dataThin": false,
-      "letdownFlag": null,
-      "playerNote": null,
-      "playerNoteTag": null,
-      "lastWeekFinish": "MC",
-      "playedLastWeek": true,
-      "backLink": "https://www.oddschecker.com/golf/travelers-championship/top-5-finish",
-      "rationale": "Fits TPC River Highlands - strongest on approach, what wins here. Trending up (3.08 SG/rd over last 2 starts). Finished MC last week. The value: model makes him 31% to finish top 5 where the market implies about 29% - a +6% edge at 5/2."
+      "ocLink": "https://www.oddschecker.com/golf/travelers-championship/top-5-finish",
+      "rationale": "Golf's great perfectionist, the 2022 U.S. Open champion who logs every shot he hits and sharpens his approach play to a razor's edge. That precision iron game is tailor-made for River Highlands' small greens, and he was already in the mix (22nd) at Shinnecock last week. The value: the model makes him 22% to finish top 5 where the best price implies about 17% - a +24% edge."
     },
     {
       "playerId": "50525",
@@ -695,20 +600,20 @@
       "market": "top5",
       "marketLabel": "Top 5",
       "eachWay": false,
-      "modelProb": 0.1315625,
+      "modelProb": 0.138875,
       "modelOdds": {
-        "prob": 0.1315625,
-        "decimal": 7.600950118764846,
-        "fractional": "13/2"
+        "prob": 0.138875,
+        "decimal": 7.200720072007201,
+        "fractional": "6/1"
       },
-      "marketProb": 0.1235,
+      "marketProb": 0.12325,
       "marketOdds": {
-        "prob": 0.1235,
-        "decimal": 8.097165991902834,
+        "prob": 0.12325,
+        "decimal": 8.113590263691684,
         "fractional": "7/1"
       },
-      "edgePct": 7,
-      "valueScore": 0.02367929831202617,
+      "edgePct": 13,
+      "valueScore": 0.04724383391027908,
       "confidence": 1,
       "trend": "up",
       "sg": {
@@ -721,17 +626,60 @@
       "recentSG": 1.5665,
       "recentEvents": 2,
       "dataThin": false,
-      "letdownFlag": "Played the U.S. Open last week (T17) - mild fatigue watch",
+      "letdownFlag": null,
       "playerNote": null,
       "playerNoteTag": null,
       "lastWeekFinish": "T17",
       "playedLastWeek": true,
-      "backLink": "https://www.oddschecker.com/golf/travelers-championship/top-5-finish",
-      "rationale": "Fits TPC River Highlands - strongest on approach, what wins here. Trending up (1.57 SG/rd over last 2 starts). Played the u.s. open last week (t17) - mild fatigue watch. The value: model makes him 13% to finish top 5 where the market implies about 12% - a +7% edge at 7/1."
+      "ocLink": "https://www.oddschecker.com/golf/travelers-championship/top-5-finish",
+      "rationale": "Fits TPC River Highlands - strongest on approach, what wins here. Trending up (1.57 SG/rd over last 2 starts). Finished T17 last week. The value: the model makes him 14% to finish top 5 where the best price implies about 12% - a +13% edge."
     }
   ],
   "top5Sel": [
     {
+      "playerId": "52955",
+      "name": "Ludvig Åberg",
+      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_52955.png",
+      "country": "SWE",
+      "owgr": "14",
+      "market": "top5",
+      "marketLabel": "Top 5",
+      "eachWay": false,
+      "modelProb": 0.1193125,
+      "modelOdds": {
+        "prob": 0.1193125,
+        "decimal": 8.381351492928234,
+        "fractional": "15/2"
+      },
+      "marketProb": 0.08675,
+      "marketOdds": {
+        "prob": 0.08675,
+        "decimal": 11.527377521613834,
+        "fractional": "11/1"
+      },
+      "edgePct": 38,
+      "valueScore": 0.12965558530435545,
+      "confidence": 1,
+      "trend": "down",
+      "sg": {
+        "total": 1.521,
+        "ott": 0.533,
+        "app": 0.551,
+        "arg": 0.165,
+        "putt": 0.272
+      },
+      "recentSG": 0.9159999999999999,
+      "recentEvents": 3,
+      "dataThin": false,
+      "letdownFlag": null,
+      "playerNote": null,
+      "playerNoteTag": null,
+      "lastWeekFinish": "T17",
+      "playedLastWeek": true,
+      "ocLink": "https://www.oddschecker.com/golf/travelers-championship/top-5-finish",
+      "rationale": "Sweden's smooth-swinging heir apparent has looked a major champion in waiting since turning pro, a runner-up at the 2024 Masters in his very first start there. His game is built on towering, pure iron play, the single most valuable skill on a tight, second-shot course like River Highlands, and he arrives in good order off a T17 at the U.S. Open. The value: the model makes him 12% to finish top 5 where the best price implies about 8.7% - a +38% edge."
+    },
+    {
       "playerId": "40098",
       "name": "Matt Fitzpatrick",
       "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_40098.png",
@@ -740,20 +688,20 @@
       "market": "top5",
       "marketLabel": "Top 5",
       "eachWay": false,
-      "modelProb": 0.2339375,
+      "modelProb": 0.2150625,
       "modelOdds": {
-        "prob": 0.2339375,
-        "decimal": 4.2746460058776385,
+        "prob": 0.2150625,
+        "decimal": 4.649811101424005,
         "fractional": "7/2"
       },
-      "marketProb": 0.170875,
+      "marketProb": 0.174125,
       "marketOdds": {
-        "prob": 0.170875,
-        "decimal": 5.852231163130944,
-        "fractional": "5/1"
+        "prob": 0.174125,
+        "decimal": 5.7430007178750895,
+        "fractional": "9/2"
       },
-      "edgePct": 37,
-      "valueScore": 0.17850179110894024,
+      "edgePct": 24,
+      "valueScore": 0.10902912654750108,
       "confidence": 2,
       "trend": "flat",
       "sg": {
@@ -771,397 +719,8 @@
       "playerNoteTag": null,
       "lastWeekFinish": "22",
       "playedLastWeek": true,
-      "backLink": "https://www.oddschecker.com/golf/travelers-championship/top-5-finish",
-      "rationale": "Fits TPC River Highlands - strongest on approach, what wins here. Steady (1.41 SG/rd over last 3 starts). Finished 22 last week. The value: model makes him 23% to finish top 5 where the market implies about 17% - a +37% edge at 5/1."
-    },
-    {
-      "playerId": "52955",
-      "name": "Ludvig Åberg",
-      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_52955.png",
-      "country": "SWE",
-      "owgr": "14",
-      "market": "top5",
-      "marketLabel": "Top 5",
-      "eachWay": false,
-      "modelProb": 0.1136875,
-      "modelOdds": {
-        "prob": 0.1136875,
-        "decimal": 8.796041781198461,
-        "fractional": "8/1"
-      },
-      "marketProb": 0.0875,
-      "marketOdds": {
-        "prob": 0.0875,
-        "decimal": 11.428571428571429,
-        "fractional": "10/1"
-      },
-      "edgePct": 30,
-      "valueScore": 0.10091189121972109,
-      "confidence": 1,
-      "trend": "down",
-      "sg": {
-        "total": 1.521,
-        "ott": 0.533,
-        "app": 0.551,
-        "arg": 0.165,
-        "putt": 0.272
-      },
-      "recentSG": 0.9159999999999999,
-      "recentEvents": 3,
-      "dataThin": false,
-      "letdownFlag": "Played the U.S. Open last week (T17) - mild fatigue watch",
-      "playerNote": null,
-      "playerNoteTag": null,
-      "lastWeekFinish": "T17",
-      "playedLastWeek": true,
-      "backLink": "https://www.oddschecker.com/golf/travelers-championship/top-5-finish",
-      "rationale": "Fits TPC River Highlands - strongest on approach, what wins here. Form cooling (0.92 SG/rd over 3 starts). Played the u.s. open last week (t17) - mild fatigue watch. The value: model makes him 11% to finish top 5 where the market implies about 8.8% - a +30% edge at 10/1."
-    },
-    {
-      "playerId": "47591",
-      "name": "Eric Cole",
-      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_47591.png",
-      "country": "USA",
-      "owgr": "66",
-      "market": "top5",
-      "marketLabel": "Top 5",
-      "eachWay": false,
-      "modelProb": 0.1273125,
-      "modelOdds": {
-        "prob": 0.1273125,
-        "decimal": 7.854688267059402,
-        "fractional": "7/1"
-      },
-      "marketProb": 0.103625,
-      "marketOdds": {
-        "prob": 0.103625,
-        "decimal": 9.650180940892643,
-        "fractional": "9/1"
-      },
-      "edgePct": 23,
-      "valueScore": 0.08156243950958206,
-      "confidence": 1,
-      "trend": "up",
-      "sg": {
-        "total": 0.771,
-        "ott": -0.613,
-        "app": 0.253,
-        "arg": 0.471,
-        "putt": 0.66
-      },
-      "recentSG": 2.138333333333333,
-      "recentEvents": 3,
-      "dataThin": false,
-      "letdownFlag": null,
-      "playerNote": null,
-      "playerNoteTag": null,
-      "lastWeekFinish": null,
-      "playedLastWeek": false,
-      "backLink": "https://www.oddschecker.com/golf/travelers-championship/top-5-finish",
-      "rationale": "Gaining on putting (+0.66/rd). Trending up (2.14 SG/rd over last 3 starts). Did not play last week, so arrives fresh. The value: model makes him 13% to finish top 5 where the market implies about 10% - a +23% edge at 9/1."
-    },
-    {
-      "playerId": "50525",
-      "name": "Collin Morikawa",
-      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_50525.png",
-      "country": "USA",
-      "owgr": "9",
-      "market": "top5",
-      "marketLabel": "Top 5",
-      "eachWay": false,
-      "modelProb": 0.1315625,
-      "modelOdds": {
-        "prob": 0.1315625,
-        "decimal": 7.600950118764846,
-        "fractional": "13/2"
-      },
-      "marketProb": 0.1235,
-      "marketOdds": {
-        "prob": 0.1235,
-        "decimal": 8.097165991902834,
-        "fractional": "7/1"
-      },
-      "edgePct": 7,
-      "valueScore": 0.02367929831202617,
-      "confidence": 1,
-      "trend": "up",
-      "sg": {
-        "total": 1.162,
-        "ott": 0.35,
-        "app": 0.749,
-        "arg": 0.097,
-        "putt": -0.033
-      },
-      "recentSG": 1.5665,
-      "recentEvents": 2,
-      "dataThin": false,
-      "letdownFlag": "Played the U.S. Open last week (T17) - mild fatigue watch",
-      "playerNote": null,
-      "playerNoteTag": null,
-      "lastWeekFinish": "T17",
-      "playedLastWeek": true,
-      "backLink": "https://www.oddschecker.com/golf/travelers-championship/top-5-finish",
-      "rationale": "Fits TPC River Highlands - strongest on approach, what wins here. Trending up (1.57 SG/rd over last 2 starts). Played the u.s. open last week (t17) - mild fatigue watch. The value: model makes him 13% to finish top 5 where the market implies about 12% - a +7% edge at 7/1."
-    },
-    {
-      "playerId": "37455",
-      "name": "Si Woo Kim",
-      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_37455.png",
-      "country": "KOR",
-      "owgr": "21",
-      "market": "top5",
-      "marketLabel": "Top 5",
-      "eachWay": false,
-      "modelProb": 0.310625,
-      "modelOdds": {
-        "prob": 0.310625,
-        "decimal": 3.2193158953722336,
-        "fractional": "9/4"
-      },
-      "marketProb": 0.29275,
-      "marketOdds": {
-        "prob": 0.29275,
-        "decimal": 3.4158838599487615,
-        "fractional": "5/2"
-      },
-      "edgePct": 6,
-      "valueScore": 0.03403042318289848,
-      "confidence": 2,
-      "trend": "up",
-      "sg": {
-        "total": 1.348,
-        "ott": 0.504,
-        "app": 0.735,
-        "arg": 0.243,
-        "putt": -0.135
-      },
-      "recentSG": 3.082,
-      "recentEvents": 2,
-      "dataThin": false,
-      "letdownFlag": null,
-      "playerNote": null,
-      "playerNoteTag": null,
-      "lastWeekFinish": "MC",
-      "playedLastWeek": true,
-      "backLink": "https://www.oddschecker.com/golf/travelers-championship/top-5-finish",
-      "rationale": "Fits TPC River Highlands - strongest on approach, what wins here. Trending up (3.08 SG/rd over last 2 starts). Finished MC last week. The value: model makes him 31% to finish top 5 where the market implies about 29% - a +6% edge at 5/2."
-    },
-    {
-      "playerId": "46340",
-      "name": "Alex Smalley",
-      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_46340.png",
-      "country": "USA",
-      "owgr": "43",
-      "market": "top5",
-      "marketLabel": "Top 5",
-      "eachWay": false,
-      "modelProb": 0.1550625,
-      "modelOdds": {
-        "prob": 0.1550625,
-        "decimal": 6.44901249496171,
-        "fractional": "11/2"
-      },
-      "marketProb": 0.149875,
-      "marketOdds": {
-        "prob": 0.149875,
-        "decimal": 6.6722268557130935,
-        "fractional": "11/2"
-      },
-      "edgePct": 3,
-      "valueScore": 0.01362957470589854,
-      "confidence": 1,
-      "trend": "up",
-      "sg": {
-        "total": 0.808,
-        "ott": 0.085,
-        "app": 0.419,
-        "arg": 0.037,
-        "putt": 0.266
-      },
-      "recentSG": 2.751,
-      "recentEvents": 1,
-      "dataThin": false,
-      "letdownFlag": null,
-      "playerNote": null,
-      "playerNoteTag": null,
-      "lastWeekFinish": "MC",
-      "playedLastWeek": true,
-      "backLink": "https://www.oddschecker.com/golf/travelers-championship/top-5-finish",
-      "rationale": "Fits TPC River Highlands - strongest on approach, what wins here. Trending up (2.75 SG/rd over last 1 start). Finished MC last week. The value: model makes him 16% to finish top 5 where the market implies about 15% - a +3% edge at 11/2."
-    }
-  ],
-  "top10Sel": [
-    {
-      "playerId": "40098",
-      "name": "Matt Fitzpatrick",
-      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_40098.png",
-      "country": "ENG",
-      "owgr": "4",
-      "market": "top10",
-      "marketLabel": "Top 10",
-      "eachWay": false,
-      "modelProb": 0.4525,
-      "modelOdds": {
-        "prob": 0.4525,
-        "decimal": 2.2099447513812156,
-        "fractional": "5/4"
-      },
-      "marketProb": 0.3588125,
-      "marketOdds": {
-        "prob": 0.3588125,
-        "decimal": 2.7869709109911165,
-        "fractional": "7/4"
-      },
-      "edgePct": 26,
-      "valueScore": 0.17563997950325289,
-      "confidence": 2,
-      "trend": "flat",
-      "sg": {
-        "total": 1.486,
-        "ott": 0.23,
-        "app": 0.776,
-        "arg": 0.557,
-        "putt": -0.078
-      },
-      "recentSG": 1.4146666666666665,
-      "recentEvents": 3,
-      "dataThin": false,
-      "letdownFlag": null,
-      "playerNote": null,
-      "playerNoteTag": null,
-      "lastWeekFinish": "22",
-      "playedLastWeek": true,
-      "backLink": "https://www.oddschecker.com/golf/travelers-championship/top-10-finish",
-      "rationale": "Fits TPC River Highlands - strongest on approach, what wins here. Steady (1.41 SG/rd over last 3 starts). Finished 22 last week. The value: model makes him 45% to finish top 10 where the market implies about 36% - a +26% edge at 7/4."
-    },
-    {
-      "playerId": "52955",
-      "name": "Ludvig Åberg",
-      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_52955.png",
-      "country": "SWE",
-      "owgr": "14",
-      "market": "top10",
-      "marketLabel": "Top 10",
-      "eachWay": false,
-      "modelProb": 0.234875,
-      "modelOdds": {
-        "prob": 0.234875,
-        "decimal": 4.25758382118148,
-        "fractional": "7/2"
-      },
-      "marketProb": 0.19025,
-      "marketOdds": {
-        "prob": 0.19025,
-        "decimal": 5.256241787122208,
-        "fractional": "9/2"
-      },
-      "edgePct": 23,
-      "valueScore": 0.11367683154690243,
-      "confidence": 1,
-      "trend": "down",
-      "sg": {
-        "total": 1.521,
-        "ott": 0.533,
-        "app": 0.551,
-        "arg": 0.165,
-        "putt": 0.272
-      },
-      "recentSG": 0.9159999999999999,
-      "recentEvents": 3,
-      "dataThin": false,
-      "letdownFlag": "Played the U.S. Open last week (T17) - mild fatigue watch",
-      "playerNote": null,
-      "playerNoteTag": null,
-      "lastWeekFinish": "T17",
-      "playedLastWeek": true,
-      "backLink": "https://www.oddschecker.com/golf/travelers-championship/top-10-finish",
-      "rationale": "Fits TPC River Highlands - strongest on approach, what wins here. Form cooling (0.92 SG/rd over 3 starts). Played the u.s. open last week (t17) - mild fatigue watch. The value: model makes him 23% to finish top 10 where the market implies about 19% - a +23% edge at 9/2."
-    },
-    {
-      "playerId": "47591",
-      "name": "Eric Cole",
-      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_47591.png",
-      "country": "USA",
-      "owgr": "66",
-      "market": "top10",
-      "marketLabel": "Top 10",
-      "eachWay": false,
-      "modelProb": 0.27375,
-      "modelOdds": {
-        "prob": 0.27375,
-        "decimal": 3.6529680365296806,
-        "fractional": "11/4"
-      },
-      "marketProb": 0.225875,
-      "marketOdds": {
-        "prob": 0.225875,
-        "decimal": 4.427227448810183,
-        "fractional": "7/2"
-      },
-      "edgePct": 21,
-      "valueScore": 0.11089646060407829,
-      "confidence": 1,
-      "trend": "up",
-      "sg": {
-        "total": 0.771,
-        "ott": -0.613,
-        "app": 0.253,
-        "arg": 0.471,
-        "putt": 0.66
-      },
-      "recentSG": 2.138333333333333,
-      "recentEvents": 3,
-      "dataThin": false,
-      "letdownFlag": null,
-      "playerNote": null,
-      "playerNoteTag": null,
-      "lastWeekFinish": null,
-      "playedLastWeek": false,
-      "backLink": "https://www.oddschecker.com/golf/travelers-championship/top-10-finish",
-      "rationale": "Gaining on putting (+0.66/rd). Trending up (2.14 SG/rd over last 3 starts). Did not play last week, so arrives fresh. The value: model makes him 27% to finish top 10 where the market implies about 23% - a +21% edge at 7/2."
-    },
-    {
-      "playerId": "56630",
-      "name": "Akshay Bhatia",
-      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_56630.png",
-      "country": "USA",
-      "owgr": "31",
-      "market": "top10",
-      "marketLabel": "Top 10",
-      "eachWay": false,
-      "modelProb": 0.20775,
-      "modelOdds": {
-        "prob": 0.20775,
-        "decimal": 4.813477737665464,
-        "fractional": "4/1"
-      },
-      "marketProb": 0.18125,
-      "marketOdds": {
-        "prob": 0.18125,
-        "decimal": 5.517241379310345,
-        "fractional": "9/2"
-      },
-      "edgePct": 15,
-      "valueScore": 0.06664051964459594,
-      "confidence": 1,
-      "trend": "up",
-      "sg": {
-        "total": 0.997,
-        "ott": -0.21,
-        "app": 0.33,
-        "arg": 0.248,
-        "putt": 0.629
-      },
-      "recentSG": 1.4434999999999998,
-      "recentEvents": 2,
-      "dataThin": false,
-      "letdownFlag": "Played the U.S. Open last week (T17) - mild fatigue watch",
-      "playerNote": null,
-      "playerNoteTag": null,
-      "lastWeekFinish": "T17",
-      "playedLastWeek": true,
-      "backLink": "https://www.oddschecker.com/golf/travelers-championship/top-10-finish",
-      "rationale": "Gaining on putting (+0.63/rd). Trending up (1.44 SG/rd over last 2 starts). Played the u.s. open last week (t17) - mild fatigue watch. The value: model makes him 21% to finish top 10 where the market implies about 18% - a +15% edge at 9/2."
+      "ocLink": "https://www.oddschecker.com/golf/travelers-championship/top-5-finish",
+      "rationale": "Golf's great perfectionist, the 2022 U.S. Open champion who logs every shot he hits and sharpens his approach play to a razor's edge. That precision iron game is tailor-made for River Highlands' small greens, and he was already in the mix (22nd) at Shinnecock last week. The value: the model makes him 22% to finish top 5 where the best price implies about 17% - a +24% edge."
     },
     {
       "playerId": "48081",
@@ -1169,23 +728,23 @@
       "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_48081.png",
       "country": "USA",
       "owgr": "11",
-      "market": "top10",
-      "marketLabel": "Top 10",
+      "market": "top5",
+      "marketLabel": "Top 5",
       "eachWay": false,
-      "modelProb": 0.2048125,
+      "modelProb": 0.1013125,
       "modelOdds": {
-        "prob": 0.2048125,
-        "decimal": 4.882514494964907,
-        "fractional": "4/1"
+        "prob": 0.1013125,
+        "decimal": 9.870450339296731,
+        "fractional": "9/1"
       },
-      "marketProb": 0.1908125,
+      "marketProb": 0.084875,
       "marketOdds": {
-        "prob": 0.1908125,
-        "decimal": 5.2407468064199145,
-        "fractional": "4/1"
+        "prob": 0.084875,
+        "decimal": 11.7820324005891,
+        "fractional": "11/1"
       },
-      "edgePct": 7,
-      "valueScore": 0.03320469102386772,
+      "edgePct": 19,
+      "valueScore": 0.06164352916646769,
       "confidence": 1,
       "trend": "flat",
       "sg": {
@@ -1198,59 +757,448 @@
       "recentSG": 1.2485,
       "recentEvents": 2,
       "dataThin": false,
-      "letdownFlag": "Played the U.S. Open last week (T11) - mild fatigue watch",
+      "letdownFlag": null,
       "playerNote": null,
       "playerNoteTag": null,
       "lastWeekFinish": "T11",
       "playedLastWeek": true,
-      "backLink": "https://www.oddschecker.com/golf/travelers-championship/top-10-finish",
-      "rationale": "Gaining on off the tee (+0.52/rd). Steady (1.25 SG/rd over last 2 starts). Played the u.s. open last week (t11) - mild fatigue watch. The value: model makes him 20% to finish top 10 where the market implies about 19% - a +7% edge at 4/1."
+      "ocLink": "https://www.oddschecker.com/golf/travelers-championship/top-5-finish",
+      "rationale": "Mr Consistency. The 2024 PGA and Open champion is the hardest man in golf to leave off a leaderboard, he turns up, contends and stacks top-10s. On a course that rewards all-round excellence, he is about as solid a top-10 play as exists. The value: the model makes him 10% to finish top 5 where the best price implies about 8.5% - a +19% edge."
     },
     {
-      "playerId": "37455",
-      "name": "Si Woo Kim",
-      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_37455.png",
-      "country": "KOR",
-      "owgr": "21",
-      "market": "top10",
-      "marketLabel": "Top 10",
+      "playerId": "47591",
+      "name": "Eric Cole",
+      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_47591.png",
+      "country": "USA",
+      "owgr": "66",
+      "market": "top5",
+      "marketLabel": "Top 5",
       "eachWay": false,
-      "modelProb": 0.5601875,
+      "modelProb": 0.117,
       "modelOdds": {
-        "prob": 0.5601875,
-        "decimal": 1.7851165904273125,
-        "fractional": "4/5"
+        "prob": 0.117,
+        "decimal": 8.547008547008547,
+        "fractional": "15/2"
       },
-      "marketProb": 0.5406875,
+      "marketProb": 0.1035625,
       "marketOdds": {
-        "prob": 0.5406875,
-        "decimal": 1.8494971679574617,
-        "fractional": "5/6"
+        "prob": 0.1035625,
+        "decimal": 9.656004828002414,
+        "fractional": "9/1"
       },
-      "edgePct": 4,
-      "valueScore": 0.026993238310031586,
-      "confidence": 2,
+      "edgePct": 13,
+      "valueScore": 0.04438220574465567,
+      "confidence": 1,
       "trend": "up",
       "sg": {
-        "total": 1.348,
-        "ott": 0.504,
-        "app": 0.735,
-        "arg": 0.243,
-        "putt": -0.135
+        "total": 0.771,
+        "ott": -0.613,
+        "app": 0.253,
+        "arg": 0.471,
+        "putt": 0.66
       },
-      "recentSG": 3.082,
+      "recentSG": 2.138333333333333,
+      "recentEvents": 3,
+      "dataThin": false,
+      "letdownFlag": null,
+      "playerNote": null,
+      "playerNoteTag": null,
+      "lastWeekFinish": null,
+      "playedLastWeek": false,
+      "ocLink": "https://www.oddschecker.com/golf/travelers-championship/top-5-finish",
+      "rationale": "Gaining on putting (+0.66/rd). Trending up (2.14 SG/rd over last 3 starts). Did not play last week, so arrives fresh. The value: the model makes him 12% to finish top 5 where the best price implies about 10% - a +13% edge."
+    },
+    {
+      "playerId": "50525",
+      "name": "Collin Morikawa",
+      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_50525.png",
+      "country": "USA",
+      "owgr": "9",
+      "market": "top5",
+      "marketLabel": "Top 5",
+      "eachWay": false,
+      "modelProb": 0.138875,
+      "modelOdds": {
+        "prob": 0.138875,
+        "decimal": 7.200720072007201,
+        "fractional": "6/1"
+      },
+      "marketProb": 0.12325,
+      "marketOdds": {
+        "prob": 0.12325,
+        "decimal": 8.113590263691684,
+        "fractional": "7/1"
+      },
+      "edgePct": 13,
+      "valueScore": 0.04724383391027908,
+      "confidence": 1,
+      "trend": "up",
+      "sg": {
+        "total": 1.162,
+        "ott": 0.35,
+        "app": 0.749,
+        "arg": 0.097,
+        "putt": -0.033
+      },
+      "recentSG": 1.5665,
       "recentEvents": 2,
       "dataThin": false,
       "letdownFlag": null,
       "playerNote": null,
       "playerNoteTag": null,
-      "lastWeekFinish": "MC",
+      "lastWeekFinish": "T17",
       "playedLastWeek": true,
-      "backLink": "https://www.oddschecker.com/golf/travelers-championship/top-10-finish",
-      "rationale": "Fits TPC River Highlands - strongest on approach, what wins here. Trending up (3.08 SG/rd over last 2 starts). Finished MC last week. The value: model makes him 56% to finish top 10 where the market implies about 54% - a +4% edge at 5/6."
+      "ocLink": "https://www.oddschecker.com/golf/travelers-championship/top-5-finish",
+      "rationale": "Fits TPC River Highlands - strongest on approach, what wins here. Trending up (1.57 SG/rd over last 2 starts). Finished T17 last week. The value: the model makes him 14% to finish top 5 where the best price implies about 12% - a +13% edge."
+    },
+    {
+      "playerId": "46046",
+      "name": "Scottie Scheffler",
+      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_46046.png",
+      "country": "USA",
+      "owgr": "1",
+      "market": "top5",
+      "marketLabel": "Top 5",
+      "eachWay": false,
+      "modelProb": 0.6878125,
+      "modelOdds": {
+        "prob": 0.6878125,
+        "decimal": 1.4538845979100408,
+        "fractional": "4/9"
+      },
+      "marketProb": 0.6643125,
+      "marketOdds": {
+        "prob": 0.6643125,
+        "decimal": 1.5053156458744943,
+        "fractional": "1/2"
+      },
+      "edgePct": 4,
+      "valueScore": 0.029337997686470028,
+      "confidence": 4,
+      "trend": "up",
+      "sg": {
+        "total": 2.204,
+        "ott": 0.68,
+        "app": 0.54,
+        "arg": 0.516,
+        "putt": 0.467
+      },
+      "recentSG": 2.6833333333333336,
+      "recentEvents": 3,
+      "dataThin": false,
+      "letdownFlag": null,
+      "playerNote": null,
+      "playerNoteTag": null,
+      "lastWeekFinish": "T4",
+      "playedLastWeek": true,
+      "ocLink": "https://www.oddschecker.com/golf/travelers-championship/top-5-finish",
+      "rationale": "The world number one and the best ball-striker on the planet, whose floor is most players' ceiling. He contended again at the U.S. Open (T4), and on a scoreable course the only question is whether the putter behaves, which is exactly why each-way is the smart way in at this price. The value: the model makes him 69% to finish top 5 where the best price implies about 66% - a +4% edge."
+    }
+  ],
+  "top10Sel": [
+    {
+      "playerId": "52955",
+      "name": "Ludvig Åberg",
+      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_52955.png",
+      "country": "SWE",
+      "owgr": "14",
+      "market": "top10",
+      "marketLabel": "Top 10",
+      "eachWay": false,
+      "modelProb": 0.253125,
+      "modelOdds": {
+        "prob": 0.253125,
+        "decimal": 3.9506172839506175,
+        "fractional": "3/1"
+      },
+      "marketProb": 0.1893125,
+      "marketOdds": {
+        "prob": 0.1893125,
+        "decimal": 5.282271376691978,
+        "fractional": "9/2"
+      },
+      "edgePct": 34,
+      "valueScore": 0.16958755897363462,
+      "confidence": 1,
+      "trend": "down",
+      "sg": {
+        "total": 1.521,
+        "ott": 0.533,
+        "app": 0.551,
+        "arg": 0.165,
+        "putt": 0.272
+      },
+      "recentSG": 0.9159999999999999,
+      "recentEvents": 3,
+      "dataThin": false,
+      "letdownFlag": null,
+      "playerNote": null,
+      "playerNoteTag": null,
+      "lastWeekFinish": "T17",
+      "playedLastWeek": true,
+      "ocLink": "https://www.oddschecker.com/golf/travelers-championship/top-10-finish",
+      "rationale": "Sweden's smooth-swinging heir apparent has looked a major champion in waiting since turning pro, a runner-up at the 2024 Masters in his very first start there. His game is built on towering, pure iron play, the single most valuable skill on a tight, second-shot course like River Highlands, and he arrives in good order off a T17 at the U.S. Open. The value: the model makes him 25% to finish top 10 where the best price implies about 19% - a +34% edge."
+    },
+    {
+      "playerId": "56630",
+      "name": "Akshay Bhatia",
+      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_56630.png",
+      "country": "USA",
+      "owgr": "31",
+      "market": "top10",
+      "marketLabel": "Top 10",
+      "eachWay": false,
+      "modelProb": 0.2203125,
+      "modelOdds": {
+        "prob": 0.2203125,
+        "decimal": 4.539007092198582,
+        "fractional": "7/2"
+      },
+      "marketProb": 0.1808125,
+      "marketOdds": {
+        "prob": 0.1808125,
+        "decimal": 5.530591081921881,
+        "fractional": "9/2"
+      },
+      "edgePct": 22,
+      "valueScore": 0.10253879606539708,
+      "confidence": 1,
+      "trend": "up",
+      "sg": {
+        "total": 0.997,
+        "ott": -0.21,
+        "app": 0.33,
+        "arg": 0.248,
+        "putt": 0.629
+      },
+      "recentSG": 1.4434999999999998,
+      "recentEvents": 2,
+      "dataThin": false,
+      "letdownFlag": null,
+      "playerNote": null,
+      "playerNoteTag": null,
+      "lastWeekFinish": "T17",
+      "playedLastWeek": true,
+      "ocLink": "https://www.oddschecker.com/golf/travelers-championship/top-10-finish",
+      "rationale": "The aggressive young left-hander is one of the tour's most natural scorers, and when the irons are sharp he goes very low. A short, attackable course plays straight into his birdie-making hands. The value: the model makes him 22% to finish top 10 where the best price implies about 18% - a +22% edge."
+    },
+    {
+      "playerId": "40098",
+      "name": "Matt Fitzpatrick",
+      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_40098.png",
+      "country": "ENG",
+      "owgr": "4",
+      "market": "top10",
+      "marketLabel": "Top 10",
+      "eachWay": false,
+      "modelProb": 0.42625,
+      "modelOdds": {
+        "prob": 0.42625,
+        "decimal": 2.3460410557184748,
+        "fractional": "11/8"
+      },
+      "marketProb": 0.364875,
+      "marketOdds": {
+        "prob": 0.364875,
+        "decimal": 2.7406646111682083,
+        "fractional": "7/4"
+      },
+      "edgePct": 17,
+      "valueScore": 0.10981953314295119,
+      "confidence": 2,
+      "trend": "flat",
+      "sg": {
+        "total": 1.486,
+        "ott": 0.23,
+        "app": 0.776,
+        "arg": 0.557,
+        "putt": -0.078
+      },
+      "recentSG": 1.4146666666666665,
+      "recentEvents": 3,
+      "dataThin": false,
+      "letdownFlag": null,
+      "playerNote": null,
+      "playerNoteTag": null,
+      "lastWeekFinish": "22",
+      "playedLastWeek": true,
+      "ocLink": "https://www.oddschecker.com/golf/travelers-championship/top-10-finish",
+      "rationale": "Golf's great perfectionist, the 2022 U.S. Open champion who logs every shot he hits and sharpens his approach play to a razor's edge. That precision iron game is tailor-made for River Highlands' small greens, and he was already in the mix (22nd) at Shinnecock last week. The value: the model makes him 43% to finish top 10 where the best price implies about 36% - a +17% edge."
+    },
+    {
+      "playerId": "48081",
+      "name": "Xander Schauffele",
+      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_48081.png",
+      "country": "USA",
+      "owgr": "11",
+      "market": "top10",
+      "marketLabel": "Top 10",
+      "eachWay": false,
+      "modelProb": 0.2193125,
+      "modelOdds": {
+        "prob": 0.2193125,
+        "decimal": 4.559703619264748,
+        "fractional": "7/2"
+      },
+      "marketProb": 0.190625,
+      "marketOdds": {
+        "prob": 0.190625,
+        "decimal": 5.245901639344263,
+        "fractional": "4/1"
+      },
+      "edgePct": 15,
+      "valueScore": 0.0704765342307889,
+      "confidence": 1,
+      "trend": "flat",
+      "sg": {
+        "total": 1.226,
+        "ott": 0.518,
+        "app": 0.391,
+        "arg": 0.032,
+        "putt": 0.286
+      },
+      "recentSG": 1.2485,
+      "recentEvents": 2,
+      "dataThin": false,
+      "letdownFlag": null,
+      "playerNote": null,
+      "playerNoteTag": null,
+      "lastWeekFinish": "T11",
+      "playedLastWeek": true,
+      "ocLink": "https://www.oddschecker.com/golf/travelers-championship/top-10-finish",
+      "rationale": "Mr Consistency. The 2024 PGA and Open champion is the hardest man in golf to leave off a leaderboard, he turns up, contends and stacks top-10s. On a course that rewards all-round excellence, he is about as solid a top-10 play as exists. The value: the model makes him 22% to finish top 10 where the best price implies about 19% - a +15% edge."
+    },
+    {
+      "playerId": "47591",
+      "name": "Eric Cole",
+      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_47591.png",
+      "country": "USA",
+      "owgr": "66",
+      "market": "top10",
+      "marketLabel": "Top 10",
+      "eachWay": false,
+      "modelProb": 0.2565,
+      "modelOdds": {
+        "prob": 0.2565,
+        "decimal": 3.898635477582846,
+        "fractional": "3/1"
+      },
+      "marketProb": 0.22675,
+      "marketOdds": {
+        "prob": 0.22675,
+        "decimal": 4.410143329658213,
+        "fractional": "7/2"
+      },
+      "edgePct": 13,
+      "valueScore": 0.0664482211329645,
+      "confidence": 1,
+      "trend": "up",
+      "sg": {
+        "total": 0.771,
+        "ott": -0.613,
+        "app": 0.253,
+        "arg": 0.471,
+        "putt": 0.66
+      },
+      "recentSG": 2.138333333333333,
+      "recentEvents": 3,
+      "dataThin": false,
+      "letdownFlag": null,
+      "playerNote": null,
+      "playerNoteTag": null,
+      "lastWeekFinish": null,
+      "playedLastWeek": false,
+      "ocLink": "https://www.oddschecker.com/golf/travelers-championship/top-10-finish",
+      "rationale": "Gaining on putting (+0.66/rd). Trending up (2.14 SG/rd over last 3 starts). Did not play last week, so arrives fresh. The value: the model makes him 26% to finish top 10 where the best price implies about 23% - a +13% edge."
+    },
+    {
+      "playerId": "50525",
+      "name": "Collin Morikawa",
+      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_50525.png",
+      "country": "USA",
+      "owgr": "9",
+      "market": "top10",
+      "marketLabel": "Top 10",
+      "eachWay": false,
+      "modelProb": 0.2896875,
+      "modelOdds": {
+        "prob": 0.2896875,
+        "decimal": 3.451995685005394,
+        "fractional": "5/2"
+      },
+      "marketProb": 0.2619375,
+      "marketOdds": {
+        "prob": 0.2619375,
+        "decimal": 3.8177046051061803,
+        "fractional": "11/4"
+      },
+      "edgePct": 11,
+      "valueScore": 0.05702039049675062,
+      "confidence": 1,
+      "trend": "up",
+      "sg": {
+        "total": 1.162,
+        "ott": 0.35,
+        "app": 0.749,
+        "arg": 0.097,
+        "putt": -0.033
+      },
+      "recentSG": 1.5665,
+      "recentEvents": 2,
+      "dataThin": false,
+      "letdownFlag": null,
+      "playerNote": null,
+      "playerNoteTag": null,
+      "lastWeekFinish": "T17",
+      "playedLastWeek": true,
+      "ocLink": "https://www.oddschecker.com/golf/travelers-championship/top-10-finish",
+      "rationale": "Fits TPC River Highlands - strongest on approach, what wins here. Trending up (1.57 SG/rd over last 2 starts). Finished T17 last week. The value: the model makes him 29% to finish top 10 where the best price implies about 26% - a +11% edge."
     }
   ],
   "top20Sel": [
+    {
+      "playerId": "52955",
+      "name": "Ludvig Åberg",
+      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_52955.png",
+      "country": "SWE",
+      "owgr": "14",
+      "market": "top20",
+      "marketLabel": "Top 20",
+      "eachWay": false,
+      "modelProb": 0.517125,
+      "modelOdds": {
+        "prob": 0.517125,
+        "decimal": 1.9337684312303605,
+        "fractional": "10/11"
+      },
+      "marketProb": 0.4239375,
+      "marketOdds": {
+        "prob": 0.4239375,
+        "decimal": 2.3588382721509653,
+        "fractional": "11/8"
+      },
+      "edgePct": 22,
+      "valueScore": 0.15807150685865032,
+      "confidence": 1,
+      "trend": "down",
+      "sg": {
+        "total": 1.521,
+        "ott": 0.533,
+        "app": 0.551,
+        "arg": 0.165,
+        "putt": 0.272
+      },
+      "recentSG": 0.9159999999999999,
+      "recentEvents": 3,
+      "dataThin": false,
+      "letdownFlag": null,
+      "playerNote": null,
+      "playerNoteTag": null,
+      "lastWeekFinish": "T17",
+      "playedLastWeek": true,
+      "ocLink": "https://www.oddschecker.com/golf/travelers-championship/top-20-finish",
+      "rationale": "Sweden's smooth-swinging heir apparent has looked a major champion in waiting since turning pro, a runner-up at the 2024 Masters in his very first start there. His game is built on towering, pure iron play, the single most valuable skill on a tight, second-shot course like River Highlands, and he arrives in good order off a T17 at the U.S. Open. The value: the model makes him 52% to finish top 20 where the best price implies about 42% - a +22% edge."
+    },
     {
       "playerId": "60004",
       "name": "Jacob Bridgeman",
@@ -1260,20 +1208,20 @@
       "market": "top20",
       "marketLabel": "Top 20",
       "eachWay": false,
-      "modelProb": 0.38275,
+      "modelProb": 0.3615625,
       "modelOdds": {
-        "prob": 0.38275,
-        "decimal": 2.612671456564337,
-        "fractional": "6/4"
+        "prob": 0.3615625,
+        "decimal": 2.765773552290406,
+        "fractional": "7/4"
       },
-      "marketProb": 0.29975,
+      "marketProb": 0.299,
       "marketOdds": {
-        "prob": 0.29975,
-        "decimal": 3.3361134278565467,
+        "prob": 0.299,
+        "decimal": 3.3444816053511706,
         "fractional": "9/4"
       },
-      "edgePct": 28,
-      "valueScore": 0.17130754855543504,
+      "edgePct": 21,
+      "valueScore": 0.12581563006141833,
       "confidence": 1,
       "trend": "flat",
       "sg": {
@@ -1291,51 +1239,51 @@
       "playerNoteTag": null,
       "lastWeekFinish": "T39",
       "playedLastWeek": true,
-      "backLink": "https://www.oddschecker.com/golf/travelers-championship/top-20-finish",
-      "rationale": "Gaining on putting (+0.76/rd). Steady (0.91 SG/rd over last 3 starts). Finished T39 last week. The value: model makes him 38% to finish top 20 where the market implies about 30% - a +28% edge at 9/4."
+      "ocLink": "https://www.oddschecker.com/golf/travelers-championship/top-20-finish",
+      "rationale": "One of the most improved young Americans on tour, Bridgeman has quietly become a relentless scorer with a red-hot putter (+0.76 strokes a round). On a birdie-fest where someone always goes deep, a player holing everything is dangerous at a three-figure-friendly price. The value: the model makes him 36% to finish top 20 where the best price implies about 30% - a +21% edge."
     },
     {
-      "playerId": "52955",
-      "name": "Ludvig Åberg",
-      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_52955.png",
-      "country": "SWE",
-      "owgr": "14",
+      "playerId": "56630",
+      "name": "Akshay Bhatia",
+      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_56630.png",
+      "country": "USA",
+      "owgr": "31",
       "market": "top20",
       "marketLabel": "Top 20",
       "eachWay": false,
-      "modelProb": 0.489375,
+      "modelProb": 0.4740625,
       "modelOdds": {
-        "prob": 0.489375,
-        "decimal": 2.0434227330779056,
-        "fractional": "1/1"
+        "prob": 0.4740625,
+        "decimal": 2.109426499670402,
+        "fractional": "11/10"
       },
-      "marketProb": 0.42125,
+      "marketProb": 0.4146875,
       "marketOdds": {
-        "prob": 0.42125,
-        "decimal": 2.373887240356083,
+        "prob": 0.4146875,
+        "decimal": 2.4114544084400906,
         "fractional": "11/8"
       },
-      "edgePct": 16,
-      "valueScore": 0.1131325278323457,
+      "edgePct": 14,
+      "valueScore": 0.0985826479745621,
       "confidence": 1,
-      "trend": "down",
+      "trend": "up",
       "sg": {
-        "total": 1.521,
-        "ott": 0.533,
-        "app": 0.551,
-        "arg": 0.165,
-        "putt": 0.272
+        "total": 0.997,
+        "ott": -0.21,
+        "app": 0.33,
+        "arg": 0.248,
+        "putt": 0.629
       },
-      "recentSG": 0.9159999999999999,
-      "recentEvents": 3,
+      "recentSG": 1.4434999999999998,
+      "recentEvents": 2,
       "dataThin": false,
-      "letdownFlag": "Played the U.S. Open last week (T17) - mild fatigue watch",
+      "letdownFlag": null,
       "playerNote": null,
       "playerNoteTag": null,
       "lastWeekFinish": "T17",
       "playedLastWeek": true,
-      "backLink": "https://www.oddschecker.com/golf/travelers-championship/top-20-finish",
-      "rationale": "Fits TPC River Highlands - strongest on approach, what wins here. Form cooling (0.92 SG/rd over 3 starts). Played the u.s. open last week (t17) - mild fatigue watch. The value: model makes him 49% to finish top 20 where the market implies about 42% - a +16% edge at 11/8."
+      "ocLink": "https://www.oddschecker.com/golf/travelers-championship/top-20-finish",
+      "rationale": "The aggressive young left-hander is one of the tour's most natural scorers, and when the irons are sharp he goes very low. A short, attackable course plays straight into his birdie-making hands. The value: the model makes him 47% to finish top 20 where the best price implies about 41% - a +14% edge."
     },
     {
       "playerId": "40098",
@@ -1346,20 +1294,20 @@
       "market": "top20",
       "marketLabel": "Top 20",
       "eachWay": false,
-      "modelProb": 0.7706875,
+      "modelProb": 0.7495625,
       "modelOdds": {
-        "prob": 0.7706875,
-        "decimal": 1.2975427783634743,
-        "fractional": "2/7"
+        "prob": 0.7495625,
+        "decimal": 1.3341115650796298,
+        "fractional": "1/3"
       },
-      "marketProb": 0.678375,
+      "marketProb": 0.6893125,
       "marketOdds": {
-        "prob": 0.678375,
-        "decimal": 1.4741109268472454,
-        "fractional": "1/2"
+        "prob": 0.6893125,
+        "decimal": 1.4507208269108713,
+        "fractional": "4/9"
       },
-      "edgePct": 14,
-      "valueScore": 0.11946201493809881,
+      "edgePct": 9,
+      "valueScore": 0.0756736745173415,
       "confidence": 2,
       "trend": "flat",
       "sg": {
@@ -1377,8 +1325,51 @@
       "playerNoteTag": null,
       "lastWeekFinish": "22",
       "playedLastWeek": true,
-      "backLink": "https://www.oddschecker.com/golf/travelers-championship/top-20-finish",
-      "rationale": "Fits TPC River Highlands - strongest on approach, what wins here. Steady (1.41 SG/rd over last 3 starts). Finished 22 last week. The value: model makes him 77% to finish top 20 where the market implies about 68% - a +14% edge at 1/2."
+      "ocLink": "https://www.oddschecker.com/golf/travelers-championship/top-20-finish",
+      "rationale": "Golf's great perfectionist, the 2022 U.S. Open champion who logs every shot he hits and sharpens his approach play to a razor's edge. That precision iron game is tailor-made for River Highlands' small greens, and he was already in the mix (22nd) at Shinnecock last week. The value: the model makes him 75% to finish top 20 where the best price implies about 69% - a +9% edge."
+    },
+    {
+      "playerId": "48081",
+      "name": "Xander Schauffele",
+      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_48081.png",
+      "country": "USA",
+      "owgr": "11",
+      "market": "top20",
+      "marketLabel": "Top 20",
+      "eachWay": false,
+      "modelProb": 0.475875,
+      "modelOdds": {
+        "prob": 0.475875,
+        "decimal": 2.101392172314158,
+        "fractional": "11/10"
+      },
+      "marketProb": 0.4359375,
+      "marketOdds": {
+        "prob": 0.4359375,
+        "decimal": 2.2939068100358426,
+        "fractional": "5/4"
+      },
+      "edgePct": 9,
+      "valueScore": 0.06319796457423876,
+      "confidence": 1,
+      "trend": "flat",
+      "sg": {
+        "total": 1.226,
+        "ott": 0.518,
+        "app": 0.391,
+        "arg": 0.032,
+        "putt": 0.286
+      },
+      "recentSG": 1.2485,
+      "recentEvents": 2,
+      "dataThin": false,
+      "letdownFlag": null,
+      "playerNote": null,
+      "playerNoteTag": null,
+      "lastWeekFinish": "T11",
+      "playedLastWeek": true,
+      "ocLink": "https://www.oddschecker.com/golf/travelers-championship/top-20-finish",
+      "rationale": "Mr Consistency. The 2024 PGA and Open champion is the hardest man in golf to leave off a leaderboard, he turns up, contends and stacks top-10s. On a course that rewards all-round excellence, he is about as solid a top-10 play as exists. The value: the model makes him 48% to finish top 20 where the best price implies about 44% - a +9% edge."
     },
     {
       "playerId": "24502",
@@ -1389,20 +1380,20 @@
       "market": "top20",
       "marketLabel": "Top 20",
       "eachWay": false,
-      "modelProb": 0.3984375,
+      "modelProb": 0.37975,
       "modelOdds": {
-        "prob": 0.3984375,
-        "decimal": 2.5098039215686274,
-        "fractional": "6/4"
+        "prob": 0.37975,
+        "decimal": 2.633311389071758,
+        "fractional": "7/4"
       },
-      "marketProb": 0.348,
+      "marketProb": 0.3493125,
       "marketOdds": {
-        "prob": 0.348,
-        "decimal": 2.873563218390805,
+        "prob": 0.3493125,
+        "decimal": 2.8627661477903024,
         "fractional": "15/8"
       },
-      "edgePct": 14,
-      "valueScore": 0.09148595192683864,
+      "edgePct": 9,
+      "valueScore": 0.05369622354749997,
       "confidence": 1,
       "trend": "up",
       "sg": {
@@ -1420,51 +1411,8 @@
       "playerNoteTag": null,
       "lastWeekFinish": "MC",
       "playedLastWeek": true,
-      "backLink": "https://www.oddschecker.com/golf/travelers-championship/top-20-finish",
-      "rationale": "Fits TPC River Highlands - strongest on approach, what wins here. Trending up (1.61 SG/rd over last 1 start). Finished MC last week. The value: model makes him 40% to finish top 20 where the market implies about 35% - a +14% edge at 15/8."
-    },
-    {
-      "playerId": "35450",
-      "name": "Patrick Cantlay",
-      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_35450.png",
-      "country": "USA",
-      "owgr": "37",
-      "market": "top20",
-      "marketLabel": "Top 20",
-      "eachWay": false,
-      "modelProb": 0.3305625,
-      "modelOdds": {
-        "prob": 0.3305625,
-        "decimal": 3.025146530535073,
-        "fractional": "2/1"
-      },
-      "marketProb": 0.2935,
-      "marketOdds": {
-        "prob": 0.2935,
-        "decimal": 3.4071550255536627,
-        "fractional": "5/2"
-      },
-      "edgePct": 13,
-      "valueScore": 0.07260280456045821,
-      "confidence": 1,
-      "trend": "up",
-      "sg": {
-        "total": 0.957,
-        "ott": 0.445,
-        "app": 0.355,
-        "arg": 0.254,
-        "putt": -0.098
-      },
-      "recentSG": 1.361,
-      "recentEvents": 1,
-      "dataThin": false,
-      "letdownFlag": null,
-      "playerNote": null,
-      "playerNoteTag": null,
-      "lastWeekFinish": "MC",
-      "playedLastWeek": true,
-      "backLink": "https://www.oddschecker.com/golf/travelers-championship/top-20-finish",
-      "rationale": "Gaining on off the tee (+0.45/rd). Trending up (1.36 SG/rd over last 1 start). Finished MC last week. The value: model makes him 33% to finish top 20 where the market implies about 29% - a +13% edge at 5/2."
+      "ocLink": "https://www.oddschecker.com/golf/travelers-championship/top-20-finish",
+      "rationale": "Fits TPC River Highlands - strongest on approach, what wins here. Trending up (1.61 SG/rd over last 1 start). Finished MC last week. The value: the model makes him 38% to finish top 20 where the best price implies about 35% - a +9% edge."
     },
     {
       "playerId": "47591",
@@ -1475,20 +1423,20 @@
       "market": "top20",
       "marketLabel": "Top 20",
       "eachWay": false,
-      "modelProb": 0.555,
+      "modelProb": 0.532375,
       "modelOdds": {
-        "prob": 0.555,
-        "decimal": 1.8018018018018016,
-        "fractional": "4/5"
+        "prob": 0.532375,
+        "decimal": 1.878375205447288,
+        "fractional": "10/11"
       },
-      "marketProb": 0.4943125,
+      "marketProb": 0.4991875,
       "marketOdds": {
-        "prob": 0.4943125,
-        "decimal": 2.023011758755848,
+        "prob": 0.4991875,
+        "decimal": 2.003255289846,
         "fractional": "1/1"
       },
-      "edgePct": 12,
-      "valueScore": 0.09146272700344275,
+      "edgePct": 7,
+      "valueScore": 0.04850870303846377,
       "confidence": 1,
       "trend": "up",
       "sg": {
@@ -1506,8 +1454,8 @@
       "playerNoteTag": null,
       "lastWeekFinish": null,
       "playedLastWeek": false,
-      "backLink": "https://www.oddschecker.com/golf/travelers-championship/top-20-finish",
-      "rationale": "Gaining on putting (+0.66/rd). Trending up (2.14 SG/rd over last 3 starts). Did not play last week, so arrives fresh. The value: model makes him 56% to finish top 20 where the market implies about 49% - a +12% edge at 1/1."
+      "ocLink": "https://www.oddschecker.com/golf/travelers-championship/top-20-finish",
+      "rationale": "Gaining on putting (+0.66/rd). Trending up (2.14 SG/rd over last 3 starts). Did not play last week, so arrives fresh. The value: the model makes him 53% to finish top 20 where the best price implies about 50% - a +7% edge."
     },
     {
       "playerId": "46442",
@@ -1518,20 +1466,20 @@
       "market": "top20",
       "marketLabel": "Top 20",
       "eachWay": false,
-      "modelProb": 0.3814375,
+      "modelProb": 0.3635625,
       "modelOdds": {
-        "prob": 0.3814375,
-        "decimal": 2.6216614779616583,
-        "fractional": "6/4"
+        "prob": 0.3635625,
+        "decimal": 2.7505587072374076,
+        "fractional": "7/4"
       },
-      "marketProb": 0.3415625,
+      "marketProb": 0.341375,
       "marketOdds": {
-        "prob": 0.3415625,
-        "decimal": 2.92772186642269,
+        "prob": 0.341375,
+        "decimal": 2.929329915781765,
         "fractional": "15/8"
       },
-      "edgePct": 12,
-      "valueScore": 0.07210115238975848,
+      "edgePct": 6,
+      "valueScore": 0.03918918193910874,
       "confidence": 1,
       "trend": "up",
       "sg": {
@@ -1549,51 +1497,8 @@
       "playerNoteTag": null,
       "lastWeekFinish": "T32",
       "playedLastWeek": true,
-      "backLink": "https://www.oddschecker.com/golf/travelers-championship/top-20-finish",
-      "rationale": "Gaining on putting (+0.49/rd). Trending up (1.50 SG/rd over last 2 starts). Finished T32 last week. The value: model makes him 38% to finish top 20 where the market implies about 34% - a +12% edge at 15/8."
-    },
-    {
-      "playerId": "56630",
-      "name": "Akshay Bhatia",
-      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_56630.png",
-      "country": "USA",
-      "owgr": "31",
-      "market": "top20",
-      "marketLabel": "Top 20",
-      "eachWay": false,
-      "modelProb": 0.447125,
-      "modelOdds": {
-        "prob": 0.447125,
-        "decimal": 2.2365110427732735,
-        "fractional": "5/4"
-      },
-      "marketProb": 0.4118125,
-      "marketOdds": {
-        "prob": 0.4118125,
-        "decimal": 2.4282895735316434,
-        "fractional": "11/8"
-      },
-      "edgePct": 9,
-      "valueScore": 0.05733811572720946,
-      "confidence": 1,
-      "trend": "up",
-      "sg": {
-        "total": 0.997,
-        "ott": -0.21,
-        "app": 0.33,
-        "arg": 0.248,
-        "putt": 0.629
-      },
-      "recentSG": 1.4434999999999998,
-      "recentEvents": 2,
-      "dataThin": false,
-      "letdownFlag": "Played the U.S. Open last week (T17) - mild fatigue watch",
-      "playerNote": null,
-      "playerNoteTag": null,
-      "lastWeekFinish": "T17",
-      "playedLastWeek": true,
-      "backLink": "https://www.oddschecker.com/golf/travelers-championship/top-20-finish",
-      "rationale": "Gaining on putting (+0.63/rd). Trending up (1.44 SG/rd over last 2 starts). Played the u.s. open last week (t17) - mild fatigue watch. The value: model makes him 45% to finish top 20 where the market implies about 41% - a +9% edge at 11/8."
+      "ocLink": "https://www.oddschecker.com/golf/travelers-championship/top-20-finish",
+      "rationale": "Gaining on putting (+0.49/rd). Trending up (1.50 SG/rd over last 2 starts). Finished T32 last week. The value: the model makes him 36% to finish top 20 where the best price implies about 34% - a +6% edge."
     }
   ],
   "placesTable": [
@@ -1601,562 +1506,562 @@
       "modelRank": 1,
       "name": "Scottie Scheffler",
       "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_46046.png",
-      "letdownFlag": "Finished T4 at the U.S. Open (a major) last week - real fatigue risk",
+      "letdownFlag": null,
       "win": {
-        "prob": 0.1614375,
-        "decimal": 6.194347657762291,
-        "fractional": "5/1"
+        "prob": 0.20075,
+        "decimal": 4.9813200498132,
+        "fractional": "4/1"
       },
       "top5": {
-        "prob": 0.603,
-        "decimal": 1.658374792703151,
-        "fractional": "4/6"
+        "prob": 0.6878125,
+        "decimal": 1.4538845979100408,
+        "fractional": "4/9"
       },
       "top10": {
-        "prob": 0.86525,
-        "decimal": 1.1557353366079168,
+        "prob": 0.9179375,
+        "decimal": 1.0893987880438483,
         "fractional": "1/6"
       },
       "top20": {
-        "prob": 0.990375,
+        "prob": 0.9976875,
         "decimal": 1.0309278350515465,
         "fractional": "1/6"
       },
       "m_win": {
-        "prob": 0.175375,
-        "decimal": 5.702066999287242,
+        "prob": 0.18625,
+        "decimal": 5.369127516778524,
         "fractional": "9/2"
       },
-      "edge_win": -8,
-      "edge_top20": -1
+      "edge_win": 8,
+      "edge_top20": 0
     },
     {
       "modelRank": 2,
+      "name": "Wyndham Clark",
+      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_51766.png",
+      "letdownFlag": "Won the U.S. Open last week - backing up a win the next week is rare (only ~16 in 8 seasons), so modestly faded",
+      "win": {
+        "prob": 0.058375,
+        "decimal": 17.130620985010705,
+        "fractional": "16/1"
+      },
+      "top5": {
+        "prob": 0.2755625,
+        "decimal": 3.628940802903153,
+        "fractional": "11/4"
+      },
+      "top10": {
+        "prob": 0.5205625,
+        "decimal": 1.9209989194381076,
+        "fractional": "10/11"
+      },
+      "top20": {
+        "prob": 0.842875,
+        "decimal": 1.1864155420436007,
+        "fractional": "1/5"
+      },
+      "m_win": {
+        "prob": 0.10675,
+        "decimal": 9.36768149882904,
+        "fractional": "8/1"
+      },
+      "edge_win": -45,
+      "edge_top20": -13
+    },
+    {
+      "modelRank": 3,
       "name": "Si Woo Kim",
       "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_37455.png",
       "letdownFlag": null,
       "win": {
-        "prob": 0.065125,
-        "decimal": 15.355086372360844,
-        "fractional": "14/1"
+        "prob": 0.0579375,
+        "decimal": 17.25997842502697,
+        "fractional": "16/1"
       },
       "top5": {
-        "prob": 0.310625,
-        "decimal": 3.2193158953722336,
-        "fractional": "9/4"
+        "prob": 0.286875,
+        "decimal": 3.485838779956427,
+        "fractional": "5/2"
       },
       "top10": {
-        "prob": 0.5601875,
-        "decimal": 1.7851165904273125,
-        "fractional": "4/5"
+        "prob": 0.5325,
+        "decimal": 1.8779342723004695,
+        "fractional": "10/11"
       },
       "top20": {
-        "prob": 0.867875,
-        "decimal": 1.152239665850497,
+        "prob": 0.8508125,
+        "decimal": 1.1753470946889004,
         "fractional": "1/6"
       },
       "m_win": {
-        "prob": 0.058625,
-        "decimal": 17.057569296375267,
+        "prob": 0.0596875,
+        "decimal": 16.75392670157068,
         "fractional": "16/1"
       },
-      "edge_win": 11,
-      "edge_top20": 1
-    },
-    {
-      "modelRank": 3,
-      "name": "Wyndham Clark",
-      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_51766.png",
-      "letdownFlag": "Won the U.S. Open last week - winners almost never back up the next week",
-      "win": {
-        "prob": 0.0541875,
-        "decimal": 18.45444059976932,
-        "fractional": "18/1"
-      },
-      "top5": {
-        "prob": 0.2499375,
-        "decimal": 4.001000250062516,
-        "fractional": "3/1"
-      },
-      "top10": {
-        "prob": 0.4773125,
-        "decimal": 2.0950635066125445,
-        "fractional": "11/10"
-      },
-      "top20": {
-        "prob": 0.804375,
-        "decimal": 1.2432012432012434,
-        "fractional": "1/4"
-      },
-      "m_win": {
-        "prob": 0.10325,
-        "decimal": 9.685230024213075,
-        "fractional": "9/1"
-      },
-      "edge_win": -48,
-      "edge_top20": -17
+      "edge_win": -3,
+      "edge_top20": -3
     },
     {
       "modelRank": 4,
+      "name": "Tommy Fleetwood",
+      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_30911.png",
+      "letdownFlag": null,
+      "win": {
+        "prob": 0.0468125,
+        "decimal": 21.36181575433912,
+        "fractional": "20/1"
+      },
+      "top5": {
+        "prob": 0.2419375,
+        "decimal": 4.133298889175924,
+        "fractional": "3/1"
+      },
+      "top10": {
+        "prob": 0.4685625,
+        "decimal": 2.134187008136588,
+        "fractional": "11/10"
+      },
+      "top20": {
+        "prob": 0.79975,
+        "decimal": 1.2503907471084714,
+        "fractional": "1/4"
+      },
+      "m_win": {
+        "prob": 0.046875,
+        "decimal": 21.333333333333332,
+        "fractional": "20/1"
+      },
+      "edge_win": 0,
+      "edge_top20": -2
+    },
+    {
+      "modelRank": 5,
       "name": "Matt Fitzpatrick",
       "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_40098.png",
       "letdownFlag": null,
       "win": {
-        "prob": 0.045375,
-        "decimal": 22.03856749311295,
-        "fractional": "22/1"
+        "prob": 0.0396875,
+        "decimal": 25.196850393700785,
+        "fractional": "25/1"
       },
       "top5": {
-        "prob": 0.2339375,
-        "decimal": 4.2746460058776385,
+        "prob": 0.2150625,
+        "decimal": 4.649811101424005,
         "fractional": "7/2"
       },
       "top10": {
-        "prob": 0.4525,
-        "decimal": 2.2099447513812156,
-        "fractional": "5/4"
+        "prob": 0.42625,
+        "decimal": 2.3460410557184748,
+        "fractional": "11/8"
       },
       "top20": {
-        "prob": 0.7706875,
-        "decimal": 1.2975427783634743,
-        "fractional": "2/7"
+        "prob": 0.7495625,
+        "decimal": 1.3341115650796298,
+        "fractional": "1/3"
       },
       "m_win": {
-        "prob": 0.0306875,
-        "decimal": 32.586558044806516,
+        "prob": 0.0308125,
+        "decimal": 32.454361054766736,
         "fractional": "33/1"
       },
-      "edge_win": 48,
-      "edge_top20": 14
-    },
-    {
-      "modelRank": 5,
-      "name": "Tommy Fleetwood",
-      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_30911.png",
-      "letdownFlag": "Played the U.S. Open last week (T11) - mild fatigue watch",
-      "win": {
-        "prob": 0.045375,
-        "decimal": 22.03856749311295,
-        "fractional": "22/1"
-      },
-      "top5": {
-        "prob": 0.2285,
-        "decimal": 4.3763676148796495,
-        "fractional": "7/2"
-      },
-      "top10": {
-        "prob": 0.4450625,
-        "decimal": 2.246875438842859,
-        "fractional": "5/4"
-      },
-      "top20": {
-        "prob": 0.7728125,
-        "decimal": 1.293974929235746,
-        "fractional": "2/7"
-      },
-      "m_win": {
-        "prob": 0.04675,
-        "decimal": 21.390374331550802,
-        "fractional": "20/1"
-      },
-      "edge_win": -3,
-      "edge_top20": -4
+      "edge_win": 29,
+      "edge_top20": 9
     },
     {
       "modelRank": 6,
-      "name": "Ryan Gerard",
-      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_59018.png",
+      "name": "Sam Burns",
+      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_47504.png",
       "letdownFlag": null,
       "win": {
-        "prob": 0.0375625,
-        "decimal": 26.622296173044926,
+        "prob": 0.0364375,
+        "decimal": 27.4442538593482,
         "fractional": "25/1"
       },
       "top5": {
-        "prob": 0.197,
-        "decimal": 5.0761421319796955,
+        "prob": 0.1970625,
+        "decimal": 5.07453219156359,
         "fractional": "4/1"
       },
       "top10": {
-        "prob": 0.391875,
-        "decimal": 2.5518341307814993,
+        "prob": 0.3960625,
+        "decimal": 2.5248540318762824,
         "fractional": "6/4"
       },
       "top20": {
-        "prob": 0.712125,
-        "decimal": 1.40424784974548,
+        "prob": 0.72575,
+        "decimal": 1.3778849466069583,
         "fractional": "2/5"
-      },
-      "m_win": {
-        "prob": 0.036875,
-        "decimal": 27.118644067796613,
-        "fractional": "25/1"
-      },
-      "edge_win": 2,
-      "edge_top20": -2
-    },
-    {
-      "modelRank": 7,
-      "name": "Alex Smalley",
-      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_46340.png",
-      "letdownFlag": null,
-      "win": {
-        "prob": 0.0295625,
-        "decimal": 33.82663847780127,
-        "fractional": "33/1"
-      },
-      "top5": {
-        "prob": 0.1550625,
-        "decimal": 6.44901249496171,
-        "fractional": "11/2"
-      },
-      "top10": {
-        "prob": 0.3146875,
-        "decimal": 3.1777557100297913,
-        "fractional": "9/4"
-      },
-      "top20": {
-        "prob": 0.6115625,
-        "decimal": 1.6351558507920285,
-        "fractional": "8/13"
-      },
-      "m_win": {
-        "prob": 0.0283125,
-        "decimal": 35.320088300220746,
-        "fractional": "33/1"
-      },
-      "edge_win": 4,
-      "edge_top20": -1
-    },
-    {
-      "modelRank": 8,
-      "name": "Sam Burns",
-      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_47504.png",
-      "letdownFlag": "Finished 2 at the U.S. Open (a major) last week - real fatigue risk",
-      "win": {
-        "prob": 0.0295,
-        "decimal": 33.898305084745765,
-        "fractional": "33/1"
-      },
-      "top5": {
-        "prob": 0.159125,
-        "decimal": 6.284367635506678,
-        "fractional": "11/2"
-      },
-      "top10": {
-        "prob": 0.320875,
-        "decimal": 3.1164783794312423,
-        "fractional": "2/1"
-      },
-      "top20": {
-        "prob": 0.627125,
-        "decimal": 1.5945784333266892,
-        "fractional": "8/13"
       },
       "m_win": {
         "prob": 0.0383125,
         "decimal": 26.10114192495922,
         "fractional": "25/1"
       },
-      "edge_win": -23,
-      "edge_top20": -16
+      "edge_win": -5,
+      "edge_top20": -4
+    },
+    {
+      "modelRank": 7,
+      "name": "Ryan Gerard",
+      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_59018.png",
+      "letdownFlag": null,
+      "win": {
+        "prob": 0.0328125,
+        "decimal": 30.476190476190474,
+        "fractional": "28/1"
+      },
+      "top5": {
+        "prob": 0.1784375,
+        "decimal": 5.604203152364273,
+        "fractional": "9/2"
+      },
+      "top10": {
+        "prob": 0.36925,
+        "decimal": 2.708192281651997,
+        "fractional": "7/4"
+      },
+      "top20": {
+        "prob": 0.6883125,
+        "decimal": 1.4528284754381187,
+        "fractional": "4/9"
+      },
+      "m_win": {
+        "prob": 0.0368125,
+        "decimal": 27.164685908319186,
+        "fractional": "25/1"
+      },
+      "edge_win": -11,
+      "edge_top20": -7
+    },
+    {
+      "modelRank": 8,
+      "name": "Alex Smalley",
+      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_46340.png",
+      "letdownFlag": null,
+      "win": {
+        "prob": 0.0261875,
+        "decimal": 38.186157517899765,
+        "fractional": "40/1"
+      },
+      "top5": {
+        "prob": 0.1409375,
+        "decimal": 7.095343680709535,
+        "fractional": "6/1"
+      },
+      "top10": {
+        "prob": 0.2946875,
+        "decimal": 3.393425238600212,
+        "fractional": "5/2"
+      },
+      "top20": {
+        "prob": 0.588625,
+        "decimal": 1.6988744956466342,
+        "fractional": "8/11"
+      },
+      "m_win": {
+        "prob": 0.028,
+        "decimal": 35.714285714285715,
+        "fractional": "33/1"
+      },
+      "edge_win": -6,
+      "edge_top20": -6
     },
     {
       "modelRank": 9,
+      "name": "Collin Morikawa",
+      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_50525.png",
+      "letdownFlag": null,
+      "win": {
+        "prob": 0.024,
+        "decimal": 41.666666666666664,
+        "fractional": "40/1"
+      },
+      "top5": {
+        "prob": 0.138875,
+        "decimal": 7.200720072007201,
+        "fractional": "6/1"
+      },
+      "top10": {
+        "prob": 0.2896875,
+        "decimal": 3.451995685005394,
+        "fractional": "5/2"
+      },
+      "top20": {
+        "prob": 0.5830625,
+        "decimal": 1.7150820023582376,
+        "fractional": "8/11"
+      },
+      "m_win": {
+        "prob": 0.0216875,
+        "decimal": 46.10951008645534,
+        "fractional": "50/1"
+      },
+      "edge_win": 11,
+      "edge_top20": 6
+    },
+    {
+      "modelRank": 10,
       "name": "Eric Cole",
       "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_47591.png",
       "letdownFlag": null,
       "win": {
-        "prob": 0.0260625,
-        "decimal": 38.36930455635492,
+        "prob": 0.023625,
+        "decimal": 42.32804232804233,
         "fractional": "40/1"
       },
       "top5": {
-        "prob": 0.1273125,
-        "decimal": 7.854688267059402,
-        "fractional": "7/1"
+        "prob": 0.117,
+        "decimal": 8.547008547008547,
+        "fractional": "15/2"
       },
       "top10": {
-        "prob": 0.27375,
-        "decimal": 3.6529680365296806,
-        "fractional": "11/4"
+        "prob": 0.2565,
+        "decimal": 3.898635477582846,
+        "fractional": "3/1"
       },
       "top20": {
-        "prob": 0.555,
-        "decimal": 1.8018018018018016,
-        "fractional": "4/5"
+        "prob": 0.532375,
+        "decimal": 1.878375205447288,
+        "fractional": "10/11"
       },
       "m_win": {
-        "prob": 0.0196875,
-        "decimal": 50.79365079365079,
+        "prob": 0.0195625,
+        "decimal": 51.11821086261981,
         "fractional": "50/1"
       },
-      "edge_win": 32,
-      "edge_top20": 12
+      "edge_win": 21,
+      "edge_top20": 7
     },
     {
-      "modelRank": 10,
+      "modelRank": 11,
       "name": "Viktor Hovland",
       "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_46717.png",
       "letdownFlag": null,
       "win": {
-        "prob": 0.025875,
-        "decimal": 38.64734299516908,
+        "prob": 0.023125,
+        "decimal": 43.24324324324324,
         "fractional": "40/1"
       },
       "top5": {
-        "prob": 0.1305,
-        "decimal": 7.662835249042145,
-        "fractional": "13/2"
+        "prob": 0.119375,
+        "decimal": 8.37696335078534,
+        "fractional": "15/2"
       },
       "top10": {
-        "prob": 0.2728125,
-        "decimal": 3.665521191294387,
-        "fractional": "11/4"
+        "prob": 0.2546875,
+        "decimal": 3.9263803680981595,
+        "fractional": "3/1"
       },
       "top20": {
-        "prob": 0.55975,
-        "decimal": 1.7865118356409113,
-        "fractional": "4/5"
+        "prob": 0.5365,
+        "decimal": 1.8639328984156571,
+        "fractional": "5/6"
       },
       "m_win": {
-        "prob": 0.0260625,
-        "decimal": 38.36930455635492,
+        "prob": 0.0263125,
+        "decimal": 38.00475059382423,
         "fractional": "40/1"
       },
-      "edge_win": -1,
-      "edge_top20": -5
-    },
-    {
-      "modelRank": 11,
-      "name": "Collin Morikawa",
-      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_50525.png",
-      "letdownFlag": "Played the U.S. Open last week (T17) - mild fatigue watch",
-      "win": {
-        "prob": 0.0233125,
-        "decimal": 42.89544235924933,
-        "fractional": "40/1"
-      },
-      "top5": {
-        "prob": 0.1315625,
-        "decimal": 7.600950118764846,
-        "fractional": "13/2"
-      },
-      "top10": {
-        "prob": 0.2705,
-        "decimal": 3.696857670979667,
-        "fractional": "11/4"
-      },
-      "top20": {
-        "prob": 0.552125,
-        "decimal": 1.8111840615802581,
-        "fractional": "4/5"
-      },
-      "m_win": {
-        "prob": 0.0218125,
-        "decimal": 45.845272206303726,
-        "fractional": "40/1"
-      },
-      "edge_win": 7,
-      "edge_top20": 1
+      "edge_win": -12,
+      "edge_top20": -11
     },
     {
       "modelRank": 12,
       "name": "Ludvig Åberg",
       "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_52955.png",
-      "letdownFlag": "Played the U.S. Open last week (T17) - mild fatigue watch",
+      "letdownFlag": null,
       "win": {
-        "prob": 0.0215,
-        "decimal": 46.51162790697675,
-        "fractional": "50/1"
+        "prob": 0.0221875,
+        "decimal": 45.07042253521127,
+        "fractional": "40/1"
       },
       "top5": {
-        "prob": 0.1136875,
-        "decimal": 8.796041781198461,
-        "fractional": "8/1"
+        "prob": 0.1193125,
+        "decimal": 8.381351492928234,
+        "fractional": "15/2"
       },
       "top10": {
-        "prob": 0.234875,
-        "decimal": 4.25758382118148,
-        "fractional": "7/2"
+        "prob": 0.253125,
+        "decimal": 3.9506172839506175,
+        "fractional": "3/1"
       },
       "top20": {
-        "prob": 0.489375,
-        "decimal": 2.0434227330779056,
-        "fractional": "1/1"
+        "prob": 0.517125,
+        "decimal": 1.9337684312303605,
+        "fractional": "10/11"
       },
       "m_win": {
-        "prob": 0.0160625,
-        "decimal": 62.2568093385214,
+        "prob": 0.0159375,
+        "decimal": 62.745098039215684,
         "fractional": "66/1"
       },
-      "edge_win": 34,
-      "edge_top20": 16
+      "edge_win": 39,
+      "edge_top20": 22
     },
     {
       "modelRank": 13,
-      "name": "J.J. Spaun",
-      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_39324.png",
+      "name": "Akshay Bhatia",
+      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_56630.png",
       "letdownFlag": null,
       "win": {
-        "prob": 0.0200625,
-        "decimal": 49.84423676012461,
+        "prob": 0.0194375,
+        "decimal": 51.446945337620576,
         "fractional": "50/1"
       },
       "top5": {
-        "prob": 0.1061875,
-        "decimal": 9.417304296645085,
-        "fractional": "8/1"
+        "prob": 0.0988125,
+        "decimal": 10.120177103099305,
+        "fractional": "9/1"
       },
       "top10": {
-        "prob": 0.2220625,
-        "decimal": 4.503236701379116,
+        "prob": 0.2203125,
+        "decimal": 4.539007092198582,
         "fractional": "7/2"
       },
       "top20": {
-        "prob": 0.4705625,
-        "decimal": 2.125116217293133,
+        "prob": 0.4740625,
+        "decimal": 2.109426499670402,
         "fractional": "11/10"
       },
       "m_win": {
-        "prob": 0.0195,
-        "decimal": 51.282051282051285,
-        "fractional": "50/1"
+        "prob": 0.015125,
+        "decimal": 66.11570247933885,
+        "fractional": "66/1"
       },
-      "edge_win": 3,
-      "edge_top20": -4
+      "edge_win": 29,
+      "edge_top20": 14
     },
     {
       "modelRank": 14,
-      "name": "Akshay Bhatia",
-      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_56630.png",
-      "letdownFlag": "Played the U.S. Open last week (T17) - mild fatigue watch",
+      "name": "Xander Schauffele",
+      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_48081.png",
+      "letdownFlag": null,
       "win": {
-        "prob": 0.01925,
-        "decimal": 51.94805194805195,
+        "prob": 0.019375,
+        "decimal": 51.612903225806456,
         "fractional": "50/1"
       },
       "top5": {
-        "prob": 0.0933125,
-        "decimal": 10.716677829872738,
-        "fractional": "10/1"
+        "prob": 0.1013125,
+        "decimal": 9.870450339296731,
+        "fractional": "9/1"
       },
       "top10": {
-        "prob": 0.20775,
-        "decimal": 4.813477737665464,
-        "fractional": "4/1"
+        "prob": 0.2193125,
+        "decimal": 4.559703619264748,
+        "fractional": "7/2"
       },
       "top20": {
-        "prob": 0.447125,
-        "decimal": 2.2365110427732735,
-        "fractional": "5/4"
+        "prob": 0.475875,
+        "decimal": 2.101392172314158,
+        "fractional": "11/10"
       },
       "m_win": {
-        "prob": 0.0155,
-        "decimal": 64.51612903225806,
+        "prob": 0.0161875,
+        "decimal": 61.77606177606177,
         "fractional": "66/1"
       },
-      "edge_win": 24,
+      "edge_win": 20,
       "edge_top20": 9
     },
     {
       "modelRank": 15,
-      "name": "Xander Schauffele",
-      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_48081.png",
-      "letdownFlag": "Played the U.S. Open last week (T11) - mild fatigue watch",
+      "name": "Justin Rose",
+      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_22405.png",
+      "letdownFlag": null,
       "win": {
-        "prob": 0.01925,
-        "decimal": 51.94805194805195,
+        "prob": 0.0185,
+        "decimal": 54.054054054054056,
         "fractional": "50/1"
       },
       "top5": {
-        "prob": 0.0963125,
-        "decimal": 10.382868267358859,
+        "prob": 0.100875,
+        "decimal": 9.913258983890954,
         "fractional": "9/1"
       },
       "top10": {
-        "prob": 0.2048125,
-        "decimal": 4.882514494964907,
-        "fractional": "4/1"
+        "prob": 0.2168125,
+        "decimal": 4.612280196021908,
+        "fractional": "7/2"
       },
       "top20": {
-        "prob": 0.447875,
-        "decimal": 2.232765838682668,
-        "fractional": "5/4"
+        "prob": 0.465625,
+        "decimal": 2.1476510067114094,
+        "fractional": "11/10"
       },
       "m_win": {
-        "prob": 0.016625,
-        "decimal": 60.150375939849624,
-        "fractional": "66/1"
+        "prob": 0.019875,
+        "decimal": 50.31446540880503,
+        "fractional": "50/1"
       },
-      "edge_win": 16,
-      "edge_top20": 4
+      "edge_win": -7,
+      "edge_top20": -9
     },
     {
       "modelRank": 16,
-      "name": "Justin Rose",
-      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_22405.png",
-      "letdownFlag": "Played the U.S. Open last week (T11) - mild fatigue watch",
+      "name": "Ben Griffin",
+      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_54591.png",
+      "letdownFlag": null,
+      "win": {
+        "prob": 0.0179375,
+        "decimal": 55.74912891986063,
+        "fractional": "50/1"
+      },
+      "top5": {
+        "prob": 0.09325,
+        "decimal": 10.723860589812332,
+        "fractional": "10/1"
+      },
+      "top10": {
+        "prob": 0.1943125,
+        "decimal": 5.146349308459311,
+        "fractional": "4/1"
+      },
+      "top20": {
+        "prob": 0.428875,
+        "decimal": 2.3316817254444766,
+        "fractional": "11/8"
+      },
+      "m_win": {
+        "prob": 0.01975,
+        "decimal": 50.63291139240506,
+        "fractional": "50/1"
+      },
+      "edge_win": -9,
+      "edge_top20": -13
+    },
+    {
+      "modelRank": 17,
+      "name": "J.J. Spaun",
+      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_39324.png",
+      "letdownFlag": null,
       "win": {
         "prob": 0.017875,
         "decimal": 55.94405594405595,
         "fractional": "50/1"
       },
       "top5": {
-        "prob": 0.0945,
-        "decimal": 10.582010582010582,
-        "fractional": "10/1"
+        "prob": 0.096875,
+        "decimal": 10.32258064516129,
+        "fractional": "9/1"
       },
       "top10": {
-        "prob": 0.205375,
-        "decimal": 4.869141813755325,
+        "prob": 0.20625,
+        "decimal": 4.848484848484849,
         "fractional": "4/1"
       },
       "top20": {
-        "prob": 0.4368125,
-        "decimal": 2.289311775647446,
+        "prob": 0.4484375,
+        "decimal": 2.229965156794425,
         "fractional": "5/4"
       },
       "m_win": {
-        "prob": 0.020375,
-        "decimal": 49.079754601226995,
+        "prob": 0.0195,
+        "decimal": 51.282051282051285,
         "fractional": "50/1"
       },
-      "edge_win": -12,
-      "edge_top20": -14
-    },
-    {
-      "modelRank": 17,
-      "name": "Ben Griffin",
-      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_54591.png",
-      "letdownFlag": "Played the U.S. Open last week (T17) - mild fatigue watch",
-      "win": {
-        "prob": 0.01775,
-        "decimal": 56.33802816901409,
-        "fractional": "50/1"
-      },
-      "top5": {
-        "prob": 0.088375,
-        "decimal": 11.315417256011315,
-        "fractional": "10/1"
-      },
-      "top10": {
-        "prob": 0.1825625,
-        "decimal": 5.47757617254365,
-        "fractional": "9/2"
-      },
-      "top20": {
-        "prob": 0.399375,
-        "decimal": 2.503912363067293,
-        "fractional": "6/4"
-      },
-      "m_win": {
-        "prob": 0.0203125,
-        "decimal": 49.230769230769226,
-        "fractional": "50/1"
-      },
-      "edge_win": -13,
-      "edge_top20": -19
+      "edge_win": -8,
+      "edge_top20": -9
     },
     {
       "modelRank": 18,
@@ -2164,32 +2069,32 @@
       "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_27349.png",
       "letdownFlag": null,
       "win": {
-        "prob": 0.017,
-        "decimal": 58.8235294117647,
-        "fractional": "50/1"
+        "prob": 0.0146875,
+        "decimal": 68.08510638297872,
+        "fractional": "66/1"
       },
       "top5": {
-        "prob": 0.089,
-        "decimal": 11.235955056179776,
-        "fractional": "10/1"
+        "prob": 0.0808125,
+        "decimal": 12.37432327919567,
+        "fractional": "11/1"
       },
       "top10": {
-        "prob": 0.187375,
-        "decimal": 5.33689126084056,
+        "prob": 0.1770625,
+        "decimal": 5.647723261560183,
         "fractional": "9/2"
       },
       "top20": {
-        "prob": 0.4143125,
-        "decimal": 2.4136370493287074,
-        "fractional": "11/8"
+        "prob": 0.394875,
+        "decimal": 2.5324469768914213,
+        "fractional": "6/4"
       },
       "m_win": {
-        "prob": 0.0156875,
-        "decimal": 63.745019920318725,
+        "prob": 0.0153125,
+        "decimal": 65.3061224489796,
         "fractional": "66/1"
       },
-      "edge_win": 8,
-      "edge_top20": -4
+      "edge_win": -4,
+      "edge_top20": -9
     }
   ],
   "worldRankings": [
@@ -2198,15 +2103,15 @@
       "name": "Scottie Scheffler",
       "country": "USA",
       "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_46046.png",
-      "winOdds": "5/1",
-      "value": false
+      "winOdds": "4/1",
+      "value": true
     },
     {
       "owgr": "3",
       "name": "Cameron Young",
       "country": "USA",
       "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_57366.png",
-      "winOdds": "80/1",
+      "winOdds": "100/1",
       "value": false
     },
     {
@@ -2214,7 +2119,7 @@
       "name": "Matt Fitzpatrick",
       "country": "ENG",
       "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_40098.png",
-      "winOdds": "22/1",
+      "winOdds": "25/1",
       "value": true
     },
     {
@@ -2222,7 +2127,7 @@
       "name": "Russell Henley",
       "country": "USA",
       "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_34098.png",
-      "winOdds": "66/1",
+      "winOdds": "80/1",
       "value": false
     },
     {
@@ -2238,7 +2143,7 @@
       "name": "Tommy Fleetwood",
       "country": "ENG",
       "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_30911.png",
-      "winOdds": "22/1",
+      "winOdds": "20/1",
       "value": false
     },
     {
@@ -2246,7 +2151,7 @@
       "name": "Wyndham Clark",
       "country": "USA",
       "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_51766.png",
-      "winOdds": "18/1",
+      "winOdds": "16/1",
       "value": false
     },
     {
@@ -2263,7 +2168,7 @@
       "country": "USA",
       "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_48081.png",
       "winOdds": "50/1",
-      "value": false
+      "value": true
     },
     {
       "owgr": "12",
@@ -2286,7 +2191,7 @@
       "name": "Ludvig Åberg",
       "country": "SWE",
       "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_52955.png",
-      "winOdds": "50/1",
+      "winOdds": "40/1",
       "value": true
     },
     {
@@ -2294,7 +2199,7 @@
       "name": "Sam Burns",
       "country": "USA",
       "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_47504.png",
-      "winOdds": "33/1",
+      "winOdds": "25/1",
       "value": false
     },
     {
@@ -2302,7 +2207,7 @@
       "name": "Aaron Rai",
       "country": "ENG",
       "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_46414.png",
-      "winOdds": "80/1",
+      "winOdds": "66/1",
       "value": false
     },
     {
@@ -2334,8 +2239,8 @@
       "name": "Si Woo Kim",
       "country": "KOR",
       "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_37455.png",
-      "winOdds": "14/1",
-      "value": true
+      "winOdds": "16/1",
+      "value": false
     },
     {
       "owgr": "22",
@@ -2350,7 +2255,7 @@
       "name": "Alex Noren",
       "country": "SWE",
       "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_27349.png",
-      "winOdds": "50/1",
+      "winOdds": "66/1",
       "value": false
     },
     {
@@ -2374,7 +2279,7 @@
       "name": "Kristoffer Reitan",
       "country": "NOR",
       "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_49855.png",
-      "winOdds": "200/1",
+      "winOdds": "250/1",
       "value": false
     },
     {
@@ -2382,7 +2287,7 @@
       "name": "Ryan Gerard",
       "country": "USA",
       "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_59018.png",
-      "winOdds": "25/1",
+      "winOdds": "28/1",
       "value": false
     },
     {
@@ -2407,14 +2312,14 @@
       "country": "USA",
       "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_56630.png",
       "winOdds": "50/1",
-      "value": false
+      "value": true
     },
     {
       "owgr": "32",
       "name": "J.T. Poston",
       "country": "USA",
       "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_49771.png",
-      "winOdds": "100/1",
+      "winOdds": "80/1",
       "value": false
     },
     {
@@ -2422,7 +2327,7 @@
       "name": "Kurt Kitayama",
       "country": "USA",
       "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_48117.png",
-      "winOdds": "125/1",
+      "winOdds": "150/1",
       "value": false
     },
     {
@@ -2430,7 +2335,7 @@
       "name": "Nicolai Højgaard",
       "country": "DEN",
       "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_52453.png",
-      "winOdds": "100/1",
+      "winOdds": "125/1",
       "value": false
     },
     {
@@ -2438,7 +2343,7 @@
       "name": "Maverick McNealy",
       "country": "USA",
       "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_46442.png",
-      "winOdds": "66/1",
+      "winOdds": "80/1",
       "value": false
     },
     {
@@ -2446,7 +2351,7 @@
       "name": "Patrick Cantlay",
       "country": "USA",
       "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_35450.png",
-      "winOdds": "80/1",
+      "winOdds": "100/1",
       "value": false
     },
     {
@@ -2454,7 +2359,7 @@
       "name": "Keegan Bradley",
       "country": "USA",
       "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_33141.png",
-      "winOdds": "200/1",
+      "winOdds": "250/1",
       "value": false
     },
     {
@@ -2494,7 +2399,7 @@
       "name": "Alex Smalley",
       "country": "USA",
       "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_46340.png",
-      "winOdds": "33/1",
+      "winOdds": "40/1",
       "value": false
     },
     {
@@ -2510,7 +2415,7 @@
       "name": "Shane Lowry",
       "country": "IRL",
       "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_33204.png",
-      "winOdds": "100/1",
+      "winOdds": "125/1",
       "value": false
     },
     {
@@ -2559,7 +2464,7 @@
       "country": "AUS",
       "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_24502.png",
       "winOdds": "66/1",
-      "value": true
+      "value": false
     },
     {
       "owgr": "53",
@@ -2574,7 +2479,7 @@
       "name": "Ryan Fox",
       "country": "NZL",
       "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_29936.png",
-      "winOdds": "100/1",
+      "winOdds": "125/1",
       "value": false
     },
     {
@@ -2631,7 +2536,7 @@
       "country": "USA",
       "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_47591.png",
       "winOdds": "40/1",
-      "value": true
+      "value": false
     },
     {
       "owgr": "67",
@@ -2646,7 +2551,7 @@
       "name": "Keith Mitchell",
       "country": "USA",
       "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_39546.png",
-      "winOdds": "125/1",
+      "winOdds": "80/1",
       "value": false
     },
     {
@@ -2750,7 +2655,7 @@
       "name": "Jackson Suber",
       "country": "USA",
       "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_60019.png",
-      "winOdds": "150/1",
+      "winOdds": "200/1",
       "value": false
     },
     {
@@ -2776,218 +2681,215 @@
       "name": "Scottie Scheffler",
       "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_46046.png",
       "win": {
-        "prob": 0.1614375,
-        "decimal": 6.194347657762291,
-        "fractional": "5/1"
+        "prob": 0.20075,
+        "decimal": 4.9813200498132,
+        "fractional": "4/1"
       },
-      "winProb": 0.1614375,
+      "winProb": 0.20075,
       "trend": "up",
       "recentSG": 2.6833333333333336,
       "recentEvents": 3
     },
     {
       "modelRank": 2,
-      "name": "Si Woo Kim",
-      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_37455.png",
-      "win": {
-        "prob": 0.065125,
-        "decimal": 15.355086372360844,
-        "fractional": "14/1"
-      },
-      "winProb": 0.065125,
-      "trend": "up",
-      "recentSG": 3.082,
-      "recentEvents": 2
-    },
-    {
-      "modelRank": 3,
       "name": "Wyndham Clark",
       "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_51766.png",
       "win": {
-        "prob": 0.0541875,
-        "decimal": 18.45444059976932,
-        "fractional": "18/1"
+        "prob": 0.058375,
+        "decimal": 17.130620985010705,
+        "fractional": "16/1"
       },
-      "winProb": 0.0541875,
+      "winProb": 0.058375,
       "trend": "up",
       "recentSG": 3.51175,
       "recentEvents": 4
     },
     {
-      "modelRank": 4,
-      "name": "Matt Fitzpatrick",
-      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_40098.png",
+      "modelRank": 3,
+      "name": "Si Woo Kim",
+      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_37455.png",
       "win": {
-        "prob": 0.045375,
-        "decimal": 22.03856749311295,
-        "fractional": "22/1"
+        "prob": 0.0579375,
+        "decimal": 17.25997842502697,
+        "fractional": "16/1"
       },
-      "winProb": 0.045375,
-      "trend": "flat",
-      "recentSG": 1.4146666666666665,
-      "recentEvents": 3
+      "winProb": 0.0579375,
+      "trend": "up",
+      "recentSG": 3.082,
+      "recentEvents": 2
     },
     {
-      "modelRank": 5,
+      "modelRank": 4,
       "name": "Tommy Fleetwood",
       "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_30911.png",
       "win": {
-        "prob": 0.045375,
-        "decimal": 22.03856749311295,
-        "fractional": "22/1"
+        "prob": 0.0468125,
+        "decimal": 21.36181575433912,
+        "fractional": "20/1"
       },
-      "winProb": 0.045375,
+      "winProb": 0.0468125,
       "trend": "up",
       "recentSG": 2.4146666666666667,
       "recentEvents": 3
     },
     {
-      "modelRank": 6,
-      "name": "Ryan Gerard",
-      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_59018.png",
+      "modelRank": 5,
+      "name": "Matt Fitzpatrick",
+      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_40098.png",
       "win": {
-        "prob": 0.0375625,
-        "decimal": 26.622296173044926,
+        "prob": 0.0396875,
+        "decimal": 25.196850393700785,
         "fractional": "25/1"
       },
-      "winProb": 0.0375625,
-      "trend": "up",
-      "recentSG": 2.931,
-      "recentEvents": 2
+      "winProb": 0.0396875,
+      "trend": "flat",
+      "recentSG": 1.4146666666666665,
+      "recentEvents": 3
     },
     {
-      "modelRank": 7,
-      "name": "Alex Smalley",
-      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_46340.png",
-      "win": {
-        "prob": 0.0295625,
-        "decimal": 33.82663847780127,
-        "fractional": "33/1"
-      },
-      "winProb": 0.0295625,
-      "trend": "up",
-      "recentSG": 2.751,
-      "recentEvents": 1
-    },
-    {
-      "modelRank": 8,
+      "modelRank": 6,
       "name": "Sam Burns",
       "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_47504.png",
       "win": {
-        "prob": 0.0295,
-        "decimal": 33.898305084745765,
-        "fractional": "33/1"
+        "prob": 0.0364375,
+        "decimal": 27.4442538593482,
+        "fractional": "25/1"
       },
-      "winProb": 0.0295,
+      "winProb": 0.0364375,
       "trend": "up",
       "recentSG": 2.6646666666666667,
       "recentEvents": 3
     },
     {
+      "modelRank": 7,
+      "name": "Ryan Gerard",
+      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_59018.png",
+      "win": {
+        "prob": 0.0328125,
+        "decimal": 30.476190476190474,
+        "fractional": "28/1"
+      },
+      "winProb": 0.0328125,
+      "trend": "up",
+      "recentSG": 2.931,
+      "recentEvents": 2
+    },
+    {
+      "modelRank": 8,
+      "name": "Alex Smalley",
+      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_46340.png",
+      "win": {
+        "prob": 0.0261875,
+        "decimal": 38.186157517899765,
+        "fractional": "40/1"
+      },
+      "winProb": 0.0261875,
+      "trend": "up",
+      "recentSG": 2.751,
+      "recentEvents": 1
+    },
+    {
       "modelRank": 9,
+      "name": "Collin Morikawa",
+      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_50525.png",
+      "win": {
+        "prob": 0.024,
+        "decimal": 41.666666666666664,
+        "fractional": "40/1"
+      },
+      "winProb": 0.024,
+      "trend": "up",
+      "recentSG": 1.5665,
+      "recentEvents": 2
+    },
+    {
+      "modelRank": 10,
       "name": "Eric Cole",
       "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_47591.png",
       "win": {
-        "prob": 0.0260625,
-        "decimal": 38.36930455635492,
+        "prob": 0.023625,
+        "decimal": 42.32804232804233,
         "fractional": "40/1"
       },
-      "winProb": 0.0260625,
+      "winProb": 0.023625,
       "trend": "up",
       "recentSG": 2.138333333333333,
       "recentEvents": 3
     },
     {
-      "modelRank": 10,
+      "modelRank": 11,
       "name": "Viktor Hovland",
       "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_46717.png",
       "win": {
-        "prob": 0.025875,
-        "decimal": 38.64734299516908,
+        "prob": 0.023125,
+        "decimal": 43.24324324324324,
         "fractional": "40/1"
       },
-      "winProb": 0.025875,
+      "winProb": 0.023125,
       "trend": "up",
       "recentSG": 2.747,
       "recentEvents": 1
-    },
-    {
-      "modelRank": 11,
-      "name": "Collin Morikawa",
-      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_50525.png",
-      "win": {
-        "prob": 0.0233125,
-        "decimal": 42.89544235924933,
-        "fractional": "40/1"
-      },
-      "winProb": 0.0233125,
-      "trend": "up",
-      "recentSG": 1.5665,
-      "recentEvents": 2
     },
     {
       "modelRank": 12,
       "name": "Ludvig Åberg",
       "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_52955.png",
       "win": {
-        "prob": 0.0215,
-        "decimal": 46.51162790697675,
-        "fractional": "50/1"
+        "prob": 0.0221875,
+        "decimal": 45.07042253521127,
+        "fractional": "40/1"
       },
-      "winProb": 0.0215,
+      "winProb": 0.0221875,
       "trend": "down",
       "recentSG": 0.9159999999999999,
       "recentEvents": 3
     },
     {
       "modelRank": 13,
-      "name": "J.J. Spaun",
-      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_39324.png",
-      "win": {
-        "prob": 0.0200625,
-        "decimal": 49.84423676012461,
-        "fractional": "50/1"
-      },
-      "winProb": 0.0200625,
-      "trend": "up",
-      "recentSG": 2.056,
-      "recentEvents": 2
-    },
-    {
-      "modelRank": 14,
       "name": "Akshay Bhatia",
       "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_56630.png",
       "win": {
-        "prob": 0.01925,
-        "decimal": 51.94805194805195,
+        "prob": 0.0194375,
+        "decimal": 51.446945337620576,
         "fractional": "50/1"
       },
-      "winProb": 0.01925,
+      "winProb": 0.0194375,
       "trend": "up",
       "recentSG": 1.4434999999999998,
       "recentEvents": 2
     },
     {
-      "modelRank": 15,
+      "modelRank": 14,
       "name": "Xander Schauffele",
       "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_48081.png",
       "win": {
-        "prob": 0.01925,
-        "decimal": 51.94805194805195,
+        "prob": 0.019375,
+        "decimal": 51.612903225806456,
         "fractional": "50/1"
       },
-      "winProb": 0.01925,
+      "winProb": 0.019375,
       "trend": "flat",
       "recentSG": 1.2485,
+      "recentEvents": 2
+    },
+    {
+      "modelRank": 15,
+      "name": "Justin Rose",
+      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_22405.png",
+      "win": {
+        "prob": 0.0185,
+        "decimal": 54.054054054054056,
+        "fractional": "50/1"
+      },
+      "winProb": 0.0185,
+      "trend": "up",
+      "recentSG": 1.8735,
       "recentEvents": 2
     }
   ],
   "bankroll": {
-    "startPoints": 20,
-    "startGBP": 100,
-    "unitGBP": 5,
+    "startPoints": 100,
     "stakedThisWeekPoints": 11,
-    "stakedThisWeekGBP": 55,
     "weekNumber": 26
   },
   "ewTerms": "5 places at 1/5 odds (Bet365 often enhances places - check before betting)",
@@ -2998,277 +2900,262 @@
     "Tracked bets feed the P&L. Untracked \"flutters\" do not. Bets are settled the following week off the final leaderboard."
   ],
   "pnl": {
-    "bankrollStartGBP": 100,
-    "unitGBP": 5,
+    "startBankPts": 100,
     "settledCount": 0,
     "won": 0,
     "lost": 0,
-    "stakedGBP": 0,
-    "returnedGBP": 0,
-    "profitGBP": 0,
-    "bankrollNowGBP": 100,
+    "stakedPts": 0,
+    "returnedPts": 0,
+    "profitPts": 0,
+    "bankNowPts": 100,
     "roiPct": 0,
     "strikeRatePct": 0,
     "pendingCount": 6,
-    "pendingStakeGBP": 55,
+    "pendingStakePts": 11,
     "totalBets": 6,
     "byMarket": [],
-    "curve": [],
-    "history": [],
     "openBets": [
       {
-        "id": "R2026034:37455:win",
+        "id": "R2026034:46046:win",
         "weekNumber": 26,
         "eventId": "R2026034",
         "eventName": "Travelers Championship",
-        "placedAt": "2026-06-23T08:30:54.366Z",
-        "playerId": "37455",
-        "player": "Si Woo Kim",
+        "placedAt": "2026-06-23T09:26:18.684Z",
+        "playerId": "46046",
+        "player": "Scottie Scheffler",
         "market": "win",
         "marketLabel": "To Win",
         "eachWay": true,
-        "stakePoints": 2,
-        "stakeGBP": 10,
-        "priceDecimal": 17.057569296375267,
-        "priceFractional": "16/1",
-        "modelProb": 0.065125,
-        "status": "pending",
-        "finishPos": null,
-        "returnGBP": null,
-        "profitGBP": null
-      },
-      {
-        "id": "R2026034:24502:top20",
-        "weekNumber": 26,
-        "eventId": "R2026034",
-        "eventName": "Travelers Championship",
-        "placedAt": "2026-06-23T08:30:54.366Z",
-        "playerId": "24502",
-        "player": "Adam Scott",
-        "market": "top20",
-        "marketLabel": "Top 20",
-        "eachWay": false,
-        "stakePoints": 1,
-        "stakeGBP": 5,
-        "priceDecimal": 2.873563218390805,
-        "priceFractional": "15/8",
-        "modelProb": 0.3984375,
-        "status": "pending",
-        "finishPos": null,
-        "returnGBP": null,
-        "profitGBP": null
-      },
-      {
-        "id": "R2026034:47591:top10",
-        "weekNumber": 26,
-        "eventId": "R2026034",
-        "eventName": "Travelers Championship",
-        "placedAt": "2026-06-23T08:30:54.366Z",
-        "playerId": "47591",
-        "player": "Eric Cole",
-        "market": "top10",
-        "marketLabel": "Top 10",
-        "eachWay": false,
-        "stakePoints": 1,
-        "stakeGBP": 5,
-        "priceDecimal": 4.427227448810183,
-        "priceFractional": "7/2",
-        "modelProb": 0.27375,
-        "status": "pending",
-        "finishPos": null,
-        "returnGBP": null,
-        "profitGBP": null
-      },
-      {
-        "id": "R2026034:52955:top10",
-        "weekNumber": 26,
-        "eventId": "R2026034",
-        "eventName": "Travelers Championship",
-        "placedAt": "2026-06-23T08:30:54.366Z",
-        "playerId": "52955",
-        "player": "Ludvig Åberg",
-        "market": "top10",
-        "marketLabel": "Top 10",
-        "eachWay": false,
-        "stakePoints": 2,
-        "stakeGBP": 10,
-        "priceDecimal": 5.256241787122208,
+        "stakePts": 2,
+        "priceDecimal": 5.369127516778524,
         "priceFractional": "9/2",
-        "modelProb": 0.234875,
+        "modelProb": 0.20075,
         "status": "pending",
         "finishPos": null,
-        "returnGBP": null,
-        "profitGBP": null
+        "returnPts": null,
+        "profitPts": null
+      },
+      {
+        "id": "R2026034:48081:top10",
+        "weekNumber": 26,
+        "eventId": "R2026034",
+        "eventName": "Travelers Championship",
+        "placedAt": "2026-06-23T09:26:18.684Z",
+        "playerId": "48081",
+        "player": "Xander Schauffele",
+        "market": "top10",
+        "marketLabel": "Top 10",
+        "eachWay": false,
+        "stakePts": 1,
+        "priceDecimal": 5.245901639344263,
+        "priceFractional": "4/1",
+        "modelProb": 0.2193125,
+        "status": "pending",
+        "finishPos": null,
+        "returnPts": null,
+        "profitPts": null
+      },
+      {
+        "id": "R2026034:56630:top10",
+        "weekNumber": 26,
+        "eventId": "R2026034",
+        "eventName": "Travelers Championship",
+        "placedAt": "2026-06-23T09:26:18.684Z",
+        "playerId": "56630",
+        "player": "Akshay Bhatia",
+        "market": "top10",
+        "marketLabel": "Top 10",
+        "eachWay": false,
+        "stakePts": 1,
+        "priceDecimal": 5.530591081921881,
+        "priceFractional": "9/2",
+        "modelProb": 0.2203125,
+        "status": "pending",
+        "finishPos": null,
+        "returnPts": null,
+        "profitPts": null
+      },
+      {
+        "id": "R2026034:40098:top10",
+        "weekNumber": 26,
+        "eventId": "R2026034",
+        "eventName": "Travelers Championship",
+        "placedAt": "2026-06-23T09:26:18.684Z",
+        "playerId": "40098",
+        "player": "Matt Fitzpatrick",
+        "market": "top10",
+        "marketLabel": "Top 10",
+        "eachWay": false,
+        "stakePts": 2,
+        "priceDecimal": 2.7406646111682083,
+        "priceFractional": "7/4",
+        "modelProb": 0.42625,
+        "status": "pending",
+        "finishPos": null,
+        "returnPts": null,
+        "profitPts": null
       },
       {
         "id": "R2026034:60004:top20",
         "weekNumber": 26,
         "eventId": "R2026034",
         "eventName": "Travelers Championship",
-        "placedAt": "2026-06-23T08:30:54.366Z",
+        "placedAt": "2026-06-23T09:26:18.684Z",
         "playerId": "60004",
         "player": "Jacob Bridgeman",
         "market": "top20",
         "marketLabel": "Top 20",
         "eachWay": false,
-        "stakePoints": 2,
-        "stakeGBP": 10,
-        "priceDecimal": 3.3361134278565467,
+        "stakePts": 2,
+        "priceDecimal": 3.3444816053511706,
         "priceFractional": "9/4",
-        "modelProb": 0.38275,
+        "modelProb": 0.3615625,
         "status": "pending",
         "finishPos": null,
-        "returnGBP": null,
-        "profitGBP": null
+        "returnPts": null,
+        "profitPts": null
       },
       {
-        "id": "R2026034:40098:top5",
+        "id": "R2026034:52955:top10",
         "weekNumber": 26,
         "eventId": "R2026034",
         "eventName": "Travelers Championship",
-        "placedAt": "2026-06-23T08:30:54.366Z",
-        "playerId": "40098",
-        "player": "Matt Fitzpatrick",
-        "market": "top5",
-        "marketLabel": "Top 5",
+        "placedAt": "2026-06-23T09:26:18.684Z",
+        "playerId": "52955",
+        "player": "Ludvig Åberg",
+        "market": "top10",
+        "marketLabel": "Top 10",
         "eachWay": false,
-        "stakePoints": 3,
-        "stakeGBP": 15,
-        "priceDecimal": 5.852231163130944,
-        "priceFractional": "5/1",
-        "modelProb": 0.2339375,
+        "stakePts": 3,
+        "priceDecimal": 5.282271376691978,
+        "priceFractional": "9/2",
+        "modelProb": 0.253125,
         "status": "pending",
         "finishPos": null,
-        "returnGBP": null,
-        "profitGBP": null
+        "returnPts": null,
+        "profitPts": null
       }
     ],
     "allBets": [
       {
-        "id": "R2026034:37455:win",
+        "id": "R2026034:46046:win",
         "weekNumber": 26,
         "eventId": "R2026034",
         "eventName": "Travelers Championship",
-        "placedAt": "2026-06-23T08:30:54.366Z",
-        "playerId": "37455",
-        "player": "Si Woo Kim",
+        "placedAt": "2026-06-23T09:26:18.684Z",
+        "playerId": "46046",
+        "player": "Scottie Scheffler",
         "market": "win",
         "marketLabel": "To Win",
         "eachWay": true,
-        "stakePoints": 2,
-        "stakeGBP": 10,
-        "priceDecimal": 17.057569296375267,
-        "priceFractional": "16/1",
-        "modelProb": 0.065125,
-        "status": "pending",
-        "finishPos": null,
-        "returnGBP": null,
-        "profitGBP": null
-      },
-      {
-        "id": "R2026034:24502:top20",
-        "weekNumber": 26,
-        "eventId": "R2026034",
-        "eventName": "Travelers Championship",
-        "placedAt": "2026-06-23T08:30:54.366Z",
-        "playerId": "24502",
-        "player": "Adam Scott",
-        "market": "top20",
-        "marketLabel": "Top 20",
-        "eachWay": false,
-        "stakePoints": 1,
-        "stakeGBP": 5,
-        "priceDecimal": 2.873563218390805,
-        "priceFractional": "15/8",
-        "modelProb": 0.3984375,
-        "status": "pending",
-        "finishPos": null,
-        "returnGBP": null,
-        "profitGBP": null
-      },
-      {
-        "id": "R2026034:47591:top10",
-        "weekNumber": 26,
-        "eventId": "R2026034",
-        "eventName": "Travelers Championship",
-        "placedAt": "2026-06-23T08:30:54.366Z",
-        "playerId": "47591",
-        "player": "Eric Cole",
-        "market": "top10",
-        "marketLabel": "Top 10",
-        "eachWay": false,
-        "stakePoints": 1,
-        "stakeGBP": 5,
-        "priceDecimal": 4.427227448810183,
-        "priceFractional": "7/2",
-        "modelProb": 0.27375,
-        "status": "pending",
-        "finishPos": null,
-        "returnGBP": null,
-        "profitGBP": null
-      },
-      {
-        "id": "R2026034:52955:top10",
-        "weekNumber": 26,
-        "eventId": "R2026034",
-        "eventName": "Travelers Championship",
-        "placedAt": "2026-06-23T08:30:54.366Z",
-        "playerId": "52955",
-        "player": "Ludvig Åberg",
-        "market": "top10",
-        "marketLabel": "Top 10",
-        "eachWay": false,
-        "stakePoints": 2,
-        "stakeGBP": 10,
-        "priceDecimal": 5.256241787122208,
+        "stakePts": 2,
+        "priceDecimal": 5.369127516778524,
         "priceFractional": "9/2",
-        "modelProb": 0.234875,
+        "modelProb": 0.20075,
         "status": "pending",
         "finishPos": null,
-        "returnGBP": null,
-        "profitGBP": null
+        "returnPts": null,
+        "profitPts": null
+      },
+      {
+        "id": "R2026034:48081:top10",
+        "weekNumber": 26,
+        "eventId": "R2026034",
+        "eventName": "Travelers Championship",
+        "placedAt": "2026-06-23T09:26:18.684Z",
+        "playerId": "48081",
+        "player": "Xander Schauffele",
+        "market": "top10",
+        "marketLabel": "Top 10",
+        "eachWay": false,
+        "stakePts": 1,
+        "priceDecimal": 5.245901639344263,
+        "priceFractional": "4/1",
+        "modelProb": 0.2193125,
+        "status": "pending",
+        "finishPos": null,
+        "returnPts": null,
+        "profitPts": null
+      },
+      {
+        "id": "R2026034:56630:top10",
+        "weekNumber": 26,
+        "eventId": "R2026034",
+        "eventName": "Travelers Championship",
+        "placedAt": "2026-06-23T09:26:18.684Z",
+        "playerId": "56630",
+        "player": "Akshay Bhatia",
+        "market": "top10",
+        "marketLabel": "Top 10",
+        "eachWay": false,
+        "stakePts": 1,
+        "priceDecimal": 5.530591081921881,
+        "priceFractional": "9/2",
+        "modelProb": 0.2203125,
+        "status": "pending",
+        "finishPos": null,
+        "returnPts": null,
+        "profitPts": null
+      },
+      {
+        "id": "R2026034:40098:top10",
+        "weekNumber": 26,
+        "eventId": "R2026034",
+        "eventName": "Travelers Championship",
+        "placedAt": "2026-06-23T09:26:18.684Z",
+        "playerId": "40098",
+        "player": "Matt Fitzpatrick",
+        "market": "top10",
+        "marketLabel": "Top 10",
+        "eachWay": false,
+        "stakePts": 2,
+        "priceDecimal": 2.7406646111682083,
+        "priceFractional": "7/4",
+        "modelProb": 0.42625,
+        "status": "pending",
+        "finishPos": null,
+        "returnPts": null,
+        "profitPts": null
       },
       {
         "id": "R2026034:60004:top20",
         "weekNumber": 26,
         "eventId": "R2026034",
         "eventName": "Travelers Championship",
-        "placedAt": "2026-06-23T08:30:54.366Z",
+        "placedAt": "2026-06-23T09:26:18.684Z",
         "playerId": "60004",
         "player": "Jacob Bridgeman",
         "market": "top20",
         "marketLabel": "Top 20",
         "eachWay": false,
-        "stakePoints": 2,
-        "stakeGBP": 10,
-        "priceDecimal": 3.3361134278565467,
+        "stakePts": 2,
+        "priceDecimal": 3.3444816053511706,
         "priceFractional": "9/4",
-        "modelProb": 0.38275,
+        "modelProb": 0.3615625,
         "status": "pending",
         "finishPos": null,
-        "returnGBP": null,
-        "profitGBP": null
+        "returnPts": null,
+        "profitPts": null
       },
       {
-        "id": "R2026034:40098:top5",
+        "id": "R2026034:52955:top10",
         "weekNumber": 26,
         "eventId": "R2026034",
         "eventName": "Travelers Championship",
-        "placedAt": "2026-06-23T08:30:54.366Z",
-        "playerId": "40098",
-        "player": "Matt Fitzpatrick",
-        "market": "top5",
-        "marketLabel": "Top 5",
+        "placedAt": "2026-06-23T09:26:18.684Z",
+        "playerId": "52955",
+        "player": "Ludvig Åberg",
+        "market": "top10",
+        "marketLabel": "Top 10",
         "eachWay": false,
-        "stakePoints": 3,
-        "stakeGBP": 15,
-        "priceDecimal": 5.852231163130944,
-        "priceFractional": "5/1",
-        "modelProb": 0.2339375,
+        "stakePts": 3,
+        "priceDecimal": 5.282271376691978,
+        "priceFractional": "9/2",
+        "modelProb": 0.253125,
         "status": "pending",
         "finishPos": null,
-        "returnGBP": null,
-        "profitGBP": null
+        "returnPts": null,
+        "profitPts": null
       }
     ]
   }

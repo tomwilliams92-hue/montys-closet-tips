@@ -145,7 +145,7 @@ async function main() {
   console.error('[build] wrote data.js');
   console.error('[build] TRACKED:', model.trackedBets.map((c) => `${c.name} ${c.marketLabel} ${c.priceFractional} (+${c.edgePct}%)`).join(' | '));
   console.error('[build] BEST BET:', model.bestBet ? `${model.bestBet.name} ${model.bestBet.marketLabel} ${model.bestBet.priceFractional}` : 'none');
-  console.error('[build] P&L:', `bank £${board.pnl.bankrollNowGBP} | settled ${board.pnl.settledCount} | pending ${board.pnl.pendingCount} (£${board.pnl.pendingStakeGBP})`);
+  console.error('[build] P&L:', `bank ${board.pnl.bankNowPts}pts | settled ${board.pnl.settledCount} | pending ${board.pnl.pendingCount} (${board.pnl.pendingStakePts}pts)`);
 }
 
 main().catch((e) => { console.error('[build] FAILED:', e.message); process.exit(1); });
