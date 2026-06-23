@@ -240,12 +240,15 @@ export function buildModel({ field, profile, sg, driving, recentEvents, previous
   // deliberately a bigger-priced contender (~16/1-66/1) with a strong place chance - never the
   // favourite (whose place fraction is too short to be worth backing each-way).
   const elig = (r) => !r.dataThin && !valueIds.has(r.playerId) && !r.playerNote && !r.letdownPenalty;
-  const ewVal = (r) => r.top5.prob * (1 + (r.win.decimal - 1) / 5) - 1; // each-way PLACE-part expected value (the real e/w edge)
-  const inBand = rows.filter((r) => elig(r) && r.win.decimal >= 16 && r.win.decimal <= 66);
-  const pool = inBand.length ? inBand : rows.filter((r) => elig(r) && r.win.decimal >= 16);
-  const winRow = pool.map((r) => ({ r, vs: ewVal(r) })).sort((a, b) => b.vs - a.vs)[0];
+  // Each-way to-win = a backable winner shot in the sweet spot ~8/1 to ~28/1 (16/1-25/1 ideal).
+  // Below 8/1 the each-way isn't worth it; above ~28/1 it's a lottery ticket. Rank by full
+  // each-way EV at the market price (win chance AND place chance both count).
+  const ewEV = (r) => 0.5 * (r.win.prob * r.m_win.decimal) + 0.5 * (r.top5.prob * (1 + (r.m_win.decimal - 1) / 5)) - 1;
+  const inBand = rows.filter((r) => elig(r) && r.m_win.decimal >= 9 && r.m_win.decimal <= 29);
+  const pool = inBand.length ? inBand : rows.filter((r) => elig(r) && r.m_win.decimal >= 9 && r.m_win.decimal <= 41);
+  const winRow = pool.map((r) => ({ r, vs: ewEV(r) })).sort((a, b) => b.vs - a.vs)[0];
   const winBet = winRow ? candidate(winRow.r, 'win') : null;
-  if (winBet) winBet.edgePct = Math.max(0, Math.round(ewVal(winRow.r) * 100)); // display the each-way place value, not the win edge
+  if (winBet) winBet.edgePct = Math.round(ewEV(winRow.r) * 100); // show the each-way EV
   if (winBet) winBet.marquee = 'Each-way to win';
 
   const trackedBets = [...valueBets];
@@ -316,7 +319,7 @@ export function buildModel({ field, profile, sg, driving, recentEvents, previous
     trackedBets, flutters, bestBet, watchlist, eachWayValue,
     top5Sel: selFor('top5', 6), top10Sel: selFor('top10', 6), top20Sel: selFor('top20', 8),
     placesTable, fieldRanking, worldRankings,
-    ewTerms: '5 places at 1/5 odds (best price varies by book - check before betting)',
+    ewTerms: 'each-way at 1/5 odds, 5 places standard (Bet365 and others often pay more - up to 8 places on big fields; always check the terms)',
     bankroll: { startPoints: bankrollPoints, stakedThisWeekPoints: totalPts, weekNumber },
     makeBet, deepDivePayload,
   };
