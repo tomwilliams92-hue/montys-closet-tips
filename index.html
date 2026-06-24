@@ -24,8 +24,8 @@
   header.top { border-bottom:1px solid var(--line); background:linear-gradient(180deg,rgba(43,140,255,.10),transparent); padding:18px 0 16px; }
   .topbar { display:flex; align-items:center; gap:13px; }
   .brand { display:flex; align-items:center; gap:12px; min-width:0; }
-  .brand .mark { width:56px; height:56px; border-radius:12px; flex:none; object-fit:contain; }
-  .brand h1 { font-family:'Oswald'; font-weight:700; font-size:23px; letter-spacing:1px; text-transform:uppercase; line-height:1; }
+  .brand .mark { width:86px; height:86px; border-radius:16px; flex:none; object-fit:contain; }
+  .brand h1 { font-family:'Oswald'; font-weight:700; font-size:26px; letter-spacing:1px; text-transform:uppercase; line-height:1; }
   .brand .sub { color:var(--muted); font-size:12px; margin-top:3px; }
   .updated { margin-left:auto; text-align:right; font-size:12px; color:var(--muted); flex:none; } .updated b { color:var(--blue); }
 
@@ -137,7 +137,7 @@
   .selrow .nm { flex:1; min-width:0; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; } .selrow .od { font-family:'Oswald'; font-weight:600; width:40px; text-align:right; flex:none; } .selrow .ed { width:44px; text-align:right; color:var(--green); font-size:11px; font-weight:600; flex:none; }
 
   .tablewrap { overflow-x:auto; -webkit-overflow-scrolling:touch; }
-  table { width:100%; border-collapse:collapse; margin-top:6px; font-size:13px; min-width:480px; }
+  table { width:100%; border-collapse:collapse; margin-top:6px; font-size:13px; }
   thead th { text-align:left; font-size:10px; text-transform:uppercase; letter-spacing:1px; color:var(--muted); padding:9px 9px; border-bottom:1px solid var(--line); white-space:nowrap; }
   tbody td { padding:9px 9px; border-bottom:1px solid rgba(29,62,114,.5); } tbody tr:hover { background:rgba(43,140,255,.06); }
   .tname { display:flex; align-items:center; gap:9px; white-space:nowrap; } .tname span { white-space:nowrap; } .tshot { width:28px; height:28px; border-radius:50%; object-fit:cover; background:#0c2750; flex:none; }
@@ -151,10 +151,43 @@
   .rgfoot .age { font-family:'Oswald'; font-weight:700; background:var(--gold); color:#1c1402; border-radius:5px; padding:1px 8px; } .rgfoot a { color:var(--gold); font-weight:700; }
   footer .src { font-size:11.5px; color:var(--muted); text-align:center; }
 
-  @media (max-width:880px) { .course,.grid3,.sel3,.grid2 { grid-template-columns:1fr; } .grid4,.pnlgrid { grid-template-columns:repeat(2,1fr); } }
+  /* watchlist cards */
+  .wl-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin-top:8px; }
+  .wl-card { padding:14px 16px; display:flex; flex-direction:column; }
+  .wl-top { display:flex; align-items:center; gap:11px; }
+  .wl-nm { min-width:0; }
+  .wl-nm .pname { font-family:'Oswald'; font-weight:600; font-size:15px; text-transform:uppercase; line-height:1.15; }
+  .wl-nm .wmeta { display:flex; gap:9px; flex-wrap:wrap; align-items:center; margin-top:5px; font-size:11.5px; color:var(--muted); }
+  .wl-nm .wod { font-family:'Oswald'; font-weight:700; font-size:15px; color:var(--gold); }
+  .wl-why { margin-top:10px; font-size:12.5px; color:#dce8fa; line-height:1.45; flex:1; }
+  /* pnl chart */
+  .pnl-chart-wrap { padding:16px 16px 8px; }
+  .pnl-svg { width:100%; display:block; overflow:visible; }
+  /* mobile card tables (660px) */
+  @media (max-width:660px) {
+    .mob-cards { overflow-x:visible; }
+    .mob-cards table { display:block; min-width:0 !important; }
+    .mob-cards thead { display:none; }
+    .mob-cards tbody { display:block; }
+    .mob-cards tr { display:block; border-top:1px solid rgba(29,62,114,.6); padding:10px 0; }
+    .mob-cards tr:first-child { border-top:none; padding-top:4px; }
+    .mob-cards td { display:flex; justify-content:space-between; align-items:center; padding:3px 0; border:none; font-size:12.5px; }
+    .mob-cards td::before { content:attr(data-label); color:var(--muted); font-size:10.5px; text-transform:uppercase; letter-spacing:.5px; flex:none; margin-right:8px; }
+    .mob-cards td.right { text-align:left; }
+  }
+  @media (max-width:880px) { .course,.grid3,.sel3,.grid2 { grid-template-columns:1fr; } .grid4,.pnlgrid { grid-template-columns:repeat(2,1fr); } .wl-grid { grid-template-columns:repeat(2,1fr); } }
   @media (max-width:560px) {
-    .event .ttl { font-size:23px; } .event .logo { width:74px; height:74px; } .event .pills { margin-left:0; width:100%; }
-    .bb-odds { text-align:left; } .brand .sub { display:none; } .grid4 { grid-template-columns:1fr 1fr; } .brand .mark { width:42px; height:42px; } .brand h1 { font-size:18px; }
+    .event .ttl { font-size:22px; } .event .logo { width:74px; height:74px; } .event .pills { margin-left:0; width:100%; }
+    .brand .sub { display:none; } .grid4 { grid-template-columns:1fr 1fr; } .brand .mark { width:64px; height:64px; } .brand h1 { font-size:19px; }
+    .tabs { overflow-x:visible; flex-wrap:wrap; border-bottom:none; gap:4px; padding-bottom:6px; }
+    .tab { flex:1 1 30%; text-align:center; font-size:11px; padding:8px 4px; border:1px solid var(--line); border-radius:8px; border-bottom:2px solid transparent; white-space:normal; line-height:1.2; }
+    .tab.active { border-color:var(--blue); background:rgba(43,140,255,.10); }
+    .bb-main { flex-direction:column; align-items:flex-start; gap:10px; }
+    .bb-info { min-width:0; }
+    .bb-odds { display:flex; align-items:center; gap:14px; flex-wrap:wrap; }
+    .bb-odds .o { font-size:34px; }
+    .wl-grid { grid-template-columns:1fr; }
+    .fw-wrap .rk, .fw-wrap th:first-child { display:none; }
   }
 </style>
 </head>
@@ -303,7 +336,7 @@ function render() {
 
   t1.appendChild($(`<div class="shead accent-blue"><h2>Field Watch</h2><div class="ln"></div><div class="tag">model top 15 by win chance</div></div>`));
   const fr=B.fieldRanking.map(p=>`<tr><td class="rk">${p.modelRank}</td><td><div class="tname">${shot(p,'tshot',11)}<span>${p.name}</span></div></td><td class="num right">${p.win.fractional}</td><td class="num right">${pct(p.winProb)}</td><td class="right ${p.trend==='up'?'pos':p.trend==='down'?'neg':''}">${p.trend==='up'?'▲':p.trend==='down'?'▼':'▬'} ${p.recentEvents?p.recentSG.toFixed(2):'–'}</td></tr>`).join('');
-  t1.appendChild($(`<div class="card-base tablewrap" style="padding:6px 12px 10px"><table><thead><tr><th></th><th>Player</th><th class="right">Win odds</th><th class="right">Win%</th><th class="right">Recent SG</th></tr></thead><tbody>${fr}</tbody></table></div>`));
+  t1.appendChild($(`<div class="card-base tablewrap fw-wrap" style="padding:6px 12px 10px"><table><thead><tr><th class="rk"></th><th>Player</th><th class="right">Win odds</th><th class="right">Win%</th><th class="right">Recent SG</th></tr></thead><tbody>${fr}</tbody></table></div>`));
   app.appendChild(t1);
 
   // ---- PLACES ----
@@ -322,8 +355,14 @@ function render() {
   // ---- WATCHLIST ----
   const t3=$(`<div class="panel-tab" id="tab-watch"></div>`);
   t3.appendChild($(`<div class="shead accent-blue"><h2>Watchlist</h2><div class="ln"></div><div class="tag">not backable this week &middot; ones to watch</div></div>`));
-  const wl=(B.watchlist||[]).map(w=>`<tr><td><div class="tname">${shot(w,'tshot',11)}<span>${flag(w.country)} ${w.name}${w.tag?` <span class="tagchip">${w.tag}</span>`:''}</span></div></td><td class="right">#${w.owgr}</td><td class="right ${w.trend==='up'?'pos':w.trend==='down'?'neg':''}">${w.trend==='up'?'▲':w.trend==='down'?'▼':'▬'} ${w.recentEvents?w.recentSG.toFixed(2):'–'}</td><td class="num right">${w.winOdds}</td><td style="color:#dce8fa;min-width:240px">${w.why}</td></tr>`).join('');
-  t3.appendChild($(`<div class="card-base tablewrap" style="padding:6px 12px 10px"><table><thead><tr><th>Player</th><th class="right">OWGR</th><th class="right">Recent SG</th><th class="right">Win</th><th>Why watch</th></tr></thead><tbody>${wl}</tbody></table></div>`));
+  const wlGrid=$(`<div class="wl-grid"></div>`);
+  (B.watchlist||[]).forEach(w=>{
+    const tc=w.trend==='up'?'pos':w.trend==='down'?'neg':'';
+    const ta=w.trend==='up'?'▲':w.trend==='down'?'▼':'▬';
+    const sgStr=w.recentEvents?w.recentSG.toFixed(2):'–';
+    wlGrid.appendChild($(`<div class="card-base wl-card"><div class="wl-top">${shot(w,'tshot',11)}<div class="wl-nm"><div class="pname">${flag(w.country)} ${w.name}${w.tag?` <span class="tagchip">${w.tag}</span>`:''}</div><div class="wmeta"><span>OWGR #${w.owgr}</span><span class="${tc}">${ta} ${sgStr}</span><span class="wod">${w.winOdds}</span></div></div></div><div class="wl-why">${w.why}</div></div>`));
+  });
+  t3.appendChild(wlGrid);
   app.appendChild(t3);
 
   // ---- P&L ----
@@ -337,6 +376,30 @@ function render() {
     <div class="card-base b"><div class="k">Strike rate</div><div class="v">${pl.strikeRatePct}%</div><small>${pl.won}W &middot; ${pl.lost}L &middot; ${pl.totalBets} bets</small></div>
   </div>`));
 
+  // P&L trend chart
+  {
+    const stld=(pl.allBets||[]).filter(b=>b.status!=='pending');
+    if (stld.length>=1) {
+      let cum=0;
+      const pts_a=[0,...stld.map(b=>{cum+=b.profitPts;return cum;})];
+      const N=pts_a.length,minV=Math.min(...pts_a),maxV=Math.max(...pts_a);
+      const CW=800,CH=180,pd={t:18,r:20,b:28,l:46};
+      const rng=maxV-minV||1;
+      const cX=i=>pd.l+(i/(N-1))*(CW-pd.l-pd.r);
+      const cY=v=>pd.t+(1-(v-minV)/rng)*(CH-pd.t-pd.b);
+      const z0=cY(0);
+      const lp=pts_a.map((v,i)=>`${cX(i).toFixed(1)},${cY(v).toFixed(1)}`).join(' ');
+      const ap=`${cX(0).toFixed(1)},${z0.toFixed(1)} ${lp} ${cX(N-1).toFixed(1)},${z0.toFixed(1)}`;
+      const col=pts_a[N-1]>=0?'#36d399':'#ff6f6f';
+      const ytv=[minV,0,maxV].filter((v,i,a)=>a.findIndex(x=>Math.abs(x-v)<0.01)===i);
+      const ytk=ytv.map(v=>`<line x1="${pd.l}" y1="${cY(v).toFixed(1)}" x2="${CW-pd.r}" y2="${cY(v).toFixed(1)}" stroke="rgba(255,255,255,${v===0?.2:.06})" stroke-width="1" ${v===0?'stroke-dasharray="4,3"':''}/><text x="${pd.l-5}" y="${cY(v).toFixed(1)}" fill="#8fa9d0" font-size="10" text-anchor="end" dominant-baseline="middle">${v>=0?'+':''}${v.toFixed(1)}</text>`).join('');
+      const endX=cX(N-1).toFixed(1),endY=cY(pts_a[N-1]).toFixed(1);
+      const endLbl=`${pts_a[N-1]>=0?'+':''}${pts_a[N-1].toFixed(1)} pts`;
+      t4.appendChild($(`<div class="shead accent-blue"><h2>P&L Trend</h2><div class="ln"></div><div class="tag">cumulative pts after each settled bet</div></div>`));
+      t4.appendChild($(`<div class="card-base pnl-chart-wrap"><svg class="pnl-svg" viewBox="0 0 ${CW} ${CH}" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="cg1" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="${col}" stop-opacity=".25"/><stop offset="100%" stop-color="${col}" stop-opacity="0"/></linearGradient></defs>${ytk}<polyline points="${ap}" fill="url(#cg1)" stroke="none"/><polyline points="${lp}" fill="none" stroke="${col}" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/><circle cx="${endX}" cy="${endY}" r="4" fill="${col}"/><text x="${parseFloat(endX)+8}" y="${endY}" fill="${col}" font-size="11" dominant-baseline="middle" font-weight="bold">${endLbl}</text></svg></div>`));
+    }
+  }
+
   if (pl.byMarket && pl.byMarket.length) {
     const bm=pl.byMarket.map(m=>`<tr><td>${m.market}</td><td class="right">${m.bets}</td><td class="right">${m.staked} pts</td><td class="right ${m.profit>=0?'stat-up':'stat-dn'}">${signedPts(m.profit)}</td><td class="right">${m.roiPct>=0?'+':''}${m.roiPct}%</td></tr>`).join('');
     t4.appendChild($(`<div class="shead accent-blue"><h2>By Market</h2><div class="ln"></div></div><div class="card-base tablewrap" style="padding:6px 12px 10px"><table><thead><tr><th>Market</th><th class="right">Bets</th><th class="right">Staked</th><th class="right">P/L</th><th class="right">ROI</th></tr></thead><tbody>${bm}</tbody></table></div>`));
@@ -347,9 +410,9 @@ function render() {
     const rows=pl.allBets.map(b=>{
       const stat = b.status==='pending'?'<span style="color:var(--gold)">pending</span>':(b.profitPts>0?'<span class="stat-up">won</span>':'<span class="stat-dn">lost</span>');
       const pnl = b.status==='pending'?'–':`<span class="${b.profitPts>0?'stat-up':'stat-dn'}">${signedPts(b.profitPts)}</span>`;
-      return `<tr><td>${b.eventName}</td><td>${b.player}</td><td>${b.marketLabel}${b.eachWay?' e/w':''}</td><td class="right">${b.priceFractional}</td><td class="right">${pts(b.stakePts)}</td><td class="right">${b.finishPos||'–'}</td><td class="right">${stat}</td><td class="right">${pnl}</td></tr>`;
+      return `<tr><td data-label="Event">${b.eventName}</td><td data-label="Player">${b.player}</td><td data-label="Market">${b.marketLabel}${b.eachWay?' e/w':''}</td><td class="right" data-label="Price">${b.priceFractional}</td><td class="right" data-label="Stake">${pts(b.stakePts)}</td><td class="right" data-label="Finish">${b.finishPos||'–'}</td><td class="right" data-label="Status">${stat}</td><td class="right" data-label="P/L">${pnl}</td></tr>`;
     }).join('');
-    t4.appendChild($(`<div class="card-base tablewrap" style="padding:6px 12px 10px"><table><thead><tr><th>Event</th><th>Player</th><th>Market</th><th class="right">Price</th><th class="right">Stake</th><th class="right">Finish</th><th class="right">Status</th><th class="right">P/L</th></tr></thead><tbody>${rows}</tbody></table></div>`));
+    t4.appendChild($(`<div class="card-base tablewrap mob-cards" style="padding:6px 12px 10px"><table><thead><tr><th>Event</th><th>Player</th><th>Market</th><th class="right">Price</th><th class="right">Stake</th><th class="right">Finish</th><th class="right">Status</th><th class="right">P/L</th></tr></thead><tbody>${rows}</tbody></table></div>`));
   } else t4.appendChild($(`<div class="card-base emptybox">Track record starts this week. Every bet, win or lose, is logged here and settled next Monday off the final leaderboard.</div>`));
   app.appendChild(t4);
 
