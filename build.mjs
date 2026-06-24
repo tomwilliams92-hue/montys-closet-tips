@@ -56,20 +56,28 @@ const DRIVE = { distance: '101', accuracy: '102' };
 const AFFILIATE = ''; // e.g. 'affil=YOURCODE' - appended to the oddschecker "Back it" links
 
 const fracToDec = (f) => { const [n, d] = String(f).split('/').map(Number); return d ? n / d + 1 : Number(f) + 1; };
+const FRAC_LADDER = [[1,5],[2,9],[1,4],[2,7],[3,10],[1,3],[4,11],[2,5],[4,9],[1,2],[8,15],[4,7],[8,13],[4,6],[8,11],[4,5],[5,6],[10,11],[1,1],[11,10],[6,5],[5,4],[11,8],[6,4],[13,8],[7,4],[15,8],[2,1],[9,4],[5,2],[11,4],[3,1],[10,3],[7,2],[4,1],[9,2],[5,1],[11,2],[6,1],[13,2],[7,1],[15,2],[8,1],[9,1],[10,1],[11,1],[12,1],[14,1],[16,1],[18,1],[20,1],[22,1],[25,1],[28,1],[33,1],[40,1],[50,1],[66,1],[80,1],[100,1]];
+const decToFrac = (dec) => { const t = dec - 1; let best = FRAC_LADDER[0], e = Infinity; for (const [n, d] of FRAC_LADDER) { const err = Math.abs(n / d - t); if (err < e) { e = err; best = [n, d]; } } return `${best[0]}/${best[1]}`; };
+// a price may be given fractional ('21/1') or decimal (2.75) -> {decimal, fractional}
+const parsePrice = (p) => {
+  if (p == null) return null;
+  if (typeof p === 'string' && p.includes('/')) { const dec = fracToDec(p); return { decimal: dec, fractional: p }; }
+  const dec = Number(p); return Number.isFinite(dec) && dec > 1 ? { decimal: dec, fractional: decToFrac(dec) } : null;
+};
 
 // MANUAL CARD - when non-empty, this HAND-PICKS the tracked bets (Tom's research overrides the
 // auto-selector for the week). Each pick keeps the model's value/course-history/rationale, but
-// the market + stake (and, for each-way picks, the real price) come from here. Refresh weekly.
-//   { name, market: win|top5|top10|top20, points, eachWay?, priceFractional? }
-// priceFractional is needed only for each-way picks whose model price is a long-shot artifact.
+// the market, stake and REAL price come from here. `price` may be fractional ('21/1') or decimal
+// (2.75). Refresh weekly. Each-way win picks require a real price (the model price is a long-shot
+// artifact for course-history specialists).
 const MANUAL_CARD = [
-  { name: 'Akshay Bhatia',    market: 'top10', points: 2 },
-  { name: 'Matt Fitzpatrick', market: 'top10', points: 2 },
-  { name: 'Collin Morikawa',  market: 'top10', points: 1 },
-  { name: 'Eric Cole',        market: 'top20', points: 1 },
-  { name: 'Tommy Fleetwood',  market: 'win', eachWay: true, points: 2 },                                     // model price (~22/1) is realistic
-  { name: 'Justin Thomas',    market: 'win', eachWay: true, points: 2, needsPrice: true, priceFractional: null }, // PENDING Tom's price
-  { name: 'Brian Harman',     market: 'win', eachWay: true, points: 2, needsPrice: true, priceFractional: null }, // PENDING Tom's price
+  { name: 'Akshay Bhatia',    market: 'top10', points: 2, price: 4.75 },
+  { name: 'Matt Fitzpatrick', market: 'top10', points: 2, price: 2.75 },
+  { name: 'Collin Morikawa',  market: 'top10', points: 1, price: 3.25 },
+  { name: 'Eric Cole',        market: 'top20', points: 1, price: 2.62 },
+  { name: 'Tommy Fleetwood',  market: 'win', eachWay: true, points: 2, price: '18/1' },
+  { name: 'Justin Thomas',    market: 'win', eachWay: true, points: 2, price: '21/1' },
+  { name: 'Brian Harman',     market: 'win', eachWay: true, points: 2, price: '41/1' },
 ];
 const BEST_BET_NAME = 'Akshay Bhatia';        // headline pick (null = highest-edge place bet)
 const REMOVE = ['Ludvig Åberg'];              // never feature these (also pulled from flutters)
@@ -78,17 +86,17 @@ function buildManualCard(board, model) {
   if (!MANUAL_CARD.length) return;
   const out = [];
   for (const e of MANUAL_CARD) {
-    if (e.needsPrice && !e.priceFractional) { console.error(`[build] manual card: ${e.name} each-way price PENDING - skipped until set`); continue; }
+    const price = parsePrice(e.price);
+    if (e.eachWay && e.market === 'win' && !price) { console.error(`[build] manual card: ${e.name} each-way needs a real price - skipped`); continue; }
     const id = model.playerIdByName(e.name);
     if (!id) { console.error(`[build] manual card: ${e.name} not in field - skipped`); continue; }
     const c = model.makeBet(id, e.market);
     if (!c) { console.error(`[build] manual card: makeBet failed for ${e.name}`); continue; }
     c.tracked = true; c.points = e.points || 1;
-    if (e.priceFractional) { // override the model price with the real market price
-      const dec = fracToDec(e.priceFractional);
-      c.marketOdds = { prob: 1 / dec, decimal: dec, fractional: e.priceFractional };
-      c.marketProb = 1 / dec;
-      c.edgePct = Math.round((c.modelProb / (1 / dec) - 1) * 100);
+    if (price) { // override the model estimate with Tom's real market price
+      c.marketOdds = { prob: 1 / price.decimal, decimal: price.decimal, fractional: price.fractional };
+      c.marketProb = 1 / price.decimal;
+      c.edgePct = Math.round((c.modelProb / c.marketProb - 1) * 100);
     }
     if (e.eachWay) {
       c.marquee = 'Each-way to win'; c.eachWay = true; c.eachWayPlaces = 8;
