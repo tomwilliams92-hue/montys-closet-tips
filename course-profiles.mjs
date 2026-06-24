@@ -20,6 +20,7 @@ export const COURSE_PROFILES = {
     course: 'TPC River Highlands',
     par: 70,
     yards: 6841,
+    grass: 'Bentgrass greens, bentgrass/Poa fairways (cool-season)',
     archetype: 'Precision irons & hot putter',
     summary:
       'One of the shortest, most scoreable tracks on tour. A par 70 with small greens where birdies are made with sharp approach play and putting, not raw power. Straight, accurate iron players beat the bombers here.',
@@ -30,6 +31,7 @@ export const COURSE_PROFILES = {
       'Small greens reward pinpoint approach play',
       'Birdie-fest: putting and short game decide it',
       'Distance off the tee is a minor edge - accuracy over power',
+      'Pure bentgrass greens - true-rolling, rewards confident putters',
     ],
     weights: { ott: 0.15, app: 0.35, arg: 0.20, putt: 0.30 },
   },
@@ -39,6 +41,7 @@ export const COURSE_PROFILES = {
     course: 'TPC Deere Run',
     par: 71,
     yards: 7268,
+    grass: 'Bentgrass greens (cool-season)',
     archetype: 'Birdie-machine, elite irons & putting',
     summary:
       'A low-scoring birdie-fest. The winner almost always goes deep under par, so relentless approach play and a hot putter matter far more than length.',
@@ -56,6 +59,7 @@ export const COURSE_PROFILES = {
     course: 'The Renaissance Club',
     par: 70,
     yards: 7282,
+    grass: 'Fescue links greens and fairways',
     archetype: 'Wind-proof ball-striker',
     summary:
       'A links test in the wind the week before The Open. Control off the tee and flighted iron play win out; a strong all-round ball-striker who handles the breeze is favoured over a pure bomber.',
@@ -73,6 +77,7 @@ export const COURSE_PROFILES = {
     course: 'Royal Birkdale',
     par: 70,
     yards: 7156,
+    grass: 'Fescue links greens and fairways',
     archetype: 'Complete links player',
     summary:
       'Classic Open links. Driving control, penetrating iron play and a sharp short game in the wind separate the field. Putting matters least of the four here - ball-striking and scrambling win Opens.',

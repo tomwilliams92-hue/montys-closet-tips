@@ -158,6 +158,35 @@ export async function getEventSG(tournamentId, year) {
   return getStat('02675', year, { tournamentId, queryType: 'EVENT_ONLY' });
 }
 
+// Course history: how each player has fared at THIS event in prior years. The PGA Tour id
+// is R{YEAR}{eventCode} (e.g. Travelers = R2026034), so we swap the year to find past stagings
+// and pull their final leaderboards. Returns Map(playerId -> {starts, madeCuts, avgFinish,
+// bestFinish}) where a missed cut counts as a 65th-place finish so it drags the average down.
+export async function getCourseHistory(currentEventId, yearsBack = 4) {
+  const m = /^([A-Z])(\d{4})(\d+)$/.exec(currentEventId || '');
+  if (!m) return new Map();
+  const [, prefix, yr, code] = m;
+  const year = parseInt(yr, 10);
+  const ids = [];
+  for (let k = 1; k <= yearsBack; k++) ids.push(`${prefix}${year - k}${code}`);
+  const lbs = await Promise.all(ids.map((id) => getLeaderboard(id).catch(() => null)));
+  const agg = new Map(); // playerId -> { starts, madeCuts, sumFinish, bestFinish }
+  for (const lb of lbs) {
+    if (!lb?.positions?.size) continue;
+    for (const [pid, v] of lb.positions) {
+      const a = agg.get(pid) || { starts: 0, madeCuts: 0, sumFinish: 0, bestFinish: null };
+      a.starts++;
+      const finishVal = v.cut || !Number.isFinite(v.pos) ? 65 : v.pos;
+      a.sumFinish += finishVal;
+      if (!v.cut && Number.isFinite(v.pos)) { a.madeCuts++; if (a.bestFinish == null || v.pos < a.bestFinish) a.bestFinish = v.pos; }
+      agg.set(pid, a);
+    }
+  }
+  const out = new Map();
+  for (const [pid, a] of agg) out.set(pid, { starts: a.starts, madeCuts: a.madeCuts, avgFinish: a.sumFinish / a.starts, bestFinish: a.bestFinish });
+  return out;
+}
+
 // Final finishing positions for a completed event - used to settle P&L bets.
 // Returns Map(playerId -> { pos:Int|null, posText:String, cut:Boolean }).
 export async function getLeaderboard(tournamentId) {

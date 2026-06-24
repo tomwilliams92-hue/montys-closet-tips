@@ -17,15 +17,17 @@ export function loadLedger() {
 }
 export function saveLedger(l) { fs.writeFileSync(LEDGER, JSON.stringify(l, null, 2)); }
 
-// Record this week's tracked bets as pending (id keyed so re-running a week updates, not dupes).
+// Record this week's tracked bets as pending. The event hasn't started, so its pending bets
+// are fully REPLACED on every rebuild - that keeps a week idempotent even if the card or a
+// market changes between runs (no stale duplicates). Settled bets are never touched.
 export function appendWeek(ledger, board) {
+  ledger.bets = ledger.bets.filter((b) => !(b.eventId === board.event.id && b.status === 'pending'));
   for (const c of board.trackedBets) {
     const id = `${board.event.id}:${c.playerId}:${c.market}`;
-    if (ledger.bets.some((b) => b.id === id)) continue;
     ledger.bets.push({
       id, weekNumber: board.bankroll.weekNumber, eventId: board.event.id, eventName: board.event.name,
       placedAt: board.generatedAt, playerId: c.playerId, player: c.name,
-      market: c.market, marketLabel: c.marketLabel, eachWay: c.eachWay,
+      market: c.market, marketLabel: c.marketLabel, eachWay: c.eachWay, eachWayPlaces: c.eachWayPlaces || (c.eachWay ? 5 : null),
       stakePts: c.points, priceDecimal: c.priceDecimal, priceFractional: c.priceFractional,
       modelProb: c.modelProb, status: 'pending', finishPos: null, returnPts: null, profitPts: null,
     });
@@ -36,10 +38,11 @@ function gradeBet(bet, pos, cut) {
   // returns total return in POINTS for the stake; profit = return - stake
   const placed = (n) => Number.isFinite(pos) && pos <= n && !cut;
   if (bet.eachWay) {
-    const side = bet.stakePts / 2; // half win, half place (top-5 at 1/5 odds)
+    const side = bet.stakePts / 2; // half win, half place at 1/5 odds
+    const places = bet.eachWayPlaces || 5;
     let ret = 0;
     if (Number.isFinite(pos) && pos === 1 && !cut) ret += side * bet.priceDecimal;   // win part
-    if (placed(5)) ret += side * (1 + (bet.priceDecimal - 1) / 5);                    // place part
+    if (placed(places)) ret += side * (1 + (bet.priceDecimal - 1) / 5);              // place part
     return ret;
   }
   const need = { win: 1, top5: 5, top10: 10, top20: 20 }[bet.market];

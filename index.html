@@ -206,9 +206,13 @@ const flag=(code)=>{const c=FLAGS[(code||'').toUpperCase()];return c?`<img class
 
 function valueCard(c) {
   const flut = !c.tracked;
+  // each-way stake reads as "1pt each-way (8 places) · 2pt total" - the points value is the total outlay
+  const stakeLabel = c.eachWay
+    ? `${pts(c.points/2)} each-way${c.eachWayPlaces?` (${c.eachWayPlaces} places)`:''} &middot; ${pts(c.points)} total`
+    : pts(c.points);
   const stakeBox = flut
-    ? `<div class="stake flut"><div class="big">Flutter &middot; ${pts(c.points)}${c.eachWay?' each-way':''}</div><div class="ew">Just for fun - not tracked in the P&L</div></div>`
-    : `<div class="stake"><div class="big">Suggested stake: ${pts(c.points)}${c.eachWay?' each-way':''}</div><div class="ew">tracked in the P&L (points only - set your own unit)</div></div>`;
+    ? `<div class="stake flut"><div class="big">Flutter &middot; ${stakeLabel}</div><div class="ew">Just for fun - not tracked in the P&L</div></div>`
+    : `<div class="stake"><div class="big">Suggested stake: ${stakeLabel}</div><div class="ew">tracked in the P&L (points only - set your own unit)</div></div>`;
   const chips = [];
   if (c.lastWeekFinish) chips.push(`<span class="mini">Last wk: ${c.lastWeekFinish}</span>`);
   else if (c.playedLastWeek===false) chips.push(`<span class="mini">Didn't play last wk</span>`);
@@ -224,7 +228,7 @@ function valueCard(c) {
       </div>
     </div>
     <div class="odds-row">
-      <div class="price">${c.marketOdds.fractional}<small>Best Price &middot; <b>${edgeStr(c.edgePct)} edge</b></small></div>
+      <div class="price">${c.marketOdds.fractional}<small>Best Price &middot; <b>${c.marquee==='Each-way to win'?`${c.ewPlaceProb}% to make top 8`:`${edgeStr(c.edgePct)} edge`}</b></small></div>
       ${backButton(c)}
     </div>
     <div class="mvm">
@@ -260,7 +264,7 @@ function render() {
     <p><b>Value Edge</b> - how much higher our model rates a player's chance than the <b>Best Price</b> implies. +25% edge means the model thinks he's 25% more likely than the price suggests. Positive edge = potential value. It's the whole game: we back prices that are too big, not just good players.</p>
     <p><b>Best Price</b> - the most generous odds across the major UK bookmakers (Bet365, William Hill, BetVictor, Ladbrokes, Sky Bet, Paddy Power and more). When a live odds feed is connected, each pick names the book with the best price and the button backs it directly; otherwise the price is a model estimate and the "Compare prices" button opens the oddschecker market so you can shop all the books yourself.</p>
     <p><b>Model vs Market</b> - the two bars: our model's probability (blue) vs the price-implied probability (gold). The gap is the edge.</p>
-    <p><b>Each-way (e/w)</b> - half the stake on the win, half on a top-5 place, so you collect even if he just contends. <b>Points</b> - all staking and the P&L are in points/units; pick your own £ per point.</p>
+    <p><b>Each-way (e/w)</b> - half the stake on the win, half on a place at 1/5 of the odds. We use Bet365's 8 places on a full field, so you collect if he finishes in the top 8 even without winning. The backtest sweet spot is 20/1-50/1: below ~16/1 the place return is too thin, above ~50/1 it's a lottery. <b>Points</b> - all staking and the P&L are in points/units; pick your own £ per point.</p>
   </div></details>`));
 
   app.appendChild($(`<div class="tabs">

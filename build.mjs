@@ -8,7 +8,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { getSchedule, getField, getStat, getEventSG, getLeaderboard } from './pga-api.mjs';
+import { getSchedule, getField, getStat, getEventSG, getLeaderboard, getCourseHistory } from './pga-api.mjs';
 import { profileFor } from './course-profiles.mjs';
 import { buildModel } from './model.mjs';
 import { loadLedger, saveLedger, appendWeek, settle, summary } from './ledger.mjs';
@@ -54,6 +54,57 @@ try { process.loadEnvFile(path.join(__dirname, '.env')); } catch { /* no .env - 
 const SG = { total: '02675', ott: '02567', app: '02568', arg: '02569', putt: '02564' };
 const DRIVE = { distance: '101', accuracy: '102' };
 const AFFILIATE = ''; // e.g. 'affil=YOURCODE' - appended to the oddschecker "Back it" links
+
+const fracToDec = (f) => { const [n, d] = String(f).split('/').map(Number); return d ? n / d + 1 : Number(f) + 1; };
+
+// MANUAL CARD - when non-empty, this HAND-PICKS the tracked bets (Tom's research overrides the
+// auto-selector for the week). Each pick keeps the model's value/course-history/rationale, but
+// the market + stake (and, for each-way picks, the real price) come from here. Refresh weekly.
+//   { name, market: win|top5|top10|top20, points, eachWay?, priceFractional? }
+// priceFractional is needed only for each-way picks whose model price is a long-shot artifact.
+const MANUAL_CARD = [
+  { name: 'Akshay Bhatia',    market: 'top10', points: 2 },
+  { name: 'Matt Fitzpatrick', market: 'top10', points: 2 },
+  { name: 'Collin Morikawa',  market: 'top10', points: 1 },
+  { name: 'Eric Cole',        market: 'top20', points: 1 },
+  { name: 'Tommy Fleetwood',  market: 'win', eachWay: true, points: 2 },                                     // model price (~22/1) is realistic
+  { name: 'Justin Thomas',    market: 'win', eachWay: true, points: 2, needsPrice: true, priceFractional: null }, // PENDING Tom's price
+  { name: 'Brian Harman',     market: 'win', eachWay: true, points: 2, needsPrice: true, priceFractional: null }, // PENDING Tom's price
+];
+const BEST_BET_NAME = 'Akshay Bhatia';        // headline pick (null = highest-edge place bet)
+const REMOVE = ['Ludvig Åberg'];              // never feature these (also pulled from flutters)
+
+function buildManualCard(board, model) {
+  if (!MANUAL_CARD.length) return;
+  const out = [];
+  for (const e of MANUAL_CARD) {
+    if (e.needsPrice && !e.priceFractional) { console.error(`[build] manual card: ${e.name} each-way price PENDING - skipped until set`); continue; }
+    const id = model.playerIdByName(e.name);
+    if (!id) { console.error(`[build] manual card: ${e.name} not in field - skipped`); continue; }
+    const c = model.makeBet(id, e.market);
+    if (!c) { console.error(`[build] manual card: makeBet failed for ${e.name}`); continue; }
+    c.tracked = true; c.points = e.points || 1;
+    if (e.priceFractional) { // override the model price with the real market price
+      const dec = fracToDec(e.priceFractional);
+      c.marketOdds = { prob: 1 / dec, decimal: dec, fractional: e.priceFractional };
+      c.marketProb = 1 / dec;
+      c.edgePct = Math.round((c.modelProb / (1 / dec) - 1) * 100);
+    }
+    if (e.eachWay) {
+      c.marquee = 'Each-way to win'; c.eachWay = true; c.eachWayPlaces = 8;
+      c.ewPlaceProb = Math.round((c.placeProbTop8 || 0) * 100);
+      c.rationale += ` Each-way angle: the model has him about ${c.ewPlaceProb}% to finish inside the top 8, so at 8 places (1/5 odds) the place half of the bet is where the value sits.`;
+    }
+    c.priceDecimal = c.marketOdds.decimal; c.priceFractional = c.marketOdds.fractional;
+    out.push(c);
+  }
+  if (!out.length) return;
+  board.trackedBets = out;
+  board.bankroll.stakedThisWeekPoints = out.reduce((a, c) => a + c.points, 0);
+  const bb = BEST_BET_NAME ? out.find((c) => c.name === BEST_BET_NAME) : null;
+  board.bestBet = bb || out.filter((c) => !c.marquee).sort((a, b) => b.edgePct - a.edgePct)[0] || out[0];
+  if (REMOVE.length) board.flutters = (board.flutters || []).filter((f) => !REMOVE.includes(f.name));
+}
 const slugify = (s) => s.toLowerCase().replace(/&/g, 'and').replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
 const logoUrl = (a) => (a && a.imagePath ? `https://res.cloudinary.com/pgatour-prod/image/upload/q_auto,f_auto/${a.imagePath}` : null);
 
@@ -115,6 +166,10 @@ async function main() {
   // real best-price winner odds across UK books (the-odds-api) - null without a key
   const realOdds = await getRealWinnerOdds(event.tournamentName).catch(() => null);
 
+  // course history: how the field has fared at THIS event over the last few years (free)
+  const courseHistory = await getCourseHistory(event.id, 4).catch(() => null);
+  if (courseHistory) console.error(`[build] course history: ${courseHistory.size} players with prior starts here`);
+
   const model = buildModel({
     field,
     profile,
@@ -126,6 +181,7 @@ async function main() {
     eventSlug: slugify(event.tournamentName),
     affiliate: AFFILIATE,
     realOdds,
+    courseHistory,
   });
 
   const notes = [];
@@ -134,8 +190,10 @@ async function main() {
   const oddsNote = realOdds
     ? 'Win-market prices are the best available across UK bookmakers (live); place-market prices (top 5/10/20) are model estimates.'
     : 'Prices are model estimates until a live odds feed is connected.';
-  notes.push(`Recommendations are ranked by VALUE - the model's probability vs the best price (the edge). Win/Top-5/Top-10/Top-20 probabilities come from a Monte Carlo simulation. ${oddsNote}`);
-  notes.push('Tracked bets feed the P&L (points/units). Untracked "flutters" do not. Bets settle the following week off the final leaderboard.');
+  notes.push(`Recommendations are ranked by VALUE - the model's probability vs the best price (the edge). Win/Top-5/Top-10/Top-20 probabilities come from a Monte Carlo simulation built on course-fit strokes-gained, recent form/trend, season class and course history at this event. ${oddsNote}`);
+  if (model.courseHistoryCount) notes.push(`Course history: finishes at this event over the last 4 stagings feed the model for ${model.courseHistoryCount} of the field (debutants are treated neutrally, not penalised).`);
+  if (profile.grass) notes.push(`Greens/grass: ${profile.grass}. Surface type informs the course read; per-player grass-specific putting splits would need a paid feed, so it is not yet a separate player input.`);
+  notes.push('Each-way to-win bets are 1pt e/w at 8 places (Bet365 terms), priced in the 20/1-50/1 backtested sweet spot. Tracked bets feed the P&L (points/units); untracked "flutters" do not. Bets settle the following week off the final leaderboard.');
 
   const board = {
     generatedAt: new Date().toISOString(),
@@ -157,6 +215,7 @@ async function main() {
       weights: profile.weights,
       par: profile.par || null,
       yards: profile.yards || null,
+      grass: profile.grass || null,
     },
     recentEventsUsed: recentEvents.map((e) => e.name),
     previousEvent: previousEvent ? { name: previousEvent.name, isMajor: previousEvent.isMajor, champion: previousEvent.champion } : null,
@@ -181,6 +240,9 @@ async function main() {
     const dd = await runDeepDive({ event: board.event, courseProfile: board.courseProfile, previousEvent, players: model.deepDivePayload });
     if (dd && dd.trackedBets && dd.trackedBets.length) { applyDeepDive(board, dd, model.makeBet); console.error('[build] applied AI deep-dive picks'); }
   } catch (e) { console.error('[build] deep-dive skipped, keeping algorithmic picks:', e.message); }
+
+  // hand-curated card for the week (Tom's research): replaces the auto-selection when set
+  buildManualCard(board, model);
 
   // ---- P&L ledger: settle finished events, then record this week's tracked bets ----
   const ledger = loadLedger();

@@ -68,6 +68,15 @@ function formText(p) {
   if (p.trend === 'down') return `form cooling (${p.recentSG.toFixed(2)} SG/rd over ${starts})`;
   return `steady (${p.recentSG.toFixed(2)} SG/rd over last ${starts})`;
 }
+const ordFinish = (n) => (n === 1 ? 'a win' : `T${n}`);
+function courseHistText(ch) {
+  if (!ch || !ch.starts) return null;
+  const s = `${ch.starts} prior start${ch.starts === 1 ? '' : 's'} here`;
+  if (!ch.madeCuts) return `course history: ${s}, no made cuts (struggles at this track)`;
+  const avg = Math.round(ch.avgFinish);
+  const quality = ch.bestFinish <= 5 ? 'strong record' : ch.bestFinish <= 15 ? 'solid record' : 'mixed record';
+  return `course history: ${quality} here - best ${ordFinish(ch.bestFinish)} in ${s} (avg finish ~${avg})`;
+}
 
 // ---- post-event let-down --------------------------------------------------
 // Evidence (June 2026): a broad "major hangover" for everyone who contends is NOT supported
@@ -111,7 +120,7 @@ function runSim(comps) {
 }
 
 // ---- the model ------------------------------------------------------------
-export function buildModel({ field, profile, sg, driving, recentEvents, previousEvent, weekNumber, bankrollPoints = 100, eventSlug = '', affiliate = '', realOdds = null }) {
+export function buildModel({ field, profile, sg, driving, recentEvents, previousEvent, weekNumber, bankrollPoints = 100, eventSlug = '', affiliate = '', realOdds = null, courseHistory = null }) {
   const players = field.players.filter((p) => !p.amateur);
   const sgVal = (which, id) => sg[which]?.get(String(id))?.values?.Avg;
 
@@ -125,6 +134,7 @@ export function buildModel({ field, profile, sg, driving, recentEvents, previous
       owgr: p.owgr || 999, headshot: headshot(id), sg: comp,
       drivingDistance: driving.distance?.get(id)?.values?.Avg, drivingAccuracy: driving.accuracy?.get(id)?.values?.['%'],
       recentSG, recentEvents: recentVals.length, dataThin: !Number.isFinite(comp.total),
+      courseHist: courseHistory?.get(id) || null, // {starts, madeCuts, avgFinish, bestFinish}
     };
   });
 
@@ -143,9 +153,12 @@ export function buildModel({ field, profile, sg, driving, recentEvents, previous
     r.owgrZ = z(owgrScore(r.owgr), owgrDist.mean, owgrDist.sd) ?? -0.5;
     r.trendRaw = Number.isFinite(r.recentSG) && Number.isFinite(r.sg.total) ? r.recentSG - r.sg.total : 0;
     r.trend = r.trendRaw > 0.25 ? 'up' : r.trendRaw < -0.25 ? 'down' : 'flat';
+    // course history: lower average finish here = better. No history -> neutral (z=0), not penalised.
+    r.histScore = r.courseHist && r.courseHist.starts ? -r.courseHist.avgFinish : null;
   }
   const fitDist = stats(rows.map((r) => r.fitScore));
   const trendDist = stats(rows.map((r) => r.trendRaw));
+  const histDist = stats(rows.map((r) => r.histScore));
   // A real market efficiently prices class, season quality and recent form. Where it is
   // slower is course-fit nuance and the post-major let-down. So the market anchor shares
   // the model's "base" and most of its course-fit, and our edge is only the residual.
@@ -153,7 +166,11 @@ export function buildModel({ field, profile, sg, driving, recentEvents, previous
   for (const r of rows) {
     const fitZ = z(r.fitScore, fitDist.mean, fitDist.sd) ?? 0;
     const trendZ = z(r.trendRaw, trendDist.mean, trendDist.sd) ?? 0;
-    const base = 0.22 * r.recentZ + 0.12 * trendZ + 0.12 * r.seasonZ + 0.12 * r.owgrZ;
+    const histZ = z(r.histScore, histDist.mean, histDist.sd) ?? 0; // 0 for debutants (neutral)
+    r.histZ = histZ;
+    // course history sits in the shared base: the market prices "horses for courses" too, so it
+    // shapes who contends (better place/EW probabilities) without manufacturing a fake edge.
+    const base = 0.20 * r.recentZ + 0.11 * trendZ + 0.11 * r.seasonZ + 0.11 * r.owgrZ + 0.10 * histZ;
     const fitContribution = 0.42 * fitZ;
     r.composite = base + fitContribution;               // full model: course-fit at 100%
     if (r.dataThin) r.composite -= 0.6;
@@ -201,6 +218,7 @@ export function buildModel({ field, profile, sg, driving, recentEvents, previous
     const st = strengthText(r.sg, profile);
     bits.push(st || `solid all-round numbers for ${profile.course || 'this test'}`);
     const ft = formText(r); if (ft) bits.push(ft);
+    const cht = courseHistText(r.courseHist); if (cht) bits.push(cht);
     if (r.playedLastWeek === false) bits.push('did not play last week, so arrives fresh');
     else if (r.lastWeekFinish && !r.letdownFlag) bits.push(`finished ${r.lastWeekFinish} last week`);
     if (r.playerNote) bits.push(r.playerNote.note);
@@ -220,6 +238,8 @@ export function buildModel({ field, profile, sg, driving, recentEvents, previous
       sg: r.sg, recentSG: r.recentSG, recentEvents: r.recentEvents, dataThin: r.dataThin,
       letdownFlag: r.letdownFlag || null, playerNote: r.playerNote ? r.playerNote.note : null, playerNoteTag: r.playerNote ? r.playerNote.tag : null,
       lastWeekFinish: r.lastWeekFinish || null, playedLastWeek: r.playedLastWeek ?? null,
+      courseHistory: r.courseHist || null,
+      placeProbTop8: m === 'win' ? r.top5.prob + 0.6 * (r.top10.prob - r.top5.prob) : null, // for manual each-way picks
       bookie: m === 'win' ? (r.winBookie || null) : null,
       ocLink: `https://www.oddschecker.com/golf/${eventSlug}/${OC_MARKET[m]}${affiliate ? '?' + affiliate : ''}`,
       rationale,
@@ -236,26 +256,38 @@ export function buildModel({ field, profile, sg, driving, recentEvents, previous
   // a real edge (>=15%) AND at least 2 recent starts of form (no thin samples).
   const valueBets = candidates.filter((c) => c.edgePct >= 15 && c.recentEvents >= 2).slice(0, 5);
   const valueIds = new Set(valueBets.map((c) => c.playerId));
-  // ...plus a guaranteed EACH-WAY TO-WIN bet. Each-way only pays off at a price, so this is
-  // deliberately a bigger-priced contender (~16/1-66/1) with a strong place chance - never the
-  // favourite (whose place fraction is too short to be worth backing each-way).
+  // ...plus EACH-WAY TO-WIN bets. Each-way only pays off at a price, so these are bigger-priced
+  // contenders with a strong place chance - never the favourite (place fraction too short).
   const elig = (r) => !r.dataThin && !valueIds.has(r.playerId) && !r.playerNote && !r.letdownPenalty;
-  // Each-way to-win = a backable winner shot in the sweet spot ~8/1 to ~28/1 (16/1-25/1 ideal).
-  // Below 8/1 the each-way isn't worth it; above ~28/1 it's a lottery ticket. Rank by full
-  // each-way EV at the market price (win chance AND place chance both count).
-  const ewEV = (r) => 0.5 * (r.win.prob * r.m_win.decimal) + 0.5 * (r.top5.prob * (1 + (r.m_win.decimal - 1) / 5)) - 1;
-  const inBand = rows.filter((r) => elig(r) && r.m_win.decimal >= 9 && r.m_win.decimal <= 29);
-  const pool = inBand.length ? inBand : rows.filter((r) => elig(r) && r.m_win.decimal >= 9 && r.m_win.decimal <= 41);
-  const winRow = pool.map((r) => ({ r, vs: ewEV(r) })).sort((a, b) => b.vs - a.vs)[0];
-  const winBet = winRow ? candidate(winRow.r, 'win') : null;
-  if (winBet) winBet.edgePct = Math.round(ewEV(winRow.r) * 100); // show the each-way EV
-  if (winBet) winBet.marquee = 'Each-way to win';
+  // BACKTEST (ew-band-backtest.mjs, season-to-date): with 8 places the each-way sweet spot is
+  // ~20/1-50/1 (clearly +EV, repeatable place rate). Below ~16/1 the place return is too thin;
+  // above ~50/1 the headline ROI is variance-driven (rare big hits), not repeatable. So the
+  // eligible band is 16/1-50/1, and we rank by full EACH-WAY EV at 8 PLACES (1/5 odds).
+  const top8 = (r) => r.top5.prob + 0.6 * (r.top10.prob - r.top5.prob); // ~P(finish top 8) by interpolation
+  const ewEV = (r) => 0.5 * (r.win.prob * r.m_win.decimal) + 0.5 * (top8(r) * (1 + (r.m_win.decimal - 1) / 5)) - 1;
+  // Rank by each-way EV but NUDGE by course history: a long price earned by a poor record here
+  // shouldn't read as "value", and a proven course horse should get the benefit. Small weight so
+  // form still leads. (ewEV stays the headline number; this only orders the shortlist.)
+  const ewScore = (r) => ewEV(r) + 0.06 * (r.histZ || 0);
+  const inBand = rows.filter((r) => elig(r) && r.m_win.decimal >= 17 && r.m_win.decimal <= 51);
+  const pool = inBand.length ? inBand : rows.filter((r) => elig(r) && r.m_win.decimal >= 13 && r.m_win.decimal <= 67);
+  const ewRanked = pool.map((r) => ({ r, vs: ewEV(r), score: ewScore(r) })).sort((a, b) => b.score - a.score);
+  const ewPicks = ewRanked.slice(0, 2).map(({ r }) => {
+    const c = candidate(r, 'win');
+    c.marquee = 'Each-way to win';
+    c.eachWayPlaces = 8;
+    c.ewPlaceProb = Math.round(top8(r) * 100);     // model's top-8 (place) chance - the honest each-way number
+    c.ewEV = Math.round(ewEV(r) * 100);            // notional each-way EV at the model price (kept, not headlined)
+    c.edgePct = Math.round(r.edge_win * 100);      // honest WIN-market edge (modest), not the EW EV
+    // lead the write-up with the each-way angle: the place part is where the value sits
+    c.rationale += ` Each-way angle: the model has him about ${c.ewPlaceProb}% to finish inside the top 8, so at 8 places (1/5 odds) the place half of the bet is where the value is.`;
+    return c;
+  });
 
   const trackedBets = [...valueBets];
-  if (winBet) trackedBets.push(winBet);
   const valueStake = [3, 2, 2, 1, 1];
   valueBets.forEach((c, i) => { c.points = valueStake[i] || 1; });
-  if (winBet) winBet.points = 2; // small each-way stake, big return if it lands
+  for (const c of ewPicks) { c.points = 2; trackedBets.push(c); } // 1pt each-way = 2pt total (1 win + 1 place), 8 places
   trackedBets.forEach((c) => {
     c.tracked = true; // stakes are in POINTS/units only - no monetary value (users set their own)
     c.priceDecimal = c.marketOdds.decimal; c.priceFractional = c.marketOdds.fractional;
@@ -294,6 +326,7 @@ export function buildModel({ field, profile, sg, driving, recentEvents, previous
 
   const placesTable = byWin.slice(0, 18).map((r) => ({
     modelRank: r.modelRank, name: r.name, headshot: r.headshot, letdownFlag: r.letdownFlag || null,
+    courseHistory: r.courseHist ? { starts: r.courseHist.starts, bestFinish: r.courseHist.bestFinish, avgFinish: Math.round(r.courseHist.avgFinish) } : null,
     win: r.win, top5: r.top5, top10: r.top10, top20: r.top20,
     m_win: r.m_win, edge_win: Math.round(r.edge_win * 100), edge_top20: Math.round(r.edge_top20 * 100),
   }));
@@ -307,20 +340,23 @@ export function buildModel({ field, profile, sg, driving, recentEvents, previous
   // payload of every player's value picture. Not serialised into the board.
   const rowById = new Map(rows.map((r) => [r.playerId, r]));
   const makeBet = (playerId, market) => { const r = rowById.get(String(playerId)); return r ? candidate(r, market) : null; };
+  const playerIdByName = (name) => { const r = rows.find((x) => norm(x.name) === norm(name)); return r ? r.playerId : null; };
   const deepDivePayload = rows.filter((r) => !r.dataThin).map((r) => ({
     id: r.playerId, name: r.name, owgr: r.owgr, sg: r.sg,
     recentSG: r.recentSG != null ? Math.round(r.recentSG * 100) / 100 : null, recentEvents: r.recentEvents, trend: r.trend,
     lastWeekFinish: r.lastWeekFinish || null, injury: r.playerNote ? r.playerNote.note : null,
+    courseHistory: r.courseHist ? { starts: r.courseHist.starts, madeCuts: r.courseHist.madeCuts, bestFinish: r.courseHist.bestFinish, avgFinish: Math.round(r.courseHist.avgFinish) } : null,
     markets: Object.fromEntries(MARKETS.map((m) => [m, { modelProb: Math.round(r[m].prob * 1000) / 1000, marketProb: Math.round(r['m_' + m].prob * 1000) / 1000, edgePct: Math.round(r['edge_' + m] * 100), price: r['m_' + m].fractional }])),
   }));
 
   return {
     dataThinCount: rows.filter((r) => r.dataThin).length,
+    courseHistoryCount: rows.filter((r) => r.courseHist && r.courseHist.starts).length,
     trackedBets, flutters, bestBet, watchlist, eachWayValue,
     top5Sel: selFor('top5', 6), top10Sel: selFor('top10', 6), top20Sel: selFor('top20', 8),
     placesTable, fieldRanking, worldRankings,
-    ewTerms: 'each-way at 1/5 odds, 5 places standard (Bet365 and others often pay more - up to 8 places on big fields; always check the terms)',
+    ewTerms: '1pt each-way at 1/5 odds, 8 places (Bet365 terms on a full-field event). Backtest sweet spot is 20/1-50/1; below ~16/1 the place return is too thin to back each-way, above ~50/1 it is a lottery ticket. Always check each book\'s place terms before betting.',
     bankroll: { startPoints: bankrollPoints, stakedThisWeekPoints: totalPts, weekNumber },
-    makeBet, deepDivePayload,
+    makeBet, playerIdByName, deepDivePayload,
   };
 }
