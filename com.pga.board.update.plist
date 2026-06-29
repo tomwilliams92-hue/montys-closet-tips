@@ -8,11 +8,11 @@
     <key>ProgramArguments</key>
     <array>
         <string>/bin/bash</string>
-        <string>/Users/thomaswilliams/Desktop/CLAUDE/pga-betting-board/weekly-update.sh</string>
+        <string>/Users/thomaswilliams/montys-closet-tips/weekly-update.sh</string>
     </array>
 
     <key>WorkingDirectory</key>
-    <string>/Users/thomaswilliams/Desktop/CLAUDE/pga-betting-board</string>
+    <string>/Users/thomaswilliams/montys-closet-tips</string>
 
     <!-- Every Monday at 07:05. If the Mac is asleep, launchd runs it on next wake. -->
     <key>StartCalendarInterval</key>
@@ -29,8 +29,8 @@
     <false/>
 
     <key>StandardOutPath</key>
-    <string>/Users/thomaswilliams/Desktop/CLAUDE/pga-betting-board/launchd.out.log</string>
+    <string>/Users/thomaswilliams/montys-closet-tips/launchd.out.log</string>
     <key>StandardErrorPath</key>
-    <string>/Users/thomaswilliams/Desktop/CLAUDE/pga-betting-board/launchd.err.log</string>
+    <string>/Users/thomaswilliams/montys-closet-tips/launchd.err.log</string>
 </dict>
 </plist>
