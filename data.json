@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-29T13:57:54.036Z",
+  "generatedAt": "2026-06-29T14:13:10.427Z",
   "event": {
     "id": "R2026030",
     "name": "John Deere Classic",
@@ -41,7 +41,7 @@
   "previousEvent": {
     "name": "Travelers Championship",
     "isMajor": false,
-    "champion": "Keegan Bradley"
+    "champion": "Viktor Hovland"
   },
   "trackedBets": [
     {
@@ -53,10 +53,10 @@
       "market": "top10",
       "marketLabel": "Top 10",
       "eachWay": false,
-      "modelProb": 0.0105625,
+      "modelProb": 0.0105,
       "modelOdds": {
-        "prob": 0.0105625,
-        "decimal": 94.67455621301775,
+        "prob": 0.0105,
+        "decimal": 95.23809523809523,
         "fractional": "100/1"
       },
       "marketProb": 0.29411764705882354,
@@ -66,7 +66,7 @@
         "fractional": "5/2"
       },
       "edgePct": null,
-      "valueScore": -0.06061671801257227,
+      "valueScore": -0.0605841614629728,
       "confidence": 1,
       "trend": "flat",
       "sg": {},
@@ -103,10 +103,10 @@
       "market": "top10",
       "marketLabel": "Top 10",
       "eachWay": false,
-      "modelProb": 0.4875625,
+      "modelProb": 0.486375,
       "modelOdds": {
-        "prob": 0.4875625,
-        "decimal": 2.05101910011537,
+        "prob": 0.486375,
+        "decimal": 2.0560267283474687,
         "fractional": "11/10"
       },
       "marketProb": 0.37037037037037035,
@@ -115,8 +115,8 @@
         "decimal": 2.7,
         "fractional": "7/4"
       },
-      "edgePct": 32,
-      "valueScore": -0.2256232682468443,
+      "edgePct": 31,
+      "valueScore": -0.2269063174116046,
       "confidence": 2,
       "trend": "up",
       "sg": {
@@ -143,7 +143,7 @@
       "placeProbTop8": null,
       "bookie": null,
       "ocLink": "https://www.oddschecker.com/golf/john-deere-classic/top-10-finish",
-      "rationale": "Gaining on around the green (+0.49/rd). Trending up (2.32 SG/rd over last 2 starts). Course history: strong record here - best T5 in 2 prior starts here (avg finish ~35). Finished T10 last week. the value: the model makes him 49% to finish top 10 where the best price implies about 37% - a +32% edge.",
+      "rationale": "Gaining on around the green (+0.49/rd). Trending up (2.32 SG/rd over last 2 starts). Course history: strong record here - best T5 in 2 prior starts here (avg finish ~35). Finished T10 last week. the value: the model makes him 49% to finish top 10 where the best price implies about 37% - a +31% edge.",
       "tracked": true,
       "points": 3,
       "priceDecimal": 2.7,
@@ -158,10 +158,10 @@
       "market": "win",
       "marketLabel": "To Win",
       "eachWay": false,
-      "modelProb": 0.056,
+      "modelProb": 0.0558125,
       "modelOdds": {
-        "prob": 0.056,
-        "decimal": 17.857142857142858,
+        "prob": 0.0558125,
+        "decimal": 17.91713325867861,
         "fractional": "16/1"
       },
       "marketProb": 0.058823529411764705,
@@ -171,7 +171,7 @@
         "fractional": "16/1"
       },
       "edgePct": -5,
-      "valueScore": -0.10502785958823652,
+      "valueScore": -0.10537305976293844,
       "confidence": 2,
       "trend": "up",
       "sg": {
@@ -195,10 +195,10 @@
         "avgFinish": 35,
         "bestFinish": 5
       },
-      "placeProbTop8": 0.3994125,
+      "placeProbTop8": 0.3983,
       "bookie": null,
       "ocLink": "https://www.oddschecker.com/golf/john-deere-classic/winner",
-      "rationale": "Gaining on around the green (+0.49/rd). Trending up (2.32 SG/rd over last 2 starts). Course history: strong record here - best T5 in 2 prior starts here (avg finish ~35). Finished T10 last week. the value: the model makes him 5.6% to win where the best price implies about 5.9% - a +-5% edge.6% to win where the best price implies about 10% - a +-44% edge.",
+      "rationale": "Gaining on around the green (+0.49/rd). Trending up (2.32 SG/rd over last 2 starts). Course history: strong record here - best T5 in 2 prior starts here (avg finish ~35). Finished T10 last week. the value: the model makes him 5.6% to win where the best price implies about 5.9% - a +-5% edge.6% to win where the best price implies about 10% - a +-45% edge.",
       "tracked": true,
       "points": 2,
       "priceDecimal": 17,
@@ -213,10 +213,10 @@
       "market": "top20",
       "marketLabel": "Top 20",
       "eachWay": false,
-      "modelProb": 0.3608125,
+      "modelProb": 0.36,
       "modelOdds": {
-        "prob": 0.3608125,
-        "decimal": 2.771522605231249,
+        "prob": 0.36,
+        "decimal": 2.7777777777777777,
         "fractional": "7/4"
       },
       "marketProb": 0.30303030303030304,
@@ -226,7 +226,7 @@
         "fractional": "9/4"
       },
       "edgePct": 19,
-      "valueScore": 0.1933939644220148,
+      "valueScore": 0.19138997023128002,
       "confidence": 1,
       "trend": "down",
       "sg": {
@@ -268,10 +268,10 @@
       "market": "win",
       "marketLabel": "To Win",
       "eachWay": true,
-      "modelProb": 0.014375,
+      "modelProb": 0.014125,
       "modelOdds": {
-        "prob": 0.014375,
-        "decimal": 69.56521739130434,
+        "prob": 0.014125,
+        "decimal": 70.79646017699115,
         "fractional": "66/1"
       },
       "marketProb": 0.017543859649122806,
@@ -280,8 +280,8 @@
         "decimal": 57,
         "fractional": "56/1"
       },
-      "edgePct": -18,
-      "valueScore": 0.017984368212422688,
+      "edgePct": -19,
+      "valueScore": 0.015450323621206113,
       "confidence": 1,
       "trend": "up",
       "sg": {
@@ -305,10 +305,10 @@
         "avgFinish": 65,
         "bestFinish": null
       },
-      "placeProbTop8": 0.119225,
+      "placeProbTop8": 0.11888749999999998,
       "bookie": null,
       "ocLink": "https://www.oddschecker.com/golf/john-deere-classic/winner",
-      "rationale": "Fits TPC Deere Run - strongest on approach, what wins here. Trending up (1.68 SG/rd over last 3 starts). Course history: 1 prior start here, no made cuts (struggles at this track). Finished T30 last week. the value: the model makes him 1.4% to win where the best price implies about 1.8% - a +-18% edge.4% to win where the best price implies about 1.3% - a +15% edge. Each-way angle: the model has him about 15% to finish inside the top 10, so at 10 places (1/5 odds) the place half of the bet is where the value sits.",
+      "rationale": "Fits TPC Deere Run - strongest on approach, what wins here. Trending up (1.68 SG/rd over last 3 starts). Course history: 1 prior start here, no made cuts (struggles at this track). Finished T30 last week. the value: the model makes him 1.4% to win where the best price implies about 1.8% - a +-19% edge.4% to win where the best price implies about 1.3% - a +13% edge. Each-way angle: the model has him about 15% to finish inside the top 10, so at 10 places (1/5 odds) the place half of the bet is where the value sits.",
       "tracked": true,
       "points": 2,
       "marquee": "Each-way to win",
@@ -326,10 +326,10 @@
       "market": "top20",
       "marketLabel": "Top 20",
       "eachWay": false,
-      "modelProb": 0.3455625,
+      "modelProb": 0.3446875,
       "modelOdds": {
-        "prob": 0.3455625,
-        "decimal": 2.8938325194429373,
+        "prob": 0.3446875,
+        "decimal": 2.901178603807797,
         "fractional": "15/8"
       },
       "marketProb": 0.3333333333333333,
@@ -338,8 +338,8 @@
         "decimal": 3,
         "fractional": "2/1"
       },
-      "edgePct": 4,
-      "valueScore": 0.106641228827195,
+      "edgePct": 3,
+      "valueScore": 0.10445430868566706,
       "confidence": 1,
       "trend": "flat",
       "sg": {
@@ -361,7 +361,7 @@
       "placeProbTop8": null,
       "bookie": null,
       "ocLink": "https://www.oddschecker.com/golf/john-deere-classic/top-20-finish",
-      "rationale": "Gaining on off the tee (+0.38/rd). Steady (0.68 SG/rd over last 2 starts). Did not play last week, so arrives fresh. the value: the model makes him 35% to finish top 20 where the best price implies about 33% - a +4% edge.",
+      "rationale": "Gaining on off the tee (+0.38/rd). Steady (0.68 SG/rd over last 2 starts). Did not play last week, so arrives fresh. the value: the model makes him 34% to finish top 20 where the best price implies about 33% - a +3% edge.",
       "tracked": true,
       "points": 1,
       "priceDecimal": 3,
@@ -378,20 +378,20 @@
       "market": "win",
       "marketLabel": "To Win",
       "eachWay": true,
-      "modelProb": 0.068625,
+      "modelProb": 0.0681875,
       "modelOdds": {
-        "prob": 0.068625,
-        "decimal": 14.571948998178506,
+        "prob": 0.0681875,
+        "decimal": 14.66544454628781,
         "fractional": "14/1"
       },
-      "marketProb": 0.08975,
+      "marketProb": 0.0899375,
       "marketOdds": {
-        "prob": 0.08975,
-        "decimal": 11.142061281337048,
+        "prob": 0.0899375,
+        "decimal": 11.118832522585128,
         "fractional": "10/1"
       },
       "edgePct": -24,
-      "valueScore": -0.06165998845865249,
+      "valueScore": -0.06314963343920478,
       "confidence": 2,
       "trend": "up",
       "sg": {
@@ -415,10 +415,10 @@
         "avgFinish": 36.333333333333336,
         "bestFinish": 7
       },
-      "placeProbTop8": 0.46365,
+      "placeProbTop8": 0.462575,
       "bookie": null,
       "ocLink": "https://www.oddschecker.com/golf/john-deere-classic/winner",
-      "rationale": "Gaining on putting (+0.66/rd). Trending up (2.14 SG/rd over last 3 starts). Course history: solid record here - best T7 in 3 prior starts here (avg finish ~36). Finished T38 last week. The value: the model makes him 6.9% to win where the best price implies about 9.0% - a +-24% edge.",
+      "rationale": "Gaining on putting (+0.66/rd). Trending up (2.14 SG/rd over last 3 starts). Course history: solid record here - best T7 in 3 prior starts here (avg finish ~36). Finished T38 last week. The value: the model makes him 6.8% to win where the best price implies about 9.0% - a +-24% edge.",
       "kind": "Favourite punt",
       "tracked": false,
       "points": 1
@@ -438,14 +438,14 @@
         "decimal": 41.775456919060055,
         "fractional": "40/1"
       },
-      "marketProb": 0.02575,
+      "marketProb": 0.0258125,
       "marketOdds": {
-        "prob": 0.02575,
-        "decimal": 38.834951456310684,
+        "prob": 0.0258125,
+        "decimal": 38.7409200968523,
         "fractional": "40/1"
       },
       "edgePct": -7,
-      "valueScore": -0.010890308372723496,
+      "valueScore": -0.011238558193776609,
       "confidence": 1,
       "trend": "up",
       "sg": {
@@ -464,7 +464,7 @@
       "lastWeekFinish": null,
       "playedLastWeek": false,
       "courseHistory": null,
-      "placeProbTop8": 0.1981875,
+      "placeProbTop8": 0.1973625,
       "bookie": null,
       "ocLink": "https://www.oddschecker.com/golf/john-deere-classic/winner",
       "rationale": "Fits TPC Deere Run - strongest on approach, what wins here. Trending up (1.90 SG/rd over last 2 starts). Did not play last week, so arrives fresh. The value: the model makes him 2.4% to win where the best price implies about 2.6% - a +-7% edge.",
@@ -482,10 +482,10 @@
     "market": "top10",
     "marketLabel": "Top 10",
     "eachWay": false,
-    "modelProb": 0.0105625,
+    "modelProb": 0.0105,
     "modelOdds": {
-      "prob": 0.0105625,
-      "decimal": 94.67455621301775,
+      "prob": 0.0105,
+      "decimal": 95.23809523809523,
       "fractional": "100/1"
     },
     "marketProb": 0.29411764705882354,
@@ -495,7 +495,7 @@
       "fractional": "5/2"
     },
     "edgePct": null,
-    "valueScore": -0.06061671801257227,
+    "valueScore": -0.0605841614629728,
     "confidence": 1,
     "trend": "flat",
     "sg": {},
@@ -619,14 +619,14 @@
         "decimal": 41.775456919060055,
         "fractional": "40/1"
       },
-      "marketProb": 0.02575,
+      "marketProb": 0.0258125,
       "marketOdds": {
-        "prob": 0.02575,
-        "decimal": 38.834951456310684,
+        "prob": 0.0258125,
+        "decimal": 38.7409200968523,
         "fractional": "40/1"
       },
       "edgePct": -7,
-      "valueScore": -0.010890308372723496,
+      "valueScore": -0.011238558193776609,
       "confidence": 1,
       "trend": "up",
       "sg": {
@@ -645,7 +645,7 @@
       "lastWeekFinish": null,
       "playedLastWeek": false,
       "courseHistory": null,
-      "placeProbTop8": 0.1981875,
+      "placeProbTop8": 0.1973625,
       "bookie": null,
       "ocLink": "https://www.oddschecker.com/golf/john-deere-classic/winner",
       "rationale": "Fits TPC Deere Run - strongest on approach, what wins here. Trending up (1.90 SG/rd over last 2 starts). Did not play last week, so arrives fresh. The value: the model makes him 2.4% to win where the best price implies about 2.6% - a +-7% edge.",
@@ -661,10 +661,10 @@
       "market": "win",
       "marketLabel": "To Win",
       "eachWay": true,
-      "modelProb": 0.0170625,
+      "modelProb": 0.017,
       "modelOdds": {
-        "prob": 0.0170625,
-        "decimal": 58.608058608058606,
+        "prob": 0.017,
+        "decimal": 58.8235294117647,
         "fractional": "50/1"
       },
       "marketProb": 0.020625,
@@ -673,8 +673,8 @@
         "decimal": 48.484848484848484,
         "fractional": "50/1"
       },
-      "edgePct": -17,
-      "valueScore": -0.022562241734059046,
+      "edgePct": -18,
+      "valueScore": -0.0229159842122275,
       "confidence": 1,
       "trend": "up",
       "sg": {
@@ -698,10 +698,10 @@
         "avgFinish": 5,
         "bestFinish": 5
       },
-      "placeProbTop8": 0.131,
+      "placeProbTop8": 0.130475,
       "bookie": null,
       "ocLink": "https://www.oddschecker.com/golf/john-deere-classic/winner",
-      "rationale": "Gaining on putting (+0.21/rd). Trending up (1.37 SG/rd over last 2 starts). Course history: strong record here - best T5 in 1 prior start here (avg finish ~5). Did not play last week, so arrives fresh. The value: the model makes him 1.7% to win where the best price implies about 2.1% - a +-17% edge.",
+      "rationale": "Gaining on putting (+0.21/rd). Trending up (1.37 SG/rd over last 2 starts). Course history: strong record here - best T5 in 1 prior start here (avg finish ~5). Did not play last week, so arrives fresh. The value: the model makes him 1.7% to win where the best price implies about 2.1% - a +-18% edge.",
       "eachWayPlaces": 8,
       "ewPlaceProb": 13
     },
@@ -720,14 +720,14 @@
         "decimal": 55.94405594405595,
         "fractional": "50/1"
       },
-      "marketProb": 0.0215,
+      "marketProb": 0.0215625,
       "marketOdds": {
-        "prob": 0.0215,
-        "decimal": 46.51162790697675,
+        "prob": 0.0215625,
+        "decimal": 46.376811594202906,
         "fractional": "50/1"
       },
       "edgePct": -17,
-      "valueScore": -0.022542006788169016,
+      "valueScore": -0.02286419639043871,
       "confidence": 1,
       "trend": "up",
       "sg": {
@@ -751,10 +751,10 @@
         "avgFinish": 26,
         "bestFinish": 26
       },
-      "placeProbTop8": 0.1388125,
+      "placeProbTop8": 0.13815,
       "bookie": null,
       "ocLink": "https://www.oddschecker.com/golf/john-deere-classic/winner",
-      "rationale": "Solid all-round numbers for TPC Deere Run. Trending up (1.47 SG/rd over last 2 starts). Course history: mixed record here - best T26 in 1 prior start here (avg finish ~26). Did not play last week, so arrives fresh. The value: the model makes him 1.8% to win where the best price implies about 2.1% - a +-17% edge.",
+      "rationale": "Solid all-round numbers for TPC Deere Run. Trending up (1.47 SG/rd over last 2 starts). Course history: mixed record here - best T26 in 1 prior start here (avg finish ~26). Did not play last week, so arrives fresh. The value: the model makes him 1.8% to win where the best price implies about 2.2% - a +-17% edge.",
       "eachWayPlaces": 8,
       "ewPlaceProb": 14
     }
@@ -769,10 +769,10 @@
       "market": "top5",
       "marketLabel": "Top 5",
       "eachWay": false,
-      "modelProb": 0.10125,
+      "modelProb": 0.1010625,
       "modelOdds": {
-        "prob": 0.10125,
-        "decimal": 9.876543209876543,
+        "prob": 0.1010625,
+        "decimal": 9.89486703772418,
         "fractional": "9/1"
       },
       "marketProb": 0.0816875,
@@ -782,7 +782,7 @@
         "fractional": "11/1"
       },
       "edgePct": 24,
-      "valueScore": 0.07620198173689766,
+      "valueScore": 0.07540169780097429,
       "confidence": 1,
       "trend": "up",
       "sg": {
@@ -820,20 +820,20 @@
       "market": "top5",
       "marketLabel": "Top 5",
       "eachWay": false,
-      "modelProb": 0.1015,
+      "modelProb": 0.1011875,
       "modelOdds": {
-        "prob": 0.1015,
-        "decimal": 9.852216748768472,
+        "prob": 0.1011875,
+        "decimal": 9.882643607164917,
         "fractional": "9/1"
       },
-      "marketProb": 0.087375,
+      "marketProb": 0.0873125,
       "marketOdds": {
-        "prob": 0.087375,
-        "decimal": 11.444921316165953,
+        "prob": 0.0873125,
+        "decimal": 11.45311381531854,
         "fractional": "10/1"
       },
       "edgePct": 16,
-      "valueScore": 0.051503208938322276,
+      "valueScore": 0.05054986515091887,
       "confidence": 1,
       "trend": "up",
       "sg": {
@@ -866,10 +866,10 @@
       "market": "top5",
       "marketLabel": "Top 5",
       "eachWay": false,
-      "modelProb": 0.1011875,
+      "modelProb": 0.1008125,
       "modelOdds": {
-        "prob": 0.1011875,
-        "decimal": 9.882643607164917,
+        "prob": 0.1008125,
+        "decimal": 9.919404835709857,
         "fractional": "9/1"
       },
       "marketProb": 0.092625,
@@ -879,7 +879,7 @@
         "fractional": "10/1"
       },
       "edgePct": 9,
-      "valueScore": 0.029405989414624748,
+      "valueScore": 0.028065984716662676,
       "confidence": 1,
       "trend": "flat",
       "sg": {
@@ -917,20 +917,20 @@
       "market": "top5",
       "marketLabel": "Top 5",
       "eachWay": false,
-      "modelProb": 0.2255625,
+      "modelProb": 0.22525,
       "modelOdds": {
-        "prob": 0.2255625,
-        "decimal": 4.433361041839845,
+        "prob": 0.22525,
+        "decimal": 4.439511653718091,
         "fractional": "7/2"
       },
-      "marketProb": 0.2178125,
+      "marketProb": 0.2180625,
       "marketOdds": {
-        "prob": 0.2178125,
-        "decimal": 4.591104734576757,
+        "prob": 0.2180625,
+        "decimal": 4.585841215247922,
         "fractional": "7/2"
       },
-      "edgePct": 4,
-      "valueScore": 0.016898663282706984,
+      "edgePct": 3,
+      "valueScore": 0.015643332297330996,
       "confidence": 2,
       "trend": "flat",
       "sg": {
@@ -957,7 +957,7 @@
       "placeProbTop8": null,
       "bookie": null,
       "ocLink": "https://www.oddschecker.com/golf/john-deere-classic/top-5-finish",
-      "rationale": "One of the most improved young Americans on tour, Bridgeman has quietly become a relentless scorer with a red-hot putter (+0.76 strokes a round). On a birdie-fest where someone always goes deep, a player holing everything is dangerous at a three-figure-friendly price. The value: the model makes him 23% to finish top 5 where the best price implies about 22% - a +4% edge."
+      "rationale": "One of the most improved young Americans on tour, Bridgeman has quietly become a relentless scorer with a red-hot putter (+0.76 strokes a round). On a birdie-fest where someone always goes deep, a player holing everything is dangerous at a three-figure-friendly price. The value: the model makes him 23% to finish top 5 where the best price implies about 22% - a +3% edge."
     },
     {
       "playerId": "59095",
@@ -968,20 +968,20 @@
       "market": "top5",
       "marketLabel": "Top 5",
       "eachWay": false,
-      "modelProb": 0.1860625,
+      "modelProb": 0.1855,
       "modelOdds": {
-        "prob": 0.1860625,
-        "decimal": 5.374538125629829,
+        "prob": 0.1855,
+        "decimal": 5.390835579514825,
         "fractional": "9/2"
       },
-      "marketProb": 0.1865625,
+      "marketProb": 0.1868125,
       "marketOdds": {
-        "prob": 0.1865625,
-        "decimal": 5.360134003350084,
+        "prob": 0.1868125,
+        "decimal": 5.352960856473738,
         "fractional": "9/2"
       },
-      "edgePct": 0,
-      "valueScore": -0.0011560458992923885,
+      "edgePct": -1,
+      "valueScore": -0.0030259750071229114,
       "confidence": 2,
       "trend": "down",
       "sg": {
@@ -1008,7 +1008,7 @@
       "placeProbTop8": null,
       "bookie": null,
       "ocLink": "https://www.oddschecker.com/golf/john-deere-classic/top-5-finish",
-      "rationale": "Gaining on off the tee (+0.51/rd). Form cooling (0.62 SG/rd over 2 starts). Course history: strong record here - best T4 in 3 prior starts here (avg finish ~30). Finished T30 last week. The value: the model makes him 19% to finish top 5 where the best price implies about 19% - a +0% edge."
+      "rationale": "Gaining on off the tee (+0.51/rd). Form cooling (0.62 SG/rd over 2 starts). Course history: strong record here - best T4 in 3 prior starts here (avg finish ~30). Finished T30 last week. The value: the model makes him 19% to finish top 5 where the best price implies about 19% - a +-1% edge."
     },
     {
       "playerId": "48001",
@@ -1019,20 +1019,20 @@
       "market": "top5",
       "marketLabel": "Top 5",
       "eachWay": false,
-      "modelProb": 0.123,
+      "modelProb": 0.122625,
       "modelOdds": {
-        "prob": 0.123,
-        "decimal": 8.130081300813009,
+        "prob": 0.122625,
+        "decimal": 8.154943934760448,
         "fractional": "7/1"
       },
-      "marketProb": 0.1345625,
+      "marketProb": 0.134625,
       "marketOdds": {
-        "prob": 0.1345625,
-        "decimal": 7.431490942870413,
+        "prob": 0.134625,
+        "decimal": 7.428040854224698,
         "fractional": "13/2"
       },
       "edgePct": -9,
-      "valueScore": -0.030135628561066257,
+      "valueScore": -0.031213684759698053,
       "confidence": 1,
       "trend": "up",
       "sg": {
@@ -1067,10 +1067,10 @@
       "market": "top10",
       "marketLabel": "Top 10",
       "eachWay": false,
-      "modelProb": 0.201375,
+      "modelProb": 0.201,
       "modelOdds": {
-        "prob": 0.201375,
-        "decimal": 4.9658597144630665,
+        "prob": 0.201,
+        "decimal": 4.975124378109452,
         "fractional": "4/1"
       },
       "marketProb": 0.1738125,
@@ -1080,7 +1080,7 @@
         "fractional": "5/1"
       },
       "edgePct": 16,
-      "valueScore": 0.0711607271631969,
+      "valueScore": 0.07012716735408164,
       "confidence": 1,
       "trend": "up",
       "sg": {
@@ -1118,20 +1118,20 @@
       "market": "top10",
       "marketLabel": "Top 10",
       "eachWay": false,
-      "modelProb": 0.209,
+      "modelProb": 0.2083125,
       "modelOdds": {
-        "prob": 0.209,
-        "decimal": 4.784688995215311,
+        "prob": 0.2083125,
+        "decimal": 4.8004800480048,
         "fractional": "4/1"
       },
-      "marketProb": 0.1886875,
+      "marketProb": 0.18875,
       "marketOdds": {
-        "prob": 0.1886875,
-        "decimal": 5.299768135144087,
+        "prob": 0.18875,
+        "decimal": 5.298013245033113,
         "fractional": "9/2"
       },
-      "edgePct": 11,
-      "valueScore": 0.04921453556098437,
+      "edgePct": 10,
+      "valueScore": 0.04730369437825195,
       "confidence": 1,
       "trend": "up",
       "sg": {
@@ -1153,7 +1153,7 @@
       "placeProbTop8": null,
       "bookie": null,
       "ocLink": "https://www.oddschecker.com/golf/john-deere-classic/top-10-finish",
-      "rationale": "Gaining on putting (+0.63/rd). Trending up (1.35 SG/rd over last 3 starts). Did not play last week, so arrives fresh. The value: the model makes him 21% to finish top 10 where the best price implies about 19% - a +11% edge."
+      "rationale": "Gaining on putting (+0.63/rd). Trending up (1.35 SG/rd over last 3 starts). Did not play last week, so arrives fresh. The value: the model makes him 21% to finish top 10 where the best price implies about 19% - a +10% edge."
     },
     {
       "playerId": "34046",
@@ -1164,20 +1164,20 @@
       "market": "top10",
       "marketLabel": "Top 10",
       "eachWay": false,
-      "modelProb": 0.2010625,
+      "modelProb": 0.2005,
       "modelOdds": {
-        "prob": 0.2010625,
-        "decimal": 4.973577867578489,
+        "prob": 0.2005,
+        "decimal": 4.987531172069825,
         "fractional": "4/1"
       },
-      "marketProb": 0.193125,
+      "marketProb": 0.193,
       "marketOdds": {
-        "prob": 0.193125,
-        "decimal": 5.177993527508091,
+        "prob": 0.193,
+        "decimal": 5.181347150259067,
         "fractional": "4/1"
       },
       "edgePct": 4,
-      "valueScore": 0.018429382363469773,
+      "valueScore": 0.017400476562620355,
       "confidence": 1,
       "trend": "flat",
       "sg": {
@@ -1215,20 +1215,20 @@
       "market": "top10",
       "marketLabel": "Top 10",
       "eachWay": false,
-      "modelProb": 0.4165625,
+      "modelProb": 0.4155625,
       "modelOdds": {
-        "prob": 0.4165625,
-        "decimal": 2.4006001500375094,
+        "prob": 0.4155625,
+        "decimal": 2.4063768987817715,
         "fractional": "11/8"
       },
-      "marketProb": 0.421,
+      "marketProb": 0.4211875,
       "marketOdds": {
-        "prob": 0.421,
-        "decimal": 2.375296912114014,
+        "prob": 0.4211875,
+        "decimal": 2.3742395014097046,
         "fractional": "11/8"
       },
       "edgePct": -1,
-      "valueScore": -0.006802935538028604,
+      "valueScore": -0.008609248194854624,
       "confidence": 2,
       "trend": "flat",
       "sg": {
@@ -1266,20 +1266,20 @@
       "market": "top10",
       "marketLabel": "Top 10",
       "eachWay": false,
-      "modelProb": 0.355375,
+      "modelProb": 0.354625,
       "modelOdds": {
-        "prob": 0.355375,
-        "decimal": 2.8139289482940555,
+        "prob": 0.354625,
+        "decimal": 2.8198801550934083,
         "fractional": "15/8"
       },
-      "marketProb": 0.36775,
+      "marketProb": 0.368,
       "marketOdds": {
-        "prob": 0.36775,
-        "decimal": 2.719238613188307,
+        "prob": 0.368,
+        "decimal": 2.717391304347826,
         "fractional": "7/4"
       },
-      "edgePct": -3,
-      "valueScore": -0.020060232515123882,
+      "edgePct": -4,
+      "valueScore": -0.02164365718097972,
       "confidence": 2,
       "trend": "down",
       "sg": {
@@ -1306,7 +1306,7 @@
       "placeProbTop8": null,
       "bookie": null,
       "ocLink": "https://www.oddschecker.com/golf/john-deere-classic/top-10-finish",
-      "rationale": "Gaining on off the tee (+0.51/rd). Form cooling (0.62 SG/rd over 2 starts). Course history: strong record here - best T4 in 3 prior starts here (avg finish ~30). Finished T30 last week. The value: the model makes him 36% to finish top 10 where the best price implies about 37% - a +-3% edge."
+      "rationale": "Gaining on off the tee (+0.51/rd). Form cooling (0.62 SG/rd over 2 starts). Course history: strong record here - best T4 in 3 prior starts here (avg finish ~30). Finished T30 last week. The value: the model makes him 35% to finish top 10 where the best price implies about 37% - a +-4% edge."
     },
     {
       "playerId": "48001",
@@ -1317,20 +1317,20 @@
       "market": "top10",
       "marketLabel": "Top 10",
       "eachWay": false,
-      "modelProb": 0.2483125,
+      "modelProb": 0.2471875,
       "modelOdds": {
-        "prob": 0.2483125,
-        "decimal": 4.027183488547697,
+        "prob": 0.2471875,
+        "decimal": 4.04551201011378,
         "fractional": "3/1"
       },
-      "marketProb": 0.2765,
+      "marketProb": 0.27675,
       "marketOdds": {
-        "prob": 0.2765,
-        "decimal": 3.6166365280289328,
+        "prob": 0.27675,
+        "decimal": 3.613369467028004,
         "fractional": "5/2"
       },
-      "edgePct": -10,
-      "valueScore": -0.050799649379333116,
+      "edgePct": -11,
+      "valueScore": -0.053108835772578966,
       "confidence": 1,
       "trend": "up",
       "sg": {
@@ -1352,7 +1352,7 @@
       "placeProbTop8": null,
       "bookie": null,
       "ocLink": "https://www.oddschecker.com/golf/john-deere-classic/top-10-finish",
-      "rationale": "Fits TPC Deere Run - strongest on approach, what wins here. Trending up (1.90 SG/rd over last 2 starts). Did not play last week, so arrives fresh. The value: the model makes him 25% to finish top 10 where the best price implies about 28% - a +-10% edge."
+      "rationale": "Fits TPC Deere Run - strongest on approach, what wins here. Trending up (1.90 SG/rd over last 2 starts). Did not play last week, so arrives fresh. The value: the model makes him 25% to finish top 10 where the best price implies about 28% - a +-11% edge."
     }
   ],
   "top20Sel": [
@@ -1365,10 +1365,10 @@
       "market": "top20",
       "marketLabel": "Top 20",
       "eachWay": false,
-      "modelProb": 0.3608125,
+      "modelProb": 0.36,
       "modelOdds": {
-        "prob": 0.3608125,
-        "decimal": 2.771522605231249,
+        "prob": 0.36,
+        "decimal": 2.7777777777777777,
         "fractional": "7/4"
       },
       "marketProb": 0.2729375,
@@ -1378,7 +1378,7 @@
         "fractional": "11/4"
       },
       "edgePct": 32,
-      "valueScore": 0.1933939644220148,
+      "valueScore": 0.19138997023128002,
       "confidence": 1,
       "trend": "down",
       "sg": {
@@ -1416,20 +1416,20 @@
       "market": "top20",
       "marketLabel": "Top 20",
       "eachWay": false,
-      "modelProb": 0.3455625,
+      "modelProb": 0.3446875,
       "modelOdds": {
-        "prob": 0.3455625,
-        "decimal": 2.8938325194429373,
+        "prob": 0.3446875,
+        "decimal": 2.901178603807797,
         "fractional": "15/8"
       },
-      "marketProb": 0.2925,
+      "marketProb": 0.292625,
       "marketOdds": {
-        "prob": 0.2925,
-        "decimal": 3.418803418803419,
+        "prob": 0.292625,
+        "decimal": 3.417343015805211,
         "fractional": "5/2"
       },
       "edgePct": 18,
-      "valueScore": 0.106641228827195,
+      "valueScore": 0.10445430868566706,
       "confidence": 1,
       "trend": "flat",
       "sg": {
@@ -1451,7 +1451,7 @@
       "placeProbTop8": null,
       "bookie": null,
       "ocLink": "https://www.oddschecker.com/golf/john-deere-classic/top-20-finish",
-      "rationale": "Gaining on off the tee (+0.38/rd). Steady (0.68 SG/rd over last 2 starts). Did not play last week, so arrives fresh. The value: the model makes him 35% to finish top 20 where the best price implies about 29% - a +18% edge."
+      "rationale": "Gaining on off the tee (+0.38/rd). Steady (0.68 SG/rd over last 2 starts). Did not play last week, so arrives fresh. The value: the model makes him 34% to finish top 20 where the best price implies about 29% - a +18% edge."
     },
     {
       "playerId": "59143",
@@ -1462,20 +1462,20 @@
       "market": "top20",
       "marketLabel": "Top 20",
       "eachWay": false,
-      "modelProb": 0.3578125,
+      "modelProb": 0.356875,
       "modelOdds": {
-        "prob": 0.3578125,
-        "decimal": 2.794759825327511,
+        "prob": 0.356875,
+        "decimal": 2.8021015761821366,
         "fractional": "7/4"
       },
-      "marketProb": 0.32,
+      "marketProb": 0.3201875,
       "marketOdds": {
-        "prob": 0.32,
-        "decimal": 3.125,
+        "prob": 0.3201875,
+        "decimal": 3.123170017567831,
         "fractional": "2/1"
       },
-      "edgePct": 12,
-      "valueScore": 0.0706827060446608,
+      "edgePct": 11,
+      "valueScore": 0.06844974083856702,
       "confidence": 1,
       "trend": "up",
       "sg": {
@@ -1502,7 +1502,7 @@
       "placeProbTop8": null,
       "bookie": null,
       "ocLink": "https://www.oddschecker.com/golf/john-deere-classic/top-20-finish",
-      "rationale": "Gaining on around the green (+0.28/rd). Trending up (0.81 SG/rd over last 3 starts). Course history: mixed record here - best T20 in 2 prior starts here (avg finish ~43). Finished T44 last week. The value: the model makes him 36% to finish top 20 where the best price implies about 32% - a +12% edge."
+      "rationale": "Gaining on around the green (+0.28/rd). Trending up (0.81 SG/rd over last 3 starts). Course history: mixed record here - best T20 in 2 prior starts here (avg finish ~43). Finished T44 last week. The value: the model makes him 36% to finish top 20 where the best price implies about 32% - a +11% edge."
     },
     {
       "playerId": "32102",
@@ -1513,20 +1513,20 @@
       "market": "top20",
       "marketLabel": "Top 20",
       "eachWay": false,
-      "modelProb": 0.3459375,
+      "modelProb": 0.34475,
       "modelOdds": {
-        "prob": 0.3459375,
-        "decimal": 2.890695573622403,
+        "prob": 0.34475,
+        "decimal": 2.9006526468455403,
         "fractional": "15/8"
       },
-      "marketProb": 0.322125,
+      "marketProb": 0.3225,
       "marketOdds": {
-        "prob": 0.322125,
-        "decimal": 3.104384943733023,
+        "prob": 0.3225,
+        "decimal": 3.1007751937984493,
         "fractional": "2/1"
       },
       "edgePct": 7,
-      "valueScore": 0.04347898356269977,
+      "valueScore": 0.04050908501054207,
       "confidence": 1,
       "trend": "flat",
       "sg": {
@@ -1553,7 +1553,7 @@
       "placeProbTop8": null,
       "bookie": null,
       "ocLink": "https://www.oddschecker.com/golf/john-deere-classic/top-20-finish",
-      "rationale": "Gaining on putting (+0.31/rd). Course history: mixed record here - best T18 in 1 prior start here (avg finish ~18). Finished T38 last week. The value: the model makes him 35% to finish top 20 where the best price implies about 32% - a +7% edge."
+      "rationale": "Gaining on putting (+0.31/rd). Course history: mixed record here - best T18 in 1 prior start here (avg finish ~18). Finished T38 last week. The value: the model makes him 34% to finish top 20 where the best price implies about 32% - a +7% edge."
     },
     {
       "playerId": "55182",
@@ -1564,20 +1564,20 @@
       "market": "top20",
       "marketLabel": "Top 20",
       "eachWay": false,
-      "modelProb": 0.404875,
+      "modelProb": 0.40425,
       "modelOdds": {
-        "prob": 0.404875,
-        "decimal": 2.469898116702686,
+        "prob": 0.40425,
+        "decimal": 2.473716759431045,
         "fractional": "6/4"
       },
-      "marketProb": 0.37775,
+      "marketProb": 0.3776875,
       "marketOdds": {
-        "prob": 0.37775,
-        "decimal": 2.6472534745201854,
+        "prob": 0.3776875,
+        "decimal": 2.6476915439351316,
         "fractional": "7/4"
       },
       "edgePct": 7,
-      "valueScore": 0.04569048355670713,
+      "valueScore": 0.044715835529240584,
       "confidence": 1,
       "trend": "up",
       "sg": {
@@ -1615,20 +1615,20 @@
       "market": "top20",
       "marketLabel": "Top 20",
       "eachWay": false,
-      "modelProb": 0.4150625,
+      "modelProb": 0.4138125,
       "modelOdds": {
-        "prob": 0.4150625,
-        "decimal": 2.4092757114892334,
+        "prob": 0.4138125,
+        "decimal": 2.416553390726476,
         "fractional": "11/8"
       },
-      "marketProb": 0.40275,
+      "marketProb": 0.402875,
       "marketOdds": {
-        "prob": 0.40275,
-        "decimal": 2.4829298572315333,
+        "prob": 0.402875,
+        "decimal": 2.4821594787465098,
         "fractional": "6/4"
       },
       "edgePct": 3,
-      "valueScore": 0.01969551962318662,
+      "valueScore": 0.017464234335865924,
       "confidence": 1,
       "trend": "up",
       "sg": {
@@ -1650,7 +1650,7 @@
       "placeProbTop8": null,
       "bookie": null,
       "ocLink": "https://www.oddschecker.com/golf/john-deere-classic/top-20-finish",
-      "rationale": "Gaining on putting (+0.63/rd). Trending up (1.35 SG/rd over last 3 starts). Did not play last week, so arrives fresh. The value: the model makes him 42% to finish top 20 where the best price implies about 40% - a +3% edge."
+      "rationale": "Gaining on putting (+0.63/rd). Trending up (1.35 SG/rd over last 3 starts). Did not play last week, so arrives fresh. The value: the model makes him 41% to finish top 20 where the best price implies about 40% - a +3% edge."
     },
     {
       "playerId": "52375",
@@ -1661,20 +1661,20 @@
       "market": "top20",
       "marketLabel": "Top 20",
       "eachWay": false,
-      "modelProb": 0.342875,
+      "modelProb": 0.34175,
       "modelOdds": {
-        "prob": 0.342875,
-        "decimal": 2.916514764855997,
+        "prob": 0.34175,
+        "decimal": 2.926115581565472,
         "fractional": "15/8"
       },
-      "marketProb": 0.3408125,
+      "marketProb": 0.341125,
       "marketOdds": {
-        "prob": 0.3408125,
-        "decimal": 2.9341646799926644,
+        "prob": 0.341125,
+        "decimal": 2.9314767314034444,
         "fractional": "15/8"
       },
-      "edgePct": 1,
-      "valueScore": 0.0035436135404921824,
+      "edgePct": 0,
+      "valueScore": 0.001071077090733878,
       "confidence": 1,
       "trend": "up",
       "sg": {
@@ -1701,7 +1701,7 @@
       "placeProbTop8": null,
       "bookie": null,
       "ocLink": "https://www.oddschecker.com/golf/john-deere-classic/top-20-finish",
-      "rationale": "Gaining on off the tee (+0.63/rd). Trending up (1.27 SG/rd over last 3 starts). Course history: mixed record here - best T26 in 4 prior starts here (avg finish ~39). Did not play last week, so arrives fresh. The value: the model makes him 34% to finish top 20 where the best price implies about 34% - a +1% edge."
+      "rationale": "Gaining on off the tee (+0.63/rd). Trending up (1.27 SG/rd over last 3 starts). Course history: mixed record here - best T26 in 4 prior starts here (avg finish ~39). Did not play last week, so arrives fresh. The value: the model makes him 34% to finish top 20 where the best price implies about 34% - a +0% edge."
     },
     {
       "playerId": "34046",
@@ -1712,20 +1712,20 @@
       "market": "top20",
       "marketLabel": "Top 20",
       "eachWay": false,
-      "modelProb": 0.4059375,
+      "modelProb": 0.4048125,
       "modelOdds": {
-        "prob": 0.4059375,
-        "decimal": 2.4634334103156275,
+        "prob": 0.4048125,
+        "decimal": 2.4702794503628223,
         "fractional": "6/4"
       },
-      "marketProb": 0.416875,
+      "marketProb": 0.4171875,
       "marketOdds": {
-        "prob": 0.416875,
-        "decimal": 2.39880059970015,
+        "prob": 0.4171875,
+        "decimal": 2.397003745318352,
         "fractional": "11/8"
       },
       "edgePct": -3,
-      "valueScore": -0.016716363298654873,
+      "valueScore": -0.018872997284792935,
       "confidence": 1,
       "trend": "flat",
       "sg": {
@@ -1752,7 +1752,7 @@
       "placeProbTop8": null,
       "bookie": null,
       "ocLink": "https://www.oddschecker.com/golf/john-deere-classic/top-20-finish",
-      "rationale": "Solid all-round numbers for TPC Deere Run. Steady (0.72 SG/rd over last 2 starts). Course history: mixed record here - best T26 in 1 prior start here (avg finish ~26). Finished T66 last week. The value: the model makes him 41% to finish top 20 where the best price implies about 42% - a +-3% edge."
+      "rationale": "Solid all-round numbers for TPC Deere Run. Steady (0.72 SG/rd over last 2 starts). Course history: mixed record here - best T26 in 1 prior start here (avg finish ~26). Finished T66 last week. The value: the model makes him 40% to finish top 20 where the best price implies about 42% - a +-3% edge."
     }
   ],
   "placesTable": [
@@ -1767,28 +1767,28 @@
         "avgFinish": 36
       },
       "win": {
-        "prob": 0.068625,
-        "decimal": 14.571948998178506,
+        "prob": 0.0681875,
+        "decimal": 14.66544454628781,
         "fractional": "14/1"
       },
       "top5": {
-        "prob": 0.318,
-        "decimal": 3.144654088050314,
+        "prob": 0.317,
+        "decimal": 3.1545741324921135,
         "fractional": "9/4"
       },
       "top10": {
-        "prob": 0.56075,
-        "decimal": 1.7833259028087385,
+        "prob": 0.559625,
+        "decimal": 1.7869108778199687,
         "fractional": "4/5"
       },
       "top20": {
-        "prob": 0.846875,
-        "decimal": 1.1808118081180812,
+        "prob": 0.8461875,
+        "decimal": 1.1817711795553587,
         "fractional": "1/6"
       },
       "m_win": {
-        "prob": 0.08975,
-        "decimal": 11.142061281337048,
+        "prob": 0.0899375,
+        "decimal": 11.118832522585128,
         "fractional": "10/1"
       },
       "edge_win": -24,
@@ -1805,31 +1805,31 @@
         "avgFinish": 35
       },
       "win": {
-        "prob": 0.056,
-        "decimal": 17.857142857142858,
+        "prob": 0.0558125,
+        "decimal": 17.91713325867861,
         "fractional": "16/1"
       },
       "top5": {
-        "prob": 0.2671875,
-        "decimal": 3.742690058479532,
+        "prob": 0.2661875,
+        "decimal": 3.756750410894576,
         "fractional": "11/4"
       },
       "top10": {
-        "prob": 0.4875625,
-        "decimal": 2.05101910011537,
+        "prob": 0.486375,
+        "decimal": 2.0560267283474687,
         "fractional": "11/10"
       },
       "top20": {
-        "prob": 0.7815,
-        "decimal": 1.2795905310300704,
+        "prob": 0.78075,
+        "decimal": 1.2808197246237591,
         "fractional": "2/7"
       },
       "m_win": {
-        "prob": 0.1006875,
-        "decimal": 9.931719428926133,
+        "prob": 0.10075,
+        "decimal": 9.925558312655086,
         "fractional": "9/1"
       },
-      "edge_win": -44,
+      "edge_win": -45,
       "edge_top20": -18
     },
     {
@@ -1843,23 +1843,23 @@
         "avgFinish": 35
       },
       "win": {
-        "prob": 0.0476875,
-        "decimal": 20.96985583224115,
+        "prob": 0.0475625,
+        "decimal": 21.02496714848883,
         "fractional": "20/1"
       },
       "top5": {
-        "prob": 0.209625,
-        "decimal": 4.770423375074538,
+        "prob": 0.208625,
+        "decimal": 4.793289394847214,
         "fractional": "4/1"
       },
       "top10": {
-        "prob": 0.3908125,
-        "decimal": 2.5587717895410202,
+        "prob": 0.38925,
+        "decimal": 2.5690430314707773,
         "fractional": "6/4"
       },
       "top20": {
-        "prob": 0.681125,
-        "decimal": 1.4681592952835383,
+        "prob": 0.6800625,
+        "decimal": 1.4704530833563092,
         "fractional": "4/9"
       },
       "m_win": {
@@ -1868,7 +1868,7 @@
         "fractional": "14/1"
       },
       "edge_win": -29,
-      "edge_top20": -20
+      "edge_top20": -21
     },
     {
       "modelRank": 4,
@@ -1881,23 +1881,23 @@
         "avgFinish": 35
       },
       "win": {
-        "prob": 0.0475625,
-        "decimal": 21.02496714848883,
+        "prob": 0.04725,
+        "decimal": 21.164021164021165,
         "fractional": "20/1"
       },
       "top5": {
-        "prob": 0.2255625,
-        "decimal": 4.433361041839845,
+        "prob": 0.22525,
+        "decimal": 4.439511653718091,
         "fractional": "7/2"
       },
       "top10": {
-        "prob": 0.4165625,
-        "decimal": 2.4006001500375094,
+        "prob": 0.4155625,
+        "decimal": 2.4063768987817715,
         "fractional": "11/8"
       },
       "top20": {
-        "prob": 0.70575,
-        "decimal": 1.4169323414806942,
+        "prob": 0.704375,
+        "decimal": 1.419698314108252,
         "fractional": "2/5"
       },
       "m_win": {
@@ -1919,32 +1919,32 @@
         "avgFinish": 26
       },
       "win": {
-        "prob": 0.047,
-        "decimal": 21.27659574468085,
+        "prob": 0.0469375,
+        "decimal": 21.30492676431425,
         "fractional": "20/1"
       },
       "top5": {
-        "prob": 0.2206875,
-        "decimal": 4.531294250920419,
+        "prob": 0.220125,
+        "decimal": 4.542873367404884,
         "fractional": "7/2"
       },
       "top10": {
-        "prob": 0.416625,
-        "decimal": 2.4002400240024,
+        "prob": 0.4154375,
+        "decimal": 2.407100947795998,
         "fractional": "11/8"
       },
       "top20": {
-        "prob": 0.7064375,
-        "decimal": 1.4155533929045385,
+        "prob": 0.7050625,
+        "decimal": 1.418313979257158,
         "fractional": "2/5"
       },
       "m_win": {
-        "prob": 0.0780625,
-        "decimal": 12.810248198558845,
+        "prob": 0.0781875,
+        "decimal": 12.78976818545164,
         "fractional": "12/1"
       },
       "edge_win": -40,
-      "edge_top20": -22
+      "edge_top20": -23
     },
     {
       "modelRank": 6,
@@ -1957,23 +1957,23 @@
         "avgFinish": 30
       },
       "win": {
-        "prob": 0.03775,
-        "decimal": 26.490066225165563,
+        "prob": 0.037625,
+        "decimal": 26.578073089700997,
         "fractional": "25/1"
       },
       "top5": {
-        "prob": 0.1860625,
-        "decimal": 5.374538125629829,
+        "prob": 0.1855,
+        "decimal": 5.390835579514825,
         "fractional": "9/2"
       },
       "top10": {
-        "prob": 0.355375,
-        "decimal": 2.8139289482940555,
+        "prob": 0.354625,
+        "decimal": 2.8198801550934083,
         "fractional": "15/8"
       },
       "top20": {
-        "prob": 0.634375,
-        "decimal": 1.5763546798029555,
+        "prob": 0.632375,
+        "decimal": 1.5813401858074718,
         "fractional": "4/7"
       },
       "m_win": {
@@ -1996,23 +1996,23 @@
         "fractional": "40/1"
       },
       "top5": {
-        "prob": 0.123,
-        "decimal": 8.130081300813009,
+        "prob": 0.122625,
+        "decimal": 8.154943934760448,
         "fractional": "7/1"
       },
       "top10": {
-        "prob": 0.2483125,
-        "decimal": 4.027183488547697,
+        "prob": 0.2471875,
+        "decimal": 4.04551201011378,
         "fractional": "3/1"
       },
       "top20": {
-        "prob": 0.4834375,
-        "decimal": 2.068519715578539,
+        "prob": 0.482625,
+        "decimal": 2.0720020720020718,
         "fractional": "11/10"
       },
       "m_win": {
-        "prob": 0.02575,
-        "decimal": 38.834951456310684,
+        "prob": 0.0258125,
+        "decimal": 38.7409200968523,
         "fractional": "40/1"
       },
       "edge_win": -7,
@@ -2034,27 +2034,27 @@
         "fractional": "40/1"
       },
       "top5": {
-        "prob": 0.1135625,
-        "decimal": 8.805723720418273,
+        "prob": 0.1130625,
+        "decimal": 8.844665561083472,
         "fractional": "8/1"
       },
       "top10": {
-        "prob": 0.2270625,
-        "decimal": 4.404073768235618,
+        "prob": 0.2263125,
+        "decimal": 4.418668876001105,
         "fractional": "7/2"
       },
       "top20": {
-        "prob": 0.4449375,
-        "decimal": 2.2475066722854335,
+        "prob": 0.4438125,
+        "decimal": 2.253203774116322,
         "fractional": "5/4"
       },
       "m_win": {
-        "prob": 0.033375,
-        "decimal": 29.9625468164794,
+        "prob": 0.0334375,
+        "decimal": 29.906542056074766,
         "fractional": "28/1"
       },
       "edge_win": -32,
-      "edge_top20": -29
+      "edge_top20": -30
     },
     {
       "modelRank": 9,
@@ -2068,18 +2068,18 @@
         "fractional": "50/1"
       },
       "top5": {
-        "prob": 0.1015,
-        "decimal": 9.852216748768472,
+        "prob": 0.1011875,
+        "decimal": 9.882643607164917,
         "fractional": "9/1"
       },
       "top10": {
-        "prob": 0.209,
-        "decimal": 4.784688995215311,
+        "prob": 0.2083125,
+        "decimal": 4.8004800480048,
         "fractional": "4/1"
       },
       "top20": {
-        "prob": 0.4150625,
-        "decimal": 2.4092757114892334,
+        "prob": 0.4138125,
+        "decimal": 2.416553390726476,
         "fractional": "11/8"
       },
       "m_win": {
@@ -2101,23 +2101,23 @@
         "avgFinish": 26
       },
       "win": {
-        "prob": 0.0191875,
-        "decimal": 52.11726384364821,
+        "prob": 0.019125,
+        "decimal": 52.287581699346404,
         "fractional": "50/1"
       },
       "top5": {
-        "prob": 0.1011875,
-        "decimal": 9.882643607164917,
+        "prob": 0.1008125,
+        "decimal": 9.919404835709857,
         "fractional": "9/1"
       },
       "top10": {
-        "prob": 0.2010625,
-        "decimal": 4.973577867578489,
+        "prob": 0.2005,
+        "decimal": 4.987531172069825,
         "fractional": "4/1"
       },
       "top20": {
-        "prob": 0.4059375,
-        "decimal": 2.4634334103156275,
+        "prob": 0.4048125,
+        "decimal": 2.4702794503628223,
         "fractional": "6/4"
       },
       "m_win": {
@@ -2139,23 +2139,23 @@
         "avgFinish": 65
       },
       "win": {
-        "prob": 0.019125,
-        "decimal": 52.287581699346404,
+        "prob": 0.0189375,
+        "decimal": 52.805280528052805,
         "fractional": "50/1"
       },
       "top5": {
-        "prob": 0.10125,
-        "decimal": 9.876543209876543,
+        "prob": 0.1010625,
+        "decimal": 9.89486703772418,
         "fractional": "9/1"
       },
       "top10": {
-        "prob": 0.201375,
-        "decimal": 4.9658597144630665,
+        "prob": 0.201,
+        "decimal": 4.975124378109452,
         "fractional": "4/1"
       },
       "top20": {
-        "prob": 0.404875,
-        "decimal": 2.469898116702686,
+        "prob": 0.40425,
+        "decimal": 2.473716759431045,
         "fractional": "6/4"
       },
       "m_win": {
@@ -2163,7 +2163,7 @@
         "decimal": 67.22689075630252,
         "fractional": "66/1"
       },
-      "edge_win": 29,
+      "edge_win": 27,
       "edge_top20": 7
     },
     {
@@ -2182,18 +2182,18 @@
         "fractional": "50/1"
       },
       "top5": {
-        "prob": 0.0955625,
-        "decimal": 10.464355788096796,
+        "prob": 0.09525,
+        "decimal": 10.498687664041995,
         "fractional": "9/1"
       },
       "top10": {
-        "prob": 0.1955625,
-        "decimal": 5.113454777884308,
+        "prob": 0.19475,
+        "decimal": 5.134788189987163,
         "fractional": "4/1"
       },
       "top20": {
-        "prob": 0.3975625,
-        "decimal": 2.5153277786511556,
+        "prob": 0.396125,
+        "decimal": 2.5244556642473968,
         "fractional": "6/4"
       },
       "m_win": {
@@ -2216,18 +2216,18 @@
         "fractional": "50/1"
       },
       "top5": {
-        "prob": 0.0824375,
-        "decimal": 12.130401819560273,
+        "prob": 0.08225,
+        "decimal": 12.1580547112462,
         "fractional": "11/1"
       },
       "top10": {
-        "prob": 0.16975,
-        "decimal": 5.89101620029455,
+        "prob": 0.16925,
+        "decimal": 5.908419497784342,
         "fractional": "5/1"
       },
       "top20": {
-        "prob": 0.3455625,
-        "decimal": 2.8938325194429373,
+        "prob": 0.3446875,
+        "decimal": 2.901178603807797,
         "fractional": "15/8"
       },
       "m_win": {
@@ -2254,23 +2254,23 @@
         "fractional": "50/1"
       },
       "top5": {
-        "prob": 0.088375,
-        "decimal": 11.315417256011315,
+        "prob": 0.0879375,
+        "decimal": 11.371712864250178,
         "fractional": "10/1"
       },
       "top10": {
-        "prob": 0.1724375,
-        "decimal": 5.799202609641174,
+        "prob": 0.171625,
+        "decimal": 5.826656955571741,
         "fractional": "5/1"
       },
       "top20": {
-        "prob": 0.3505625,
-        "decimal": 2.8525583883045105,
+        "prob": 0.3498125,
+        "decimal": 2.858674289798106,
         "fractional": "15/8"
       },
       "m_win": {
-        "prob": 0.0215,
-        "decimal": 46.51162790697675,
+        "prob": 0.0215625,
+        "decimal": 46.376811594202906,
         "fractional": "50/1"
       },
       "edge_win": -17,
@@ -2287,28 +2287,28 @@
         "avgFinish": 44
       },
       "win": {
-        "prob": 0.017125,
-        "decimal": 58.3941605839416,
+        "prob": 0.0170625,
+        "decimal": 58.608058608058606,
         "fractional": "50/1"
       },
       "top5": {
-        "prob": 0.08875,
-        "decimal": 11.267605633802818,
+        "prob": 0.0885,
+        "decimal": 11.299435028248588,
         "fractional": "10/1"
       },
       "top10": {
-        "prob": 0.175625,
-        "decimal": 5.693950177935943,
+        "prob": 0.17525,
+        "decimal": 5.706134094151213,
         "fractional": "9/2"
       },
       "top20": {
-        "prob": 0.3608125,
-        "decimal": 2.771522605231249,
+        "prob": 0.36,
+        "decimal": 2.7777777777777777,
         "fractional": "7/4"
       },
       "m_win": {
-        "prob": 0.009375,
-        "decimal": 106.66666666666667,
+        "prob": 0.0093125,
+        "decimal": 107.38255033557047,
         "fractional": "100/1"
       },
       "edge_win": 83,
@@ -2325,23 +2325,23 @@
         "avgFinish": 5
       },
       "win": {
-        "prob": 0.0170625,
-        "decimal": 58.608058608058606,
+        "prob": 0.017,
+        "decimal": 58.8235294117647,
         "fractional": "50/1"
       },
       "top5": {
-        "prob": 0.0816875,
-        "decimal": 12.241775057383322,
+        "prob": 0.0815,
+        "decimal": 12.269938650306749,
         "fractional": "11/1"
       },
       "top10": {
-        "prob": 0.163875,
-        "decimal": 6.102212051868802,
+        "prob": 0.163125,
+        "decimal": 6.130268199233717,
         "fractional": "5/1"
       },
       "top20": {
-        "prob": 0.338625,
-        "decimal": 2.9531192321889996,
+        "prob": 0.338,
+        "decimal": 2.9585798816568047,
         "fractional": "2/1"
       },
       "m_win": {
@@ -2349,8 +2349,8 @@
         "decimal": 48.484848484848484,
         "fractional": "50/1"
       },
-      "edge_win": -17,
-      "edge_top20": -23
+      "edge_win": -18,
+      "edge_top20": -24
     },
     {
       "modelRank": 17,
@@ -2368,18 +2368,18 @@
         "fractional": "66/1"
       },
       "top5": {
-        "prob": 0.083625,
-        "decimal": 11.958146487294469,
+        "prob": 0.0834375,
+        "decimal": 11.985018726591761,
         "fractional": "11/1"
       },
       "top10": {
-        "prob": 0.1739375,
-        "decimal": 5.749191519942508,
-        "fractional": "9/2"
+        "prob": 0.1733125,
+        "decimal": 5.769924269743959,
+        "fractional": "5/1"
       },
       "top20": {
-        "prob": 0.3578125,
-        "decimal": 2.794759825327511,
+        "prob": 0.356875,
+        "decimal": 2.8021015761821366,
         "fractional": "7/4"
       },
       "m_win": {
@@ -2388,7 +2388,7 @@
         "fractional": "80/1"
       },
       "edge_win": 30,
-      "edge_top20": 12
+      "edge_top20": 11
     },
     {
       "modelRank": 18,
@@ -2401,23 +2401,23 @@
         "avgFinish": 39
       },
       "win": {
-        "prob": 0.0165625,
-        "decimal": 60.37735849056603,
+        "prob": 0.0165,
+        "decimal": 60.6060606060606,
         "fractional": "66/1"
       },
       "top5": {
-        "prob": 0.080625,
-        "decimal": 12.403100775193797,
+        "prob": 0.080375,
+        "decimal": 12.441679626749611,
         "fractional": "11/1"
       },
       "top10": {
-        "prob": 0.1649375,
-        "decimal": 6.062902614626753,
+        "prob": 0.16425,
+        "decimal": 6.0882800608828,
         "fractional": "5/1"
       },
       "top20": {
-        "prob": 0.342875,
-        "decimal": 2.916514764855997,
+        "prob": 0.34175,
+        "decimal": 2.926115581565472,
         "fractional": "15/8"
       },
       "m_win": {
@@ -2426,7 +2426,7 @@
         "fractional": "66/1"
       },
       "edge_win": 14,
-      "edge_top20": 1
+      "edge_top20": 0
     }
   ],
   "worldRankings": [
@@ -2467,7 +2467,7 @@
       "name": "Keegan Bradley",
       "country": "USA",
       "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_33141.png",
-      "winOdds": "100/1",
+      "winOdds": "80/1",
       "value": false
     },
     {
@@ -3485,11 +3485,11 @@
       "name": "Eric Cole",
       "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_47591.png",
       "win": {
-        "prob": 0.068625,
-        "decimal": 14.571948998178506,
+        "prob": 0.0681875,
+        "decimal": 14.66544454628781,
         "fractional": "14/1"
       },
-      "winProb": 0.068625,
+      "winProb": 0.0681875,
       "trend": "up",
       "recentSG": 2.138333333333333,
       "recentEvents": 3
@@ -3499,11 +3499,11 @@
       "name": "Ben Griffin",
       "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_54591.png",
       "win": {
-        "prob": 0.056,
-        "decimal": 17.857142857142858,
+        "prob": 0.0558125,
+        "decimal": 17.91713325867861,
         "fractional": "16/1"
       },
-      "winProb": 0.056,
+      "winProb": 0.0558125,
       "trend": "up",
       "recentSG": 2.3185,
       "recentEvents": 2
@@ -3513,11 +3513,11 @@
       "name": "Keith Mitchell",
       "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_39546.png",
       "win": {
-        "prob": 0.0476875,
-        "decimal": 20.96985583224115,
+        "prob": 0.0475625,
+        "decimal": 21.02496714848883,
         "fractional": "20/1"
       },
-      "winProb": 0.0476875,
+      "winProb": 0.0475625,
       "trend": "up",
       "recentSG": 2.312,
       "recentEvents": 3
@@ -3527,11 +3527,11 @@
       "name": "Jacob Bridgeman",
       "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_60004.png",
       "win": {
-        "prob": 0.0475625,
-        "decimal": 21.02496714848883,
+        "prob": 0.04725,
+        "decimal": 21.164021164021165,
         "fractional": "20/1"
       },
-      "winProb": 0.0475625,
+      "winProb": 0.04725,
       "trend": "flat",
       "recentSG": 0.9146666666666666,
       "recentEvents": 3
@@ -3541,11 +3541,11 @@
       "name": "J.T. Poston",
       "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_49771.png",
       "win": {
-        "prob": 0.047,
-        "decimal": 21.27659574468085,
+        "prob": 0.0469375,
+        "decimal": 21.30492676431425,
         "fractional": "20/1"
       },
-      "winProb": 0.047,
+      "winProb": 0.0469375,
       "trend": "up",
       "recentSG": 2.2493333333333334,
       "recentEvents": 3
@@ -3555,11 +3555,11 @@
       "name": "Chris Gotterup",
       "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_59095.png",
       "win": {
-        "prob": 0.03775,
-        "decimal": 26.490066225165563,
+        "prob": 0.037625,
+        "decimal": 26.578073089700997,
         "fractional": "25/1"
       },
-      "winProb": 0.03775,
+      "winProb": 0.037625,
       "trend": "down",
       "recentSG": 0.6234999999999999,
       "recentEvents": 2
@@ -3611,11 +3611,11 @@
       "name": "Jordan Spieth",
       "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_34046.png",
       "win": {
-        "prob": 0.0191875,
-        "decimal": 52.11726384364821,
+        "prob": 0.019125,
+        "decimal": 52.287581699346404,
         "fractional": "50/1"
       },
-      "winProb": 0.0191875,
+      "winProb": 0.019125,
       "trend": "flat",
       "recentSG": 0.7195,
       "recentEvents": 2
@@ -3625,11 +3625,11 @@
       "name": "Tom Kim",
       "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_55182.png",
       "win": {
-        "prob": 0.019125,
-        "decimal": 52.287581699346404,
+        "prob": 0.0189375,
+        "decimal": 52.805280528052805,
         "fractional": "50/1"
       },
-      "winProb": 0.019125,
+      "winProb": 0.0189375,
       "trend": "up",
       "recentSG": 1.17175,
       "recentEvents": 4
@@ -3681,11 +3681,11 @@
       "name": "Christiaan Bezuidenhout",
       "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_45522.png",
       "win": {
-        "prob": 0.017125,
-        "decimal": 58.3941605839416,
+        "prob": 0.0170625,
+        "decimal": 58.608058608058606,
         "fractional": "50/1"
       },
-      "winProb": 0.017125,
+      "winProb": 0.0170625,
       "trend": "down",
       "recentSG": 0.374,
       "recentEvents": 2
@@ -3751,7 +3751,7 @@
         "weekNumber": 27,
         "eventId": "R2026030",
         "eventName": "John Deere Classic",
-        "placedAt": "2026-06-29T13:57:54.036Z",
+        "placedAt": "2026-06-29T14:13:10.427Z",
         "playerId": "60386",
         "player": "Sudarshan Yellamaraju",
         "market": "top20",
@@ -3761,7 +3761,7 @@
         "stakePts": 1,
         "priceDecimal": 3,
         "priceFractional": "2/1",
-        "modelProb": 0.3455625,
+        "modelProb": 0.3446875,
         "status": "pending",
         "finishPos": null,
         "returnPts": null,
@@ -3772,7 +3772,7 @@
         "weekNumber": 27,
         "eventId": "R2026030",
         "eventName": "John Deere Classic",
-        "placedAt": "2026-06-29T13:57:54.036Z",
+        "placedAt": "2026-06-29T14:13:10.427Z",
         "playerId": "60019",
         "player": "Jackson Suber",
         "market": "win",
@@ -3782,7 +3782,7 @@
         "stakePts": 2,
         "priceDecimal": 57,
         "priceFractional": "56/1",
-        "modelProb": 0.014375,
+        "modelProb": 0.014125,
         "status": "pending",
         "finishPos": null,
         "returnPts": null,
@@ -3793,7 +3793,7 @@
         "weekNumber": 27,
         "eventId": "R2026030",
         "eventName": "John Deere Classic",
-        "placedAt": "2026-06-29T13:57:54.036Z",
+        "placedAt": "2026-06-29T14:13:10.427Z",
         "playerId": "45522",
         "player": "Christiaan Bezuidenhout",
         "market": "top20",
@@ -3803,7 +3803,7 @@
         "stakePts": 2,
         "priceDecimal": 3.3,
         "priceFractional": "9/4",
-        "modelProb": 0.3608125,
+        "modelProb": 0.36,
         "status": "pending",
         "finishPos": null,
         "returnPts": null,
@@ -3814,7 +3814,7 @@
         "weekNumber": 27,
         "eventId": "R2026030",
         "eventName": "John Deere Classic",
-        "placedAt": "2026-06-29T13:57:54.036Z",
+        "placedAt": "2026-06-29T14:13:10.427Z",
         "playerId": "54591",
         "player": "Ben Griffin",
         "market": "win",
@@ -3824,7 +3824,7 @@
         "stakePts": 2,
         "priceDecimal": 17,
         "priceFractional": "16/1",
-        "modelProb": 0.056,
+        "modelProb": 0.0558125,
         "status": "pending",
         "finishPos": null,
         "returnPts": null,
@@ -3835,7 +3835,7 @@
         "weekNumber": 27,
         "eventId": "R2026030",
         "eventName": "John Deere Classic",
-        "placedAt": "2026-06-29T13:57:54.036Z",
+        "placedAt": "2026-06-29T14:13:10.427Z",
         "playerId": "54591",
         "player": "Ben Griffin",
         "market": "top10",
@@ -3845,7 +3845,7 @@
         "stakePts": 3,
         "priceDecimal": 2.7,
         "priceFractional": "7/4",
-        "modelProb": 0.4875625,
+        "modelProb": 0.486375,
         "status": "pending",
         "finishPos": null,
         "returnPts": null,
@@ -3856,7 +3856,7 @@
         "weekNumber": 27,
         "eventId": "R2026030",
         "eventName": "John Deere Classic",
-        "placedAt": "2026-06-29T13:57:54.036Z",
+        "placedAt": "2026-06-29T14:13:10.427Z",
         "playerId": "66701",
         "player": "Jackson Koivun",
         "market": "top10",
@@ -3866,7 +3866,7 @@
         "stakePts": 3,
         "priceDecimal": 3.4,
         "priceFractional": "5/2",
-        "modelProb": 0.0105625,
+        "modelProb": 0.0105,
         "status": "pending",
         "finishPos": null,
         "returnPts": null,
@@ -3879,7 +3879,7 @@
         "weekNumber": 27,
         "eventId": "R2026030",
         "eventName": "John Deere Classic",
-        "placedAt": "2026-06-29T13:57:54.036Z",
+        "placedAt": "2026-06-29T14:13:10.427Z",
         "playerId": "60386",
         "player": "Sudarshan Yellamaraju",
         "market": "top20",
@@ -3889,7 +3889,7 @@
         "stakePts": 1,
         "priceDecimal": 3,
         "priceFractional": "2/1",
-        "modelProb": 0.3455625,
+        "modelProb": 0.3446875,
         "status": "pending",
         "finishPos": null,
         "returnPts": null,
@@ -3900,7 +3900,7 @@
         "weekNumber": 27,
         "eventId": "R2026030",
         "eventName": "John Deere Classic",
-        "placedAt": "2026-06-29T13:57:54.036Z",
+        "placedAt": "2026-06-29T14:13:10.427Z",
         "playerId": "60019",
         "player": "Jackson Suber",
         "market": "win",
@@ -3910,7 +3910,7 @@
         "stakePts": 2,
         "priceDecimal": 57,
         "priceFractional": "56/1",
-        "modelProb": 0.014375,
+        "modelProb": 0.014125,
         "status": "pending",
         "finishPos": null,
         "returnPts": null,
@@ -3921,7 +3921,7 @@
         "weekNumber": 27,
         "eventId": "R2026030",
         "eventName": "John Deere Classic",
-        "placedAt": "2026-06-29T13:57:54.036Z",
+        "placedAt": "2026-06-29T14:13:10.427Z",
         "playerId": "45522",
         "player": "Christiaan Bezuidenhout",
         "market": "top20",
@@ -3931,7 +3931,7 @@
         "stakePts": 2,
         "priceDecimal": 3.3,
         "priceFractional": "9/4",
-        "modelProb": 0.3608125,
+        "modelProb": 0.36,
         "status": "pending",
         "finishPos": null,
         "returnPts": null,
@@ -3942,7 +3942,7 @@
         "weekNumber": 27,
         "eventId": "R2026030",
         "eventName": "John Deere Classic",
-        "placedAt": "2026-06-29T13:57:54.036Z",
+        "placedAt": "2026-06-29T14:13:10.427Z",
         "playerId": "54591",
         "player": "Ben Griffin",
         "market": "win",
@@ -3952,7 +3952,7 @@
         "stakePts": 2,
         "priceDecimal": 17,
         "priceFractional": "16/1",
-        "modelProb": 0.056,
+        "modelProb": 0.0558125,
         "status": "pending",
         "finishPos": null,
         "returnPts": null,
@@ -3963,7 +3963,7 @@
         "weekNumber": 27,
         "eventId": "R2026030",
         "eventName": "John Deere Classic",
-        "placedAt": "2026-06-29T13:57:54.036Z",
+        "placedAt": "2026-06-29T14:13:10.427Z",
         "playerId": "54591",
         "player": "Ben Griffin",
         "market": "top10",
@@ -3973,7 +3973,7 @@
         "stakePts": 3,
         "priceDecimal": 2.7,
         "priceFractional": "7/4",
-        "modelProb": 0.4875625,
+        "modelProb": 0.486375,
         "status": "pending",
         "finishPos": null,
         "returnPts": null,
@@ -3984,7 +3984,7 @@
         "weekNumber": 27,
         "eventId": "R2026030",
         "eventName": "John Deere Classic",
-        "placedAt": "2026-06-29T13:57:54.036Z",
+        "placedAt": "2026-06-29T14:13:10.427Z",
         "playerId": "66701",
         "player": "Jackson Koivun",
         "market": "top10",
@@ -3994,7 +3994,7 @@
         "stakePts": 3,
         "priceDecimal": 3.4,
         "priceFractional": "5/2",
-        "modelProb": 0.0105625,
+        "modelProb": 0.0105,
         "status": "pending",
         "finishPos": null,
         "returnPts": null,

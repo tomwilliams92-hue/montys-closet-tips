@@ -317,6 +317,18 @@ async function main() {
   fs.writeFileSync(path.join(__dirname, 'data.js'), 'window.BOARD = ' + JSON.stringify(board) + ';\n');
   fs.writeFileSync(path.join(__dirname, 'data.json'), JSON.stringify(board, null, 2));
   console.error('[build] wrote data.js');
+
+  // cache-bust: stamp the build version onto the data.js <script> tag so a refreshed page always
+  // pulls the latest picks. GitHub Pages caches data.js for 10 min by default, which otherwise
+  // leaves returning visitors on last week's board.
+  try {
+    const idxPath = path.join(__dirname, 'index.html');
+    const ver = Date.now();
+    const idx = fs.readFileSync(idxPath, 'utf8');
+    const stamped = idx.replace(/src="data\.js(?:\?v=\d+)?"/, `src="data.js?v=${ver}"`);
+    if (stamped !== idx) { fs.writeFileSync(idxPath, stamped); console.error('[build] stamped data.js cache version', ver); }
+    else console.error('[build] WARNING: could not find data.js <script> tag to stamp');
+  } catch (e) { console.error('[build] index.html stamp failed:', e.message); }
   console.error('[build] TRACKED:', model.trackedBets.map((c) => `${c.name} ${c.marketLabel} ${c.priceFractional} (+${c.edgePct}%)`).join(' | '));
   console.error('[build] BEST BET:', model.bestBet ? `${model.bestBet.name} ${model.bestBet.marketLabel} ${model.bestBet.priceFractional}` : 'none');
   console.error('[build] P&L:', `bank ${board.pnl.bankNowPts}pts | settled ${board.pnl.settledCount} | pending ${board.pnl.pendingCount} (${board.pnl.pendingStakePts}pts)`);
