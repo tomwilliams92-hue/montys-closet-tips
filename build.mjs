@@ -90,7 +90,7 @@ const MANUAL_CARD = [
   { name: 'Tom Kim', market: 'win', eachWay: true, points: 2, price: '31/1', places: 10 }, // £5 e/w (1pt/side, 2pt total), 10 places
   { name: 'Denny McCarthy', market: 'win', eachWay: true, points: 1, price: '36/1', places: 8 }, // £2.50 e/w (0.5pt/side, 1pt total), 8 places
   { name: 'Eric Cole', market: 'win', eachWay: true, points: 1, price: '29/1', places: 8 }, // £2.50 e/w (0.5pt/side, 1pt total), 8 places
-  { name: 'Sudarshan Yellamaraju',   market: 'top20', points: 1, price: '3/1' },  // £5 top-20 single
+  { name: 'Sudarshan Yellamaraju',   market: 'top20', points: 1, price: 3.00 },  // £5 top-20 single (3.0 decimal = 2/1)
 ];
 const BEST_BET_NAME = 'Jackson Koivun';        // headline pick (null = highest-edge place bet)
 const REMOVE = ['Ludvig Åberg'];              // never feature these (also pulled from flutters)
