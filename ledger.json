@@ -165,10 +165,10 @@
       "priceDecimal": 2.1,
       "priceFractional": "11/10",
       "modelProb": 0.02825,
-      "status": "pending",
-      "finishPos": null,
-      "returnPts": null,
-      "profitPts": null
+      "status": "lost",
+      "finishPos": "CUT",
+      "returnPts": 0,
+      "profitPts": -4
     },
     {
       "id": "R2026030:54591:top10",
@@ -186,10 +186,10 @@
       "priceDecimal": 2.7,
       "priceFractional": "7/4",
       "modelProb": 0.52075,
-      "status": "pending",
-      "finishPos": null,
-      "returnPts": null,
-      "profitPts": null
+      "status": "lost",
+      "finishPos": "T21",
+      "returnPts": 0,
+      "profitPts": -3
     },
     {
       "id": "R2026030:54591:win",
@@ -207,10 +207,10 @@
       "priceDecimal": 17,
       "priceFractional": "16/1",
       "modelProb": 0.0638125,
-      "status": "pending",
-      "finishPos": null,
-      "returnPts": null,
-      "profitPts": null
+      "status": "lost",
+      "finishPos": "T21",
+      "returnPts": 0,
+      "profitPts": -2
     },
     {
       "id": "R2026030:60019:win",
@@ -228,10 +228,10 @@
       "priceDecimal": 57,
       "priceFractional": "56/1",
       "modelProb": 0.0126875,
-      "status": "pending",
-      "finishPos": null,
-      "returnPts": null,
-      "profitPts": null
+      "status": "won",
+      "finishPos": "T6",
+      "returnPts": 12.2,
+      "profitPts": 10.2
     },
     {
       "id": "R2026030:55182:win",
@@ -249,10 +249,10 @@
       "priceDecimal": 32,
       "priceFractional": "31/1",
       "modelProb": 0.022625,
-      "status": "pending",
-      "finishPos": null,
-      "returnPts": null,
-      "profitPts": null
+      "status": "lost",
+      "finishPos": "T46",
+      "returnPts": 0,
+      "profitPts": -2
     },
     {
       "id": "R2026030:47993:win",
@@ -270,10 +270,10 @@
       "priceDecimal": 37,
       "priceFractional": "36/1",
       "modelProb": 0.0115,
-      "status": "pending",
-      "finishPos": null,
-      "returnPts": null,
-      "profitPts": null
+      "status": "lost",
+      "finishPos": "CUT",
+      "returnPts": 0,
+      "profitPts": -1
     },
     {
       "id": "R2026030:47591:win",
@@ -291,10 +291,10 @@
       "priceDecimal": 30,
       "priceFractional": "29/1",
       "modelProb": 0.055,
-      "status": "pending",
-      "finishPos": null,
-      "returnPts": null,
-      "profitPts": null
+      "status": "lost",
+      "finishPos": "T39",
+      "returnPts": 0,
+      "profitPts": -1
     },
     {
       "id": "R2026030:60386:top20",
@@ -312,6 +312,69 @@
       "priceDecimal": 3,
       "priceFractional": "2/1",
       "modelProb": 0.3694375,
+      "status": "lost",
+      "finishPos": "CUT",
+      "returnPts": 0,
+      "profitPts": -1
+    },
+    {
+      "id": "R2026541:55182:win",
+      "weekNumber": 28,
+      "eventId": "R2026541",
+      "eventName": "Genesis Scottish Open",
+      "placedAt": "2026-07-06T06:05:04.565Z",
+      "playerId": "55182",
+      "player": "Tom Kim",
+      "market": "win",
+      "marketLabel": "To Win",
+      "eachWay": true,
+      "eachWayPlaces": 10,
+      "stakePts": 2,
+      "priceDecimal": 32,
+      "priceFractional": "31/1",
+      "modelProb": 0.0140625,
+      "status": "pending",
+      "finishPos": null,
+      "returnPts": null,
+      "profitPts": null
+    },
+    {
+      "id": "R2026541:47591:win",
+      "weekNumber": 28,
+      "eventId": "R2026541",
+      "eventName": "Genesis Scottish Open",
+      "placedAt": "2026-07-06T06:05:04.565Z",
+      "playerId": "47591",
+      "player": "Eric Cole",
+      "market": "win",
+      "marketLabel": "To Win",
+      "eachWay": true,
+      "eachWayPlaces": 8,
+      "stakePts": 1,
+      "priceDecimal": 30,
+      "priceFractional": "29/1",
+      "modelProb": 0.011375,
+      "status": "pending",
+      "finishPos": null,
+      "returnPts": null,
+      "profitPts": null
+    },
+    {
+      "id": "R2026541:60386:top20",
+      "weekNumber": 28,
+      "eventId": "R2026541",
+      "eventName": "Genesis Scottish Open",
+      "placedAt": "2026-07-06T06:05:04.565Z",
+      "playerId": "60386",
+      "player": "Sudarshan Yellamaraju",
+      "market": "top20",
+      "marketLabel": "Top 20",
+      "eachWay": false,
+      "eachWayPlaces": null,
+      "stakePts": 1,
+      "priceDecimal": 3,
+      "priceFractional": "2/1",
+      "modelProb": 0.2108125,
       "status": "pending",
       "finishPos": null,
       "returnPts": null,
