@@ -82,9 +82,11 @@ const POUNDS_PER_POINT = 5;                   // in-house suggested stake plan: 
 // `eachWay: true` = 1pt e/w to win (half win, half place); `places` overrides the 8-place default.
 // `judgment: true` = market/eye-test pick the model can't price (data-thin); uses `story` and
 // shows no model edge. Travelers form folded in by hand (SG feed not yet finalised on the day).
-// IMPORTANT: clear this back to [] every week once the card is published, or last week's
-// picks + prices bleed onto the next event for any players in both fields. Empty = The Green
-// Book auto-selects (algorithmic + AI deep-dive). Only populate to hand-override a week.
+// Hand-picked card for ONE specific event. It is applied ONLY when the build is for
+// MANUAL_CARD_EVENT (guard in buildManualCard), so a leftover card can never bleed onto a later
+// week - on any other event it is simply ignored and The Green Book auto-selects. To hand-pick a
+// week: set BOTH the event id below AND the picks. Empty array = always auto-select.
+const MANUAL_CARD_EVENT = 'R2026541'; // Genesis Scottish Open - the event this card is written for
 const MANUAL_CARD = [
   { name: 'Scottie Scheffler', market: 'top5',  points: 3, price: 2.20 },                          // Bet365 top-5
   { name: 'Nicolai Højgaard',  market: 'top20', points: 2, price: 2.60 },                          // Bet365 top-20
@@ -116,6 +118,10 @@ const EDITORIAL = {
 
 function buildManualCard(board, model) {
   if (!MANUAL_CARD.length) return;
+  if (MANUAL_CARD_EVENT && board.event.id !== MANUAL_CARD_EVENT) {
+    console.error(`[build] manual card is for ${MANUAL_CARD_EVENT}, but this build is ${board.event.id} (${board.event.name}) - IGNORING the stale card; The Green Book auto-selects.`);
+    return;
+  }
   const out = [];
   for (const e of MANUAL_CARD) {
     const price = parsePrice(e.price);
