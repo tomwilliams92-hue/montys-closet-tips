@@ -187,6 +187,107 @@ export async function getCourseHistory(currentEventId, yearsBack = 4) {
   return out;
 }
 
+// Course-TYPE suitability: how each player has fared at COMPARABLE events (same archetype, e.g. all
+// links) over the last few years - this is the "links/wind record" the season-long SG average can't
+// see. typeCodes = the {code} suffixes of comparable events (from COURSE_TYPE_EVENTS). Returns
+// Map(playerId -> {starts, madeCuts, avgFinish, bestFinish}); MC counts as 65th to drag the average.
+// Skips the current event's current-year staging (it hasn't happened) but includes its past years.
+export async function getCourseTypeHistory(currentEventId, typeCodes, yearsBack = 4) {
+  const m = /^([A-Z])(\d{4})(\d+)$/.exec(currentEventId || '');
+  if (!m || !typeCodes?.length) return new Map();
+  const [, prefix, yr] = m;
+  const year = parseInt(yr, 10);
+  const ids = [];
+  for (const code of typeCodes) for (let k = 0; k <= yearsBack; k++) {
+    const id = `${prefix}${year - k}${code}`;
+    if (id !== currentEventId) ids.push(id); // exclude the unplayed current staging
+  }
+  const lbs = await Promise.all(ids.map((id) => getLeaderboard(id).catch(() => null)));
+  const agg = new Map();
+  for (const lb of lbs) {
+    if (!lb?.positions?.size) continue;
+    for (const [pid, v] of lb.positions) {
+      const a = agg.get(pid) || { starts: 0, madeCuts: 0, sumFinish: 0, bestFinish: null };
+      a.starts++;
+      a.sumFinish += (v.cut || !Number.isFinite(v.pos)) ? 65 : v.pos;
+      if (!v.cut && Number.isFinite(v.pos)) { a.madeCuts++; if (a.bestFinish == null || v.pos < a.bestFinish) a.bestFinish = v.pos; }
+      agg.set(pid, a);
+    }
+  }
+  const out = new Map();
+  for (const [pid, a] of agg) out.set(pid, { starts: a.starts, madeCuts: a.madeCuts, avgFinish: a.sumFinish / a.starts, bestFinish: a.bestFinish });
+  return out;
+}
+
+// ---- real bookmaker odds via pgatour's oddsTable ---------------------------
+// The pgatour GraphQL exposes real book odds for WINNER + TOP_RANKED_5/10/20 (the place markets
+// the-odds-api's free tier does NOT). Returns Map(normName -> {win?,top5?,top10?,top20?}) of
+// {decimal, fractional} best prices, or null when no usable odds are published (co-sanctioned
+// events / early week / the feed is empty). Callers fall back to model estimates on null.
+//
+// NOT YET VERIFIED against a live sample: at build time no upcoming event was priced, so the raw
+// `odds` string format is unconfirmed. The parser below handles fractional / decimal / American /
+// evens defensively and rejects anything else. Spot-check the first live activation before trusting.
+const _norm = (s) => (s || '').toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/[^a-z ]/g, '').trim();
+const _FRAC = [[1,5],[1,4],[2,7],[1,3],[2,5],[4,9],[1,2],[8,15],[4,7],[8,13],[4,6],[8,11],[4,5],[5,6],[10,11],[1,1],[11,10],[5,4],[11,8],[6,4],[7,4],[15,8],[2,1],[9,4],[5,2],[11,4],[3,1],[7,2],[4,1],[9,2],[5,1],[11,2],[6,1],[13,2],[7,1],[15,2],[8,1],[9,1],[10,1],[11,1],[12,1],[14,1],[16,1],[18,1],[20,1],[22,1],[25,1],[28,1],[33,1],[40,1],[50,1],[66,1],[80,1],[100,1],[125,1],[150,1],[200,1],[250,1]];
+const _toFrac = (dec) => { const t = dec - 1; let b = _FRAC[0], e = Infinity; for (const [n, d] of _FRAC) { const err = Math.abs(n / d - t); if (err < e) { e = err; b = [n, d]; } } return `${b[0]}/${b[1]}`; };
+// Parse a bookmaker odds string of unknown format into a decimal price (>1), or null.
+function parseOddsString(raw) {
+  if (raw == null) return null;
+  const s = String(raw).trim();
+  if (!s || s === '-' || /^(sp|n\/?a|na)$/i.test(s)) return null;
+  if (/^ev(en)?s?$/i.test(s)) return 2.0;                         // evens
+  const frac = /^(\d+)\s*\/\s*(\d+)$/.exec(s);                    // fractional 9/2
+  if (frac) { const n = +frac[1], d = +frac[2]; return d > 0 ? n / d + 1 : null; }
+  const amer = /^[+-]\d{3,}$/.test(s) ? parseInt(s, 10) : null;   // American +450 / -120 (3+ digits)
+  if (amer != null) return amer > 0 ? amer / 100 + 1 : 100 / -amer + 1;
+  const dec = Number(s);                                          // decimal 5.5
+  if (Number.isFinite(dec) && dec > 1 && dec < 1001) return dec;
+  return null; // unknown format -> reject (safer than guessing)
+}
+const _MARKET_KEY = (marketName) => {
+  const m = _norm(marketName).replace(/[^a-z0-9 ]/g, ' ');
+  if (/win|outright/.test(m) && !/top/.test(m)) return 'win';
+  if (/20/.test(m)) return 'top20';
+  if (/10/.test(m)) return 'top10';
+  if (/(^|[^0-9])5([^0-9]|$)/.test(m)) return 'top5';
+  return null;
+};
+export async function getBookmakerOdds(tournamentId, tournamentName, fieldPlayers) {
+  try {
+    const players = (fieldPlayers || []).filter((p) => !p.amateur)
+      .map((p) => ({ playerId: String(p.id), playerName: `${p.firstName} ${p.lastName}`.trim() }));
+    if (!players.length) return null;
+    const markets = [
+      { market: 'WINNER', class: 'ODDS' }, { market: 'TOP_RANKED_5', class: 'ODDS' },
+      { market: 'TOP_RANKED_10', class: 'ODDS' }, { market: 'TOP_RANKED_20', class: 'ODDS' },
+    ];
+    const q = `query O($id:String!,$name:String!,$mk:[ArticleOddsMarketsInput!],$pl:[ArticleOddsPlayerInput!]){
+      oddsTable(tournamentId:$id,tournamentName:$name,markets:$mk,players:$pl){ provider players{ playerName playerId markets{ marketName odds } } }}`;
+    const out = new Map();
+    for (let i = 0; i < players.length; i += 30) {           // batch to avoid the payload limit
+      const batch = players.slice(i, i + 30);
+      let d;
+      try { d = await gql(q, { id: tournamentId, name: tournamentName, pl: batch, mk: markets }); }
+      catch { continue; }
+      for (const p of d.oddsTable?.players || []) {
+        const key = _norm(p.playerName);
+        for (const m of p.markets || []) {
+          const mk = _MARKET_KEY(m.marketName); if (!mk) continue;
+          const dec = parseOddsString(m.odds); if (!dec) continue;
+          const cur = out.get(key) || {};
+          if (!cur[mk] || dec > cur[mk].decimal) cur[mk] = { decimal: dec, fractional: _toFrac(dec) }; // best price
+          out.set(key, cur);
+        }
+      }
+    }
+    const winCount = [...out.values()].filter((v) => v.win).length;
+    if (winCount < 12) { console.error(`[odds-pgatour] only ${winCount} players priced - not usable, using estimates`); return null; }
+    console.error(`[odds-pgatour] real odds for ${out.size} players (win:${winCount})`);
+    return out;
+  } catch (e) { console.error('[odds-pgatour] failed, using estimates:', e.message); return null; }
+}
+
 // Final finishing positions for a completed event - used to settle P&L bets.
 // Returns Map(playerId -> { pos:Int|null, posText:String, cut:Boolean }).
 export async function getLeaderboard(tournamentId) {

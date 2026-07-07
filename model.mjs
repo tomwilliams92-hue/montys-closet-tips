@@ -77,6 +77,13 @@ function courseHistText(ch) {
   const quality = ch.bestFinish <= 5 ? 'strong record' : ch.bestFinish <= 15 ? 'solid record' : 'mixed record';
   return `course history: ${quality} here - best ${ordFinish(ch.bestFinish)} in ${s} (avg finish ~${avg})`;
 }
+function courseTypeText(ct, typeName) {
+  if (!ct || !ct.starts || !typeName) return null;
+  const s = `${ct.starts} start${ct.starts === 1 ? '' : 's'} at comparable ${typeName} events`;
+  if (!ct.madeCuts) return `${typeName} suitability: ${s} with no made cuts - struggles in these conditions`;
+  const q = ct.bestFinish <= 5 ? 'strong' : ct.bestFinish <= 15 ? 'solid' : 'mixed';
+  return `${typeName} suitability: ${q} - best ${ordFinish(ct.bestFinish)}, avg ~${Math.round(ct.avgFinish)} across ${s}`;
+}
 
 // ---- post-event let-down --------------------------------------------------
 // Evidence (June 2026): a broad "major hangover" for everyone who contends is NOT supported
@@ -120,27 +127,42 @@ function runSim(comps) {
 }
 
 // ---- the model ------------------------------------------------------------
-export function buildModel({ field, profile, sg, driving, recentEvents, previousEvent, weekNumber, bankrollPoints = 100, eventSlug = '', affiliate = '', realOdds = null, courseHistory = null }) {
+export function buildModel({ field, profile, sg, driving, scrambling = null, recentEvents, previousEvent, weekNumber, bankrollPoints = 100, eventSlug = '', affiliate = '', realOdds = null, courseHistory = null, courseTypeHistory = null }) {
   const players = field.players.filter((p) => !p.amateur);
   const sgVal = (which, id) => sg[which]?.get(String(id))?.values?.Avg;
 
   const rows = players.map((p) => {
     const id = String(p.id);
     const comp = { total: sgVal('total', id), ott: sgVal('ott', id), app: sgVal('app', id), arg: sgVal('arg', id), putt: sgVal('putt', id) };
-    const recentVals = recentEvents.map((e) => e.map.get(id)?.values?.Avg).filter((x) => Number.isFinite(x));
-    const recentSG = recentVals.length ? recentVals.reduce((a, b) => a + b, 0) / recentVals.length : null;
+    // recency-weighted recent form: recentEvents is most-recent-first, so weight = DECAY^index.
+    // Last week counts full, six-to-eight weeks ago count progressively less. Only events the
+    // player actually played contribute (gaps are skipped, not zero-filled).
+    const RECENCY_DECAY = 0.85;
+    const recentRaw = recentEvents.map((e) => e.map.get(id)?.values?.Avg);
+    let wSum = 0, wTot = 0, played = 0;
+    for (let i = 0; i < recentRaw.length; i++) {
+      const v = recentRaw[i];
+      if (!Number.isFinite(v)) continue;
+      const wt = Math.pow(RECENCY_DECAY, i);
+      wSum += v * wt; wTot += wt; played++;
+    }
+    const recentSG = wTot ? wSum / wTot : null;
     return {
       playerId: id, name: `${p.firstName} ${p.lastName}`.trim(), country: p.country, countryFlag: p.countryFlag,
       owgr: p.owgr || 999, headshot: headshot(id), sg: comp,
       drivingDistance: driving.distance?.get(id)?.values?.Avg, drivingAccuracy: driving.accuracy?.get(id)?.values?.['%'],
-      recentSG, recentEvents: recentVals.length, dataThin: !Number.isFinite(comp.total),
+      scrambling: scrambling?.get(id)?.values?.['%'],
+      recentSG, recentEvents: played, dataThin: !Number.isFinite(comp.total),
       courseHist: courseHistory?.get(id) || null, // {starts, madeCuts, avgFinish, bestFinish}
+      courseTypeHist: courseTypeHistory?.get(id) || null, // links/type record: {starts, madeCuts, avgFinish, bestFinish}
     };
   });
 
   const dist = {};
   for (const k of ['total', 'ott', 'app', 'arg', 'putt']) dist[k] = stats(rows.map((r) => r.sg[k]));
   const recentDist = stats(rows.map((r) => r.recentSG));
+  const distDist = stats(rows.map((r) => r.drivingDistance)); // driving distance spread across the field
+  const scrDist = stats(rows.map((r) => r.scrambling));       // scrambling % spread across the field
   const owgrScore = (o) => -Math.log(Math.max(1, o));
   const owgrDist = stats(rows.map((r) => owgrScore(r.owgr)));
 
@@ -155,10 +177,13 @@ export function buildModel({ field, profile, sg, driving, recentEvents, previous
     r.trend = r.trendRaw > 0.25 ? 'up' : r.trendRaw < -0.25 ? 'down' : 'flat';
     // course history: lower average finish here = better. No history -> neutral (z=0), not penalised.
     r.histScore = r.courseHist && r.courseHist.starts ? -r.courseHist.avgFinish : null;
+    // course-TYPE suitability (e.g. links record): lower avg finish at comparable events = better.
+    r.typeScore = r.courseTypeHist && r.courseTypeHist.starts ? -r.courseTypeHist.avgFinish : null;
   }
   const fitDist = stats(rows.map((r) => r.fitScore));
   const trendDist = stats(rows.map((r) => r.trendRaw));
   const histDist = stats(rows.map((r) => r.histScore));
+  const typeDist = stats(rows.map((r) => r.typeScore)); // course-type (e.g. links) suitability spread
   // A real market efficiently prices class, season quality and recent form. Where it is
   // slower is course-fit nuance and the post-major let-down. So the market anchor shares
   // the model's "base" and most of its course-fit, and our edge is only the residual.
@@ -168,13 +193,28 @@ export function buildModel({ field, profile, sg, driving, recentEvents, previous
     const trendZ = z(r.trendRaw, trendDist.mean, trendDist.sd) ?? 0;
     const histZ = z(r.histScore, histDist.mean, histDist.sd) ?? 0; // 0 for debutants (neutral)
     r.histZ = histZ;
-    // course history sits in the shared base: the market prices "horses for courses" too, so it
-    // shapes who contends (better place/EW probabilities) without manufacturing a fake edge.
-    const base = 0.20 * r.recentZ + 0.11 * trendZ + 0.11 * r.seasonZ + 0.11 * r.owgrZ + 0.10 * histZ;
+    // course-type (links/wind) suitability: 0 when the course has no archetype or the player has no
+    // record at comparable events (neutral, not penalised). This is the signal the season-long SG
+    // average is blind to - a proven links horse gets credit the raw numbers never showed.
+    const typeZ = z(r.typeScore, typeDist.mean, typeDist.sd) ?? 0;
+    r.typeZ = typeZ;
+    // course history AND course-type suitability sit in the shared base: the market prices "horses for
+    // courses" too, so they shape who contends (better place/EW probabilities) and shorten a proven
+    // horse's price in BOTH the model and the market anchor - not manufacturing a fake edge.
+    const base = 0.20 * r.recentZ + 0.11 * trendZ + 0.11 * r.seasonZ + 0.11 * r.owgrZ + 0.10 * histZ + 0.12 * typeZ;
     const fitContribution = 0.42 * fitZ;
-    r.composite = base + fitContribution;               // full model: course-fit at 100%
+    // Course-conditional driving-distance & scrambling nudges. The SG splits already capture most
+    // of this, so these are deliberately small (0.05) and scaled by how much THIS course rewards
+    // that skill: raw distance counts more where off-the-tee is weighted heavily (bomber/links),
+    // scrambling more where around-the-green is (tight, tough-to-hit tracks). Adds granularity the
+    // season-long SG smooths over without letting it override strokes-gained.
+    const distZ = z(r.drivingDistance, distDist.mean, distDist.sd) ?? 0;
+    const scrZ = z(r.scrambling, scrDist.mean, scrDist.sd) ?? 0;
+    r.distZ = distZ; r.scrZ = scrZ;
+    const extra = 0.05 * distZ * (profile.weights.ott / 0.25) + 0.05 * scrZ * (profile.weights.arg / 0.20);
+    r.composite = base + fitContribution + extra;       // full model: course-fit at 100% + skill nudges
     if (r.dataThin) r.composite -= 0.6;
-    r.marketComposite = base + DAMP * fitContribution;  // market: course-fit dampened, no let-down
+    r.marketComposite = base + DAMP * (fitContribution + extra);  // market: course-fit + nudges dampened, no let-down
   }
   applyLetdown(rows, previousEvent); // docks the MODEL composite only -> our edge to fade them
   // qualitative news/injury layer (overrides the numbers where we know better)
@@ -219,6 +259,7 @@ export function buildModel({ field, profile, sg, driving, recentEvents, previous
     bits.push(st || `solid all-round numbers for ${profile.course || 'this test'}`);
     const ft = formText(r); if (ft) bits.push(ft);
     const cht = courseHistText(r.courseHist); if (cht) bits.push(cht);
+    const ctt = courseTypeText(r.courseTypeHist, profile.courseType); if (ctt) bits.push(ctt);
     if (r.playedLastWeek === false) bits.push('did not play last week, so arrives fresh');
     else if (r.lastWeekFinish && !r.letdownFlag) bits.push(`finished ${r.lastWeekFinish} last week`);
     if (r.playerNote) bits.push(r.playerNote.note);
@@ -239,6 +280,7 @@ export function buildModel({ field, profile, sg, driving, recentEvents, previous
       letdownFlag: r.letdownFlag || null, playerNote: r.playerNote ? r.playerNote.note : null, playerNoteTag: r.playerNote ? r.playerNote.tag : null,
       lastWeekFinish: r.lastWeekFinish || null, playedLastWeek: r.playedLastWeek ?? null,
       courseHistory: r.courseHist || null,
+      courseType: r.courseTypeHist || null,
       placeProbTop8: m === 'win' ? r.top5.prob + 0.6 * (r.top10.prob - r.top5.prob) : null, // for manual each-way picks
       bookie: m === 'win' ? (r.winBookie || null) : null,
       ocLink: `https://www.oddschecker.com/golf/${eventSlug}/${OC_MARKET[m]}${affiliate ? '?' + affiliate : ''}`,
@@ -335,6 +377,7 @@ export function buildModel({ field, profile, sg, driving, recentEvents, previous
   const placesTable = byWin.slice(0, 18).map((r) => ({
     modelRank: r.modelRank, name: r.name, headshot: r.headshot, letdownFlag: r.letdownFlag || null,
     courseHistory: r.courseHist ? { starts: r.courseHist.starts, bestFinish: r.courseHist.bestFinish, avgFinish: Math.round(r.courseHist.avgFinish) } : null,
+    courseType: r.courseTypeHist ? { starts: r.courseTypeHist.starts, bestFinish: r.courseTypeHist.bestFinish, avgFinish: Math.round(r.courseTypeHist.avgFinish) } : null,
     win: r.win, top5: r.top5, top10: r.top10, top20: r.top20,
     m_win: r.m_win, edge_win: Math.round(r.edge_win * 100), edge_top20: Math.round(r.edge_top20 * 100),
   }));
@@ -354,6 +397,7 @@ export function buildModel({ field, profile, sg, driving, recentEvents, previous
     recentSG: r.recentSG != null ? Math.round(r.recentSG * 100) / 100 : null, recentEvents: r.recentEvents, trend: r.trend,
     lastWeekFinish: r.lastWeekFinish || null, injury: r.playerNote ? r.playerNote.note : null,
     courseHistory: r.courseHist ? { starts: r.courseHist.starts, madeCuts: r.courseHist.madeCuts, bestFinish: r.courseHist.bestFinish, avgFinish: Math.round(r.courseHist.avgFinish) } : null,
+    courseType: r.courseTypeHist ? { starts: r.courseTypeHist.starts, madeCuts: r.courseTypeHist.madeCuts, bestFinish: r.courseTypeHist.bestFinish, avgFinish: Math.round(r.courseTypeHist.avgFinish) } : null,
     markets: Object.fromEntries(MARKETS.map((m) => [m, { modelProb: Math.round(r[m].prob * 1000) / 1000, marketProb: Math.round(r['m_' + m].prob * 1000) / 1000, edgePct: Math.round(r['edge_' + m] * 100), price: r['m_' + m].fractional }])),
   }));
 

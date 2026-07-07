@@ -195,13 +195,13 @@
 </head>
 <body>
 <header class="top"><div class="wrap topbar">
-  <div class="brand"><img class="mark" src="monty-logo.png" alt="Monty's Closet Tips logo"><div><h1>Monty's Closet Tips</h1><div class="sub">Value tips with a tracked P&amp;L &middot; every Monday</div></div></div>
+  <div class="brand"><img class="mark" src="monty-logo.png" alt="Monty's Closet Tips logo"><div><h1>Monty's Closet Tips</h1><div class="sub">Selections by <b>The Green Book</b> &middot; tracked P&amp;L &middot; every Monday</div></div></div>
   <div class="updated" id="updated"></div>
 </div></header>
 <div class="rgbar"><div class="in"><span class="age">18+</span> When the fun stops, stop. Please gamble responsibly &middot; <a href="https://www.begambleaware.org" target="_blank" rel="noopener">BeGambleAware.org</a></div></div>
 <main class="wrap" id="app"></main>
 
-<script src="data.js?v=1783317904663"></script>
+<script src="data.js?v=1783428078874"></script>
 <script>
 const B = window.BOARD;
 const $ = (h)=>{const t=document.createElement('template');t.innerHTML=h.trim();return t.content.firstChild;};
@@ -320,7 +320,7 @@ function render() {
   if (B.editorial) {
     const ed = B.editorial, r = ed.recap;
     const pcol = (v)=>v>=0?'#36d399':'#ff6f6f';
-    const recapHtml = r ? `<div style="margin:0 0 12px"><div style="font-weight:800;margin-bottom:3px">📊 Last week — ${r.eventName}</div><div style="color:var(--muted,#c3d2ea);font-size:13.5px;line-height:1.55"><b style="color:${pcol(r.profitPts)}">${r.profitPts>=0?'+':''}${r.profitPts} pts</b> &middot; ${r.roiPct>=0?'+':''}${r.roiPct}% ROI from ${r.settledCount} bets &middot; bank now <b>${r.bankNowPts} pts</b>.${r.winners.length?` Winners: ${r.winners.map(w=>`<b>${w.player}</b> ${w.finishPos} (${w.marketLabel} ${w.price}, +${w.profitPts}pts)`).join('; ')}.`:' No winners landed.'} A profitable first run — exactly the start we wanted.</div></div>` : '';
+    const recapHtml = r ? `<div style="margin:0 0 12px"><div style="font-weight:800;margin-bottom:3px">📊 Last week — ${r.eventName}</div><div style="color:var(--muted,#c3d2ea);font-size:13.5px;line-height:1.55"><b style="color:${pcol(r.profitPts)}">${r.profitPts>=0?'+':''}${r.profitPts} pts</b> &middot; ${r.roiPct>=0?'+':''}${r.roiPct}% ROI from ${r.settledCount} bets &middot; bank now <b>${r.bankNowPts} pts</b>.${r.winners.length?` Winners: ${r.winners.map(w=>`<b>${w.player}</b> ${w.finishPos} (${w.marketLabel} ${w.price}, +${w.profitPts}pts)`).join('; ')}.`:' No winners landed.'}</div></div>` : '';
     const aheadHtml = ed.weekAhead ? `<div style="margin:0 0 12px"><div style="font-weight:800;margin-bottom:3px">🔭 The week ahead</div><div style="color:var(--muted,#c3d2ea);font-size:13.5px;line-height:1.55">${ed.weekAhead}</div></div>` : '';
     const spotHtml = ed.spotlight ? `<div style="margin:2px 0 0;padding:11px 13px;border-radius:10px;background:rgba(230,184,0,.08);border:1px solid rgba(230,184,0,.25)"><div style="font-weight:800;margin-bottom:3px">📌 Spotlight — ${ed.spotlight.name}</div><div style="color:var(--muted,#c3d2ea);font-size:13.5px;line-height:1.55">${ed.spotlight.text}</div></div>` : '';
     t1.appendChild($(`<div class="card-base" style="padding:16px 18px 15px;margin-bottom:14px;border-left:3px solid var(--gold,#e6b800)"><div style="font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--gold,#e6b800);font-weight:800;margin-bottom:11px">⛳ Monty's Update</div>${recapHtml}${aheadHtml}${spotHtml}</div>`));

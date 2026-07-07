@@ -56,6 +56,7 @@ export const COURSE_PROFILES = {
 
   // Genesis Scottish Open - The Renaissance Club, North Berwick (links, co-sanctioned)
   R2026541: {
+    courseType: 'links',
     course: 'The Renaissance Club',
     par: 70,
     yards: 7282,
@@ -74,6 +75,7 @@ export const COURSE_PROFILES = {
 
   // The Open Championship - Royal Birkdale, Southport (major, not a PGA Tour stats event)
   R2026100: {
+    courseType: 'links',
     course: 'Royal Birkdale',
     par: 70,
     yards: 7156,
@@ -89,6 +91,13 @@ export const COURSE_PROFILES = {
     ],
     weights: { ott: 0.30, app: 0.30, arg: 0.25, putt: 0.15 },
   },
+};
+
+// Course archetype -> the PGA Tour event codes (the {code} in R{year}{code}) of comparable events.
+// Used to build each player's record on THIS TYPE of course (e.g. links suitability) from past
+// stagings, so the model can credit proven wind/links horses the season-long SG average misses.
+export const COURSE_TYPE_EVENTS = {
+  links: ['100', '541'], // The Open Championship, Genesis Scottish Open
 };
 
 export function profileFor(tournamentId) {

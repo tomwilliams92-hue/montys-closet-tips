@@ -8,8 +8,8 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { getSchedule, getField, getStat, getEventSG, getLeaderboard, getCourseHistory } from './pga-api.mjs';
-import { profileFor } from './course-profiles.mjs';
+import { getSchedule, getField, getStat, getEventSG, getLeaderboard, getCourseHistory, getCourseTypeHistory, getBookmakerOdds } from './pga-api.mjs';
+import { profileFor, COURSE_TYPE_EVENTS } from './course-profiles.mjs';
 import { buildModel } from './model.mjs';
 import { loadLedger, saveLedger, appendWeek, settle, summary } from './ledger.mjs';
 import { getRealWinnerOdds } from './odds-api.mjs';
@@ -59,6 +59,7 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 try { process.loadEnvFile(path.join(__dirname, '.env')); } catch { /* no .env - fine */ }
 const SG = { total: '02675', ott: '02567', app: '02568', arg: '02569', putt: '02564' };
 const DRIVE = { distance: '101', accuracy: '102' };
+const SCRAMBLE = '130'; // Scrambling % — short-game/up-and-down skill, matters most on tough-to-hit courses/links
 const AFFILIATE = ''; // e.g. 'affil=YOURCODE' - appended to the oddschecker "Back it" links
 
 const fracToDec = (f) => { const [n, d] = String(f).split('/').map(Number); return d ? n / d + 1 : Number(f) + 1; };
@@ -81,40 +82,36 @@ const POUNDS_PER_POINT = 5;                   // in-house suggested stake plan: 
 // `eachWay: true` = 1pt e/w to win (half win, half place); `places` overrides the 8-place default.
 // `judgment: true` = market/eye-test pick the model can't price (data-thin); uses `story` and
 // shows no model edge. Travelers form folded in by hand (SG feed not yet finalised on the day).
+// IMPORTANT: clear this back to [] every week once the card is published, or last week's
+// picks + prices bleed onto the next event for any players in both fields. Empty = The Green
+// Book auto-selects (algorithmic + AI deep-dive). Only populate to hand-override a week.
 const MANUAL_CARD = [
-  { name: 'Jackson Koivun',          market: 'top20', points: 4, price: 2.10, judgment: true,
-    story: "Pure judgement pick - and the headline one. The model can't rate him (he has no tracked PGA Tour strokes-gained yet), so the eye test does the talking. He went T11 here at TPC Deere Run and T23 at the U.S. Open at brutal Oakmont, gaining +1.39 strokes a round in a major - one of the best young players in the game arriving on a low-scoring birdie course that suits. It's a punt on a player early in his pro career, but the class is obvious and the market makes him about 48% for a top 20. We're happy to take the 2.10." },
-  { name: 'Ben Griffin',             market: 'top10', points: 3, price: 2.70 },  // 46% model vs 37% implied = +24%
-  { name: 'Ben Griffin',             market: 'win',   points: 2, price: '16/1' }, // straight win (top-10 covers the place)
-  { name: 'Jackson Suber', market: 'win', eachWay: true, points: 2, price: '56/1', places: 10 }, // £5 e/w (1pt/side, 2pt total), 10 places - value is the place side
-  { name: 'Tom Kim', market: 'win', eachWay: true, points: 2, price: '31/1', places: 10 }, // £5 e/w (1pt/side, 2pt total), 10 places
-  { name: 'Denny McCarthy', market: 'win', eachWay: true, points: 1, price: '36/1', places: 8 }, // £2.50 e/w (0.5pt/side, 1pt total), 8 places
-  { name: 'Eric Cole', market: 'win', eachWay: true, points: 1, price: '29/1', places: 8 }, // £2.50 e/w (0.5pt/side, 1pt total), 8 places
-  { name: 'Sudarshan Yellamaraju',   market: 'top20', points: 1, price: 3.00 },  // £5 top-20 single (3.0 decimal = 2/1)
+  { name: 'Scottie Scheffler', market: 'top5',  points: 3, price: 2.20 },                          // Bet365 top-5
+  { name: 'Nicolai Højgaard',  market: 'top20', points: 2, price: 2.60 },                          // Bet365 top-20
+  { name: 'Matt Fitzpatrick',  market: 'win', eachWay: true, points: 2, price: '17/1', places: 8 },  // e/w, 8 places — BEST BET
+  { name: 'Tyrrell Hatton',    market: 'win', eachWay: true, points: 2, price: '26/1', places: 10, judgment: true,
+    story: "Judgement pick — The Green Book can't rate him (no PGA Tour strokes-gained; he plays mostly DP World Tour/LIV), but the case is strong: a multiple Alfred Dunhill Links winner, elite in the wind, and gained +2.4 strokes a round at his last U.S. Open. At 26/1 with ten places each-way (1/5), the place half is where the value sits." },
+  { name: 'Marco Penge',       market: 'win', eachWay: true, points: 2, price: '41/1', places: 12, judgment: true,
+    story: "Each-way flyer (£5 e/w). An in-form DP World Tour player (OWGR 48) with a runner-up in his links record; the PGA-based model rates him low, so this is a punt on his European form at 41/1 with twelve places (1/5) — all about the place terms." },
+  { name: 'Grant Forrest',     market: 'win', eachWay: true, points: 1, price: '141/1', places: 12, judgment: true,
+    story: "Home each-way flyer (£2.50 e/w). A Scot the model can't rate (no PGA Tour strokes-gained), but with a solid links cut-rate and a home crowd behind him; 141/1 with twelve places (1/5) is a lottery ticket bought on the place terms, not a value bet." },
 ];
-const BEST_BET_NAME = 'Jackson Koivun';        // headline pick (null = highest-edge place bet)
-const REMOVE = ['Ludvig Åberg'];              // never feature these (also pulled from flutters)
+const BEST_BET_NAME = 'Matt Fitzpatrick';       // headline pick — each-way to win, 2pt total
+const REMOVE = [];                              // never feature these (also pulled from flutters)
 
 // EXTRA CARD - hand-added bets on a NON-PGA-Tour event the pipeline can't price or settle
 // (different tour, no strokes-gained feed, no auto-settlement). DISPLAY-ONLY: shown on the
 // board for the record but NOT tracked in the points P&L. Set to null once the event is done.
-const EXTRA_CARD = {
-  eventName: 'BMW International Open',
-  tour: 'DP World Tour',
-  note: 'Off-pipeline: a DP World Tour event, so these two are shown for the record but are not priced by the model or settled in the points P&L.',
-  bets: [
-    { name: 'Rasmus Neergaard-Petersen', market: 'Each-way to win', places: 8,  priceFractional: '23/1', stakeText: '£2.50 e/w (£5 total)' },
-    { name: 'Oliver Lindell',            market: 'Each-way to win', places: 10, priceFractional: '29/1', stakeText: '£5 e/w (£10 total)' },
-  ],
-};
+// BMW International Open is finished — off-pipeline cards are display-only and must be nulled
+// once the event is over so they stop showing. Repopulate only for a live off-tour event.
+const EXTRA_CARD = null;
 
 // Weekly editorial - the recap is auto-built from the ledger; week-ahead + spotlight are hand-written.
+// Hand-written look-ahead + spotlight. Refresh weekly or leave null (the recap is auto-built
+// from the ledger regardless). Null avoids stale copy leaking onto the next event's board.
 const EDITORIAL = {
-  weekAhead: "The John Deere Classic is a deliberately reduced field - a number of the bigger names are sitting it out, resting or warming up for the Genesis Scottish Open and The Open Championship. That is the opportunity: with the marquee names away, the door opens for in-form, well-suited players like Ben Griffin and Jackson Koivun to shine on a low-scoring birdie course where pinpoint approach play and a hot putter win out.",
-  spotlight: {
-    name: 'Jackson Koivun',
-    text: "Our headline focus - this week and beyond. Koivun has only just turned professional, so the bookmakers have barely any form to price him on, and that is exactly where the value sits. He went T11 here at TPC Deere Run and T23 at the U.S. Open at brutal Oakmont, gaining +1.39 strokes a round in a major. As his results land on the professional stage his prices will only shorten, so we want to be early. He is our Best Bet for a top 20 this week, and one we will be tracking every week from here.",
-  },
+  weekAhead: null,
+  spotlight: null,
 };
 
 function buildManualCard(board, model) {
@@ -215,12 +212,12 @@ async function main() {
   const profile = profileFor(event.id);
 
   // pull everything in parallel
-  const recentSrc = completed.slice(-6).reverse(); // most recent first (last 6 events)
-  const [field, sgTotal, sgOTT, sgAPP, sgARG, sgPUTT, dDist, dAcc, ...recent] = await Promise.all([
+  const recentSrc = completed.slice(-8).reverse(); // most recent first (last 8 events; recency-weighted in the model)
+  const [field, sgTotal, sgOTT, sgAPP, sgARG, sgPUTT, dDist, dAcc, dScr, ...recent] = await Promise.all([
     getField(event.id),
     getStat(SG.total, year), getStat(SG.ott, year), getStat(SG.app, year),
     getStat(SG.arg, year), getStat(SG.putt, year),
-    getStat(DRIVE.distance, year), getStat(DRIVE.accuracy, year),
+    getStat(DRIVE.distance, year), getStat(DRIVE.accuracy, year), getStat(SCRAMBLE, year),
     ...recentSrc.map((e) => getEventSG(e.id, year)),
   ]);
   console.error(`[build] field: ${field.players.length} players | SG:Total rows: ${sgTotal.map.size}`);
@@ -241,15 +238,35 @@ async function main() {
   // real best-price winner odds across UK books (the-odds-api) - null without a key
   const realOdds = await getRealWinnerOdds(event.tournamentName).catch(() => null);
 
+  // The Green Book real place-odds (pgatour oddsTable: real WINNER + TOP-5/10/20). CAPTURE MODE:
+  // fetched and logged for verification but NOT yet fed to the model — the raw odds-string format is
+  // unverified (no event was priced at build time). Flip to true ONLY after spot-checking a live sample.
+  const USE_REAL_PLACE_ODDS = false;
+  const realPlaceOdds = await getBookmakerOdds(event.id, event.tournamentName, field.players).catch(() => null);
+  if (realPlaceOdds) {
+    const sample = [...realPlaceOdds.entries()].slice(0, 3).map(([n, v]) => `${n} ${JSON.stringify(v)}`);
+    console.error(`[build] real place-odds AVAILABLE for ${realPlaceOdds.size} players — VERIFY format then enable. Sample: ${sample.join(' | ')}`);
+  } else {
+    console.error('[build] real place-odds: none published for this event yet (using model estimates).');
+  }
+  void USE_REAL_PLACE_ODDS; // wired for activation once verified; model override intentionally deferred
+
   // course history: how the field has fared at THIS event over the last few years (free)
   const courseHistory = await getCourseHistory(event.id, 4).catch(() => null);
   if (courseHistory) console.error(`[build] course history: ${courseHistory.size} players with prior starts here`);
+
+  // course-TYPE suitability (e.g. links/wind record across comparable events) when the course has an
+  // archetype defined - this is the "can they do it in these conditions" signal the SG average misses
+  const typeCodes = profile.courseType ? COURSE_TYPE_EVENTS[profile.courseType] : null;
+  const courseTypeHistory = typeCodes ? await getCourseTypeHistory(event.id, typeCodes, 4).catch(() => null) : null;
+  if (courseTypeHistory) console.error(`[build] ${profile.courseType} suitability: ${courseTypeHistory.size} players with a record at comparable ${profile.courseType} events`);
 
   const model = buildModel({
     field,
     profile,
     sg: { total: sgTotal.map, ott: sgOTT.map, app: sgAPP.map, arg: sgARG.map, putt: sgPUTT.map },
     driving: { distance: dDist.map, accuracy: dAcc.map },
+    scrambling: dScr.map,
     recentEvents,
     previousEvent,
     weekNumber: completed.length + 1,
@@ -257,6 +274,7 @@ async function main() {
     affiliate: AFFILIATE,
     realOdds,
     courseHistory,
+    courseTypeHistory,
   });
 
   const notes = [];
@@ -265,7 +283,7 @@ async function main() {
   const oddsNote = realOdds
     ? 'Win-market prices are the best available across UK bookmakers (live); place-market prices (top 5/10/20) are model estimates.'
     : 'Prices are model estimates until a live odds feed is connected.';
-  notes.push(`Recommendations are ranked by VALUE - the model's probability vs the best price (the edge). Win/Top-5/Top-10/Top-20 probabilities come from a Monte Carlo simulation built on course-fit strokes-gained, recent form/trend, season class and course history at this event. ${oddsNote}`);
+  notes.push(`Selections are made by The Green Book — the model that ranks every player by VALUE (its probability vs the best price, the edge). Win/Top-5/Top-10/Top-20 probabilities come from a Monte Carlo simulation built on course-fit strokes-gained, recency-weighted recent form (last 8 events), trend, season class, world ranking, course history at this event, and course-conditional driving-distance and scrambling. ${oddsNote}`);
   if (model.courseHistoryCount) notes.push(`Course history: finishes at this event over the last 4 stagings feed the model for ${model.courseHistoryCount} of the field (debutants are treated neutrally, not penalised).`);
   if (profile.grass) notes.push(`Greens/grass: ${profile.grass}. Surface type informs the course read; per-player grass-specific putting splits would need a paid feed, so it is not yet a separate player input.`);
   notes.push('Each-way to-win bets are 1pt e/w at 8 places (Bet365 terms), priced in the 20/1-50/1 backtested sweet spot. Tracked bets feed the P&L (points/units); untracked "flutters" do not. Bets settle the following week off the final leaderboard.');
