@@ -109,10 +109,13 @@ const REMOVE = [];                              // never feature these (also pul
 const EXTRA_CARD = null;
 
 // Weekly editorial - the recap is auto-built from the ledger; week-ahead + spotlight are hand-written.
-// Hand-written look-ahead + spotlight. Refresh weekly or leave null (the recap is auto-built
-// from the ledger regardless). Null avoids stale copy leaking onto the next event's board.
+// Hand-written editorial for ONE event (gated on EDITORIAL_EVENT so it can't leak onto a later
+// week's board). `story` = Monty's Update narrative; `courseIntro` = the short course write-up.
+// The P&L recap is auto-built from the ledger regardless. Refresh both weekly.
+const EDITORIAL_EVENT = MANUAL_CARD_EVENT; // editorial applies only to this event
 const EDITORIAL = {
-  weekAhead: null,
+  story: "We're up overall — a positive start is banked, and that's the headline. Last week's John Deere stung a little: down 3.8 points on the week. The one that got away was Chris Gotterup — a player we flagged and genuinely fancied — but we sided with Ben Griffin instead, and Gotterup went and won it. Wrong horse, right race. The consolation was Jackson Suber, our 56/1 each-way flyer, who rewarded us with a strong top-10 finish — exactly the kind of big-priced place that makes the each-way game pay its way. One small dip, still in front overall, and now onto a proper links test.",
+  courseIntro: "The Renaissance Club is links golf the week before The Open — and the wind is the defence. This is a ball-striker's test: control off the tee and flighted, penetrating iron play beat raw power, so accurate, wind-hardened players climb the board while the bombers get exposed. Jumping out to us: Scottie Scheffler (the most complete ball-striker in the game), Tommy Fleetwood and Matt Fitzpatrick (proven links horses with the record to back it up), and Tyrrell Hatton — a genuine wind specialist the data can't fully see, but the eye certainly can.",
   spotlight: null,
 };
 
@@ -166,7 +169,13 @@ function buildManualCard(board, model) {
 
 // Build the weekly update block: auto-recap of the most recent settled event + hand-written look-ahead.
 function buildEditorial(board, ledger) {
-  board.editorial = { weekAhead: EDITORIAL.weekAhead, spotlight: EDITORIAL.spotlight, recap: null };
+  const applies = EDITORIAL_EVENT ? board.event.id === EDITORIAL_EVENT : true;
+  board.editorial = {
+    story: applies ? EDITORIAL.story : null,
+    courseIntro: applies ? EDITORIAL.courseIntro : null,
+    spotlight: applies ? EDITORIAL.spotlight : null,
+    recap: null,
+  };
   const settled = ledger.bets.filter((b) => b.status === 'won' || b.status === 'lost');
   if (!settled.length) return;
   const lastId = settled[settled.length - 1].eventId; // most recently settled event
@@ -342,6 +351,12 @@ async function main() {
 
   // hand-curated card for the week (Tom's research): replaces the auto-selection when set
   buildManualCard(board, model);
+  // watchlist must never feature a player we're actually backing (the manual card is applied AFTER
+  // the model builds the watchlist), so filter against the final card and trim to ~6 to-watch names.
+  {
+    const backedIds = new Set((board.trackedBets || []).map((c) => c.playerId));
+    board.watchlist = (board.watchlist || []).filter((w) => !backedIds.has(w.playerId)).slice(0, 6);
+  }
   board.bankroll.poundsPerPoint = POUNDS_PER_POINT; // show actual £ stakes (in-house plan)
   board.extraCard = EXTRA_CARD; // hand-added off-pipeline bets (e.g. DP World Tour) - display only
 

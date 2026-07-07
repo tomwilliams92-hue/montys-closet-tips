@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-07T12:41:18.812Z",
+  "generatedAt": "2026-07-07T18:10:47.628Z",
   "event": {
     "id": "R2026541",
     "name": "Genesis Scottish Open",
@@ -416,128 +416,7 @@
       "priceFractional": "141/1"
     }
   ],
-  "flutters": [
-    {
-      "playerId": "46046",
-      "name": "Scottie Scheffler",
-      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_46046.png",
-      "country": "USA",
-      "owgr": "1",
-      "market": "win",
-      "marketLabel": "To Win",
-      "eachWay": true,
-      "modelProb": 0.3333125,
-      "modelOdds": {
-        "prob": 0.3333125,
-        "decimal": 3.0001875117194823,
-        "fractional": "2/1"
-      },
-      "marketProb": 0.446375,
-      "marketOdds": {
-        "prob": 0.446375,
-        "decimal": 2.240268832259871,
-        "fractional": "5/4"
-      },
-      "edgePct": -25,
-      "valueScore": -0.14623270766194876,
-      "confidence": 5,
-      "trend": "up",
-      "sg": {
-        "total": 2.249,
-        "ott": 0.665,
-        "app": 0.601,
-        "arg": 0.471,
-        "putt": 0.512
-      },
-      "recentSG": 2.5552709183492945,
-      "recentEvents": 5,
-      "dataThin": false,
-      "letdownFlag": null,
-      "playerNote": null,
-      "playerNoteTag": null,
-      "lastWeekFinish": null,
-      "playedLastWeek": false,
-      "courseHistory": {
-        "starts": 3,
-        "madeCuts": 2,
-        "avgFinish": 25.333333333333332,
-        "bestFinish": 3
-      },
-      "courseType": {
-        "starts": 7,
-        "madeCuts": 6,
-        "avgFinish": 18.285714285714285,
-        "bestFinish": 1
-      },
-      "placeProbTop8": 0.956725,
-      "bookie": null,
-      "ocLink": "https://www.oddschecker.com/golf/genesis-scottish-open/winner",
-      "rationale": "The world number one and the best ball-striker on the planet, whose floor is most players' ceiling. He contended again at the U.S. Open (T4), and on a scoreable course the only question is whether the putter behaves, which is exactly why each-way is the smart way in at this price. The value: the model makes him 33% to win where the best price implies about 45% - a +-25% edge.",
-      "kind": "Favourite punt",
-      "tracked": false,
-      "points": 1
-    },
-    {
-      "playerId": "35450",
-      "name": "Patrick Cantlay",
-      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_35450.png",
-      "country": "USA",
-      "owgr": "36",
-      "market": "win",
-      "marketLabel": "To Win",
-      "eachWay": true,
-      "modelProb": 0.015625,
-      "modelOdds": {
-        "prob": 0.015625,
-        "decimal": 64,
-        "fractional": "66/1"
-      },
-      "marketProb": 0.0086875,
-      "marketOdds": {
-        "prob": 0.0086875,
-        "decimal": 115.10791366906474,
-        "fractional": "125/1"
-      },
-      "edgePct": 80,
-      "valueScore": 0.09982014388489208,
-      "confidence": 1,
-      "trend": "flat",
-      "sg": {
-        "total": 0.963,
-        "ott": 0.402,
-        "app": 0.423,
-        "arg": 0.203,
-        "putt": -0.065
-      },
-      "recentSG": 1.14479882815159,
-      "recentEvents": 3,
-      "dataThin": false,
-      "letdownFlag": null,
-      "playerNote": null,
-      "playerNoteTag": null,
-      "lastWeekFinish": null,
-      "playedLastWeek": false,
-      "courseHistory": {
-        "starts": 2,
-        "madeCuts": 1,
-        "avgFinish": 34.5,
-        "bestFinish": 4
-      },
-      "courseType": {
-        "starts": 6,
-        "madeCuts": 4,
-        "avgFinish": 33.333333333333336,
-        "bestFinish": 4
-      },
-      "placeProbTop8": 0.178175,
-      "bookie": null,
-      "ocLink": "https://www.oddschecker.com/golf/genesis-scottish-open/winner",
-      "rationale": "Gaining on approach (+0.42/rd). Steady (1.14 SG/rd over last 3 starts). Course history: strong record here - best T4 in 2 prior starts here (avg finish ~35). Links suitability: strong - best T4, avg ~33 across 6 starts at comparable links events. Did not play last week, so arrives fresh. The value: the model makes him 1.6% to win where the best price implies about 0.9% - a +80% edge.",
-      "kind": "Longshot punt",
-      "tracked": false,
-      "points": 1
-    }
-  ],
+  "flutters": [],
   "bestBet": {
     "playerId": "40098",
     "name": "Matt Fitzpatrick",
@@ -604,58 +483,6 @@
   },
   "watchlist": [
     {
-      "playerId": "47420",
-      "name": "Jake Knapp",
-      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_47420.png",
-      "country": "USA",
-      "owgr": "44",
-      "trend": "down",
-      "recentSG": -0.979,
-      "recentEvents": 1,
-      "winOdds": "250/1",
-      "why": "Returning from a thumb sprain that forced three straight withdrawals, including the PGA Championship (as of late June 2026). Elite when fit - 3rd in SG: Total this season - but until he completes a full tournament he is a back-with-caution, not a confident play.",
-      "tag": "Injury doubt"
-    },
-    {
-      "playerId": "48867",
-      "name": "Matti Schmid",
-      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_48867.png",
-      "country": "GER",
-      "owgr": "78",
-      "trend": "up",
-      "recentSG": 2.621,
-      "recentEvents": 1,
-      "winOdds": "250/1",
-      "why": "Form spiking (2.62 SG/rd lately) but no value at the current price - watch for a bigger number.",
-      "tag": "In form"
-    },
-    {
-      "playerId": "63343",
-      "name": "Aldrich Potgieter",
-      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_63343.png",
-      "country": "RSA",
-      "owgr": "77",
-      "trend": "up",
-      "recentSG": 1.8608129935405984,
-      "recentEvents": 2,
-      "winOdds": "200/1",
-      "why": "Form spiking (1.86 SG/rd lately) but no value at the current price - watch for a bigger number.",
-      "tag": "In form"
-    },
-    {
-      "playerId": "29420",
-      "name": "Billy Horschel",
-      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_29420.png",
-      "country": "USA",
-      "owgr": "157",
-      "trend": "up",
-      "recentSG": 1.1195050798258346,
-      "recentEvents": 2,
-      "winOdds": "250/1",
-      "why": "Form spiking (1.12 SG/rd lately) but no value at the current price - watch for a bigger number.",
-      "tag": "In form"
-    },
-    {
       "playerId": "51766",
       "name": "Wyndham Clark",
       "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_51766.png",
@@ -665,21 +492,73 @@
       "recentSG": 2.991614711109707,
       "recentEvents": 5,
       "winOdds": "10/1",
-      "why": "Form spiking (2.99 SG/rd lately) but no value at the current price - watch for a bigger number.",
+      "why": "In hot form — gaining 2.99 strokes a round across his last 5 starts and trending up. One to keep onside.",
       "tag": "In form"
     },
     {
-      "playerId": "51977",
-      "name": "Max Greyserman",
-      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_51977.png",
-      "country": "USA",
-      "owgr": "75",
+      "playerId": "30911",
+      "name": "Tommy Fleetwood",
+      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_30911.png",
+      "country": "ENG",
+      "owgr": "9",
       "trend": "up",
-      "recentSG": 1.3574489179093383,
-      "recentEvents": 3,
-      "winOdds": "250/1",
-      "why": "Form spiking (1.36 SG/rd lately) but no value at the current price - watch for a bigger number.",
+      "recentSG": 1.942486290354215,
+      "recentEvents": 4,
+      "winOdds": "14/1",
+      "why": "In hot form — gaining 1.94 strokes a round across his last 4 starts and trending up. One to keep onside.",
       "tag": "In form"
+    },
+    {
+      "playerId": "59095",
+      "name": "Chris Gotterup",
+      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_59095.png",
+      "country": "USA",
+      "owgr": "7",
+      "trend": "up",
+      "recentSG": 1.4397159120190146,
+      "recentEvents": 5,
+      "winOdds": "33/1",
+      "why": "In hot form — gaining 1.44 strokes a round across his last 5 starts and trending up. One to keep onside.",
+      "tag": "In form"
+    },
+    {
+      "playerId": "49855",
+      "name": "Kristoffer Reitan",
+      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_49855.png",
+      "country": "NOR",
+      "owgr": "25",
+      "trend": "up",
+      "recentSG": 0.8621055616960716,
+      "recentEvents": 4,
+      "winOdds": "100/1",
+      "why": "Quietly building — 0.86 SG/rd over his last 4 and heading the right way.",
+      "tag": "In form"
+    },
+    {
+      "playerId": "55182",
+      "name": "Tom Kim",
+      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_55182.png",
+      "country": "KOR",
+      "owgr": "66",
+      "trend": "up",
+      "recentSG": 1.1580260852567106,
+      "recentEvents": 5,
+      "winOdds": "80/1",
+      "why": "Proven links horse — best T2, avg ~28 across 8 comparable links starts. Watch if the price drifts.",
+      "tag": "Course fit"
+    },
+    {
+      "playerId": "33204",
+      "name": "Shane Lowry",
+      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_33204.png",
+      "country": "IRL",
+      "owgr": "45",
+      "trend": "flat",
+      "recentSG": 0.9319920791307454,
+      "recentEvents": 4,
+      "winOdds": "66/1",
+      "why": "Proven links horse — best T6, avg ~29 across 5 comparable links starts. Watch if the price drifts.",
+      "tag": "Course fit"
     }
   ],
   "eachWayValue": [],
@@ -1835,6 +1714,8 @@
       "name": "Scottie Scheffler",
       "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_46046.png",
       "letdownFlag": null,
+      "dataThin": false,
+      "owgr": "1",
       "courseHistory": {
         "starts": 3,
         "bestFinish": 3,
@@ -1878,6 +1759,8 @@
       "name": "Wyndham Clark",
       "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_51766.png",
       "letdownFlag": null,
+      "dataThin": false,
+      "owgr": "8",
       "courseHistory": {
         "starts": 4,
         "bestFinish": 10,
@@ -1921,6 +1804,8 @@
       "name": "Matt Fitzpatrick",
       "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_40098.png",
       "letdownFlag": null,
+      "dataThin": false,
+      "owgr": "4",
       "courseHistory": {
         "starts": 4,
         "bestFinish": 4,
@@ -1964,6 +1849,8 @@
       "name": "Tommy Fleetwood",
       "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_30911.png",
       "letdownFlag": null,
+      "dataThin": false,
+      "owgr": "9",
       "courseHistory": {
         "starts": 4,
         "bestFinish": 4,
@@ -2007,6 +1894,8 @@
       "name": "Viktor Hovland",
       "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_46717.png",
       "letdownFlag": null,
+      "dataThin": false,
+      "owgr": "13",
       "courseHistory": {
         "starts": 4,
         "bestFinish": 11,
@@ -2050,6 +1939,8 @@
       "name": "Chris Gotterup",
       "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_59095.png",
       "letdownFlag": "Won the John Deere Classic last week - backing up a win the next week is rare (only ~16 in 8 seasons), so modestly faded",
+      "dataThin": false,
+      "owgr": "7",
       "courseHistory": {
         "starts": 2,
         "bestFinish": 1,
@@ -2093,6 +1984,8 @@
       "name": "Xander Schauffele",
       "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_48081.png",
       "letdownFlag": null,
+      "dataThin": false,
+      "owgr": "14",
       "courseHistory": {
         "starts": 4,
         "bestFinish": 1,
@@ -2136,6 +2029,8 @@
       "name": "Ludvig Åberg",
       "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_52955.png",
       "letdownFlag": null,
+      "dataThin": false,
+      "owgr": "19",
       "courseHistory": {
         "starts": 3,
         "bestFinish": 4,
@@ -2179,6 +2074,8 @@
       "name": "Si Woo Kim",
       "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_37455.png",
       "letdownFlag": null,
+      "dataThin": false,
+      "owgr": "22",
       "courseHistory": {
         "starts": 3,
         "bestFinish": 26,
@@ -2222,6 +2119,8 @@
       "name": "Patrick Cantlay",
       "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_35450.png",
       "letdownFlag": null,
+      "dataThin": false,
+      "owgr": "36",
       "courseHistory": {
         "starts": 2,
         "bestFinish": 4,
@@ -2265,6 +2164,8 @@
       "name": "Nicolai Højgaard",
       "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_52453.png",
       "letdownFlag": null,
+      "dataThin": false,
+      "owgr": "34",
       "courseHistory": {
         "starts": 4,
         "bestFinish": 4,
@@ -2308,6 +2209,8 @@
       "name": "Shane Lowry",
       "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_33204.png",
       "letdownFlag": null,
+      "dataThin": false,
+      "owgr": "45",
       "courseHistory": {
         "starts": 1,
         "bestFinish": 12,
@@ -2351,6 +2254,8 @@
       "name": "Doug Ghim",
       "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_52375.png",
       "letdownFlag": null,
+      "dataThin": false,
+      "owgr": "155",
       "courseHistory": {
         "starts": 3,
         "bestFinish": 16,
@@ -2394,6 +2299,8 @@
       "name": "J.J. Spaun",
       "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_39324.png",
       "letdownFlag": null,
+      "dataThin": false,
+      "owgr": "12",
       "courseHistory": {
         "starts": 2,
         "bestFinish": 59,
@@ -2437,6 +2344,8 @@
       "name": "Tom Kim",
       "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_55182.png",
       "letdownFlag": null,
+      "dataThin": false,
+      "owgr": "66",
       "courseHistory": {
         "starts": 4,
         "bestFinish": 3,
@@ -2480,6 +2389,8 @@
       "name": "Robert MacIntyre",
       "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_52215.png",
       "letdownFlag": null,
+      "dataThin": false,
+      "owgr": "20",
       "courseHistory": {
         "starts": 4,
         "bestFinish": 1,
@@ -2523,6 +2434,8 @@
       "name": "Justin Thomas",
       "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_33448.png",
       "letdownFlag": null,
+      "dataThin": false,
+      "owgr": "18",
       "courseHistory": {
         "starts": 4,
         "bestFinish": 22,
@@ -2566,6 +2479,8 @@
       "name": "Kurt Kitayama",
       "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_48117.png",
       "letdownFlag": null,
+      "dataThin": false,
+      "owgr": "33",
       "courseHistory": {
         "starts": 3,
         "bestFinish": 2,
@@ -2603,6 +2518,186 @@
       },
       "edge_win": 75,
       "edge_top20": 17
+    },
+    {
+      "modelRank": 19,
+      "name": "Alex Smalley",
+      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_46340.png",
+      "letdownFlag": null,
+      "dataThin": false,
+      "owgr": "43",
+      "courseHistory": {
+        "starts": 3,
+        "bestFinish": 10,
+        "avgFinish": 36
+      },
+      "courseType": {
+        "starts": 3,
+        "bestFinish": 10,
+        "avgFinish": 36
+      },
+      "win": {
+        "prob": 0.00925,
+        "decimal": 108.10810810810811,
+        "fractional": "100/1"
+      },
+      "top5": {
+        "prob": 0.056375,
+        "decimal": 17.738359201773836,
+        "fractional": "16/1"
+      },
+      "top10": {
+        "prob": 0.139875,
+        "decimal": 7.149240393208221,
+        "fractional": "6/1"
+      },
+      "top20": {
+        "prob": 0.3398125,
+        "decimal": 2.9427993378701487,
+        "fractional": "2/1"
+      },
+      "m_win": {
+        "prob": 0.0055,
+        "decimal": 181.81818181818184,
+        "fractional": "200/1"
+      },
+      "edge_win": 68,
+      "edge_top20": 3
+    },
+    {
+      "modelRank": 20,
+      "name": "Kristoffer Reitan",
+      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_49855.png",
+      "letdownFlag": null,
+      "dataThin": false,
+      "owgr": "25",
+      "courseHistory": {
+        "starts": 1,
+        "bestFinish": 13,
+        "avgFinish": 13
+      },
+      "courseType": {
+        "starts": 2,
+        "bestFinish": 13,
+        "avgFinish": 22
+      },
+      "win": {
+        "prob": 0.009125,
+        "decimal": 109.58904109589042,
+        "fractional": "100/1"
+      },
+      "top5": {
+        "prob": 0.0649375,
+        "decimal": 15.399422521655438,
+        "fractional": "14/1"
+      },
+      "top10": {
+        "prob": 0.158375,
+        "decimal": 6.3141278610891876,
+        "fractional": "11/2"
+      },
+      "top20": {
+        "prob": 0.3796875,
+        "decimal": 2.633744855967078,
+        "fractional": "7/4"
+      },
+      "m_win": {
+        "prob": 0.0075,
+        "decimal": 133.33333333333334,
+        "fractional": "125/1"
+      },
+      "edge_win": 22,
+      "edge_top20": -15
+    },
+    {
+      "modelRank": 59,
+      "name": "Rory McIlroy",
+      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_28237.png",
+      "letdownFlag": null,
+      "dataThin": true,
+      "owgr": "2",
+      "courseHistory": {
+        "starts": 3,
+        "bestFinish": 1,
+        "avgFinish": 2
+      },
+      "courseType": {
+        "starts": 7,
+        "bestFinish": 1,
+        "avgFinish": 13
+      },
+      "win": {
+        "prob": 0.0018125,
+        "decimal": 251,
+        "fractional": "250/1"
+      },
+      "top5": {
+        "prob": 0.014375,
+        "decimal": 69.56521739130434,
+        "fractional": "66/1"
+      },
+      "top10": {
+        "prob": 0.0379375,
+        "decimal": 26.359143327841846,
+        "fractional": "25/1"
+      },
+      "top20": {
+        "prob": 0.0944375,
+        "decimal": 10.589013898080742,
+        "fractional": "10/1"
+      },
+      "m_win": {
+        "prob": 0.0065625,
+        "decimal": 152.38095238095238,
+        "fractional": "150/1"
+      },
+      "edge_win": -72,
+      "edge_top20": -77
+    },
+    {
+      "modelRank": 71,
+      "name": "Jon Rahm",
+      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_46970.png",
+      "letdownFlag": null,
+      "dataThin": true,
+      "owgr": "11",
+      "courseHistory": {
+        "starts": 1,
+        "bestFinish": 55,
+        "avgFinish": 55
+      },
+      "courseType": {
+        "starts": 5,
+        "bestFinish": 2,
+        "avgFinish": 26
+      },
+      "win": {
+        "prob": 0.001,
+        "decimal": 251,
+        "fractional": "250/1"
+      },
+      "top5": {
+        "prob": 0.008375,
+        "decimal": 119.40298507462686,
+        "fractional": "125/1"
+      },
+      "top10": {
+        "prob": 0.020375,
+        "decimal": 49.079754601226995,
+        "fractional": "50/1"
+      },
+      "top20": {
+        "prob": 0.0541875,
+        "decimal": 18.45444059976932,
+        "fractional": "18/1"
+      },
+      "m_win": {
+        "prob": 0.0028125,
+        "decimal": 251,
+        "fractional": "250/1"
+      },
+      "edge_win": -64,
+      "edge_top20": -72
     }
   ],
   "worldRankings": [
@@ -4096,7 +4191,7 @@
         "weekNumber": 28,
         "eventId": "R2026541",
         "eventName": "Genesis Scottish Open",
-        "placedAt": "2026-07-07T12:41:18.812Z",
+        "placedAt": "2026-07-07T18:10:47.628Z",
         "playerId": "37066",
         "player": "Grant Forrest",
         "market": "win",
@@ -4117,7 +4212,7 @@
         "weekNumber": 28,
         "eventId": "R2026541",
         "eventName": "Genesis Scottish Open",
-        "placedAt": "2026-07-07T12:41:18.812Z",
+        "placedAt": "2026-07-07T18:10:47.628Z",
         "playerId": "51003",
         "player": "Marco Penge",
         "market": "win",
@@ -4138,7 +4233,7 @@
         "weekNumber": 28,
         "eventId": "R2026541",
         "eventName": "Genesis Scottish Open",
-        "placedAt": "2026-07-07T12:41:18.812Z",
+        "placedAt": "2026-07-07T18:10:47.628Z",
         "playerId": "34363",
         "player": "Tyrrell Hatton",
         "market": "win",
@@ -4159,7 +4254,7 @@
         "weekNumber": 28,
         "eventId": "R2026541",
         "eventName": "Genesis Scottish Open",
-        "placedAt": "2026-07-07T12:41:18.812Z",
+        "placedAt": "2026-07-07T18:10:47.628Z",
         "playerId": "40098",
         "player": "Matt Fitzpatrick",
         "market": "win",
@@ -4180,7 +4275,7 @@
         "weekNumber": 28,
         "eventId": "R2026541",
         "eventName": "Genesis Scottish Open",
-        "placedAt": "2026-07-07T12:41:18.812Z",
+        "placedAt": "2026-07-07T18:10:47.628Z",
         "playerId": "52453",
         "player": "Nicolai Højgaard",
         "market": "top20",
@@ -4201,7 +4296,7 @@
         "weekNumber": 28,
         "eventId": "R2026541",
         "eventName": "Genesis Scottish Open",
-        "placedAt": "2026-07-07T12:41:18.812Z",
+        "placedAt": "2026-07-07T18:10:47.628Z",
         "playerId": "46046",
         "player": "Scottie Scheffler",
         "market": "top5",
@@ -4224,7 +4319,7 @@
         "weekNumber": 28,
         "eventId": "R2026541",
         "eventName": "Genesis Scottish Open",
-        "placedAt": "2026-07-07T12:41:18.812Z",
+        "placedAt": "2026-07-07T18:10:47.628Z",
         "playerId": "37066",
         "player": "Grant Forrest",
         "market": "win",
@@ -4245,7 +4340,7 @@
         "weekNumber": 28,
         "eventId": "R2026541",
         "eventName": "Genesis Scottish Open",
-        "placedAt": "2026-07-07T12:41:18.812Z",
+        "placedAt": "2026-07-07T18:10:47.628Z",
         "playerId": "51003",
         "player": "Marco Penge",
         "market": "win",
@@ -4266,7 +4361,7 @@
         "weekNumber": 28,
         "eventId": "R2026541",
         "eventName": "Genesis Scottish Open",
-        "placedAt": "2026-07-07T12:41:18.812Z",
+        "placedAt": "2026-07-07T18:10:47.628Z",
         "playerId": "34363",
         "player": "Tyrrell Hatton",
         "market": "win",
@@ -4287,7 +4382,7 @@
         "weekNumber": 28,
         "eventId": "R2026541",
         "eventName": "Genesis Scottish Open",
-        "placedAt": "2026-07-07T12:41:18.812Z",
+        "placedAt": "2026-07-07T18:10:47.628Z",
         "playerId": "40098",
         "player": "Matt Fitzpatrick",
         "market": "win",
@@ -4308,7 +4403,7 @@
         "weekNumber": 28,
         "eventId": "R2026541",
         "eventName": "Genesis Scottish Open",
-        "placedAt": "2026-07-07T12:41:18.812Z",
+        "placedAt": "2026-07-07T18:10:47.628Z",
         "playerId": "52453",
         "player": "Nicolai Højgaard",
         "market": "top20",
@@ -4329,7 +4424,7 @@
         "weekNumber": 28,
         "eventId": "R2026541",
         "eventName": "Genesis Scottish Open",
-        "placedAt": "2026-07-07T12:41:18.812Z",
+        "placedAt": "2026-07-07T18:10:47.628Z",
         "playerId": "46046",
         "player": "Scottie Scheffler",
         "market": "top5",
@@ -4663,7 +4758,8 @@
     ]
   },
   "editorial": {
-    "weekAhead": null,
+    "story": "We're up overall — a positive start is banked, and that's the headline. Last week's John Deere stung a little: down 3.8 points on the week. The one that got away was Chris Gotterup — a player we flagged and genuinely fancied — but we sided with Ben Griffin instead, and Gotterup went and won it. Wrong horse, right race. The consolation was Jackson Suber, our 56/1 each-way flyer, who rewarded us with a strong top-10 finish — exactly the kind of big-priced place that makes the each-way game pay its way. One small dip, still in front overall, and now onto a proper links test.",
+    "courseIntro": "The Renaissance Club is links golf the week before The Open — and the wind is the defence. This is a ball-striker's test: control off the tee and flighted, penetrating iron play beat raw power, so accurate, wind-hardened players climb the board while the bombers get exposed. Jumping out to us: Scottie Scheffler (the most complete ball-striker in the game), Tommy Fleetwood and Matt Fitzpatrick (proven links horses with the record to back it up), and Tyrrell Hatton — a genuine wind specialist the data can't fully see, but the eye certainly can.",
     "spotlight": null,
     "recap": {
       "eventName": "John Deere Classic",

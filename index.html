@@ -44,6 +44,13 @@
   .event .pills { display:flex; gap:7px; flex-wrap:wrap; margin-top:13px; }
   .pill { font-size:12px; padding:6px 10px; border-radius:999px; border:1px solid var(--line); background:rgba(255,255,255,.03); color:var(--muted); } .pill b { color:var(--txt); }
 
+  /* The Green Book badge — data-model marker next to the event */
+  .gbook { margin-left:auto; display:flex; align-items:center; gap:11px; padding:10px 14px; border-radius:13px; background:linear-gradient(150deg,rgba(54,211,153,.16),rgba(54,211,153,.03)); border:1px solid rgba(54,211,153,.34); max-width:288px; flex:none; }
+  .gbook .gbicon { width:27px; height:27px; color:var(--green); flex:none; }
+  .gbook .gbname { font-family:'Oswald'; font-weight:700; text-transform:uppercase; letter-spacing:1.2px; font-size:14px; color:#7ee7b8; line-height:1; }
+  .gbook .gbsub { font-size:10.5px; color:var(--muted); margin-top:4px; line-height:1.32; }
+  @media (max-width:660px){ .ev-top { flex-wrap:wrap; } .gbook { margin-left:0; margin-top:13px; max-width:none; width:100%; } }
+
   .alert { margin-top:13px; padding:12px 15px; border-radius:12px; border:1px solid rgba(242,193,78,.35); background:rgba(242,193,78,.10); font-size:13px; color:#f6d99b; display:flex; gap:9px; align-items:flex-start; } .alert b { color:var(--gold); }
 
   details.key { margin-top:13px; border:1px solid var(--line); border-radius:12px; background:var(--panel); overflow:hidden; }
@@ -201,7 +208,7 @@
 <div class="rgbar"><div class="in"><span class="age">18+</span> When the fun stops, stop. Please gamble responsibly &middot; <a href="https://www.begambleaware.org" target="_blank" rel="noopener">BeGambleAware.org</a></div></div>
 <main class="wrap" id="app"></main>
 
-<script src="data.js?v=1783428078874"></script>
+<script src="data.js?v=1783447847684"></script>
 <script>
 const B = window.BOARD;
 const $ = (h)=>{const t=document.createElement('template');t.innerHTML=h.trim();return t.content.firstChild;};
@@ -271,7 +278,7 @@ function valueCard(c) {
       <div class="price">${c.marquee==='Each-way to win'?'<span class="ewtag">★ Each-way to win</span><br>':''}${c.marketOdds.fractional}<small>Best Price &middot; <b>${c.marquee==='Each-way to win'?`${c.ewPlaceProb}% to make top ${c.eachWayPlaces||8}`:(c.judgment?'Judgement pick':`${edgeStr(c.edgePct)} edge`)}</b></small></div>
       ${backButton(c)}
     </div>
-    ${c.judgment?`<div class="mvm"><div class="r mk"><span class="lab">Market</span><div class="track"><i style="width:${Math.min(100,c.marketProb*100)}%"></i></div><span class="v">${pct(c.marketProb)}</span></div><div class="r"><span class="lab">Model</span><div class="track"></div><span class="v" style="font-size:11.5px;opacity:.85">no rating — too new for tour data</span></div></div>`:`<div class="mvm">
+    ${c.judgment?`<div class="mvm"><div class="r mk"><span class="lab">Market</span><div class="track"><i style="width:${Math.min(100,c.marketProb*100)}%"></i></div><span class="v">${pct(c.marketProb)}</span></div><div class="r"><span class="lab">Model</span><div class="track"></div><span class="v" style="font-size:11.5px;opacity:.85">no model rating — limited PGA Tour data</span></div></div>`:`<div class="mvm">
       <div class="r"><span class="lab">Model</span><div class="track"><i style="width:${Math.min(100,c.modelProb*100)}%"></i></div><span class="v">${pct(c.modelProb)}</span></div>
       <div class="r mk"><span class="lab">Market</span><div class="track"><i style="width:${Math.min(100,c.marketProb*100)}%"></i></div><span class="v">${pct(c.marketProb)}</span></div>
     </div>`}
@@ -296,6 +303,7 @@ function render() {
   app.appendChild($(`<div class="event"><div class="ev-top">
     ${B.event.logo?`<img class="logo" src="${B.event.logo}" alt="${B.event.name} logo" onerror="this.style.display='none'">`:''}
     <div class="etext"><div class="ttl">${B.event.name}</div><div class="meta"><b>${B.event.course||''}</b>${B.event.city?' &middot; '+B.event.city+', '+(B.event.state||''):''}</div></div>
+    <div class="gbook"><svg class="gbicon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5.5A1.5 1.5 0 0 1 5.5 4H18a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1H6a2 2 0 0 0-2 2z"/><path d="M4 19a2 2 0 0 1 2-2h13"/></svg><div><div class="gbname">The Green Book</div><div class="gbsub">Our data model — strokes-gained, course fit, form &amp; links pedigree drive every pick.</div></div></div>
     </div><div class="pills">${B.event.dateRange?`<span class="pill"><b>${B.event.dateRange}</b></span>`:''}<span class="pill">Field <b>${B.event.fieldSize}</b></span>${cp.par?`<span class="pill">Par <b>${cp.par}</b></span>`:''}${cp.yards?`<span class="pill"><b>${cp.yards.toLocaleString()}</b> yds</span>`:''}</div></div>`));
   if (B.previousEvent && B.previousEvent.isMajor)
     app.appendChild($(`<div class="alert"><span>⚠</span><div><b>Post-major week.</b> Last week was the ${B.previousEvent.name}. We modestly fade only the winner (${B.previousEvent.champion}) - backing up a win the next week is rare. Players who merely contended are <b>not</b> penalised; the broader "major hangover" isn't supported by the data.</div></div>`));
@@ -309,7 +317,7 @@ function render() {
 
   app.appendChild($(`<div class="tabs">
     <button class="tab active" data-tab="card">The Card</button>
-    <button class="tab" data-tab="places">Each-Way &amp; Places</button>
+    <button class="tab" data-tab="places">Full Board</button>
     <button class="tab" data-tab="watch">Watchlist</button>
     <button class="tab" data-tab="pnl">P&amp;L &amp; Record</button>
     <button class="tab" data-tab="rankings">World Rankings</button>
@@ -317,13 +325,16 @@ function render() {
 
   // ---- THE CARD ----
   const t1 = $(`<div class="panel-tab active" id="tab-card"></div>`);
-  if (B.editorial) {
-    const ed = B.editorial, r = ed.recap;
-    const pcol = (v)=>v>=0?'#36d399':'#ff6f6f';
-    const recapHtml = r ? `<div style="margin:0 0 12px"><div style="font-weight:800;margin-bottom:3px">📊 Last week — ${r.eventName}</div><div style="color:var(--muted,#c3d2ea);font-size:13.5px;line-height:1.55"><b style="color:${pcol(r.profitPts)}">${r.profitPts>=0?'+':''}${r.profitPts} pts</b> &middot; ${r.roiPct>=0?'+':''}${r.roiPct}% ROI from ${r.settledCount} bets &middot; bank now <b>${r.bankNowPts} pts</b>.${r.winners.length?` Winners: ${r.winners.map(w=>`<b>${w.player}</b> ${w.finishPos} (${w.marketLabel} ${w.price}, +${w.profitPts}pts)`).join('; ')}.`:' No winners landed.'}</div></div>` : '';
-    const aheadHtml = ed.weekAhead ? `<div style="margin:0 0 12px"><div style="font-weight:800;margin-bottom:3px">🔭 The week ahead</div><div style="color:var(--muted,#c3d2ea);font-size:13.5px;line-height:1.55">${ed.weekAhead}</div></div>` : '';
-    const spotHtml = ed.spotlight ? `<div style="margin:2px 0 0;padding:11px 13px;border-radius:10px;background:rgba(230,184,0,.08);border:1px solid rgba(230,184,0,.25)"><div style="font-weight:800;margin-bottom:3px">📌 Spotlight — ${ed.spotlight.name}</div><div style="color:var(--muted,#c3d2ea);font-size:13.5px;line-height:1.55">${ed.spotlight.text}</div></div>` : '';
-    t1.appendChild($(`<div class="card-base" style="padding:16px 18px 15px;margin-bottom:14px;border-left:3px solid var(--gold,#e6b800)"><div style="font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--gold,#e6b800);font-weight:800;margin-bottom:11px">⛳ Monty's Update</div>${recapHtml}${aheadHtml}${spotHtml}</div>`));
+  if (B.editorial && (B.editorial.story || B.editorial.spotlight)) {
+    const ed = B.editorial, pl = B.pnl;
+    const netCol = (pl && pl.profitPts>=0) ? 'var(--green)' : 'var(--red)';
+    const storyHtml = ed.story ? `<div style="color:#dce8fa;font-size:14px;line-height:1.62">${ed.story}</div>` : '';
+    const statLine = pl ? `<div style="display:flex;flex-wrap:wrap;gap:8px 16px;margin-top:13px;padding-top:12px;border-top:1px solid var(--line);font-size:12.5px;color:var(--muted)"><span>Bank <b style="color:var(--txt)">${pl.bankNowPts} pts</b></span><span>Overall <b style="color:${netCol}">${pl.profitPts>=0?'+':''}${pl.profitPts} pts</b></span><span>${pl.settledCount} settled &middot; ${pl.strikeRatePct}% strike &middot; ${pl.roiPct>=0?'+':''}${pl.roiPct}% ROI</span></div>` : '';
+    const spotHtml = ed.spotlight ? `<div style="margin:13px 0 0;padding:11px 13px;border-radius:10px;background:rgba(230,184,0,.08);border:1px solid rgba(230,184,0,.25)"><div style="font-weight:800;margin-bottom:3px">📌 Spotlight — ${ed.spotlight.name}</div><div style="color:var(--muted);font-size:13.5px;line-height:1.55">${ed.spotlight.text}</div></div>` : '';
+    t1.appendChild($(`<div class="card-base" style="padding:17px 19px 16px;margin-bottom:14px;border-left:3px solid var(--gold)"><div style="font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);font-weight:800;margin-bottom:11px">⛳ Monty's Update</div>${storyHtml}${statLine}${spotHtml}</div>`));
+  }
+  if (B.editorial && B.editorial.courseIntro) {
+    t1.appendChild($(`<div class="card-base" style="padding:16px 19px;margin-bottom:14px;border-left:3px solid var(--green)"><div style="font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--green);font-weight:800;margin-bottom:9px">⛳ The Course — ${B.event.course||'Links Test'}</div><div style="color:#dce8fa;font-size:14px;line-height:1.62">${B.editorial.courseIntro}</div></div>`));
   }
   const bb = B.bestBet;
   if (bb) t1.appendChild($(`<div class="card-base bestbet"><div class="bb-tag">★ Best Bet of the Week &middot; ${bb.marketLabel}</div>
@@ -333,11 +344,6 @@ function render() {
 
   t1.appendChild($(`<div class="shead accent-blue"><h2>Tracked Bets</h2><div class="ln"></div><div class="tag">value-ranked &middot; feed the P&L</div></div>`));
   const g1=$(`<div class="grid3"></div>`); B.trackedBets.forEach(c=>g1.appendChild(valueCard(c))); t1.appendChild(g1);
-
-  if (B.flutters && B.flutters.length) {
-    t1.appendChild($(`<div class="shead accent-gold"><h2>Untracked Flutters</h2><div class="ln"></div><div class="tag">if you fancy it &middot; not in the P&L</div></div>`));
-    const g2=$(`<div class="grid2"></div>`); B.flutters.forEach(c=>g2.appendChild(valueCard(c))); t1.appendChild(g2);
-  }
 
   if (B.extraCard && B.extraCard.bets && B.extraCard.bets.length) {
     const ec = B.extraCard;
@@ -364,22 +370,19 @@ function render() {
   t1.appendChild($(`<div class="card-base tablewrap fw-wrap mob-cards" style="padding:6px 12px 10px"><table><thead><tr><th class="rk"></th><th>Player</th><th class="right">Win odds</th><th class="right">Win%</th><th class="right">Recent SG</th></tr></thead><tbody>${fr}</tbody></table></div>`));
   app.appendChild(t1);
 
-  // ---- PLACES ----
+  // ---- FULL BOARD ----
   const t2=$(`<div class="panel-tab" id="tab-places"></div>`);
-  t2.appendChild($(`<div class="shead accent-gold"><h2>Best Each-Way Value</h2><div class="ln"></div><div class="tag">strong top-5 chance at a price</div></div>`));
-  const g4=$(`<div class="grid4"></div>`);
-  (B.eachWayValue||[]).forEach(c=>g4.appendChild($(`<div class="card-base ewcard">${shot(c,'bshot',16)}<div class="nm">${flag(c.country)} ${c.name}</div><div class="o">${c.marketOdds.fractional}<small>To win &middot; e/w 8 places</small></div><div class="ed">${c.ewPlaceProb}% to make top 8</div></div>`)));
-  t2.appendChild(g4);
-  t2.appendChild($(`<div class="shead accent-blue"><h2>Place Selections</h2><div class="ln"></div><div class="tag">ranked by value</div></div>`));
-  t2.appendChild($(`<div class="sel3">${selCol('To Finish Top 5',B.top5Sel)}${selCol('To Finish Top 10',B.top10Sel)}${selCol('To Finish Top 20',B.top20Sel)}</div>`));
-  t2.appendChild($(`<div class="shead accent-blue"><h2>Full Market Board</h2><div class="ln"></div><div class="tag">model fair odds</div></div>`));
-  const prt=B.placesTable.map(p=>`<tr><td class="rk">${p.modelRank}</td><td><div class="tname">${shot(p,'tshot',11)}<span>${p.name}${p.letdownFlag?' <span style="color:var(--gold)">⚠</span>':''}</span></div></td><td class="num right">${p.win.fractional}</td><td class="num right">${p.top5.fractional}</td><td class="num right">${p.top10.fractional}</td><td class="num right">${p.top20.fractional}</td></tr>`).join('');
+  t2.appendChild($(`<div class="shead accent-blue"><h2>Full Market Board</h2><div class="ln"></div><div class="tag">The Green Book's fair odds &middot; whole field</div></div>`));
+  const prt=B.placesTable.map(p=>{
+    if (p.dataThin) return `<tr style="opacity:.7"><td class="rk">–</td><td><div class="tname">${shot(p,'tshot',11)}<span>${p.name} <span class="tagchip" style="background:rgba(143,169,208,.18);color:var(--muted)">OWGR #${p.owgr}</span></span></div></td><td class="right" colspan="4" style="color:var(--muted);font-size:12px">Limited PGA Tour data — not priced by the model</td></tr>`;
+    return `<tr><td class="rk">${p.modelRank}</td><td><div class="tname">${shot(p,'tshot',11)}<span>${p.name}${p.letdownFlag?' <span style="color:var(--gold)">⚠</span>':''}</span></div></td><td class="num right">${p.win.fractional}</td><td class="num right">${p.top5.fractional}</td><td class="num right">${p.top10.fractional}</td><td class="num right">${p.top20.fractional}</td></tr>`;
+  }).join('');
   t2.appendChild($(`<div class="card-base tablewrap" style="padding:6px 12px 10px"><table><thead><tr><th></th><th>Player</th><th class="right">Win</th><th class="right">Top 5</th><th class="right">Top 10</th><th class="right">Top 20</th></tr></thead><tbody>${prt}</tbody></table></div>`));
   app.appendChild(t2);
 
   // ---- WATCHLIST ----
   const t3=$(`<div class="panel-tab" id="tab-watch"></div>`);
-  t3.appendChild($(`<div class="shead accent-blue"><h2>Watchlist</h2><div class="ln"></div><div class="tag">not backable this week &middot; ones to watch</div></div>`));
+  t3.appendChild($(`<div class="shead accent-blue"><h2>Watchlist</h2><div class="ln"></div><div class="tag">in form, course-fit &amp; risers we're tracking</div></div>`));
   const wlGrid=$(`<div class="wl-grid"></div>`);
   (B.watchlist||[]).forEach(w=>{
     const tc=w.trend==='up'?'pos':w.trend==='down'?'neg':'';
@@ -474,7 +477,7 @@ function render() {
   t5.appendChild($(`<div class="card-base tablewrap mob-cards" style="padding:6px 12px 10px"><table><thead><tr><th>OWGR</th><th>Player</th><th class="right">Win odds</th></tr></thead><tbody>${wr}</tbody></table></div>`));
   app.appendChild(t5);
 
-  app.appendChild($(`<ul class="notes">${B.notes.map(n=>`<li>${n}</li>`).join('')}<li>Recent form uses the last 5 events: ${B.recentEventsUsed.join(', ')}.</li></ul>`));
+  app.appendChild($(`<ul class="notes">${B.notes.map(n=>`<li>${n}</li>`).join('')}<li>Recent form is recency-weighted over the last ${B.recentEventsUsed.length} events: ${B.recentEventsUsed.join(', ')}.</li></ul>`));
   app.appendChild($(`<footer><div class="rgfoot"><span class="age">18+</span> When the fun stops, stop. &middot; <a href="https://www.begambleaware.org" target="_blank" rel="noopener">BeGambleAware.org</a> &middot; Please gamble responsibly</div><div class="src">Data: pgatour.com &middot; model estimates, not financial advice.</div></footer>`));
 
   document.querySelectorAll('.tab').forEach(btn=>btn.addEventListener('click',()=>{

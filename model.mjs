@@ -337,30 +337,35 @@ export function buildModel({ field, profile, sg, driving, scrambling = null, rec
   const trackedIds = new Set(trackedBets.map((c) => c.playerId));
   const bestBet = valueBets[0] || null;
 
-  // untracked flutters: a favourite punt + a longshot punt (NOT in the P&L)
+  // flutters removed from the board - keep an empty list so downstream code stays happy.
   const flutters = [];
-  const fav = byWin.find((r) => !trackedIds.has(r.playerId) && !r.letdownPenalty);
-  if (fav) flutters.push({ ...candidate(fav, 'win'), kind: 'Favourite punt', tracked: false });
-  const longshot = byWin.slice(0, 25).filter((r) => !trackedIds.has(r.playerId) && r.win.decimal >= 40 && !flutters.find((f) => f.playerId === r.playerId)).sort((a, b) => b.composite - a.composite)[0];
-  if (longshot) flutters.push({ ...candidate(longshot, 'win'), kind: 'Longshot punt', tracked: false });
-  flutters.forEach((f) => { f.points = 1; }); // a small fun stake, not tracked
 
-  // watchlist: ones to watch we are NOT backing - injury/news flags first, then improvers
-  const usedIds = new Set([...trackedIds, ...flutters.map((f) => f.playerId)]);
+  // watchlist: genuinely watch-worthy players we are NOT backing this week - strong recent form,
+  // proven course-type (links) pedigree, or clearly on the rise. Positive picks only: no "no value,
+  // watch for a bigger price" filler. Ranked by a blend of recent form, course-type fit and trend.
+  const usedIds = new Set([...trackedIds]);
   const wlRow = (r, why, tag) => ({ playerId: r.playerId, name: r.name, headshot: r.headshot, country: r.countryFlag || r.country, owgr: r.owgr, trend: r.trend, recentSG: r.recentSG, recentEvents: r.recentEvents, winOdds: r.win.fractional, why, tag: tag || null });
-  const flagged = rows.filter((r) => r.playerNote && !usedIds.has(r.playerId)).map((r) => wlRow(r, r.playerNote.note, r.playerNote.tag));
-  flagged.forEach((w) => usedIds.add(w.playerId));
-  const improvers = rows.filter((r) => !usedIds.has(r.playerId) && !r.dataThin)
-    .map((r) => ({ r, score: r.recentZ - r.seasonZ + 0.3 * r.recentZ })).sort((a, b) => b.score - a.score)
-    .slice(0, Math.max(0, 6 - flagged.length))
-    .map(({ r }) => {
-      let why;
-      if (r.trend === 'up') why = `Form spiking (${r.recentSG.toFixed(2)} SG/rd lately) but no value at the current price - watch for a bigger number.`;
-      else if (r.owgr <= 30) why = `Class act (OWGR #${r.owgr}); numbers not quite firing this week - one to monitor.`;
-      else { const st = strengthText(r.sg, profile); why = st ? `${st.charAt(0).toUpperCase() + st.slice(1)} - building, not yet a bet.` : 'Underlying numbers improving - monitor.'; }
-      return wlRow(r, why, r.trend === 'up' ? 'In form' : null);
-    });
-  const watchlist = [...flagged, ...improvers];
+  const wlScore = (r) => 0.6 * r.recentZ + 0.5 * (r.typeZ || 0) + 0.25 * (r.trendRaw > 0 ? 1 : 0);
+  const wlWhy = (r) => {
+    const ct = r.courseTypeHist, type = profile.courseType || 'course';
+    // riser first (young/lower-ranked but hot) so the list isn't all course horses
+    if (r.owgr > 55 && r.recentZ > 0.6)
+      return { why: `On the rise — ranked OWGR #${r.owgr} but playing well above it lately (${r.recentSG.toFixed(2)} SG/rd over his last ${r.recentEvents}). A name to know.`, tag: 'Riser' };
+    if (r.trend === 'up' && r.recentZ > 0.6)
+      return { why: `In hot form — gaining ${r.recentSG.toFixed(2)} strokes a round across his last ${r.recentEvents} starts and trending up. One to keep onside.`, tag: 'In form' };
+    if ((r.typeZ || 0) > 0.9 && ct && ct.starts && ct.bestFinish <= 12)
+      return { why: `Proven ${type} horse — best ${ct.bestFinish === 1 ? 'a win' : 'T' + ct.bestFinish}, avg ~${Math.round(ct.avgFinish)} across ${ct.starts} comparable ${type} starts. Watch if the price drifts.`, tag: 'Course fit' };
+    if (r.trend === 'up')
+      return { why: `Quietly building — ${r.recentSG.toFixed(2)} SG/rd over his last ${r.recentEvents} and heading the right way.`, tag: 'In form' };
+    return { why: `Solid recent form — ${r.recentSG.toFixed(2)} strokes a round across his last ${r.recentEvents} starts, with a game that fits here.`, tag: null };
+  };
+  // generate a larger candidate pool; build.mjs trims to ~6 AFTER removing anyone on the final card
+  const watchlist = rows
+    .filter((r) => !usedIds.has(r.playerId) && !r.dataThin && r.recentEvents >= 2 && (r.recentZ > 0.3 || (r.typeZ || 0) > 0.5))
+    .map((r) => ({ r, s: wlScore(r) }))
+    .sort((a, b) => b.s - a.s)
+    .slice(0, 14)
+    .map(({ r }) => { const w = wlWhy(r); return wlRow(r, w.why, w.tag); });
 
   // place-market value selections (ranked by edge) - surfaces e.g. value top-20 plays
   const selFor = (m, k) => rows.filter((r) => r[m].prob >= FLOOR[m]).map((r) => candidate(r, m)).sort((a, b) => b.edgePct - a.edgePct).slice(0, k);
@@ -374,8 +379,14 @@ export function buildModel({ field, profile, sg, driving, scrambling = null, rec
     .slice(0, 3)
     .map(({ r, p8 }) => { const c = candidate(r, 'win'); c.eachWay = true; c.eachWayPlaces = 8; c.ewPlaceProb = Math.round(p8 * 100); return c; });
 
-  const placesTable = byWin.slice(0, 18).map((r) => ({
-    modelRank: r.modelRank, name: r.name, headshot: r.headshot, letdownFlag: r.letdownFlag || null,
+  // Full market board: top 20 by model win chance, PLUS any elite-ranked names (OWGR <= 15) that
+  // fall outside it - so world stars like Rory McIlroy always appear even when the model can't rate
+  // them (data-thin, e.g. mostly non-PGA-Tour schedules). Data-thin rows are flagged so their odds
+  // aren't presented as real.
+  const boardRows = byWin.slice(0, 20);
+  const eliteExtra = byWin.filter((r) => r.owgr <= 15 && !boardRows.includes(r));
+  const placesTable = [...boardRows, ...eliteExtra].map((r) => ({
+    modelRank: r.modelRank, name: r.name, headshot: r.headshot, letdownFlag: r.letdownFlag || null, dataThin: !!r.dataThin, owgr: r.owgr,
     courseHistory: r.courseHist ? { starts: r.courseHist.starts, bestFinish: r.courseHist.bestFinish, avgFinish: Math.round(r.courseHist.avgFinish) } : null,
     courseType: r.courseTypeHist ? { starts: r.courseTypeHist.starts, bestFinish: r.courseTypeHist.bestFinish, avgFinish: Math.round(r.courseTypeHist.avgFinish) } : null,
     win: r.win, top5: r.top5, top10: r.top10, top20: r.top20,
