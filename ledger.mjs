@@ -77,6 +77,15 @@ export function summary(ledger) {
   const profit = settled.reduce((a, b) => a + b.profitPts, 0);
   const returned = settled.reduce((a, b) => a + (b.returnPts || 0), 0);
   const won = settled.filter((b) => b.profitPts > 0).length;
+  // Max drawdown: the largest peak-to-trough fall in the running bank across settled bets
+  // (chronological = push order). It's the "worst losing run" — the honesty/bank-sizing number.
+  let bank = startBank, peak = startBank, maxDD = 0, ddPeak = startBank, ddTrough = startBank;
+  for (const b of settled) {
+    bank += b.profitPts;
+    if (bank > peak) peak = bank;
+    const dd = peak - bank;
+    if (dd > maxDD) { maxDD = dd; ddPeak = peak; ddTrough = bank; }
+  }
   const byMarket = {};
   for (const b of settled) {
     const k = b.marketLabel || b.market;
@@ -90,6 +99,7 @@ export function summary(ledger) {
     bankNowPts: r2(startBank + profit),
     roiPct: staked > 0 ? Math.round((profit / staked) * 1000) / 10 : 0,
     strikeRatePct: settled.length ? Math.round((won / settled.length) * 100) : 0,
+    maxDrawdownPts: r2(maxDD), ddPeakPts: r2(ddPeak), ddTroughPts: r2(ddTrough),
     pendingCount: pending.length, pendingStakePts: r2(pending.reduce((a, b) => a + b.stakePts, 0)),
     totalBets: ledger.bets.length,
     byMarket: Object.values(byMarket).map((m) => ({ ...m, staked: r2(m.staked), profit: r2(m.profit), roiPct: m.staked ? Math.round((m.profit / m.staked) * 1000) / 10 : 0 })),

@@ -265,6 +265,7 @@ export async function getBookmakerOdds(tournamentId, tournamentName, fieldPlayer
     const q = `query O($id:String!,$name:String!,$mk:[ArticleOddsMarketsInput!],$pl:[ArticleOddsPlayerInput!]){
       oddsTable(tournamentId:$id,tournamentName:$name,markets:$mk,players:$pl){ provider players{ playerName playerId markets{ marketName odds } } }}`;
     const out = new Map();
+    const rawSamples = [];                                    // RAW strings captured for one-off format verification
     for (let i = 0; i < players.length; i += 30) {           // batch to avoid the payload limit
       const batch = players.slice(i, i + 30);
       let d;
@@ -273,6 +274,7 @@ export async function getBookmakerOdds(tournamentId, tournamentName, fieldPlayer
       for (const p of d.oddsTable?.players || []) {
         const key = _norm(p.playerName);
         for (const m of p.markets || []) {
+          if (m.odds != null && m.odds !== '' && rawSamples.length < 40) rawSamples.push({ player: p.playerName, market: m.marketName, raw: m.odds });
           const mk = _MARKET_KEY(m.marketName); if (!mk) continue;
           const dec = parseOddsString(m.odds); if (!dec) continue;
           const cur = out.get(key) || {};
@@ -280,6 +282,15 @@ export async function getBookmakerOdds(tournamentId, tournamentName, fieldPlayer
           out.set(key, cur);
         }
       }
+    }
+    // First time a standard event is actually priced, persist the raw strings so the odds-string
+    // format can be eyeballed and parseOddsString confirmed before we ever trust these for bets.
+    if (rawSamples.length) {
+      try {
+        fs.writeFileSync(path.join(__dirname, 'odds-sample.json'),
+          JSON.stringify({ capturedAt: new Date().toISOString(), event: tournamentName, tournamentId, samples: rawSamples }, null, 2));
+        console.error(`[odds-pgatour] wrote ${rawSamples.length} RAW odds samples to odds-sample.json — VERIFY parseOddsString against these before going live.`);
+      } catch { /* non-fatal: capture is best-effort */ }
     }
     const winCount = [...out.values()].filter((v) => v.win).length;
     if (winCount < 12) { console.error(`[odds-pgatour] only ${winCount} players priced - not usable, using estimates`); return null; }

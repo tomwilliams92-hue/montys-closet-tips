@@ -126,7 +126,7 @@
   .why2 { margin:10px 16px 0; font-size:12.5px; color:#dce8fa; flex:1; }
   .cardback { margin:13px 16px 0; }
 
-  .pnlgrid { display:grid; grid-template-columns:repeat(4,1fr); gap:12px; margin-top:8px; }
+  .pnlgrid { display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:12px; margin-top:8px; }
   .pnlgrid .b { padding:15px 16px; } .pnlgrid .b .k { font-size:10.5px; color:var(--muted); text-transform:uppercase; letter-spacing:1px; } .pnlgrid .b .v { font-family:'Oswald'; font-weight:700; font-size:25px; margin-top:5px; } .pnlgrid .b small { color:var(--muted); font-size:11px; }
   .stat-up { color:var(--green); } .stat-dn { color:var(--red); }
   .emptybox { padding:18px; text-align:center; color:var(--muted); font-size:13px; }
@@ -397,11 +397,21 @@ function render() {
   const t4=$(`<div class="panel-tab" id="tab-pnl"></div>`);
   const pl=B.pnl, pcls=pl.profitPts>0?'stat-up':pl.profitPts<0?'stat-dn':'';
   t4.appendChild($(`<div class="shead accent-blue"><h2>P&amp;L Dashboard</h2><div class="ln"></div><div class="tag">${PPP?`in-house plan &middot; ${gbp(1)} per point`:'points / units &middot; set your own stake'}</div></div>`));
+  // Verified-on-GitHub trust callout — mirrors the "Monty's Update" eyebrow idiom above.
+  t4.appendChild($(`<div class="card-base" style="padding:14px 17px;margin:0 0 14px;border-left:3px solid var(--green)"><div style="font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--green);font-weight:800;margin-bottom:7px">&#10003; Verified &mdash; not marketing</div><div style="color:#dce8fa;font-size:13.5px;line-height:1.6">Every bet on this board is committed to a public GitHub repository the moment it's posted &mdash; timestamped and impossible to edit after the event. No deleted losers, no cherry-picking. <a href="https://github.com/tomwilliams92-hue/montys-closet-tips/commits/main/ledger.json" target="_blank" rel="noopener" style="color:var(--green);font-weight:700">See the timestamped history &rarr;</a></div></div>`));
+  // Max drawdown — prefer the value baked in by the build; fall back to computing it from the settled sequence.
+  const dd = (pl.maxDrawdownPts != null)
+    ? { max: pl.maxDrawdownPts, peak: pl.ddPeakPts, trough: pl.ddTroughPts }
+    : (() => { const ch = (pl.allBets||[]).filter(b=>b.status!=='pending').slice().reverse();
+        let bk=pl.startBankPts, pk=pl.startBankPts, mx=0, pkAt=pl.startBankPts, trAt=pl.startBankPts;
+        for (const b of ch) { bk+=b.profitPts; if (bk>pk) pk=bk; const d=pk-bk; if (d>mx){ mx=d; pkAt=pk; trAt=bk; } }
+        const r=n=>Math.round(n*100)/100; return { max:r(mx), peak:r(pkAt), trough:r(trAt) }; })();
   t4.appendChild($(`<div class="pnlgrid">
     <div class="card-base b"><div class="k">Bank</div><div class="v">${pl.bankNowPts} pts</div><small>${PPP?`${gbp(pl.bankNowPts)} &middot; `:''}from ${pl.startBankPts} pt start</small></div>
     <div class="card-base b"><div class="k">Net P/L</div><div class="v ${pcls}">${signedPts(pl.profitPts)}</div><small>${PPP?`${signedGbp(pl.profitPts)} &middot; `:''}${pl.settledCount} settled &middot; ${pl.pendingCount} open</small></div>
     <div class="card-base b"><div class="k">ROI</div><div class="v ${pcls}">${pl.roiPct>=0?'+':''}${pl.roiPct}%</div><small>${pl.stakedPts} pts${PPP?` (${gbp(pl.stakedPts)})`:''} staked</small></div>
     <div class="card-base b"><div class="k">Strike rate</div><div class="v">${pl.strikeRatePct}%</div><small>${pl.won}W &middot; ${pl.lost}L &middot; ${pl.totalBets} bets</small></div>
+    <div class="card-base b"><div class="k">Max drawdown</div><div class="v ${dd.max>0?'stat-dn':''}">${dd.max>0?'-':''}${dd.max} pts</div><small>${dd.max>0?`worst dip &middot; ${dd.peak}&rarr;${dd.trough} pts`:'no losing run yet'}</small></div>
   </div>`));
 
   // Staked vs Returned chart
