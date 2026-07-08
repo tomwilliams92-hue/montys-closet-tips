@@ -19,12 +19,12 @@ export const PLAYER_NOTES = {
 // week, it leads the write-up (the value line is still appended automatically). Refresh these
 // each week for the actual selections - this is the human, story-driven layer.
 export const STORYLINES = {
-  'ludvig aberg': "Sweden's smooth-swinging heir apparent has looked a major champion in waiting since turning pro, a runner-up at the 2024 Masters in his very first start there. His game is built on towering, pure iron play, the single most valuable skill on a tight, second-shot course like River Highlands, and he arrives in good order off a T17 at the U.S. Open.",
+  'ludvig aberg': "Sweden's smooth-swinging heir apparent has looked a major champion in waiting since turning pro, a runner-up at the 2024 Masters in his very first start there. His game is built on towering, pure iron play, one of the most valuable skills in golf, and he arrives in good order off a T17 at the U.S. Open.",
   'jacob bridgeman': "One of the most improved young Americans on tour, Bridgeman has quietly become a relentless scorer with a red-hot putter (+0.76 strokes a round). On a birdie-fest where someone always goes deep, a player holing everything is dangerous at a three-figure-friendly price.",
-  'matt fitzpatrick': "Golf's great perfectionist, the 2022 U.S. Open champion who logs every shot he hits and sharpens his approach play to a razor's edge. That precision iron game is tailor-made for River Highlands' small greens, and he was already in the mix (22nd) at Shinnecock last week.",
+  'matt fitzpatrick': "Golf's great perfectionist, the 2022 U.S. Open champion who logs every shot he hits and sharpens his approach play to a razor's edge. A precise, wind-hardened ball-striker with a genuine links pedigree, exactly the profile a coastal test in the breeze rewards.",
   'akshay bhatia': "The aggressive young left-hander is one of the tour's most natural scorers, and when the irons are sharp he goes very low. A short, attackable course plays straight into his birdie-making hands.",
   'xander schauffele': "Mr Consistency. The 2024 PGA and Open champion is the hardest man in golf to leave off a leaderboard, he turns up, contends and stacks top-10s. On a course that rewards all-round excellence, he is about as solid a top-10 play as exists.",
-  'scottie scheffler': "The world number one and the best ball-striker on the planet, whose floor is most players' ceiling. He contended again at the U.S. Open (T4), and on a scoreable course the only question is whether the putter behaves, which is exactly why each-way is the smart way in at this price.",
+  'scottie scheffler': "The world number one and the best ball-striker on the planet, whose floor is most players' ceiling. He contended again at the U.S. Open (T4), and on a demanding ball-striker's test in the wind the only question is whether the putter behaves.",
 };
 
 const norm = (s) => s.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/[^a-z ]/g, '').trim();

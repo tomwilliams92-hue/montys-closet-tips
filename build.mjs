@@ -143,7 +143,7 @@ function buildManualCard(board, model) {
         const pct3 = (v) => (v * 100).toFixed(v < 0.1 ? 1 : 0) + '%';
         const phrase3 = c.market === 'win' ? 'to win' : `to finish ${(c.marketLabel || c.market).toLowerCase()}`;
         const newVl = `the value: the model makes him ${pct3(c.modelProb)} ${phrase3} where the best price implies about ${pct3(c.marketProb)} - a +${c.edgePct}% edge`;
-        c.rationale = c.rationale.replace(/the value:[^.]+\./i, newVl + '.');
+        c.rationale = c.rationale.replace(/the value:.*?edge\s*\./i, newVl + '.');
         if (!c.rationale.toLowerCase().includes('the value:')) c.rationale += ` ${newVl.charAt(0).toUpperCase() + newVl.slice(1)}.`;
       }
     }
