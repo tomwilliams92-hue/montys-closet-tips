@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-12T19:55:01.113Z",
+  "generatedAt": "2026-07-12T20:21:29.004Z",
   "event": {
     "id": "R2026100",
     "name": "The Open Championship",
@@ -367,6 +367,135 @@
       "ewPlaceProb": 41,
       "priceDecimal": 41,
       "priceFractional": "40/1"
+    },
+    {
+      "playerId": "46717",
+      "name": "Viktor Hovland",
+      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_46717.png",
+      "country": "NOR",
+      "owgr": "13",
+      "market": "win",
+      "marketLabel": "To Win",
+      "eachWay": true,
+      "modelProb": 0.0256875,
+      "modelOdds": {
+        "prob": 0.0256875,
+        "decimal": 38.929440389294406,
+        "fractional": "40/1"
+      },
+      "marketProb": 0.03225806451612903,
+      "marketOdds": {
+        "prob": 0.03225806451612903,
+        "decimal": 31,
+        "fractional": "30/1"
+      },
+      "edgePct": null,
+      "valueScore": -0.014538056137562157,
+      "confidence": 1,
+      "trend": "up",
+      "sg": {
+        "total": 0.724,
+        "ott": -0.016,
+        "app": 0.462,
+        "arg": 0.182,
+        "putt": 0.097
+      },
+      "recentSG": 2.760933236574746,
+      "recentEvents": 2,
+      "dataThin": false,
+      "letdownFlag": null,
+      "playerNote": null,
+      "playerNoteTag": null,
+      "lastWeekFinish": "T13",
+      "playedLastWeek": true,
+      "courseHistory": {
+        "starts": 4,
+        "madeCuts": 3,
+        "avgFinish": 36.25,
+        "bestFinish": 4
+      },
+      "courseType": {
+        "starts": 9,
+        "madeCuts": 7,
+        "avgFinish": 33.888888888888886,
+        "bestFinish": 4
+      },
+      "placeProbTop8": 0.280175,
+      "bookie": null,
+      "ocLink": "https://www.oddschecker.com/golf/the-open-championship/winner",
+      "rationale": "Form pick — Tom's call, and a fair one. Hovland won the Travelers three starts ago — beating Scheffler in a playoff — and has gained 2.76 strokes a round over his recent starts. The doubt is the fit: his links average is ordinary (~34th, best T4) and firm ground has historically tested his short game, which is why it's a point and not three. The Green Book makes him ~28% to finish top 8 against the ~15% the place terms imply — the place half carries the bet.",
+      "tracked": true,
+      "points": 1,
+      "marquee": "Each-way to win",
+      "eachWayPlaces": 8,
+      "ewPlaceProb": 28,
+      "judgment": true,
+      "priceDecimal": 31,
+      "priceFractional": "30/1"
+    },
+    {
+      "playerId": "37455",
+      "name": "Si Woo Kim",
+      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_37455.png",
+      "country": "KOR",
+      "owgr": "22",
+      "market": "win",
+      "marketLabel": "To Win",
+      "eachWay": true,
+      "modelProb": 0.0190625,
+      "modelOdds": {
+        "prob": 0.0190625,
+        "decimal": 52.459016393442624,
+        "fractional": "50/1"
+      },
+      "marketProb": 0.014084507042253521,
+      "marketOdds": {
+        "prob": 0.014084507042253521,
+        "decimal": 71,
+        "fractional": "70/1"
+      },
+      "edgePct": 35,
+      "valueScore": 0.13361323811113623,
+      "confidence": 1,
+      "trend": "flat",
+      "sg": {
+        "total": 1.248,
+        "ott": 0.481,
+        "app": 0.728,
+        "arg": 0.196,
+        "putt": -0.158
+      },
+      "recentSG": 1.3719064043029543,
+      "recentEvents": 3,
+      "dataThin": false,
+      "letdownFlag": null,
+      "playerNote": null,
+      "playerNoteTag": null,
+      "lastWeekFinish": "T9",
+      "playedLastWeek": true,
+      "courseHistory": {
+        "starts": 4,
+        "madeCuts": 2,
+        "avgFinish": 47,
+        "bestFinish": 15
+      },
+      "courseType": {
+        "starts": 8,
+        "madeCuts": 5,
+        "avgFinish": 40.25,
+        "bestFinish": 9
+      },
+      "placeProbTop8": 0.23219999999999996,
+      "bookie": null,
+      "ocLink": "https://www.oddschecker.com/golf/the-open-championship/winner",
+      "rationale": "The quiet fit for a burnt Birkdale: Si Woo Kim ranks among the tour's very best for driving accuracy and approach play — the two skills firm, running fairways pay — and he has done it at an Open before, runner-up at Royal Liverpool in 2023. T9 at the Scottish Open last week says the links game has travelled again this summer. the value: the model makes him 1.9% to win where the best price implies about 1.4% - a +35% edge. Each-way angle: the model has him about 23% to finish inside the top 8, so at 8 places (1/5 odds) the place half of the bet is where the value sits.",
+      "tracked": true,
+      "points": 1,
+      "marquee": "Each-way to win",
+      "eachWayPlaces": 8,
+      "ewPlaceProb": 23,
+      "priceDecimal": 71,
+      "priceFractional": "70/1"
     }
   ],
   "flutters": [],
@@ -449,19 +578,6 @@
       "tag": "In form"
     },
     {
-      "playerId": "46717",
-      "name": "Viktor Hovland",
-      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_46717.png",
-      "country": "NOR",
-      "owgr": "13",
-      "trend": "up",
-      "recentSG": 2.760933236574746,
-      "recentEvents": 2,
-      "winOdds": "40/1",
-      "why": "In hot form — gaining 2.76 strokes a round across his last 2 starts and trending up. One to keep onside.",
-      "tag": "In form"
-    },
-    {
       "playerId": "39977",
       "name": "Max Homa",
       "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_39977.png",
@@ -511,6 +627,19 @@
       "recentEvents": 4,
       "winOdds": "100/1",
       "why": "Proven links horse — best a win, avg ~33 across 9 comparable links starts. Watch if the price drifts.",
+      "tag": "Course fit"
+    },
+    {
+      "playerId": "27644",
+      "name": "Brian Harman",
+      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_27644.png",
+      "country": "USA",
+      "owgr": "63",
+      "trend": "up",
+      "recentSG": 0.9020338031360584,
+      "recentEvents": 3,
+      "winOdds": "250/1",
+      "why": "Proven links horse — best a win, avg ~29 across 9 comparable links starts. Watch if the price drifts.",
       "tag": "Course fit"
     }
   ],
@@ -631,7 +760,7 @@
       "placeProbTop8": null,
       "bookie": null,
       "ocLink": "https://www.oddschecker.com/golf/the-open-championship/top-5-finish",
-      "rationale": "Gaining on approach (+0.73/rd). Steady (1.37 SG/rd over last 3 starts). Course history: solid record here - best T15 in 4 prior starts here (avg finish ~47). Links suitability: solid - best T9, avg ~40 across 8 starts at comparable links events. Finished T9 last week. The value: the model makes him 13% to finish top 5 where the best price implies about 9.9% - a +32% edge."
+      "rationale": "The quiet fit for a burnt Birkdale: Si Woo Kim ranks among the tour's very best for driving accuracy and approach play — the two skills firm, running fairways pay — and he has done it at an Open before, runner-up at Royal Liverpool in 2023. T9 at the Scottish Open last week says the links game has travelled again this summer. The value: the model makes him 13% to finish top 5 where the best price implies about 9.9% - a +32% edge."
     },
     {
       "playerId": "48081",
@@ -1089,7 +1218,7 @@
       "placeProbTop8": null,
       "bookie": null,
       "ocLink": "https://www.oddschecker.com/golf/the-open-championship/top-10-finish",
-      "rationale": "Gaining on approach (+0.73/rd). Steady (1.37 SG/rd over last 3 starts). Course history: solid record here - best T15 in 4 prior starts here (avg finish ~47). Links suitability: solid - best T9, avg ~40 across 8 starts at comparable links events. Finished T9 last week. The value: the model makes him 30% to finish top 10 where the best price implies about 26% - a +17% edge."
+      "rationale": "The quiet fit for a burnt Birkdale: Si Woo Kim ranks among the tour's very best for driving accuracy and approach play — the two skills firm, running fairways pay — and he has done it at an Open before, runner-up at Royal Liverpool in 2023. T9 at the Scottish Open last week says the links game has travelled again this summer. The value: the model makes him 30% to finish top 10 where the best price implies about 26% - a +17% edge."
     },
     {
       "playerId": "48081",
@@ -1547,7 +1676,7 @@
       "placeProbTop8": null,
       "bookie": null,
       "ocLink": "https://www.oddschecker.com/golf/the-open-championship/top-20-finish",
-      "rationale": "Gaining on approach (+0.73/rd). Steady (1.37 SG/rd over last 3 starts). Course history: solid record here - best T15 in 4 prior starts here (avg finish ~47). Links suitability: solid - best T9, avg ~40 across 8 starts at comparable links events. Finished T9 last week. The value: the model makes him 61% to finish top 20 where the best price implies about 59% - a +3% edge."
+      "rationale": "The quiet fit for a burnt Birkdale: Si Woo Kim ranks among the tour's very best for driving accuracy and approach play — the two skills firm, running fairways pay — and he has done it at an Open before, runner-up at Royal Liverpool in 2023. T9 at the Scottish Open last week says the links game has travelled again this summer. The value: the model makes him 61% to finish top 20 where the best price implies about 59% - a +3% edge."
     },
     {
       "playerId": "46046",
@@ -4054,7 +4183,7 @@
   ],
   "bankroll": {
     "startPoints": 100,
-    "stakedThisWeekPoints": 8,
+    "stakedThisWeekPoints": 10,
     "weekNumber": 29,
     "poundsPerPoint": 5
   },
@@ -4081,9 +4210,9 @@
     "maxDrawdownPts": 18.4,
     "ddPeakPts": 114.75,
     "ddTroughPts": 96.35,
-    "pendingCount": 5,
-    "pendingStakePts": 8,
-    "totalBets": 26,
+    "pendingCount": 7,
+    "pendingStakePts": 10,
+    "totalBets": 28,
     "byMarket": [
       {
         "market": "Top 10",
@@ -4120,11 +4249,53 @@
     ],
     "openBets": [
       {
+        "id": "R2026100:37455:win",
+        "weekNumber": 29,
+        "eventId": "R2026100",
+        "eventName": "The Open Championship",
+        "placedAt": "2026-07-12T20:21:29.004Z",
+        "playerId": "37455",
+        "player": "Si Woo Kim",
+        "market": "win",
+        "marketLabel": "To Win",
+        "eachWay": true,
+        "eachWayPlaces": 8,
+        "stakePts": 1,
+        "priceDecimal": 71,
+        "priceFractional": "70/1",
+        "modelProb": 0.0190625,
+        "status": "pending",
+        "finishPos": null,
+        "returnPts": null,
+        "profitPts": null
+      },
+      {
+        "id": "R2026100:46717:win",
+        "weekNumber": 29,
+        "eventId": "R2026100",
+        "eventName": "The Open Championship",
+        "placedAt": "2026-07-12T20:21:29.004Z",
+        "playerId": "46717",
+        "player": "Viktor Hovland",
+        "market": "win",
+        "marketLabel": "To Win",
+        "eachWay": true,
+        "eachWayPlaces": 8,
+        "stakePts": 1,
+        "priceDecimal": 31,
+        "priceFractional": "30/1",
+        "modelProb": 0.0256875,
+        "status": "pending",
+        "finishPos": null,
+        "returnPts": null,
+        "profitPts": null
+      },
+      {
         "id": "R2026100:59095:win",
         "weekNumber": 29,
         "eventId": "R2026100",
         "eventName": "The Open Championship",
-        "placedAt": "2026-07-12T19:55:01.113Z",
+        "placedAt": "2026-07-12T20:21:29.004Z",
         "playerId": "59095",
         "player": "Chris Gotterup",
         "market": "win",
@@ -4145,7 +4316,7 @@
         "weekNumber": 29,
         "eventId": "R2026100",
         "eventName": "The Open Championship",
-        "placedAt": "2026-07-12T19:55:01.113Z",
+        "placedAt": "2026-07-12T20:21:29.004Z",
         "playerId": "50525",
         "player": "Collin Morikawa",
         "market": "win",
@@ -4166,7 +4337,7 @@
         "weekNumber": 29,
         "eventId": "R2026100",
         "eventName": "The Open Championship",
-        "placedAt": "2026-07-12T19:55:01.113Z",
+        "placedAt": "2026-07-12T20:21:29.004Z",
         "playerId": "51766",
         "player": "Wyndham Clark",
         "market": "win",
@@ -4187,7 +4358,7 @@
         "weekNumber": 29,
         "eventId": "R2026100",
         "eventName": "The Open Championship",
-        "placedAt": "2026-07-12T19:55:01.113Z",
+        "placedAt": "2026-07-12T20:21:29.004Z",
         "playerId": "30911",
         "player": "Tommy Fleetwood",
         "market": "win",
@@ -4208,7 +4379,7 @@
         "weekNumber": 29,
         "eventId": "R2026100",
         "eventName": "The Open Championship",
-        "placedAt": "2026-07-12T19:55:01.113Z",
+        "placedAt": "2026-07-12T20:21:29.004Z",
         "playerId": "40098",
         "player": "Matt Fitzpatrick",
         "market": "win",
@@ -4227,11 +4398,53 @@
     ],
     "allBets": [
       {
+        "id": "R2026100:37455:win",
+        "weekNumber": 29,
+        "eventId": "R2026100",
+        "eventName": "The Open Championship",
+        "placedAt": "2026-07-12T20:21:29.004Z",
+        "playerId": "37455",
+        "player": "Si Woo Kim",
+        "market": "win",
+        "marketLabel": "To Win",
+        "eachWay": true,
+        "eachWayPlaces": 8,
+        "stakePts": 1,
+        "priceDecimal": 71,
+        "priceFractional": "70/1",
+        "modelProb": 0.0190625,
+        "status": "pending",
+        "finishPos": null,
+        "returnPts": null,
+        "profitPts": null
+      },
+      {
+        "id": "R2026100:46717:win",
+        "weekNumber": 29,
+        "eventId": "R2026100",
+        "eventName": "The Open Championship",
+        "placedAt": "2026-07-12T20:21:29.004Z",
+        "playerId": "46717",
+        "player": "Viktor Hovland",
+        "market": "win",
+        "marketLabel": "To Win",
+        "eachWay": true,
+        "eachWayPlaces": 8,
+        "stakePts": 1,
+        "priceDecimal": 31,
+        "priceFractional": "30/1",
+        "modelProb": 0.0256875,
+        "status": "pending",
+        "finishPos": null,
+        "returnPts": null,
+        "profitPts": null
+      },
+      {
         "id": "R2026100:59095:win",
         "weekNumber": 29,
         "eventId": "R2026100",
         "eventName": "The Open Championship",
-        "placedAt": "2026-07-12T19:55:01.113Z",
+        "placedAt": "2026-07-12T20:21:29.004Z",
         "playerId": "59095",
         "player": "Chris Gotterup",
         "market": "win",
@@ -4252,7 +4465,7 @@
         "weekNumber": 29,
         "eventId": "R2026100",
         "eventName": "The Open Championship",
-        "placedAt": "2026-07-12T19:55:01.113Z",
+        "placedAt": "2026-07-12T20:21:29.004Z",
         "playerId": "50525",
         "player": "Collin Morikawa",
         "market": "win",
@@ -4273,7 +4486,7 @@
         "weekNumber": 29,
         "eventId": "R2026100",
         "eventName": "The Open Championship",
-        "placedAt": "2026-07-12T19:55:01.113Z",
+        "placedAt": "2026-07-12T20:21:29.004Z",
         "playerId": "51766",
         "player": "Wyndham Clark",
         "market": "win",
@@ -4294,7 +4507,7 @@
         "weekNumber": 29,
         "eventId": "R2026100",
         "eventName": "The Open Championship",
-        "placedAt": "2026-07-12T19:55:01.113Z",
+        "placedAt": "2026-07-12T20:21:29.004Z",
         "playerId": "30911",
         "player": "Tommy Fleetwood",
         "market": "win",
@@ -4315,7 +4528,7 @@
         "weekNumber": 29,
         "eventId": "R2026100",
         "eventName": "The Open Championship",
-        "placedAt": "2026-07-12T19:55:01.113Z",
+        "placedAt": "2026-07-12T20:21:29.004Z",
         "playerId": "40098",
         "player": "Matt Fitzpatrick",
         "market": "win",
@@ -4775,7 +4988,7 @@
     ]
   },
   "editorial": {
-    "story": "A losing week, and an honest one: down 7.6 points at the Scottish Open, and the bank dips under its starting line for the first time. The headline pick delivered again — Matt Fitzpatrick ran T3 and the each-way place paid — but everything around him leaked. Scheffler missed the cut with the model at 90% for a top-5; that one's on us for anchoring the card to an odds-on place price, and it won't happen again. Højgaard's top-20 died on the number (T26), and the judgment flyers went 0-for-3 — Hatton's T17 was respectable, Penge and Forrest never saw the weekend. The sting in the tail: Tom Kim, who we backed at the John Deere when he did nothing, went and won the Scottish Open the week we came off him. A week early is the same as wrong in this game. So this week's card is smaller and sharper — five picks, all each-way, place-led — for the season's last major.",
+    "story": "A losing week, and an honest one: down 7.6 points at the Scottish Open, and the bank dips under its starting line for the first time. The headline pick delivered again — Matt Fitzpatrick ran T3 and the each-way place paid — but everything around him leaked. Scheffler missed the cut with the model at 90% for a top-5; that one's on us for anchoring the card to an odds-on place price, and it won't happen again. Højgaard's top-20 died on the number (T26), and the judgment flyers went 0-for-3 — Hatton's T17 was respectable, Penge and Forrest never saw the weekend. The sting in the tail: Tom Kim, who we backed at the John Deere when he did nothing, went and won the Scottish Open the week we came off him. A week early is the same as wrong in this game. So this week's card is built place-led — seven picks, all each-way, nothing anchored to a short price — for the season's last major.",
     "courseIntro": "Royal Birkdale, and the ground is the story: a dry summer has left the fairways burnt and running, and Open week is forecast hot and sunny — up to 27°C — with an east wind gusting towards 30mph. Firm, fast and windy is the fullest links examination there is: the ball won't stop where it lands, driver becomes optional, and the Claret Jug will go to whoever controls flight and bounce for 72 holes. Birkdale's flat-bottomed dune valleys make it the fairest course on the rota — no blind luck, just relentless shot-making — and it has a habit of crowning proper champions. Jumping out to us: Matt Fitzpatrick, the form links horse in the field, and Tommy Fleetwood — Southport's own son, on the course he grew up on.",
     "spotlight": null,
     "recap": {

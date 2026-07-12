@@ -90,7 +90,9 @@ const POUNDS_PER_POINT = 5;                   // in-house suggested stake plan: 
 // market will move after the Scottish Open result, so re-check each price before betting.
 // NO SCHEFFLER this week by house rule after the Scottish Open missed cut - and at 4/1-5/1
 // there is no each-way value in him anyway. All-e/w card, smaller stake after a losing week:
-// judgment flyers went 0-for-3 at the Scottish, so the card is five picks, place-led, 8pt total.
+// judgment flyers went 0-for-3 at the Scottish, so the card is place-led: seven picks, all e/w, 10pt total.
+// Si Woo Kim 70/1 sits above the backtested 50/1 e/w ceiling - flagged as the card's long shot,
+// taken because BOTH halves are model-positive at the real price (not a pure lottery ticket).
 const MANUAL_CARD_EVENT = 'R2026100'; // The Open Championship, Royal Birkdale
 const MANUAL_CARD = [
   { name: 'Matt Fitzpatrick',  market: 'win', eachWay: true, points: 2, price: '20/1', places: 8 },  // e/w — BEST BET
@@ -100,6 +102,9 @@ const MANUAL_CARD = [
   { name: 'Collin Morikawa',   market: 'win', eachWay: true, points: 1, price: '28/1', places: 8, judgment: true,
     story: "Conditions pick. Burnt, running links are exactly where Morikawa became Open champion in 2021 — the flighted-iron control that won on a baked Royal St George's is what this week's forecast (hot, dry, gusty east wind) demands, and he arrives off a third place with a closing 61. The win price is skinny by the model and there has been talk of a back niggle, so this is a 1-point, place-led play: The Green Book makes him ~27% to finish top 8 against the ~16% the place terms imply." },
   { name: 'Chris Gotterup',    market: 'win', eachWay: true, points: 1, price: '40/1', places: 8 },  // e/w — the model's own pick; links win + Open T3
+  { name: 'Viktor Hovland',    market: 'win', eachWay: true, points: 1, price: '30/1', places: 8, judgment: true,
+    story: "Form pick — Tom's call, and a fair one. Hovland won the Travelers three starts ago — beating Scheffler in a playoff — and has gained 2.76 strokes a round over his recent starts. The doubt is the fit: his links average is ordinary (~34th, best T4) and firm ground has historically tested his short game, which is why it's a point and not three. The Green Book makes him ~28% to finish top 8 against the ~15% the place terms imply — the place half carries the bet." },
+  { name: 'Si Woo Kim',        market: 'win', eachWay: true, points: 1, price: '70/1', places: 8 },  // e/w — the long shot; 70/1 (LVSB/CBS 12 Jul, +7500 at some books) is above the 50/1 sweet-spot ceiling, but model-backed both halves
 ];
 const BEST_BET_NAME = 'Matt Fitzpatrick';       // headline pick — each-way to win, 2pt total
 const REMOVE = [];                              // never feature these (also pulled from flutters)
@@ -117,7 +122,7 @@ const EXTRA_CARD = null;
 // The P&L recap is auto-built from the ledger regardless. Refresh both weekly.
 const EDITORIAL_EVENT = MANUAL_CARD_EVENT; // editorial applies only to this event
 const EDITORIAL = {
-  story: "A losing week, and an honest one: down 7.6 points at the Scottish Open, and the bank dips under its starting line for the first time. The headline pick delivered again — Matt Fitzpatrick ran T3 and the each-way place paid — but everything around him leaked. Scheffler missed the cut with the model at 90% for a top-5; that one's on us for anchoring the card to an odds-on place price, and it won't happen again. Højgaard's top-20 died on the number (T26), and the judgment flyers went 0-for-3 — Hatton's T17 was respectable, Penge and Forrest never saw the weekend. The sting in the tail: Tom Kim, who we backed at the John Deere when he did nothing, went and won the Scottish Open the week we came off him. A week early is the same as wrong in this game. So this week's card is smaller and sharper — five picks, all each-way, place-led — for the season's last major.",
+  story: "A losing week, and an honest one: down 7.6 points at the Scottish Open, and the bank dips under its starting line for the first time. The headline pick delivered again — Matt Fitzpatrick ran T3 and the each-way place paid — but everything around him leaked. Scheffler missed the cut with the model at 90% for a top-5; that one's on us for anchoring the card to an odds-on place price, and it won't happen again. Højgaard's top-20 died on the number (T26), and the judgment flyers went 0-for-3 — Hatton's T17 was respectable, Penge and Forrest never saw the weekend. The sting in the tail: Tom Kim, who we backed at the John Deere when he did nothing, went and won the Scottish Open the week we came off him. A week early is the same as wrong in this game. So this week's card is built place-led — seven picks, all each-way, nothing anchored to a short price — for the season's last major.",
   courseIntro: "Royal Birkdale, and the ground is the story: a dry summer has left the fairways burnt and running, and Open week is forecast hot and sunny — up to 27°C — with an east wind gusting towards 30mph. Firm, fast and windy is the fullest links examination there is: the ball won't stop where it lands, driver becomes optional, and the Claret Jug will go to whoever controls flight and bounce for 72 holes. Birkdale's flat-bottomed dune valleys make it the fairest course on the rota — no blind luck, just relentless shot-making — and it has a habit of crowning proper champions. Jumping out to us: Matt Fitzpatrick, the form links horse in the field, and Tommy Fleetwood — Southport's own son, on the course he grew up on.",
   spotlight: null,
 };
