@@ -20,6 +20,7 @@ function applyDeepDive(board, dd, makeBet) {
   const pct2 = (v) => (v * 100).toFixed(v < 0.1 ? 1 : 0) + '%';
   const prep = (c, pts, story) => {
     c.points = Math.max(1, Math.min(3, pts || 1));
+    c.pickType = c.pickType || 'model'; // deep-dive re-selections are still model-led provenance
     c.priceDecimal = c.marketOdds.decimal;
     c.priceFractional = c.marketOdds.fractional;
     if (story) {
@@ -93,18 +94,21 @@ const POUNDS_PER_POINT = 5;                   // in-house suggested stake plan: 
 // judgment flyers went 0-for-3 at the Scottish, so the card is place-led: seven picks, all e/w, 10pt total.
 // Si Woo Kim 70/1 sits above the backtested 50/1 e/w ceiling - flagged as the card's long shot,
 // taken because BOTH halves are model-positive at the real price (not a pure lottery ticket).
+// Every pick carries `type:` — its PROVENANCE, persisted to the ledger so review.mjs can answer
+// "who actually picks the winners": 'model' (model edge at a real price led), 'conditions'
+// (course/weather-fit led), 'judgment' (eye-test / data-thin), 'toms-call' (Tom's override).
 const MANUAL_CARD_EVENT = 'R2026100'; // The Open Championship, Royal Birkdale
 const MANUAL_CARD = [
-  { name: 'Matt Fitzpatrick',  market: 'win', eachWay: true, points: 2, price: '20/1', places: 8 },  // e/w — BEST BET
-  { name: 'Tommy Fleetwood',   market: 'win', eachWay: true, points: 2, price: '16/1', places: 8, judgment: true,
+  { name: 'Matt Fitzpatrick',  market: 'win', eachWay: true, points: 2, price: '20/1', places: 8, type: 'model' },  // e/w — BEST BET
+  { name: 'Tommy Fleetwood',   market: 'win', eachWay: true, points: 2, price: '16/1', places: 8, type: 'conditions', judgment: true,
     story: "The hometown pick, and a proper one — Fleetwood is Southport born and raised, and Royal Birkdale is the course he grew up on. The case isn't sentiment: he owns the best links record of anyone near the top of the market (average finish ~21st across nine comparable links starts) and arrives in form, gaining nearly two strokes a round over his last four. The Green Book has him about 54% to finish inside the top 8, so at 1/5 odds the place half of this bet is close to an even-money shot — the missing major is the only hole in the CV." },
-  { name: 'Wyndham Clark',     market: 'win', eachWay: true, points: 2, price: '40/1', places: 8 },  // e/w — biggest model edge at a real price
-  { name: 'Collin Morikawa',   market: 'win', eachWay: true, points: 1, price: '28/1', places: 8, judgment: true,
+  { name: 'Wyndham Clark',     market: 'win', eachWay: true, points: 2, price: '40/1', places: 8, type: 'model' },  // e/w — biggest model edge at a real price
+  { name: 'Collin Morikawa',   market: 'win', eachWay: true, points: 1, price: '28/1', places: 8, type: 'conditions', judgment: true,
     story: "Conditions pick. Burnt, running links are exactly where Morikawa became Open champion in 2021 — the flighted-iron control that won on a baked Royal St George's is what this week's forecast (hot, dry, gusty east wind) demands, and he arrives off a third place with a closing 61. The win price is skinny by the model and there has been talk of a back niggle, so this is a 1-point, place-led play: The Green Book makes him ~27% to finish top 8 against the ~16% the place terms imply." },
-  { name: 'Chris Gotterup',    market: 'win', eachWay: true, points: 1, price: '40/1', places: 8 },  // e/w — the model's own pick; links win + Open T3
-  { name: 'Viktor Hovland',    market: 'win', eachWay: true, points: 1, price: '30/1', places: 8, judgment: true,
-    story: "Form pick — Tom's call, and a fair one. Hovland won the Travelers three starts ago — beating Scheffler in a playoff — and has gained 2.76 strokes a round over his recent starts. The doubt is the fit: his links average is ordinary (~34th, best T4) and firm ground has historically tested his short game, which is why it's a point and not three. The Green Book makes him ~28% to finish top 8 against the ~15% the place terms imply — the place half carries the bet." },
-  { name: 'Si Woo Kim',        market: 'win', eachWay: true, points: 1, price: '70/1', places: 8 },  // e/w — the long shot; 70/1 (LVSB/CBS 12 Jul, +7500 at some books) is above the 50/1 sweet-spot ceiling, but model-backed both halves
+  { name: 'Chris Gotterup',    market: 'win', eachWay: true, points: 1, price: '40/1', places: 8, type: 'model' },  // e/w — the model's own pick; links win + Open T3
+  { name: 'Viktor Hovland',    market: 'win', eachWay: true, points: 1, price: '30/1', places: 8, type: 'toms-call', judgment: true,
+    story: "Form pick — Tom's call, and a fair one. Hovland won the Travelers three starts ago — beating Scheffler in a playoff — and has gained 2.76 strokes a round over his recent starts. The doubt is the fit: his links average is ordinary (~34th, best T4) and firm ground has historically tested his short game, which is why it's a point and not three. The Green Book makes him ~23% to finish top 8 against the ~15% the place terms imply — the place half carries the bet." },
+  { name: 'Si Woo Kim',        market: 'win', eachWay: true, points: 1, price: '70/1', places: 8, type: 'model' },  // e/w — the long shot; 70/1 (LVSB/CBS 12 Jul, +7500 at some books) is above the 50/1 sweet-spot ceiling, but model-backed both halves
 ];
 const BEST_BET_NAME = 'Matt Fitzpatrick';       // headline pick — each-way to win, 2pt total
 const REMOVE = [];                              // never feature these (also pulled from flutters)
@@ -164,6 +168,7 @@ function buildManualCard(board, model) {
       c.rationale += ` Each-way angle: the model has him about ${c.ewPlaceProb}% to finish inside the top ${places}, so at ${places} places (1/5 odds) the place half of the bet is where the value sits.`;
     }
     if (e.judgment) { c.judgment = true; c.edgePct = null; if (e.story) c.rationale = e.story; }
+    c.pickType = e.type || (e.judgment ? 'judgment' : 'model'); // provenance -> ledger -> review.mjs
     c.priceDecimal = c.marketOdds.decimal; c.priceFractional = c.marketOdds.fractional;
     out.push(c);
   }
@@ -399,8 +404,8 @@ async function main() {
     if (stamped !== idx) { fs.writeFileSync(idxPath, stamped); console.error('[build] stamped data.js cache version', ver); }
     else console.error('[build] WARNING: could not find data.js <script> tag to stamp');
   } catch (e) { console.error('[build] index.html stamp failed:', e.message); }
-  console.error('[build] TRACKED:', model.trackedBets.map((c) => `${c.name} ${c.marketLabel} ${c.priceFractional} (+${c.edgePct}%)`).join(' | '));
-  console.error('[build] BEST BET:', model.bestBet ? `${model.bestBet.name} ${model.bestBet.marketLabel} ${model.bestBet.priceFractional}` : 'none');
+  console.error('[build] CARD:', board.trackedBets.map((c) => `${c.points}pt ${c.name} ${c.marketLabel} ${c.priceFractional}${c.eachWay ? ' e/w' : ''} [${c.pickType}]`).join(' | '));
+  console.error('[build] BEST BET:', board.bestBet ? `${board.bestBet.name} ${board.bestBet.marketLabel} ${board.bestBet.priceFractional}` : 'none');
   console.error('[build] P&L:', `bank ${board.pnl.bankNowPts}pts | settled ${board.pnl.settledCount} | pending ${board.pnl.pendingCount} (${board.pnl.pendingStakePts}pts)`);
 }
 

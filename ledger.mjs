@@ -29,6 +29,7 @@ export function appendWeek(ledger, board) {
       placedAt: board.generatedAt, playerId: c.playerId, player: c.name,
       market: c.market, marketLabel: c.marketLabel, eachWay: c.eachWay, eachWayPlaces: c.eachWayPlaces || (c.eachWay ? 5 : null),
       stakePts: c.points, priceDecimal: c.priceDecimal, priceFractional: c.priceFractional,
+      pickType: c.pickType || (c.judgment ? 'judgment' : 'model'), // provenance: model | conditions | judgment | toms-call
       modelProb: c.modelProb, status: 'pending', finishPos: null, returnPts: null, profitPts: null,
     });
   }

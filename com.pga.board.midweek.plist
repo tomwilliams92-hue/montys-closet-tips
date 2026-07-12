@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>com.pga.board.midweek</string>
+
+    <key>ProgramArguments</key>
+    <array>
+        <string>/usr/local/bin/node</string>
+        <string>/Users/thomaswilliams/Monty's Closet Tips/midweek-check.mjs</string>
+    </array>
+
+    <key>WorkingDirectory</key>
+    <string>/Users/thomaswilliams/Monty's Closet Tips</string>
+
+    <!-- Every Wednesday at 18:00 - after tee times/extra places land, before Thursday tee-off.
+         Checks pending picks for withdrawals + probes the real-odds feed. -->
+    <key>StartCalendarInterval</key>
+    <dict>
+        <key>Weekday</key>
+        <integer>3</integer>
+        <key>Hour</key>
+        <integer>18</integer>
+        <key>Minute</key>
+        <integer>0</integer>
+    </dict>
+
+    <key>RunAtLoad</key>
+    <false/>
+
+    <key>StandardOutPath</key>
+    <string>/Users/thomaswilliams/Monty's Closet Tips/midweek-check.log</string>
+    <key>StandardErrorPath</key>
+    <string>/Users/thomaswilliams/Monty's Closet Tips/midweek-check.log</string>
+</dict>
+</plist>

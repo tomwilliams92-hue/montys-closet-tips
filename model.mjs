@@ -108,7 +108,10 @@ function applyLetdown(rows, prev) {
 }
 
 // ---- Monte Carlo: run the field, return finish-position probabilities ------
-const T_SIM = 1.65, N_SIM = 16000, SEED = 0x9e3779b9;
+// N_SIM 48k keeps small win probabilities fine-grained enough for edge thresholds (a 3% win
+// prob resolves to ±0.15%, i.e. an edge chip stable to a few points). GREENBOOK_SIMS overrides
+// (e.g. backtest.mjs replays many events and may want 16000 for speed).
+const T_SIM = 1.65, N_SIM = Number(process.env.GREENBOOK_SIMS) || 48000, SEED = 0x9e3779b9;
 // Seeded RNG so the same data always yields the same picks (deterministic, reproducible).
 // Both sims share the seed = common random numbers, which also stabilises the edge estimates.
 function mulberry32(a) { return function () { a |= 0; a = a + 0x6d2b79f5 | 0; let t = Math.imul(a ^ a >>> 15, 1 | a); t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t; return ((t ^ t >>> 14) >>> 0) / 4294967296; }; }
@@ -332,6 +335,7 @@ export function buildModel({ field, profile, sg, driving, scrambling = null, rec
   for (const c of ewPicks) { c.points = 2; trackedBets.push(c); } // 1pt each-way = 2pt total (1 win + 1 place), 8 places
   trackedBets.forEach((c) => {
     c.tracked = true; // stakes are in POINTS/units only - no monetary value (users set their own)
+    c.pickType = 'model'; // auto selections are model-led by definition (provenance for the learning loop)
     c.priceDecimal = c.marketOdds.decimal; c.priceFractional = c.marketOdds.fractional;
   });
   const trackedIds = new Set(trackedBets.map((c) => c.playerId));
