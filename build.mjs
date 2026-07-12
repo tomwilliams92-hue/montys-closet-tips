@@ -78,25 +78,29 @@ const parsePrice = (p) => {
 // (2.75). Refresh weekly. Each-way win picks require a real price (the model price is a long-shot
 // artifact for course-history specialists).
 const POUNDS_PER_POINT = 5;                   // in-house suggested stake plan: £5 per point
-// John Deere Classic 2026 (TPC Deere Run) - Tom's hand-picked card with real book prices.
+// The Open Championship 2026 (Royal Birkdale) - Tom's hand-picked card with real book prices.
 // `eachWay: true` = 1pt e/w to win (half win, half place); `places` overrides the 8-place default.
-// `judgment: true` = market/eye-test pick the model can't price (data-thin); uses `story` and
-// shows no model edge. Travelers form folded in by hand (SG feed not yet finalised on the day).
+// `judgment: true` = story-led pick where the win-market edge is not the case for the bet
+// (place-led or conditions/eye-test); uses `story` and shows no model edge chip.
 // Hand-picked card for ONE specific event. It is applied ONLY when the build is for
 // MANUAL_CARD_EVENT (guard in buildManualCard), so a leftover card can never bleed onto a later
 // week - on any other event it is simply ignored and The Green Book auto-selects. To hand-pick a
 // week: set BOTH the event id below AND the picks. Empty array = always auto-select.
-const MANUAL_CARD_EVENT = 'R2026541'; // Genesis Scottish Open - the event this card is written for
+// Prices from the latest published market lists on build night (12 Jul, pre-tournament) - the
+// market will move after the Scottish Open result, so re-check each price before betting.
+// NO SCHEFFLER this week by house rule after the Scottish Open missed cut - and at 4/1-5/1
+// there is no each-way value in him anyway. All-e/w card, smaller stake after a losing week:
+// judgment flyers went 0-for-3 at the Scottish, so the card is five picks, place-led, 8pt total.
+const MANUAL_CARD_EVENT = 'R2026100'; // The Open Championship, Royal Birkdale
 const MANUAL_CARD = [
-  { name: 'Scottie Scheffler', market: 'top5',  points: 3, price: 2.20 },                          // Bet365 top-5
-  { name: 'Nicolai Højgaard',  market: 'top20', points: 2, price: 2.60 },                          // Bet365 top-20
-  { name: 'Matt Fitzpatrick',  market: 'win', eachWay: true, points: 2, price: '17/1', places: 8 },  // e/w, 8 places — BEST BET
-  { name: 'Tyrrell Hatton',    market: 'win', eachWay: true, points: 2, price: '26/1', places: 10, judgment: true,
-    story: "Judgement pick — The Green Book can't rate him (no PGA Tour strokes-gained; he plays mostly DP World Tour/LIV), but the case is strong: a multiple Alfred Dunhill Links winner, elite in the wind, and gained +2.4 strokes a round at his last U.S. Open. At 26/1 with ten places each-way (1/5), the place half is where the value sits." },
-  { name: 'Marco Penge',       market: 'win', eachWay: true, points: 2, price: '41/1', places: 12, judgment: true,
-    story: "Each-way flyer (£5 e/w). An in-form DP World Tour player (OWGR 48) with a runner-up in his links record; the PGA-based model rates him low, so this is a punt on his European form at 41/1 with twelve places (1/5) — all about the place terms." },
-  { name: 'Grant Forrest',     market: 'win', eachWay: true, points: 1, price: '141/1', places: 12, judgment: true,
-    story: "Home each-way flyer (£2.50 e/w). A Scot the model can't rate (no PGA Tour strokes-gained), but with a solid links cut-rate and a home crowd behind him; 141/1 with twelve places (1/5) is a lottery ticket bought on the place terms, not a value bet." },
+  { name: 'Matt Fitzpatrick',  market: 'win', eachWay: true, points: 2, price: '20/1', places: 8 },  // e/w — BEST BET
+  { name: 'Tommy Fleetwood',   market: 'win', eachWay: true, points: 2, price: '16/1', places: 8, judgment: true,
+    story: "The hometown pick, and a proper one — Fleetwood is Southport born and raised, and Royal Birkdale is the course he grew up on. The case isn't sentiment: he owns the best links record of anyone near the top of the market (average finish ~21st across nine comparable links starts) and arrives in form, gaining nearly two strokes a round over his last four. The Green Book has him about 54% to finish inside the top 8, so at 1/5 odds the place half of this bet is close to an even-money shot — the missing major is the only hole in the CV." },
+  { name: 'Wyndham Clark',     market: 'win', eachWay: true, points: 2, price: '40/1', places: 8 },  // e/w — biggest model edge at a real price
+  { name: 'Collin Morikawa',   market: 'win', eachWay: true, points: 1, price: '28/1', places: 8, judgment: true,
+    story: "Conditions pick. Burnt, running links are exactly where Morikawa became Open champion in 2021 — the flighted-iron control that won on a baked Royal St George's is what this week's forecast (hot, dry, gusty east wind) demands, and he arrives off a third place with a closing 61. The win price is skinny by the model and there has been talk of a back niggle, so this is a 1-point, place-led play: The Green Book makes him ~27% to finish top 8 against the ~16% the place terms imply." },
+  { name: 'Viktor Hovland',    market: 'win', eachWay: true, points: 1, price: '30/1', places: 8, judgment: true,
+    story: "Form pick. Hovland won the Travelers three starts ago — beating Scheffler in a playoff — and has gained 2.76 strokes a round over his recent starts. The doubt is the fit: his links average is ordinary (~34th, best T4) and firm ground has historically tested his short game, which is why it's a point and not three. The Green Book makes him ~28% to finish top 8 against the ~15% the place terms imply — the place half carries the bet." },
 ];
 const BEST_BET_NAME = 'Matt Fitzpatrick';       // headline pick — each-way to win, 2pt total
 const REMOVE = [];                              // never feature these (also pulled from flutters)
@@ -114,8 +118,8 @@ const EXTRA_CARD = null;
 // The P&L recap is auto-built from the ledger regardless. Refresh both weekly.
 const EDITORIAL_EVENT = MANUAL_CARD_EVENT; // editorial applies only to this event
 const EDITORIAL = {
-  story: "We're up overall — a positive start is banked, and that's the headline. Last week's John Deere stung a little: down 3.8 points on the week. The one that got away was Chris Gotterup — a player we flagged and genuinely fancied — but we sided with Ben Griffin instead, and Gotterup went and won it. Wrong horse, right race. The consolation was Jackson Suber, our 56/1 each-way flyer, who rewarded us with a strong top-10 finish — exactly the kind of big-priced place that makes the each-way game pay its way. One small dip, still in front overall, and now onto a proper links test.",
-  courseIntro: "The Renaissance Club is links golf the week before The Open — and the wind is the defence. This is a ball-striker's test: control off the tee and flighted, penetrating iron play beat raw power, so accurate, wind-hardened players climb the board while the bombers get exposed. Jumping out to us: Scottie Scheffler (the most complete ball-striker in the game), Tommy Fleetwood and Matt Fitzpatrick (proven links horses with the record to back it up), and Tyrrell Hatton — a genuine wind specialist the data can't fully see, but the eye certainly can.",
+  story: "A losing week, and an honest one: down 7.6 points at the Scottish Open, and the bank dips under its starting line for the first time. The headline pick delivered again — Matt Fitzpatrick ran T3 and the each-way place paid — but everything around him leaked. Scheffler missed the cut with the model at 90% for a top-5; that one's on us for anchoring the card to an odds-on place price, and it won't happen again. Højgaard's top-20 died on the number (T26), and the judgment flyers went 0-for-3 — Hatton's T17 was respectable, Penge and Forrest never saw the weekend. The sting in the tail: Tom Kim, who we backed at the John Deere when he did nothing, went and won the Scottish Open the week we came off him. A week early is the same as wrong in this game. So this week's card is smaller and sharper — five picks, all each-way, place-led — for the season's last major.",
+  courseIntro: "Royal Birkdale, and the ground is the story: a dry summer has left the fairways burnt and running, and Open week is forecast hot and sunny — up to 27°C — with an east wind gusting towards 30mph. Firm, fast and windy is the fullest links examination there is: the ball won't stop where it lands, driver becomes optional, and the Claret Jug will go to whoever controls flight and bounce for 72 holes. Birkdale's flat-bottomed dune valleys make it the fairest course on the rota — no blind luck, just relentless shot-making — and it has a habit of crowning proper champions. Jumping out to us: Matt Fitzpatrick, the form links horse in the field, and Tommy Fleetwood — Southport's own son, on the course he grew up on.",
   spotlight: null,
 };
 
@@ -218,9 +222,11 @@ async function main() {
   let { upcoming, completed } = await getSchedule(year);
   if (!upcoming.length) ({ upcoming, completed } = await getSchedule(year + 1));
 
+  // An in-progress event (e.g. an opposite-field co-sanctioned week like the ISCO) stays in
+  // `upcoming` until it finishes, so "next event" = first upcoming that has not started yet.
   const event = forceId
     ? (upcoming.find((t) => t.id === forceId) || completed.find((t) => t.id === forceId) || { id: forceId, tournamentName: forceId })
-    : upcoming[0];
+    : upcoming.find((t) => !t.startDate || Number(t.startDate) > Date.now()) || upcoming[0];
   if (!event) throw new Error('No upcoming event found.');
   console.error(`[build] event: ${event.tournamentName} (${event.id})`);
 
@@ -241,6 +247,11 @@ async function main() {
 
   // last week's event drives the let-down factor - pull its final leaderboard for finishes
   const prev = completed[completed.length - 1];
+  // The schedule feed's champion field lags on the Sunday night after an event (it still showed
+  // the previous winner hours after the Genesis Scottish Open finished, when the leaderboard
+  // already had Tom Kim at 1) - correct the known-stale value so the board and the let-down
+  // fade name the right man.
+  if (prev?.id === 'R2026541') prev.champion = 'Tom Kim';
   const prevLb = prev ? await getLeaderboard(prev.id).catch(() => null) : null;
   const previousEvent = prev ? {
     name: prev.tournamentName,
