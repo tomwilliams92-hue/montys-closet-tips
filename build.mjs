@@ -99,8 +99,7 @@ const MANUAL_CARD = [
   { name: 'Wyndham Clark',     market: 'win', eachWay: true, points: 2, price: '40/1', places: 8 },  // e/w — biggest model edge at a real price
   { name: 'Collin Morikawa',   market: 'win', eachWay: true, points: 1, price: '28/1', places: 8, judgment: true,
     story: "Conditions pick. Burnt, running links are exactly where Morikawa became Open champion in 2021 — the flighted-iron control that won on a baked Royal St George's is what this week's forecast (hot, dry, gusty east wind) demands, and he arrives off a third place with a closing 61. The win price is skinny by the model and there has been talk of a back niggle, so this is a 1-point, place-led play: The Green Book makes him ~27% to finish top 8 against the ~16% the place terms imply." },
-  { name: 'Viktor Hovland',    market: 'win', eachWay: true, points: 1, price: '30/1', places: 8, judgment: true,
-    story: "Form pick. Hovland won the Travelers three starts ago — beating Scheffler in a playoff — and has gained 2.76 strokes a round over his recent starts. The doubt is the fit: his links average is ordinary (~34th, best T4) and firm ground has historically tested his short game, which is why it's a point and not three. The Green Book makes him ~28% to finish top 8 against the ~15% the place terms imply — the place half carries the bet." },
+  { name: 'Chris Gotterup',    market: 'win', eachWay: true, points: 1, price: '40/1', places: 8 },  // e/w — the model's own pick; links win + Open T3
 ];
 const BEST_BET_NAME = 'Matt Fitzpatrick';       // headline pick — each-way to win, 2pt total
 const REMOVE = [];                              // never feature these (also pulled from flutters)
