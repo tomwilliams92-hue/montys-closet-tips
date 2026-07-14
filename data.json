@@ -5206,6 +5206,13 @@
         "oddsDecimal": 2.37,
         "stake": 5,
         "toReturn": 11.87
+      },
+      {
+        "player": "Corey Conners",
+        "market": "72-Hole Matchup vs Ryan Fox",
+        "oddsDecimal": 1.8,
+        "stake": 10,
+        "toReturn": 18
       }
     ],
     "portfolio": {
@@ -5218,7 +5225,7 @@
           "player": "Viktor Hovland",
           "market": "To Win Outright",
           "places": 8,
-          "oddsFractional": "33/1",
+          "oddsFractional": "34/1",
           "stakeEach": 7.5,
           "toReturn": 312
         },
@@ -5226,7 +5233,7 @@
           "player": "Matt Fitzpatrick",
           "market": "To Win Outright",
           "places": 8,
-          "oddsFractional": "14/1",
+          "oddsFractional": "15/1",
           "stakeEach": 12.5,
           "toReturn": 235
         },
@@ -5234,7 +5241,7 @@
           "player": "Wyndham Clark",
           "market": "To Win Outright",
           "places": 8,
-          "oddsFractional": "28/1",
+          "oddsFractional": "29/1",
           "stakeEach": 7.5,
           "toReturn": 267
         },
@@ -5242,7 +5249,7 @@
           "player": "Chris Gotterup",
           "market": "To Win Outright",
           "places": 8,
-          "oddsFractional": "28/1",
+          "oddsFractional": "29/1",
           "stakeEach": 7.5,
           "toReturn": 267
         },
@@ -5250,7 +5257,7 @@
           "player": "Collin Morikawa",
           "market": "To Win Outright",
           "places": 8,
-          "oddsFractional": "28/1",
+          "oddsFractional": "29/1",
           "stakeEach": 7.5,
           "toReturn": 267
         },
@@ -5258,7 +5265,7 @@
           "player": "Corey Conners",
           "market": "Each Way Extra",
           "places": 12,
-          "oddsFractional": "70/1",
+          "oddsFractional": "71/1",
           "stakeEach": 5,
           "toReturn": 430
         },
@@ -5266,7 +5273,7 @@
           "player": "Akshay Bhatia",
           "market": "To Win Outright",
           "places": 8,
-          "oddsFractional": "100/1",
+          "oddsFractional": "101/1",
           "stakeEach": 2.5,
           "toReturn": 305
         },
@@ -5274,7 +5281,7 @@
           "player": "Jesper Svensson",
           "market": "Each Way Extra",
           "places": 12,
-          "oddsFractional": "180/1",
+          "oddsFractional": "181/1",
           "stakeEach": 2.5,
           "toReturn": 545
         }

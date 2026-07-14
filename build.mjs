@@ -147,19 +147,20 @@ const PERSONAL_CARD = {
   ],
   singles: [
     { player: 'Bryson DeChambeau', market: 'To Miss The Cut', oddsDecimal: 2.37, stake: 5, toReturn: 11.87 },
+    { player: 'Corey Conners', market: '72-Hole Matchup vs Ryan Fox', oddsDecimal: 1.80, stake: 10, toReturn: 18.00 },
   ],
   portfolio: {
     label: 'Each-Way Portfolio', stake: 105, toReturn: 2628,
     note: 'Eight-strong each-way spread across the wider market — 1/5 odds a place.',
     legs: [
-      { player: 'Viktor Hovland',   market: 'To Win Outright', places: 8,  oddsFractional: '33/1',  stakeEach: 7.50,  toReturn: 312.00 },
-      { player: 'Matt Fitzpatrick', market: 'To Win Outright', places: 8,  oddsFractional: '14/1',  stakeEach: 12.50, toReturn: 235.00 },
-      { player: 'Wyndham Clark',    market: 'To Win Outright', places: 8,  oddsFractional: '28/1',  stakeEach: 7.50,  toReturn: 267.00 },
-      { player: 'Chris Gotterup',   market: 'To Win Outright', places: 8,  oddsFractional: '28/1',  stakeEach: 7.50,  toReturn: 267.00 },
-      { player: 'Collin Morikawa',  market: 'To Win Outright', places: 8,  oddsFractional: '28/1',  stakeEach: 7.50,  toReturn: 267.00 },
-      { player: 'Corey Conners',    market: 'Each Way Extra',  places: 12, oddsFractional: '70/1',  stakeEach: 5.00,  toReturn: 430.00 },
-      { player: 'Akshay Bhatia',    market: 'To Win Outright', places: 8,  oddsFractional: '100/1', stakeEach: 2.50,  toReturn: 305.00 },
-      { player: 'Jesper Svensson', market: 'Each Way Extra',   places: 12, oddsFractional: '180/1', stakeEach: 2.50,  toReturn: 545.00 },
+      { player: 'Viktor Hovland',   market: 'To Win Outright', places: 8,  oddsFractional: '34/1',  stakeEach: 7.50,  toReturn: 312.00 },
+      { player: 'Matt Fitzpatrick', market: 'To Win Outright', places: 8,  oddsFractional: '15/1',  stakeEach: 12.50, toReturn: 235.00 },
+      { player: 'Wyndham Clark',    market: 'To Win Outright', places: 8,  oddsFractional: '29/1',  stakeEach: 7.50,  toReturn: 267.00 },
+      { player: 'Chris Gotterup',   market: 'To Win Outright', places: 8,  oddsFractional: '29/1',  stakeEach: 7.50,  toReturn: 267.00 },
+      { player: 'Collin Morikawa',  market: 'To Win Outright', places: 8,  oddsFractional: '29/1',  stakeEach: 7.50,  toReturn: 267.00 },
+      { player: 'Corey Conners',    market: 'Each Way Extra',  places: 12, oddsFractional: '71/1',  stakeEach: 5.00,  toReturn: 430.00 },
+      { player: 'Akshay Bhatia',    market: 'To Win Outright', places: 8,  oddsFractional: '101/1', stakeEach: 2.50,  toReturn: 305.00 },
+      { player: 'Jesper Svensson', market: 'Each Way Extra',   places: 12, oddsFractional: '181/1', stakeEach: 2.50,  toReturn: 545.00 },
     ],
   },
 };
