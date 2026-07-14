@@ -120,6 +120,17 @@
   .mini.warn { background:rgba(242,193,78,.10); border-color:rgba(242,193,78,.3); color:#f4d486; }
   .stake { margin:10px 16px 0; padding:9px 11px; border-radius:10px; background:rgba(54,211,153,.08); border:1px solid rgba(54,211,153,.25); font-size:12.5px; } .stake .big { font-weight:700; } .stake .ew { color:var(--muted); font-size:11px; margin-top:2px; }
   .stake.flut { background:rgba(242,193,78,.08); border-color:rgba(242,193,78,.25); }
+  /* Tom's personal bets (bet builders / singles / each-way portfolio) — display only, not tracked */
+  .tombb { padding:16px 18px; }
+  .tombb .bbhead { display:flex; justify-content:space-between; align-items:center; gap:10px; margin-bottom:11px; padding-bottom:10px; border-bottom:1px solid var(--line); }
+  .tombb .bbtag { font-family:'Oswald'; font-weight:600; font-size:11px; letter-spacing:1px; text-transform:uppercase; color:var(--gold); }
+  .tombb .bbodds { font-family:'Oswald'; font-weight:700; font-size:26px; color:var(--gold); line-height:1; flex:none; }
+  .tomleg { display:flex; justify-content:space-between; align-items:baseline; gap:10px; padding:6px 0; border-bottom:1px dashed rgba(29,62,114,.6); font-size:12.5px; }
+  .tomleg:last-child { border-bottom:none; }
+  .tomleg .p { font-weight:600; }
+  .tomleg .m { color:var(--muted); font-size:11.5px; text-align:right; }
+  .tombb .bbstake { margin-top:11px; padding-top:10px; border-top:1px solid var(--line); font-size:12.5px; color:var(--muted); display:flex; justify-content:space-between; }
+  .tombb .bbstake b { color:var(--txt); font-family:'Oswald'; }
   .sg { display:grid; grid-template-columns:repeat(4,1fr); gap:6px; margin:10px 16px 0; }
   .sg .cell { text-align:center; padding:7px 3px; border-radius:9px; background:rgba(255,255,255,.03); border:1px solid var(--line); } .sg .cell .k { font-size:9px; color:var(--muted); text-transform:uppercase; } .sg .cell .v { font-family:'Oswald'; font-weight:600; font-size:14px; margin-top:2px; }
   .pos { color:var(--blue); } .neg { color:var(--red); }
@@ -208,7 +219,7 @@
 <div class="rgbar"><div class="in"><span class="age">18+</span> When the fun stops, stop. Please gamble responsibly &middot; <a href="https://www.begambleaware.org" target="_blank" rel="noopener">BeGambleAware.org</a></div></div>
 <main class="wrap" id="app"></main>
 
-<script src="data.js?v=1783922713238"></script>
+<script src="data.js?v=1784332800000"></script>
 <script>
 const B = window.BOARD;
 const $ = (h)=>{const t=document.createElement('template');t.innerHTML=h.trim();return t.content.firstChild;};
@@ -344,6 +355,31 @@ function render() {
 
   t1.appendChild($(`<div class="shead accent-blue"><h2>Tracked Bets</h2><div class="ln"></div><div class="tag">value-ranked &middot; feed the P&L</div></div>`));
   const g1=$(`<div class="grid3"></div>`); B.trackedBets.forEach(c=>g1.appendChild(valueCard(c))); t1.appendChild(g1);
+
+  if (B.personalCard) {
+    const pc = B.personalCard;
+    const gbp2 = (n) => `£${Number(n).toFixed(2)}`;
+    t1.appendChild($(`<div class="shead accent-gold"><h2>Tom's Open Action</h2><div class="ln"></div><div class="tag">personal bets &middot; not tracked in the P&amp;L</div></div>`));
+    if (pc.note) t1.appendChild($(`<div class="card-base" style="padding:16px 19px;margin-bottom:14px;border-left:3px solid var(--gold)"><div style="color:#dce8fa;font-size:13.5px;line-height:1.62">${pc.note}</div></div>`));
+    const legRow = (l) => `<div class="tomleg"><span class="p">${l.player}</span><span class="m">${l.market}</span></div>`;
+    const slipCard = (tag, legs, oddsDecimal, stake, toReturn) => `<div class="card-base tombb">
+        <div class="bbhead"><span class="bbtag">${tag}</span><span class="bbodds">${Number(oddsDecimal).toFixed(2)}</span></div>
+        ${legs.map(legRow).join('')}
+        <div class="bbstake"><span>Stake <b>${gbp2(stake)}</b></span><span>To return <b>${gbp2(toReturn)}</b></span></div>
+      </div>`;
+    const slips = [
+      ...(pc.betBuilders || []).map((bb) => slipCard(`Bet Builder &middot; ${bb.legs.length}-leg`, bb.legs, bb.oddsDecimal, bb.stake, bb.toReturn)),
+      ...(pc.singles || []).map((s) => slipCard('Single', [{ player: s.player, market: s.market }], s.oddsDecimal, s.stake, s.toReturn)),
+    ];
+    if (slips.length) t1.appendChild($(`<div class="grid2">${slips.join('')}</div>`));
+    if (pc.portfolio && pc.portfolio.legs && pc.portfolio.legs.length) {
+      const pf = pc.portfolio;
+      const rows = pf.legs.map((l) => `<tr><td data-label="Player">${l.player}</td><td data-label="Market">${l.market}${l.places ? ` &middot; ${l.places} places` : ''}</td><td class="right num" data-label="Odds">${l.oddsFractional}</td><td class="right num" data-label="Stake e/w">${gbp2(l.stakeEach)} ea.</td><td class="right num" data-label="To return">${gbp2(l.toReturn)}</td></tr>`).join('');
+      t1.appendChild($(`<div class="card-base tablewrap mob-cards" style="padding:6px 12px 10px;margin-top:14px"><table><thead><tr><th>Player</th><th>Market</th><th class="right">Odds</th><th class="right">Stake e/w</th><th class="right">To return</th></tr></thead><tbody>${rows}</tbody></table>
+        <div style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px;padding:12px 4px 4px;border-top:1px solid var(--line);margin-top:6px;font-size:12.5px;color:var(--muted)"><span>${pf.label}${pf.note ? ` &middot; ${pf.note}` : ''}</span><span>Total stake <b style="color:var(--txt)">${gbp2(pf.stake)}</b> &middot; total to return <b style="color:var(--gold)">${gbp2(pf.toReturn)}</b></span></div>
+      </div>`));
+    }
+  }
 
   if (B.extraCard && B.extraCard.bets && B.extraCard.bets.length) {
     const ec = B.extraCard;

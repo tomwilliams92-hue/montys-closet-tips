@@ -120,6 +120,50 @@ const REMOVE = [];                              // never feature these (also pul
 // once the event is over so they stop showing. Repopulate only for a live off-tour event.
 const EXTRA_CARD = null;
 
+// PERSONAL CARD - Tom's own real-money action for the week, run entirely outside The Green Book
+// (no model rationale, no edge chip, NOT tracked in the P&L). DISPLAY-ONLY, for transparency on
+// a big event where he's backed a few extra things for interest. Gated on PERSONAL_CARD_EVENT so
+// it can never bleed onto a later week. Set to null to hide.
+const PERSONAL_CARD_EVENT = 'R2026100'; // The Open Championship, Royal Birkdale
+const PERSONAL_CARD = {
+  note: "Tom's own action for the season's last major — a bigger, more speculative slate than usual, run entirely outside The Green Book and not tracked in the P&L. Corey Conners is the thread running through both bet builders: a reliable cut-maker who doesn't often threaten to win but goes deep, backed here for a top-30 finish alongside Tommy Fleetwood, fancied for a strong finish on the course he grew up on in Southport. Bryson DeChambeau to miss the cut is the other conviction call — three missed cuts in a row and a course that doesn't suit his game. Also keeping an eye on Christiaan Bezuidenhout, in form and a good stylistic fit for firm links conditions, though no bet is down on him this week.",
+  betBuilders: [
+    {
+      oddsDecimal: 3.75, stake: 10, toReturn: 37.50,
+      legs: [
+        { player: 'Chris Gotterup', market: 'To Make The Cut' },
+        { player: 'Corey Conners', market: 'To Make The Cut' },
+        { player: 'Matt Wallace', market: 'To Make The Cut' },
+      ],
+    },
+    {
+      oddsDecimal: 4.20, stake: 10, toReturn: 42.00,
+      legs: [
+        { player: 'Corey Conners', market: 'To Make The Cut' },
+        { player: 'Tommy Fleetwood', market: 'Top 30 Finish (Inc Ties)' },
+        { player: 'Chris Gotterup', market: 'Top 30 Finish (Inc Ties)' },
+      ],
+    },
+  ],
+  singles: [
+    { player: 'Bryson DeChambeau', market: 'To Miss The Cut', oddsDecimal: 2.37, stake: 5, toReturn: 11.87 },
+  ],
+  portfolio: {
+    label: 'Each-Way Portfolio', stake: 105, toReturn: 2628,
+    note: 'Eight-strong each-way spread across the wider market — 1/5 odds a place.',
+    legs: [
+      { player: 'Viktor Hovland',   market: 'To Win Outright', places: 8,  oddsFractional: '33/1',  stakeEach: 7.50,  toReturn: 312.00 },
+      { player: 'Matt Fitzpatrick', market: 'To Win Outright', places: 8,  oddsFractional: '14/1',  stakeEach: 12.50, toReturn: 235.00 },
+      { player: 'Wyndham Clark',    market: 'To Win Outright', places: 8,  oddsFractional: '28/1',  stakeEach: 7.50,  toReturn: 267.00 },
+      { player: 'Chris Gotterup',   market: 'To Win Outright', places: 8,  oddsFractional: '28/1',  stakeEach: 7.50,  toReturn: 267.00 },
+      { player: 'Collin Morikawa',  market: 'To Win Outright', places: 8,  oddsFractional: '28/1',  stakeEach: 7.50,  toReturn: 267.00 },
+      { player: 'Corey Conners',    market: 'Each Way Extra',  places: 12, oddsFractional: '70/1',  stakeEach: 5.00,  toReturn: 430.00 },
+      { player: 'Akshay Bhatia',    market: 'To Win Outright', places: 8,  oddsFractional: '100/1', stakeEach: 2.50,  toReturn: 305.00 },
+      { player: 'Jesper Svensson', market: 'Each Way Extra',   places: 12, oddsFractional: '180/1', stakeEach: 2.50,  toReturn: 545.00 },
+    ],
+  },
+};
+
 // Weekly editorial - the recap is auto-built from the ledger; week-ahead + spotlight are hand-written.
 // Hand-written editorial for ONE event (gated on EDITORIAL_EVENT so it can't leak onto a later
 // week's board). `story` = Monty's Update narrative; `courseIntro` = the short course write-up.
@@ -379,6 +423,7 @@ async function main() {
   }
   board.bankroll.poundsPerPoint = POUNDS_PER_POINT; // show actual £ stakes (in-house plan)
   board.extraCard = EXTRA_CARD; // hand-added off-pipeline bets (e.g. DP World Tour) - display only
+  board.personalCard = (PERSONAL_CARD && (!PERSONAL_CARD_EVENT || board.event.id === PERSONAL_CARD_EVENT)) ? PERSONAL_CARD : null;
 
   // ---- P&L ledger: settle finished events, then record this week's tracked bets ----
   const ledger = loadLedger();
