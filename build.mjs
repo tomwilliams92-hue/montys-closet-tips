@@ -111,7 +111,11 @@ const MANUAL_CARD = [
   { name: 'Si Woo Kim',        market: 'win', eachWay: true, points: 1, price: '70/1', places: 8, type: 'model' },  // e/w — the long shot; 70/1 (LVSB/CBS 12 Jul, +7500 at some books) is above the 50/1 sweet-spot ceiling, but model-backed both halves
 ];
 const BEST_BET_NAME = 'Matt Fitzpatrick';       // headline pick — each-way to win, 2pt total
-const REMOVE = [];                              // never feature these (also pulled from flutters)
+const REMOVE = ['Scottie Scheffler'];            // never feature these (also pulled from flutters/watchlist)
+// Scheffler pulled from the watchlist for the Open: the recent-form calc missed his Scottish Open
+// MC (getEventSG's EVENT_ONLY stat appears not to return a value for players who don't complete
+// all 4 rounds, so a missed cut is silently skipped rather than penalised - a real model blind
+// spot, not just stale copy). Revisit REMOVE once that recency gap is fixed properly.
 
 // EXTRA CARD - hand-added bets on a NON-PGA-Tour event the pipeline can't price or settle
 // (different tour, no strokes-gained feed, no auto-settlement). DISPLAY-ONLY: shown on the
@@ -420,7 +424,7 @@ async function main() {
   // the model builds the watchlist), so filter against the final card and trim to ~6 to-watch names.
   {
     const backedIds = new Set((board.trackedBets || []).map((c) => c.playerId));
-    board.watchlist = (board.watchlist || []).filter((w) => !backedIds.has(w.playerId)).slice(0, 6);
+    board.watchlist = (board.watchlist || []).filter((w) => !backedIds.has(w.playerId) && !REMOVE.includes(w.name)).slice(0, 6);
   }
   board.bankroll.poundsPerPoint = POUNDS_PER_POINT; // show actual £ stakes (in-house plan)
   board.extraCard = EXTRA_CARD; // hand-added off-pipeline bets (e.g. DP World Tour) - display only
