@@ -99,7 +99,7 @@ const POUNDS_PER_POINT = 5;                   // in-house suggested stake plan: 
 // (course/weather-fit led), 'judgment' (eye-test / data-thin), 'toms-call' (Tom's override).
 const MANUAL_CARD_EVENT = 'R2026100'; // The Open Championship, Royal Birkdale
 const MANUAL_CARD = [
-  { name: 'Matt Fitzpatrick',  market: 'win', eachWay: true, points: 2, price: '20/1', places: 8, type: 'model' },  // e/w — BEST BET
+  { name: 'Matt Fitzpatrick',  market: 'win', eachWay: true, points: 2, price: '15/1', places: 8, type: 'model' },  // e/w — BEST BET; 15/1 confirmed by Tom's own live bet 14 Jul (was 20/1, 12 Jul pre-Scottish-Open)
   { name: 'Tommy Fleetwood',   market: 'win', eachWay: true, points: 2, price: '16/1', places: 8, type: 'conditions', judgment: true,
     story: "The hometown pick, and a proper one — Fleetwood is Southport born and raised, and Royal Birkdale is the course he grew up on. The case isn't sentiment: he owns the best links record of anyone near the top of the market (average finish ~21st across nine comparable links starts) and arrives in form, gaining nearly two strokes a round over his last four. The Green Book has him about 54% to finish inside the top 8, so at 1/5 odds the place half of this bet is close to an even-money shot — the missing major is the only hole in the CV." },
   { name: 'Wyndham Clark',     market: 'win', eachWay: true, points: 2, price: '40/1', places: 8, type: 'model' },  // e/w — biggest model edge at a real price

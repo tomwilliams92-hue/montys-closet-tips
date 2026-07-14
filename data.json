@@ -61,13 +61,13 @@
         "decimal": 11.516314779270633,
         "fractional": "11/1"
       },
-      "marketProb": 0.047619047619047616,
+      "marketProb": 0.0625,
       "marketOdds": {
-        "prob": 0.047619047619047616,
-        "decimal": 21,
-        "fractional": "20/1"
+        "prob": 0.0625,
+        "decimal": 16,
+        "fractional": "15/1"
       },
-      "edgePct": 82,
+      "edgePct": 39,
       "valueScore": -0.006769373252046959,
       "confidence": 2,
       "trend": "up",
@@ -101,15 +101,15 @@
       "placeProbTop8": 0.64585,
       "bookie": null,
       "ocLink": "https://www.oddschecker.com/golf/the-open-championship/winner",
-      "rationale": "Golf's great perfectionist, the 2022 U.S. Open champion who logs every shot he hits and sharpens his approach play to a razor's edge. A precise, wind-hardened ball-striker with a genuine links pedigree — and the form links player in the field, third at the Scottish Open last week in his home country's major. the value: the model makes him 8.7% to win where the best price implies about 4.8% - a +82% edge. Each-way angle: the model has him about 65% to finish inside the top 8, so at 8 places (1/5 odds) the place half of the bet is where the value sits.",
+      "rationale": "Golf's great perfectionist, the 2022 U.S. Open champion who logs every shot he hits and sharpens his approach play to a razor's edge. A precise, wind-hardened ball-striker with a genuine links pedigree — and the form links player in the field, third at the Scottish Open last week in his home country's major. the value: the model makes him 8.7% to win where the best price implies about 6.3% - a +39% edge. Each-way angle: the model has him about 65% to finish inside the top 8, so at 8 places (1/5 odds) the place half of the bet is where the value sits.",
       "tracked": true,
       "points": 2,
       "marquee": "Each-way to win",
       "eachWayPlaces": 8,
       "ewPlaceProb": 65,
       "pickType": "model",
-      "priceDecimal": 21,
-      "priceFractional": "20/1"
+      "priceDecimal": 16,
+      "priceFractional": "15/1"
     },
     {
       "playerId": "30911",
@@ -521,13 +521,13 @@
       "decimal": 11.516314779270633,
       "fractional": "11/1"
     },
-    "marketProb": 0.047619047619047616,
+    "marketProb": 0.0625,
     "marketOdds": {
-      "prob": 0.047619047619047616,
-      "decimal": 21,
-      "fractional": "20/1"
+      "prob": 0.0625,
+      "decimal": 16,
+      "fractional": "15/1"
     },
-    "edgePct": 82,
+    "edgePct": 39,
     "valueScore": -0.006769373252046959,
     "confidence": 2,
     "trend": "up",
@@ -561,15 +561,15 @@
     "placeProbTop8": 0.64585,
     "bookie": null,
     "ocLink": "https://www.oddschecker.com/golf/the-open-championship/winner",
-    "rationale": "Golf's great perfectionist, the 2022 U.S. Open champion who logs every shot he hits and sharpens his approach play to a razor's edge. A precise, wind-hardened ball-striker with a genuine links pedigree — and the form links player in the field, third at the Scottish Open last week in his home country's major. the value: the model makes him 8.7% to win where the best price implies about 4.8% - a +82% edge. Each-way angle: the model has him about 65% to finish inside the top 8, so at 8 places (1/5 odds) the place half of the bet is where the value sits.",
+    "rationale": "Golf's great perfectionist, the 2022 U.S. Open champion who logs every shot he hits and sharpens his approach play to a razor's edge. A precise, wind-hardened ball-striker with a genuine links pedigree — and the form links player in the field, third at the Scottish Open last week in his home country's major. the value: the model makes him 8.7% to win where the best price implies about 6.3% - a +39% edge. Each-way angle: the model has him about 65% to finish inside the top 8, so at 8 places (1/5 odds) the place half of the bet is where the value sits.",
     "tracked": true,
     "points": 2,
     "marquee": "Each-way to win",
     "eachWayPlaces": 8,
     "ewPlaceProb": 65,
     "pickType": "model",
-    "priceDecimal": 21,
-    "priceFractional": "20/1"
+    "priceDecimal": 16,
+    "priceFractional": "15/1"
   },
   "watchlist": [
     {
