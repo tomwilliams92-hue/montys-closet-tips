@@ -50,6 +50,73 @@ function gradeBet(bet, pos, cut) {
   return placed(need) ? bet.stakePts * bet.priceDecimal : 0;
 }
 
+// Record Tom's "exotic" personal bets (bet builders, matchup, miss-cut single) as pending. These
+// don't fit the standard win/top-N grading, so each carries `legs` with a per-leg `cond`. Replaces
+// only prior pending EXOTIC bets for the event (the outright card is handled by appendWeek), so a
+// rebuild stays idempotent. build.mjs resolves each leg's playerId before calling this.
+export function appendPersonalBets(ledger, board) {
+  const pc = board.personalCard;
+  if (!pc) return;
+  ledger.bets = ledger.bets.filter((b) => !(b.eventId === board.event.id && b.status === 'pending' && b.exotic));
+  const push = (kind, subject, marketLabel, legs, points, dec, i) => {
+    ledger.bets.push({
+      id: `${board.event.id}:personal:${kind}:${i}`,
+      weekNumber: board.bankroll.weekNumber, eventId: board.event.id, eventName: board.event.name,
+      placedAt: board.generatedAt, player: subject, market: kind, marketLabel,
+      legs, eachWay: false, stakePts: points, priceDecimal: dec, priceFractional: dec.toFixed(2),
+      pickType: 'toms-call', exotic: true, status: 'pending', finishPos: null, returnPts: null, profitPts: null,
+    });
+  };
+  (pc.betBuilders || []).forEach((b, i) =>
+    push('accumulator', b.legs.map((l) => l.player).join(' + '), `Bet Builder (${b.legs.length}-leg)`, b.legs, b.points, b.oddsDecimal, i));
+  (pc.singles || []).forEach((s, i) =>
+    push(s.cond === 'matchup' ? 'matchup' : 'single', s.player, s.market, [{ playerId: s.playerId, player: s.player, cond: s.cond, opponentId: s.opponentId, opponent: s.opponent, market: s.market }], s.points, s.oddsDecimal, i));
+}
+
+// Evaluate one leg against final positions. Returns true (hit), false (missed), 'push' (void), or
+// null (can't grade — player not on the leaderboard yet).
+function legResult(leg, positions) {
+  const fr = positions.get(String(leg.playerId));
+  if (!fr) return null;
+  const pos = fr.pos, cut = fr.cut, made = !cut && Number.isFinite(pos);
+  const within = (n) => made && pos <= n;
+  switch (leg.cond) {
+    case 'makeCut': return !cut;
+    case 'missCut': return !!cut;
+    case 'win': return within(1);
+    case 'top5': return within(5);
+    case 'top10': return within(10);
+    case 'top20': return within(20);
+    case 'top30': return within(30);
+    case 'matchup': {
+      const opp = positions.get(String(leg.opponentId));
+      if (!opp) return null;
+      const pMiss = !!cut, oMiss = !!opp.cut;
+      if (pMiss && oMiss) return 'push';           // both missed the cut -> void
+      if (pMiss !== oMiss) return oMiss;           // making the cut beats missing it
+      if (pos === opp.pos) return 'push';          // tied finish -> void (dead heat)
+      return pos < opp.pos;                        // lower finishing position wins
+    }
+    default: return null;
+  }
+}
+
+// Grade an exotic accumulator/matchup/single. All legs must hit to win. Returns
+// { returnPts, status, finishText } or null if it can't be graded yet.
+function gradeExotic(bet, positions) {
+  const results = bet.legs.map((l) => legResult(l, positions));
+  if (results.some((r) => r === null)) return null; // a leg's player isn't scored yet
+  const anyLost = results.some((r) => r === false);
+  const anyPush = results.some((r) => r === 'push');
+  const legText = bet.legs.map((l) => {
+    const fr = positions.get(String(l.playerId));
+    return `${l.player} ${fr ? (fr.cut ? 'MC' : fr.posText) : '?'}`;
+  }).join(', ');
+  if (anyLost) return { returnPts: 0, status: 'lost', finishText: legText };
+  if (anyPush) return { returnPts: bet.stakePts, status: 'void', finishText: legText }; // stake returned
+  return { returnPts: bet.stakePts * bet.priceDecimal, status: 'won', finishText: legText };
+}
+
 // Settle pending bets whose event has finished. getPositions(eventId) -> {positions: Map}.
 export async function settle(ledger, completedEventIds, getPositions) {
   const pending = ledger.bets.filter((b) => b.status === 'pending' && completedEventIds.has(b.eventId));
@@ -59,6 +126,15 @@ export async function settle(ledger, completedEventIds, getPositions) {
     let positions;
     try { positions = (await getPositions(eventId)).positions; } catch { continue; }
     for (const b of bets) {
+      if (b.exotic) {
+        const g = gradeExotic(b, positions);
+        if (!g) continue; // leave pending until every leg is scored
+        b.finishPos = g.finishText;
+        b.returnPts = r2(g.returnPts);
+        b.profitPts = r2(g.returnPts - b.stakePts);
+        b.status = g.status; // won | lost | void
+        continue;
+      }
       const fr = positions.get(String(b.playerId));
       const pos = fr?.pos ?? null, cut = fr?.cut ?? true;
       const ret = gradeBet(b, pos, cut);

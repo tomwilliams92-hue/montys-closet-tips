@@ -11,7 +11,7 @@ import { fileURLToPath } from 'node:url';
 import { getSchedule, getField, getStat, getEventSG, getLeaderboard, getCourseHistory, getCourseTypeHistory, getBookmakerOdds } from './pga-api.mjs';
 import { profileFor, COURSE_TYPE_EVENTS } from './course-profiles.mjs';
 import { buildModel } from './model.mjs';
-import { loadLedger, saveLedger, appendWeek, settle, summary } from './ledger.mjs';
+import { loadLedger, saveLedger, appendWeek, appendPersonalBets, settle, summary } from './ledger.mjs';
 import { getRealWinnerOdds } from './odds-api.mjs';
 import { runDeepDive } from './deepdive.mjs';
 
@@ -98,17 +98,20 @@ const POUNDS_PER_POINT = 5;                   // in-house suggested stake plan: 
 // "who actually picks the winners": 'model' (model edge at a real price led), 'conditions'
 // (course/weather-fit led), 'judgment' (eye-test / data-thin), 'toms-call' (Tom's override).
 const MANUAL_CARD_EVENT = 'R2026100'; // The Open Championship, Royal Birkdale
+// Tom's ACTUAL Open card (his own live bets, 14 Jul) — he bypassed the straight Green Book slate:
+// he kept five Green Book picks and added three of his own (Conners, Bhatia, Svensson), all e/w to
+// win. `points` = total stake in points at £5/pt (e.g. £12.50 e/w = £25 total = 5pt; a 1pt e/w bet
+// is £2.50 win + £2.50 place). `places` overrides the 8-place default (his "Each Way Extra" bets
+// pay 12). These become the rich player cards AND feed the P&L.
 const MANUAL_CARD = [
-  { name: 'Matt Fitzpatrick',  market: 'win', eachWay: true, points: 2, price: '15/1', places: 8, type: 'model' },  // e/w — BEST BET; 15/1 confirmed by Tom's own live bet 14 Jul (was 20/1, 12 Jul pre-Scottish-Open)
-  { name: 'Tommy Fleetwood',   market: 'win', eachWay: true, points: 2, price: '16/1', places: 8, type: 'conditions', judgment: true,
-    story: "The hometown pick, and a proper one — Fleetwood is Southport born and raised, and Royal Birkdale is the course he grew up on. The case isn't sentiment: he owns the best links record of anyone near the top of the market (average finish ~21st across nine comparable links starts) and arrives in form, gaining nearly two strokes a round over his last four. The Green Book has him about 54% to finish inside the top 8, so at 1/5 odds the place half of this bet is close to an even-money shot — the missing major is the only hole in the CV." },
-  { name: 'Wyndham Clark',     market: 'win', eachWay: true, points: 2, price: '40/1', places: 8, type: 'model' },  // e/w — biggest model edge at a real price
-  { name: 'Collin Morikawa',   market: 'win', eachWay: true, points: 1, price: '28/1', places: 8, type: 'conditions', judgment: true,
-    story: "Conditions pick. Burnt, running links are exactly where Morikawa became Open champion in 2021 — the flighted-iron control that won on a baked Royal St George's is what this week's forecast (hot, dry, gusty east wind) demands, and he arrives off a third place with a closing 61. The win price is skinny by the model and there has been talk of a back niggle, so this is a 1-point, place-led play: The Green Book makes him ~27% to finish top 8 against the ~16% the place terms imply." },
-  { name: 'Chris Gotterup',    market: 'win', eachWay: true, points: 1, price: '40/1', places: 8, type: 'model' },  // e/w — the model's own pick; links win + Open T3
-  { name: 'Viktor Hovland',    market: 'win', eachWay: true, points: 1, price: '30/1', places: 8, type: 'toms-call', judgment: true,
-    story: "Form pick — Tom's call, and a fair one. Hovland won the Travelers three starts ago — beating Scheffler in a playoff — and has gained 2.76 strokes a round over his recent starts. The doubt is the fit: his links average is ordinary (~34th, best T4) and firm ground has historically tested his short game, which is why it's a point and not three. The Green Book makes him ~23% to finish top 8 against the ~15% the place terms imply — the place half carries the bet." },
-  { name: 'Si Woo Kim',        market: 'win', eachWay: true, points: 1, price: '70/1', places: 8, type: 'model' },  // e/w — the long shot; 70/1 (LVSB/CBS 12 Jul, +7500 at some books) is above the 50/1 sweet-spot ceiling, but model-backed both halves
+  { name: 'Matt Fitzpatrick',  market: 'win', eachWay: true, points: 5, price: '15/1',  places: 8,  type: 'model' },      // £12.50 e/w — BEST BET
+  { name: 'Viktor Hovland',    market: 'win', eachWay: true, points: 3, price: '34/1',  places: 8,  type: 'toms-call' },  // £7.50 e/w
+  { name: 'Wyndham Clark',     market: 'win', eachWay: true, points: 3, price: '29/1',  places: 8,  type: 'model' },      // £7.50 e/w
+  { name: 'Chris Gotterup',    market: 'win', eachWay: true, points: 3, price: '29/1',  places: 8,  type: 'model' },      // £7.50 e/w
+  { name: 'Collin Morikawa',   market: 'win', eachWay: true, points: 3, price: '29/1',  places: 8,  type: 'model' },      // £7.50 e/w
+  { name: 'Corey Conners',     market: 'win', eachWay: true, points: 2, price: '71/1',  places: 12, type: 'toms-call' },  // £5 e/w, 12 places
+  { name: 'Akshay Bhatia',     market: 'win', eachWay: true, points: 1, price: '101/1', places: 8,  type: 'toms-call' },  // £2.50 e/w
+  { name: 'Jesper Svensson',   market: 'win', eachWay: true, points: 1, price: '181/1', places: 12, type: 'toms-call' },  // £2.50 e/w, 12 places
 ];
 const BEST_BET_NAME = 'Matt Fitzpatrick';       // headline pick — each-way to win, 2pt total
 const REMOVE = ['Scottie Scheffler'];            // never feature these (also pulled from flutters/watchlist)
@@ -124,49 +127,37 @@ const REMOVE = ['Scottie Scheffler'];            // never feature these (also pu
 // once the event is over so they stop showing. Repopulate only for a live off-tour event.
 const EXTRA_CARD = null;
 
-// PERSONAL CARD - Tom's own real-money action for the week, run entirely outside The Green Book
-// (no model rationale, no edge chip, NOT tracked in the P&L). DISPLAY-ONLY, for transparency on
-// a big event where he's backed a few extra things for interest. Gated on PERSONAL_CARD_EVENT so
-// it can never bleed onto a later week. Set to null to hide.
+// PERSONAL CARD - Tom's own "exotic" Open bets that the outright card can't hold: bet builders
+// (multi-leg accumulators), a 72-hole matchup, and a miss-cut single. These now FEED THE P&L as
+// pending bets (settled off the final leaderboard like everything else). Each leg carries a
+// `cond` so the ledger can grade it: makeCut | missCut | top30 | top20 | top10 | top5 | win |
+// matchup (needs `opponent`). `stake`/`toReturn` are in £; `points` = stake in points (£5/pt).
+// Gated on PERSONAL_CARD_EVENT so it can't bleed onto a later week. Set to null to hide.
 const PERSONAL_CARD_EVENT = 'R2026100'; // The Open Championship, Royal Birkdale
 const PERSONAL_CARD = {
-  note: "The exact bets placed for the Open — a bigger, more speculative slate than usual for the season's last major. Eight each-way outrights lead the card: five kept from the Green Book (Fitzpatrick, Clark, Gotterup, Morikawa, Hovland) and three of Tom's own in Corey Conners, Akshay Bhatia and Jesper Svensson. Corey Conners is the thread through the extras too — a reliable cut-maker who goes deep — running through both bet builders and a 72-hole matchup against Ryan Fox. Bryson DeChambeau to miss the cut is the other conviction call: three missed cuts in a row and a course that doesn't suit his game. Also watching Christiaan Bezuidenhout — in form and a good fit for firm links — though no bet is down on him this week. Not tracked in the model's P&L, which follows the Green Book's own picks.",
+  note: "The extras beyond the eight each-way outrights above — the bets the outright card can't hold. Corey Conners is the thread: a reliable cut-maker who goes deep, he runs through both bet builders and a 72-hole matchup against Ryan Fox. Bryson DeChambeau to miss the cut is the conviction call — three missed cuts in a row and a course that doesn't suit his game. All of it now feeds the P&L as pending. (Still watching Christiaan Bezuidenhout — in form and a good fit for firm links — though no bet is down on him.)",
   betBuilders: [
     {
-      oddsDecimal: 3.75, stake: 10, toReturn: 37.50,
+      oddsDecimal: 3.75, stake: 10, points: 2, toReturn: 37.50,
       legs: [
-        { player: 'Chris Gotterup', market: 'To Make The Cut' },
-        { player: 'Corey Conners', market: 'To Make The Cut' },
-        { player: 'Matt Wallace', market: 'To Make The Cut' },
+        { player: 'Chris Gotterup', market: 'To Make The Cut', cond: 'makeCut' },
+        { player: 'Corey Conners',  market: 'To Make The Cut', cond: 'makeCut' },
+        { player: 'Matt Wallace',   market: 'To Make The Cut', cond: 'makeCut' },
       ],
     },
     {
-      oddsDecimal: 4.20, stake: 10, toReturn: 42.00,
+      oddsDecimal: 4.20, stake: 10, points: 2, toReturn: 42.00,
       legs: [
-        { player: 'Corey Conners', market: 'To Make The Cut' },
-        { player: 'Tommy Fleetwood', market: 'Top 30 Finish (Inc Ties)' },
-        { player: 'Chris Gotterup', market: 'Top 30 Finish (Inc Ties)' },
+        { player: 'Corey Conners',   market: 'To Make The Cut',           cond: 'makeCut' },
+        { player: 'Tommy Fleetwood', market: 'Top 30 Finish (Inc Ties)',  cond: 'top30' },
+        { player: 'Chris Gotterup',  market: 'Top 30 Finish (Inc Ties)',  cond: 'top30' },
       ],
     },
   ],
   singles: [
-    { player: 'Bryson DeChambeau', market: 'To Miss The Cut', oddsDecimal: 2.37, stake: 5, toReturn: 11.87 },
-    { player: 'Corey Conners', market: '72-Hole Matchup vs Ryan Fox', oddsDecimal: 1.80, stake: 10, toReturn: 18.00 },
+    { player: 'Bryson DeChambeau', market: 'To Miss The Cut', cond: 'missCut', oddsDecimal: 2.37, stake: 5, points: 1, toReturn: 11.87 },
+    { player: 'Corey Conners', market: '72-Hole Matchup vs Ryan Fox', cond: 'matchup', opponent: 'Ryan Fox', oddsDecimal: 1.80, stake: 10, points: 2, toReturn: 18.00 },
   ],
-  portfolio: {
-    label: 'Each-Way Portfolio', stake: 105, toReturn: 2628,
-    note: 'Eight-strong each-way spread across the wider market — 1/5 odds a place.',
-    legs: [
-      { player: 'Viktor Hovland',   market: 'To Win Outright', places: 8,  oddsFractional: '34/1',  stakeEach: 7.50,  toReturn: 312.00 },
-      { player: 'Matt Fitzpatrick', market: 'To Win Outright', places: 8,  oddsFractional: '15/1',  stakeEach: 12.50, toReturn: 235.00 },
-      { player: 'Wyndham Clark',    market: 'To Win Outright', places: 8,  oddsFractional: '29/1',  stakeEach: 7.50,  toReturn: 267.00 },
-      { player: 'Chris Gotterup',   market: 'To Win Outright', places: 8,  oddsFractional: '29/1',  stakeEach: 7.50,  toReturn: 267.00 },
-      { player: 'Collin Morikawa',  market: 'To Win Outright', places: 8,  oddsFractional: '29/1',  stakeEach: 7.50,  toReturn: 267.00 },
-      { player: 'Corey Conners',    market: 'Each Way Extra',  places: 12, oddsFractional: '71/1',  stakeEach: 5.00,  toReturn: 430.00 },
-      { player: 'Akshay Bhatia',    market: 'To Win Outright', places: 8,  oddsFractional: '101/1', stakeEach: 2.50,  toReturn: 305.00 },
-      { player: 'Jesper Svensson', market: 'Each Way Extra',   places: 12, oddsFractional: '181/1', stakeEach: 2.50,  toReturn: 545.00 },
-    ],
-  },
 };
 
 // Weekly editorial - the recap is auto-built from the ledger; week-ahead + spotlight are hand-written.
@@ -196,11 +187,19 @@ function buildManualCard(board, model) {
     if (!c) { console.error(`[build] manual card: makeBet failed for ${e.name}`); continue; }
     c.tracked = true; c.points = e.points || 1;
     c.eachWay = !!e.eachWay; // win-market candidates default to each-way; honour the card explicitly
+    // A player the model can't rate (dataThin - e.g. a DP World Tour player with no PGA
+    // strokes-gained) has no meaningful edge, so a computed "edge %" would be nonsense. Treat it
+    // as a judgment pick: no edge chip, honest "limited data" copy. Tom backs these on his own read.
+    const judgment = !!e.judgment || !!c.dataThin;
     if (price) { // override the model estimate with Tom's real market price
       c.marketOdds = { prob: 1 / price.decimal, decimal: price.decimal, fractional: price.fractional };
       c.marketProb = 1 / price.decimal;
       c.edgePct = Math.round((c.modelProb / c.marketProb - 1) * 100);
-      if (!e.judgment) { // re-stamp the value line to match the real price (skipped for judgement picks)
+      if (e.eachWay) {
+        // Each-way = a place-led bet, so the win-market "edge" line is the wrong frame (a longshot
+        // always looks "overpriced" to win). Drop it; the each-way angle below carries the case.
+        c.rationale = c.rationale.replace(/\s*the value:.*?edge\s*\./i, '');
+      } else if (!judgment) { // straight win/place pick: re-stamp the value line to the real price
         const pct3 = (v) => (v * 100).toFixed(v < 0.1 ? 1 : 0) + '%';
         const phrase3 = c.market === 'win' ? 'to win' : `to finish ${(c.marketLabel || c.market).toLowerCase()}`;
         const newVl = `the value: the model makes him ${pct3(c.modelProb)} ${phrase3} where the best price implies about ${pct3(c.marketProb)} - a +${c.edgePct}% edge`;
@@ -214,10 +213,12 @@ function buildManualCard(board, model) {
       // place chance = P(top N): use the top-10 market for 10 places, else the model's top-8 interpolation
       const placeProb = places >= 10 ? (model.makeBet(id, 'top10')?.modelProb ?? c.placeProbTop8 ?? 0) : (c.placeProbTop8 || 0);
       c.ewPlaceProb = Math.round(placeProb * 100);
-      c.rationale += ` Each-way angle: the model has him about ${c.ewPlaceProb}% to finish inside the top ${places}, so at ${places} places (1/5 odds) the place half of the bet is where the value sits.`;
+      c.rationale += c.dataThin
+        ? ` Each-way angle: a longshot flyer at ${places} places (1/5 odds) — the place half is the play, taken on Tom's read rather than the model, which has limited data on him.`
+        : ` Each-way angle: the model has him about ${c.ewPlaceProb}% to finish inside the top ${places}, so at ${places} places (1/5 odds) the place half of the bet is where the value sits.`;
     }
-    if (e.judgment) { c.judgment = true; c.edgePct = null; if (e.story) c.rationale = e.story; }
-    c.pickType = e.type || (e.judgment ? 'judgment' : 'model'); // provenance -> ledger -> review.mjs
+    if (judgment) { c.judgment = true; c.edgePct = null; if (e.story) c.rationale = e.story; }
+    c.pickType = e.type || (judgment ? 'judgment' : 'model'); // provenance -> ledger -> review.mjs
     c.priceDecimal = c.marketOdds.decimal; c.priceFractional = c.marketOdds.fractional;
     out.push(c);
   }
@@ -429,12 +430,21 @@ async function main() {
   board.bankroll.poundsPerPoint = POUNDS_PER_POINT; // show actual £ stakes (in-house plan)
   board.extraCard = EXTRA_CARD; // hand-added off-pipeline bets (e.g. DP World Tour) - display only
   board.personalCard = (PERSONAL_CARD && (!PERSONAL_CARD_EVENT || board.event.id === PERSONAL_CARD_EVENT)) ? PERSONAL_CARD : null;
+  // Resolve each personal-bet leg to a field playerId so the ledger can settle it off the final
+  // leaderboard. A name that isn't in the field is logged and left unresolved (that leg simply
+  // can't be graded, so the bet stays pending) — worth watching in the build output.
+  if (board.personalCard) {
+    const resolve = (nm) => { const id = model.playerIdByName(nm); if (!id) console.error(`[build] personal bet: "${nm}" not found in field - won't settle automatically`); return id || null; };
+    for (const b of board.personalCard.betBuilders || []) for (const l of b.legs) l.playerId = resolve(l.player);
+    for (const s of board.personalCard.singles || []) { s.playerId = resolve(s.player); if (s.opponent) s.opponentId = resolve(s.opponent); }
+  }
 
   // ---- P&L ledger: settle finished events, then record this week's tracked bets ----
   const ledger = loadLedger();
   const completedIds = new Set(completed.map((t) => t.id));
   await settle(ledger, completedIds, getLeaderboard);
   appendWeek(ledger, board);
+  appendPersonalBets(ledger, board); // Tom's bet builders / matchup / miss-cut single -> pending in the P&L
   saveLedger(ledger);
   board.pnl = summary(ledger);
   buildEditorial(board, ledger);
