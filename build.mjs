@@ -109,6 +109,7 @@ const MANUAL_CARD = [
   { name: 'Wyndham Clark',     market: 'win', eachWay: true, points: 3, price: '29/1',  places: 8,  type: 'model' },      // £7.50 e/w
   { name: 'Chris Gotterup',    market: 'win', eachWay: true, points: 3, price: '29/1',  places: 8,  type: 'model' },      // £7.50 e/w
   { name: 'Collin Morikawa',   market: 'win', eachWay: true, points: 3, price: '29/1',  places: 8,  type: 'model' },      // £7.50 e/w
+  { name: 'Aaron Rai',         market: 'win', eachWay: true, points: 3, price: '46/1',  places: 10, type: 'toms-call' },  // £7.50 e/w, 10 places
   { name: 'Corey Conners',     market: 'win', eachWay: true, points: 2, price: '71/1',  places: 12, type: 'toms-call' },  // £5 e/w, 12 places
   { name: 'Akshay Bhatia',     market: 'win', eachWay: true, points: 1, price: '101/1', places: 8,  type: 'toms-call' },  // £2.50 e/w
   { name: 'Jesper Svensson',   market: 'win', eachWay: true, points: 1, price: '181/1', places: 12, type: 'toms-call' },  // £2.50 e/w, 12 places
