@@ -11,7 +11,7 @@ import { fileURLToPath } from 'node:url';
 import { getSchedule, getField, getStat, getEventSG, getLeaderboard, getCourseHistory, getCourseTypeHistory, getBookmakerOdds } from './pga-api.mjs';
 import { profileFor, COURSE_TYPE_EVENTS } from './course-profiles.mjs';
 import { buildModel } from './model.mjs';
-import { loadLedger, saveLedger, appendWeek, appendPersonalBets, settle, summary } from './ledger.mjs';
+import { loadLedger, saveLedger, appendWeek, appendPersonalBets, settle, summary, SHADOW_LEDGER } from './ledger.mjs';
 import { getRealWinnerOdds } from './odds-api.mjs';
 import { runDeepDive } from './deepdive.mjs';
 
@@ -302,7 +302,10 @@ async function main() {
   ]);
   console.error(`[build] field: ${field.players.length} players | SG:Total rows: ${sgTotal.map.size}`);
 
-  const recentEvents = recentSrc.map((e, i) => ({ id: e.id, name: e.tournamentName, map: recent[i].map }));
+  // Leaderboards for the same recent events: who actually played and got CUT. Feeds the model's
+  // missed-cut form penalty (the per-event SG feed omits MCs entirely - survivorship bias).
+  const recentLbs = await Promise.all(recentSrc.map((e) => getLeaderboard(e.id).catch(() => null)));
+  const recentEvents = recentSrc.map((e, i) => ({ id: e.id, name: e.tournamentName, map: recent[i].map, finishes: recentLbs[i]?.positions || null }));
 
   // last week's event drives the let-down factor - pull its final leaderboard for finishes
   const prev = completed[completed.length - 1];
@@ -419,6 +422,12 @@ async function main() {
     if (dd && dd.trackedBets && dd.trackedBets.length) { applyDeepDive(board, dd, model.makeBet); console.error('[build] applied AI deep-dive picks'); }
   } catch (e) { console.error('[build] deep-dive skipped, keeping algorithmic picks:', e.message); }
 
+  // SHADOW snapshot: the model's own card as it stands right now, BEFORE any hand-curated card
+  // replaces it. Paper-traded into shadow-ledger.json below, so "trust the model or trust Tom"
+  // becomes measurable over a season. Taken after the deep-dive (if any) - i.e. exactly what The
+  // Green Book would have published left to its own devices.
+  const shadowBets = (board.trackedBets || []).map((c) => ({ ...c }));
+
   // hand-curated card for the week (Tom's research): replaces the auto-selection when set
   buildManualCard(board, model);
   // watchlist must never feature a player we're actually backing (the manual card is applied AFTER
@@ -447,6 +456,24 @@ async function main() {
   appendPersonalBets(ledger, board); // Tom's bet builders / matchup / miss-cut single -> pending in the P&L
   saveLedger(ledger);
   board.pnl = summary(ledger);
+
+  // ---- SHADOW ledger: the Green Book's own card, paper-traded (never real money) ----
+  // Settled off the same leaderboards; prices are the model's own estimates until a real odds
+  // feed lands, so read the P&L as directional. Idempotent per event (appendWeek replaces pending).
+  try {
+    const shadow = loadLedger(SHADOW_LEDGER);
+    shadow.note = shadow.note || 'PAPER record: what The Green Book auto-card would have done each week. Not real bets; prices are model estimates until a real odds feed is wired.';
+    await settle(shadow, completedIds, getLeaderboard);
+    if (shadowBets.length) appendWeek(shadow, { ...board, trackedBets: shadowBets });
+    saveLedger(shadow, SHADOW_LEDGER);
+    const sp = summary(shadow);
+    board.shadow = {
+      pnl: { startBankPts: sp.startBankPts, bankNowPts: sp.bankNowPts, profitPts: sp.profitPts, settledCount: sp.settledCount, won: sp.won, roiPct: sp.roiPct, pendingCount: sp.pendingCount, pendingStakePts: sp.pendingStakePts },
+      card: shadowBets.map((c) => ({ name: c.name, marketLabel: c.marketLabel, points: c.points, priceFractional: c.priceFractional, eachWay: !!c.eachWay })),
+    };
+    console.error('[build] SHADOW CARD (paper):', shadowBets.map((c) => `${c.points}pt ${c.name} ${c.marketLabel} ${c.priceFractional}${c.eachWay ? ' e/w' : ''}`).join(' | ') || 'none');
+  } catch (e) { console.error('[build] shadow ledger failed (non-fatal):', e.message); board.shadow = null; }
+
   buildEditorial(board, ledger);
 
   fs.writeFileSync(path.join(__dirname, 'data.js'), 'window.BOARD = ' + JSON.stringify(board) + ';\n');

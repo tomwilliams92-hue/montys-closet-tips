@@ -11,11 +11,18 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const LEDGER = path.join(__dirname, 'ledger.json');
 const r2 = (n) => Math.round(n * 100) / 100;
 
-export function loadLedger() {
-  if (fs.existsSync(LEDGER)) return JSON.parse(fs.readFileSync(LEDGER, 'utf8'));
+export function loadLedger(file = LEDGER) {
+  if (fs.existsSync(file)) return JSON.parse(fs.readFileSync(file, 'utf8'));
   return { startBankPts: 100, createdAt: new Date().toISOString(), bets: [] };
 }
-export function saveLedger(l) { fs.writeFileSync(LEDGER, JSON.stringify(l, null, 2)); }
+export function saveLedger(l, file = LEDGER) { fs.writeFileSync(file, JSON.stringify(l, null, 2)); }
+
+// The SHADOW ledger: what The Green Book's own card would have done, paper-traded. Every build
+// records the model's auto-selection here BEFORE any manual/personal card overrides it, so over a
+// season "trust the model or trust Tom" becomes a measurable comparison instead of a feeling.
+// Never mixed with the real ledger; never shown as real bets. Prices are the model's own market
+// estimates until a real odds feed lands, so treat the P&L as directional.
+export const SHADOW_LEDGER = path.join(__dirname, 'shadow-ledger.json');
 
 // Record this week's tracked bets as pending. The event hasn't started, so its pending bets
 // are fully REPLACED on every rebuild - that keeps a week idempotent even if the card or a

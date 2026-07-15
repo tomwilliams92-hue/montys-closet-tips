@@ -134,19 +134,35 @@ export function buildModel({ field, profile, sg, driving, scrambling = null, rec
   const players = field.players.filter((p) => !p.amateur);
   const sgVal = (which, id) => sg[which]?.get(String(id))?.values?.Avg;
 
+  // The per-event SG feed (EVENT_ONLY) returns nothing for players who didn't complete 4 rounds,
+  // so a missed cut used to silently VANISH from a player's form line - survivorship bias that
+  // kept e.g. Scheffler "in hot form" straight through his Scottish Open MC. Fix: each recent
+  // event's leaderboard (recentEvents[i].finishes, when supplied) tells us who got CUT; those
+  // starts now count as a bottom-decile week (the event's 10th-percentile SG) at half weight
+  // (only 2 rounds of evidence). WD/DQ/MDF are NOT penalised - injury/rules, not form.
+  const p10 = recentEvents.map((e) => {
+    const vals = [...e.map.values()].map((v) => v?.values?.Avg).filter(Number.isFinite).sort((a, b) => a - b);
+    return vals.length >= 10 ? vals[Math.floor(vals.length * 0.10)] : null;
+  });
+
   const rows = players.map((p) => {
     const id = String(p.id);
     const comp = { total: sgVal('total', id), ott: sgVal('ott', id), app: sgVal('app', id), arg: sgVal('arg', id), putt: sgVal('putt', id) };
     // recency-weighted recent form: recentEvents is most-recent-first, so weight = DECAY^index.
     // Last week counts full, six-to-eight weeks ago count progressively less. Only events the
-    // player actually played contribute (gaps are skipped, not zero-filled).
+    // player actually played contribute (gaps are skipped, not zero-filled) - except missed
+    // cuts, which now count against him (see p10 above).
     const RECENCY_DECAY = 0.85;
     const recentRaw = recentEvents.map((e) => e.map.get(id)?.values?.Avg);
     let wSum = 0, wTot = 0, played = 0;
     for (let i = 0; i < recentRaw.length; i++) {
-      const v = recentRaw[i];
-      if (!Number.isFinite(v)) continue;
-      const wt = Math.pow(RECENCY_DECAY, i);
+      let v = recentRaw[i];
+      let wt = Math.pow(RECENCY_DECAY, i);
+      if (!Number.isFinite(v)) {
+        const fin = recentEvents[i].finishes?.get(id);
+        if (!(fin && /^CUT$/i.test(fin.posText || '') && Number.isFinite(p10[i]))) continue;
+        v = p10[i]; wt *= 0.5; // missed cut: bottom-decile week at half weight (2 rounds only)
+      }
       wSum += v * wt; wTot += wt; played++;
     }
     const recentSG = wTot ? wSum / wTot : null;
