@@ -219,7 +219,7 @@
 <div class="rgbar"><div class="in"><span class="age">18+</span> When the fun stops, stop. Please gamble responsibly &middot; <a href="https://www.begambleaware.org" target="_blank" rel="noopener">BeGambleAware.org</a></div></div>
 <main class="wrap" id="app"></main>
 
-<script src="data.js?v=1784335500000"></script>
+<script src="data.js?v=1784420000000"></script>
 <script>
 const B = window.BOARD;
 const $ = (h)=>{const t=document.createElement('template');t.innerHTML=h.trim();return t.content.firstChild;};
@@ -347,20 +347,24 @@ function render() {
   if (B.editorial && B.editorial.courseIntro) {
     t1.appendChild($(`<div class="card-base" style="padding:16px 19px;margin-bottom:14px;border-left:3px solid var(--green)"><div style="font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--green);font-weight:800;margin-bottom:9px">⛳ The Course — ${B.event.course||'Links Test'}</div><div style="color:#dce8fa;font-size:14px;line-height:1.62">${B.editorial.courseIntro}</div></div>`));
   }
-  const bb = B.bestBet;
-  if (bb) t1.appendChild($(`<div class="card-base bestbet"><div class="bb-tag">★ Best Bet of the Week &middot; ${bb.marketLabel}</div>
-    <div class="bb-main">${shot(bb,'shot',24)}<div class="bb-info"><div class="nm">${flag(bb.country)} ${bb.name}</div><div class="why">${bb.rationale}</div></div>
-    <div class="bb-odds"><div class="o">${bb.marketOdds.fractional}</div><div class="l">Best Price</div><div class="edgechip">${bb.judgment?'Judgement pick':`${edgeStr(bb.edgePct)} edge`}</div>
-      ${backButton(bb)}</div></div></div>`));
-
-  t1.appendChild($(`<div class="shead accent-blue"><h2>Tracked Bets</h2><div class="ln"></div><div class="tag">value-ranked &middot; feed the P&L</div></div>`));
-  const g1=$(`<div class="grid3"></div>`); B.trackedBets.forEach(c=>g1.appendChild(valueCard(c))); t1.appendChild(g1);
-
+  // Tom's-card weeks: he plays his own slate instead of the Green Book card, so his bets ARE the
+  // card and the model's auto/manual picks are suppressed here (the model ratings still live on the
+  // Full Board / Field Watch / P&L tabs). Normal weeks fall through to the Green Book card below.
   if (B.personalCard) {
     const pc = B.personalCard;
     const gbp2 = (n) => `£${Number(n).toFixed(2)}`;
-    t1.appendChild($(`<div class="shead accent-gold"><h2>Tom's Open Action</h2><div class="ln"></div><div class="tag">personal bets &middot; not tracked in the P&amp;L</div></div>`));
+    t1.appendChild($(`<div class="shead accent-gold"><h2>Tom's Open Card</h2><div class="ln"></div><div class="tag">the exact bets placed &middot; not tracked in the model P&amp;L</div></div>`));
     if (pc.note) t1.appendChild($(`<div class="card-base" style="padding:16px 19px;margin-bottom:14px;border-left:3px solid var(--gold)"><div style="color:#dce8fa;font-size:13.5px;line-height:1.62">${pc.note}</div></div>`));
+    // His main card: the each-way outrights (portfolio) come first.
+    if (pc.portfolio && pc.portfolio.legs && pc.portfolio.legs.length) {
+      const pf = pc.portfolio;
+      t1.appendChild($(`<div class="shead accent-blue" style="margin-top:6px"><h2>Each-Way Outrights</h2><div class="ln"></div><div class="tag">${pf.legs.length} selections &middot; 1/5 odds a place</div></div>`));
+      const rows = pf.legs.map((l) => `<tr><td data-label="Player">${l.player}</td><td data-label="Market">${l.market}${l.places ? ` &middot; ${l.places} places` : ''}</td><td class="right num" data-label="Odds">${l.oddsFractional}</td><td class="right num" data-label="Stake e/w">${gbp2(l.stakeEach)} ea.</td><td class="right num" data-label="To return">${gbp2(l.toReturn)}</td></tr>`).join('');
+      t1.appendChild($(`<div class="card-base tablewrap mob-cards" style="padding:6px 12px 10px"><table><thead><tr><th>Player</th><th>Market</th><th class="right">Odds</th><th class="right">Stake e/w</th><th class="right">To return</th></tr></thead><tbody>${rows}</tbody></table>
+        <div style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px;padding:12px 4px 4px;border-top:1px solid var(--line);margin-top:6px;font-size:12.5px;color:var(--muted)"><span>${pf.label}${pf.note ? ` &middot; ${pf.note}` : ''}</span><span>Total stake <b style="color:var(--txt)">${gbp2(pf.stake)}</b> &middot; total to return <b style="color:var(--gold)">${gbp2(pf.toReturn)}</b></span></div>
+      </div>`));
+    }
+    // Bet builders, matchup and singles.
     const legRow = (l) => `<div class="tomleg"><span class="p">${l.player}</span><span class="m">${l.market}</span></div>`;
     const slipCard = (tag, legs, oddsDecimal, stake, toReturn) => `<div class="card-base tombb">
         <div class="bbhead"><span class="bbtag">${tag}</span><span class="bbodds">${Number(oddsDecimal).toFixed(2)}</span></div>
@@ -369,16 +373,21 @@ function render() {
       </div>`;
     const slips = [
       ...(pc.betBuilders || []).map((bb) => slipCard(`Bet Builder &middot; ${bb.legs.length}-leg`, bb.legs, bb.oddsDecimal, bb.stake, bb.toReturn)),
-      ...(pc.singles || []).map((s) => slipCard('Single', [{ player: s.player, market: s.market }], s.oddsDecimal, s.stake, s.toReturn)),
+      ...(pc.singles || []).map((s) => slipCard(/matchup/i.test(s.market) ? 'Matchup' : 'Single', [{ player: s.player, market: s.market }], s.oddsDecimal, s.stake, s.toReturn)),
     ];
-    if (slips.length) t1.appendChild($(`<div class="grid2">${slips.join('')}</div>`));
-    if (pc.portfolio && pc.portfolio.legs && pc.portfolio.legs.length) {
-      const pf = pc.portfolio;
-      const rows = pf.legs.map((l) => `<tr><td data-label="Player">${l.player}</td><td data-label="Market">${l.market}${l.places ? ` &middot; ${l.places} places` : ''}</td><td class="right num" data-label="Odds">${l.oddsFractional}</td><td class="right num" data-label="Stake e/w">${gbp2(l.stakeEach)} ea.</td><td class="right num" data-label="To return">${gbp2(l.toReturn)}</td></tr>`).join('');
-      t1.appendChild($(`<div class="card-base tablewrap mob-cards" style="padding:6px 12px 10px;margin-top:14px"><table><thead><tr><th>Player</th><th>Market</th><th class="right">Odds</th><th class="right">Stake e/w</th><th class="right">To return</th></tr></thead><tbody>${rows}</tbody></table>
-        <div style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px;padding:12px 4px 4px;border-top:1px solid var(--line);margin-top:6px;font-size:12.5px;color:var(--muted)"><span>${pf.label}${pf.note ? ` &middot; ${pf.note}` : ''}</span><span>Total stake <b style="color:var(--txt)">${gbp2(pf.stake)}</b> &middot; total to return <b style="color:var(--gold)">${gbp2(pf.toReturn)}</b></span></div>
-      </div>`));
+    if (slips.length) {
+      t1.appendChild($(`<div class="shead accent-blue"><h2>Builders, Matchup &amp; Singles</h2><div class="ln"></div><div class="tag">the extras</div></div>`));
+      t1.appendChild($(`<div class="grid2">${slips.join('')}</div>`));
     }
+  } else {
+    const bb = B.bestBet;
+    if (bb) t1.appendChild($(`<div class="card-base bestbet"><div class="bb-tag">★ Best Bet of the Week &middot; ${bb.marketLabel}</div>
+      <div class="bb-main">${shot(bb,'shot',24)}<div class="bb-info"><div class="nm">${flag(bb.country)} ${bb.name}</div><div class="why">${bb.rationale}</div></div>
+      <div class="bb-odds"><div class="o">${bb.marketOdds.fractional}</div><div class="l">Best Price</div><div class="edgechip">${bb.judgment?'Judgement pick':`${edgeStr(bb.edgePct)} edge`}</div>
+        ${backButton(bb)}</div></div></div>`));
+
+    t1.appendChild($(`<div class="shead accent-blue"><h2>Tracked Bets</h2><div class="ln"></div><div class="tag">value-ranked &middot; feed the P&L</div></div>`));
+    const g1=$(`<div class="grid3"></div>`); B.trackedBets.forEach(c=>g1.appendChild(valueCard(c))); t1.appendChild(g1);
   }
 
   if (B.extraCard && B.extraCard.bets && B.extraCard.bets.length) {
