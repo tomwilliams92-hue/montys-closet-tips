@@ -93,16 +93,19 @@ const POUNDS_PER_POINT = 5;                   // in-house suggested stake plan: 
 // card below is the real money and the ONLY thing in the public P&L; the model's restructured
 // three-tier card publishes alongside it as a clearly-labelled PAPER section (board.greenBookCard)
 // and settles in shadow-ledger.json — a live head-to-head test of "the model's picks or mine".
-// All prices are Tom's real book quotes (21 Jul). Jesper Svensson confirmed by Tom (NOT Adam —
-// both are in this field). points = TOTAL stake at £5/pt: "1pt each-way" = points 2 (£5 win +
-// £5 place); Homa's 1.5pt e/w = points 3 (£7.50 a side).
+// Prices/places from Tom's ACTUAL bet365 slip (placed 21 Jul 19:07, ref GY7192426735W):
+// Each Way Extra, 1/5 odds, 10 PLACES, decimal prices — 36.00=35/1, 51.00=50/1, 81.00=80/1,
+// 46.00=45/1. £55 total staked, £1,900 max return. Kevin Yu was cut off in the screenshot but
+// the slip total pins him at 81.00 (80/1): the other four return £1,410 of the £1,900.
+// Jesper Svensson confirmed by Tom (NOT Adam — both are in this field). points = TOTAL stake at
+// £5/pt: £5 e/w = points 2; Homa's £7.50 e/w = points 3.
 const MANUAL_CARD_EVENT = 'R2026525'; // 3M Open, TPC Twin Cities
 const MANUAL_CARD = [
-  { name: 'Jesper Svensson',           market: 'win', eachWay: true, points: 2, price: '91/1', places: 8, type: 'toms-call' },
-  { name: 'Johnny Keefer',             market: 'win', eachWay: true, points: 2, price: '51/1', places: 8, type: 'toms-call' },
-  { name: 'Kevin Yu',                  market: 'win', eachWay: true, points: 2, price: '76/1', places: 8, type: 'toms-call' },
-  { name: 'Rasmus Neergaard-Petersen', market: 'win', eachWay: true, points: 2, price: '61/1', places: 8, type: 'toms-call' },
-  { name: 'Max Homa',                  market: 'win', eachWay: true, points: 3, price: '36/1', places: 8, type: 'toms-call' }, // 1.5pt e/w — biggest stake on the card
+  { name: 'Jesper Svensson',           market: 'win', eachWay: true, points: 2, price: '80/1', places: 10, type: 'toms-call' },
+  { name: 'Johnny Keefer',             market: 'win', eachWay: true, points: 2, price: '45/1', places: 10, type: 'toms-call' },
+  { name: 'Kevin Yu',                  market: 'win', eachWay: true, points: 2, price: '80/1', places: 10, type: 'toms-call' },
+  { name: 'Rasmus Neergaard-Petersen', market: 'win', eachWay: true, points: 2, price: '50/1', places: 10, type: 'toms-call' },
+  { name: 'Max Homa',                  market: 'win', eachWay: true, points: 3, price: '35/1', places: 10, type: 'toms-call' }, // £7.50 e/w — biggest stake on the card
 ];
 const BEST_BET_NAME = 'Max Homa';                // headline by stake — Tom's 1.5pt e/w
 // Split-board week: the model's card is NOT merged into the P&L card — it publishes as the paper
@@ -160,7 +163,7 @@ const PERSONAL_CARD = {
 // The P&L recap is auto-built from the ledger regardless. Refresh both weekly.
 const EDITORIAL_EVENT = MANUAL_CARD_EVENT; // editorial applies only to this event
 const EDITORIAL = {
-  story: "Something different this week: a head-to-head. After a bruising Open (0-for-9 on the outrights, bank down to 81.25pts), the board is split in two — Tom's hand-picked card carries the real money and the public P&L, while The Green Book's newly restructured card publishes alongside it on paper. Same event, same field, two philosophies: Tom goes hunting each-way prices, the model grinds high-probability markets. The results will referee. Tom's card is five each-way plays at his real book prices: Max Homa leads the staking at 36/1 (1.5pt e/w) with rookie Johnny Keefer at 51/1, Kevin Yu at 76/1, Rasmus Neergaard-Petersen at 61/1 and Jesper Svensson at 91/1 behind him — all at 8 places, where the place half does the heavy lifting. On top sits a boosted four-leg builder: Scheffler top 20, Jackson Suber to make the cut, and Homa and Keefer both top 40 — £10 returning £72.50 after a 25% winnings boost. The Green Book's paper card, picked by the restructured model with no human edits, is top-30 grinders: Sudarshan Yellamaraju, Maverick McNealy and Hideki Matsuyama as banker singles plus two small doubles from banker legs — at the model's own fair prices, clearly flagged, backed with nothing but pride. A season replay showed the model's losses all came from To Win each-way bets at its own estimated prices, so a hard rule now sits in the build: no To Win bet ever publishes without a real, sourced price. Defending champion Kurt Kitayama is a pure fade for the outright win — market's second favourite on name and course history alone, but trending down three starts. Thirteen points of real money staked; the model's seven on paper. May the better card win.",
+  story: "Something different this week: a head-to-head. After a bruising Open (0-for-9 on the outrights, bank down to 81.25pts), the board is split in two — Tom's hand-picked card carries the real money and the public P&L, while The Green Book's newly restructured card publishes alongside it on paper. Same event, same field, two philosophies: Tom goes hunting each-way prices, the model grinds high-probability markets. The results will referee. Tom's card is five each-way plays, placed for real at bet365 on Each Way Extra terms — 10 places at 1/5 odds, where the place half does the heavy lifting: Max Homa leads the staking at 35/1 (£7.50 e/w) with rookie Johnny Keefer at 45/1, Rasmus Neergaard-Petersen at 50/1, and Kevin Yu and Jesper Svensson both at 80/1 behind him (£5 e/w apiece). On top sits a boosted four-leg builder: Scheffler top 20, Jackson Suber to make the cut, and Homa and Keefer both top 40 — £10 returning £72.50 after a 25% winnings boost. The Green Book's paper card, picked by the restructured model with no human edits, is top-30 grinders: Sudarshan Yellamaraju, Maverick McNealy and Hideki Matsuyama as banker singles plus two small doubles from banker legs — at the model's own fair prices, clearly flagged, backed with nothing but pride. A season replay showed the model's losses all came from To Win each-way bets at its own estimated prices, so a hard rule now sits in the build: no To Win bet ever publishes without a real, sourced price. Defending champion Kurt Kitayama is a pure fade for the outright win — market's second favourite on name and course history alone, but trending down three starts. Thirteen points of real money staked; the model's seven on paper. May the better card win.",
   courseIntro: "TPC Twin Cities plays long — 7,431 yards, one of the longest par 71s on tour — but generously: wide Palmer/Lehman landing areas mean driving accuracy matters less here than at most tour stops, even with water touching 14 holes. Big, receptive Bentgrass greens (the field has gained 70%+ GIR here historically) turn the week into a putting contest rather than a survival test — every champion in the event's history has finished 15-under or better. The forecast is hot and dry throughout (mid-80s building to a scorching 100°F on Sunday) with no rain and gusts up to 35mph by Saturday, so expect the course to firm up and run out as the week goes on — a mild tilt toward ball-strikers who control flight and bounce over pure length merchants.",
   spotlight: null,
 };
