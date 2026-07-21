@@ -219,7 +219,7 @@
 <div class="rgbar"><div class="in"><span class="age">18+</span> When the fun stops, stop. Please gamble responsibly &middot; <a href="https://www.begambleaware.org" target="_blank" rel="noopener">BeGambleAware.org</a></div></div>
 <main class="wrap" id="app"></main>
 
-<script src="data.js?v=1784528017559"></script>
+<script src="data.js?v=1784637116909"></script>
 <script>
 const B = window.BOARD;
 const $ = (h)=>{const t=document.createElement('template');t.innerHTML=h.trim();return t.content.firstChild;};
@@ -276,6 +276,8 @@ function valueCard(c) {
   if (c.lastWeekFinish) chips.push(`<span class="mini">Last wk: ${c.lastWeekFinish}</span>`);
   else if (c.playedLastWeek===false) chips.push(`<span class="mini">Didn't play last wk</span>`);
   if (c.playerNoteTag) chips.push(`<span class="mini warn">⚠ ${c.playerNoteTag}</span>`);
+  if (c.priceEstimated) chips.push(`<span class="mini warn">Model price — take it only if your book matches or beats it</span>`);
+  if (c.tier==='banker') chips.push(`<span class="mini" style="color:var(--green);border-color:rgba(54,211,153,.4)">Banker</span>`);
   return $(`
   <div class="card-base pick ${flut?'flutter':''}">
     <div class="ph">
@@ -286,7 +288,7 @@ function valueCard(c) {
       </div>
     </div>
     <div class="odds-row">
-      <div class="price">${c.marquee==='Each-way to win'?'<span class="ewtag">★ Each-way to win</span><br>':''}${c.marketOdds.fractional}<small>Best Price &middot; <b>${c.marquee==='Each-way to win'?`${c.ewPlaceProb}% to make top ${c.eachWayPlaces||8}`:(c.judgment?'Judgement pick':`${edgeStr(c.edgePct)} edge`)}</b></small></div>
+      <div class="price">${c.marquee==='Each-way to win'?'<span class="ewtag">★ Each-way to win</span><br>':''}${c.marketOdds.fractional}<small>${c.priceEstimated?'Model price':'Best Price'} &middot; <b>${c.marquee==='Each-way to win'?`${c.ewPlaceProb}% to make top ${c.eachWayPlaces||8}`:(c.judgment?'Judgement pick':`${edgeStr(c.edgePct)} edge`)}</b></small></div>
       ${backButton(c)}
     </div>
     ${c.judgment?`<div class="mvm"><div class="r mk"><span class="lab">Market</span><div class="track"><i style="width:${Math.min(100,c.marketProb*100)}%"></i></div><span class="v">${pct(c.marketProb)}</span></div><div class="r"><span class="lab">Model</span><div class="track"></div><span class="v" style="font-size:11.5px;opacity:.85">no model rating — limited PGA Tour data</span></div></div>`:`<div class="mvm">
@@ -324,6 +326,7 @@ function render() {
     <p><b>Best Price</b> - the most generous odds across the major UK bookmakers (Bet365, William Hill, BetVictor, Ladbrokes, Sky Bet, Paddy Power and more). When a live odds feed is connected, each pick names the book with the best price and the button backs it directly; otherwise the price is a model estimate and the "Compare prices" button opens the oddschecker market so you can shop all the books yourself.</p>
     <p><b>Model vs Market</b> - the two bars: our model's probability (blue) vs the price-implied probability (gold). The gap is the edge.</p>
     <p><b>Each-way (e/w)</b> - half the stake on the win, half on a place at 1/5 of the odds. We use Bet365's 8 places on a full field, so you collect if he finishes in the top 8 even without winning. The backtest sweet spot is 20/1-50/1: below ~16/1 the place return is too thin, above ~50/1 it's a lottery. <b>Points & stakes</b> - the P&L runs in points/units. The suggested stakes shown are our in-house plan at £5 per point (e.g. 3pt = £15; a 1pt each-way bet is £5 win + £5 place = £10). Scale it to your own unit.</p>
+    <p><b>The three tiers</b> - <b>Bankers</b> are make-cut / top-20 / top-30 singles: the model's most reliable probability range, the core of the card. The <b>each-way</b> side is deliberately lean and only ever published at real, sourced prices - never a model estimate. <b>Doubles</b> combine two banker legs on different players into one small ticket. Weekly exposure is capped at about 10pts.</p>
   </div></details>`));
 
   app.appendChild($(`<div class="tabs">
@@ -359,7 +362,21 @@ function render() {
   t1.appendChild($(B.personalCard
     ? `<div class="shead accent-gold"><h2>Tom's Open Card &mdash; Each-Way Outrights</h2><div class="ln"></div><div class="tag">the exact bets placed &middot; pending in the P&L</div></div>`
     : `<div class="shead accent-blue"><h2>Tracked Bets</h2><div class="ln"></div><div class="tag">value-ranked &middot; feed the P&L</div></div>`));
-  const g1=$(`<div class="grid3"></div>`); B.trackedBets.forEach(c=>g1.appendChild(valueCard(c))); t1.appendChild(g1);
+  // Card restructure: singles render as rich player cards; tier-3 doubles (legs) as bet-slip cards.
+  const cardSingles = B.trackedBets.filter(c=>!c.legs), cardMultis = B.trackedBets.filter(c=>c.legs);
+  const g1=$(`<div class="grid3"></div>`); cardSingles.forEach(c=>g1.appendChild(valueCard(c))); t1.appendChild(g1);
+  if (cardMultis.length) {
+    const legRowM = (l)=>`<div class="tomleg"><span class="p">${l.player}</span><span class="m">${l.market}</span></div>`;
+    const slipsM = cardMultis.map(c=>`<div class="card-base tombb">
+        <div class="bbhead"><span class="bbtag">${c.marketLabel}</span><span class="bbodds">${c.marketOdds.fractional}</span></div>
+        ${c.legs.map(legRowM).join('')}
+        <div class="bbstake"><span>Stake <b>${ptsGbp(c.points)}</b></span><span>Model chance <b>${pct(c.modelProb)}</b></span></div>
+        ${c.priceEstimated?`<div class="chiprow" style="margin:10px 0 0"><span class="mini warn">Model-estimated combined price — price it at your own book before following</span></div>`:''}
+        <div style="margin-top:9px;font-size:12.5px;color:#dce8fa;line-height:1.5">${c.rationale}</div>
+      </div>`).join('');
+    t1.appendChild($(`<div class="shead accent-blue"><h2>Doubles &mdash; Banker Legs</h2><div class="ln"></div><div class="tag">tracked &middot; feed the P&L</div></div>`));
+    t1.appendChild($(`<div class="grid2">${slipsM}</div>`));
+  }
 
   if (B.personalCard) {
     const pc = B.personalCard;
@@ -460,6 +477,17 @@ function render() {
       <div style="color:#dce8fa;font-size:13.5px;line-height:1.6">What the model's own card would have done, tracked every week with no human edits &mdash; paper only, never staked. Over a season this answers "back the model or back the man" with a number. Prices are the model's estimates until a live odds feed is wired, so read it as directional.</div>
       <div style="display:flex;flex-wrap:wrap;gap:8px 16px;margin-top:11px;padding-top:10px;border-top:1px solid var(--line);font-size:12.5px;color:var(--muted)"><span>Paper bank <b style="color:var(--txt)">${sh.bankNowPts} pts</b></span><span>Net <b class="${shCls}" style="color:${sh.profitPts>0?'var(--green)':sh.profitPts<0?'var(--red)':'var(--txt)'}">${sh.profitPts>=0?'+':''}${sh.profitPts} pts</b></span><span>${sh.settledCount} settled &middot; ${sh.pendingCount} open</span></div>
       ${cardLine?`<div style="margin-top:9px;font-size:12px;color:var(--muted)">This week's model card: <span style="color:#dce8fa">${cardLine}</span></div>`:''}
+    </div>`));
+  }
+
+  // Restructure A/B — the OLD-STYLE selector paper-traded in parallel with the new three-tier card
+  // (from 21 Jul 2026), so whether the restructure actually helped is answered with a number.
+  if (B.shadowLegacy && B.shadowLegacy.pnl) {
+    const lg = B.shadowLegacy.pnl;
+    t4.appendChild($(`<div class="card-base" style="padding:14px 17px;margin:14px 0 0;border-left:3px solid var(--gold)">
+      <div style="font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);font-weight:800;margin-bottom:7px">&#9878; Restructure A/B &mdash; old-style selector (paper)</div>
+      <div style="color:#dce8fa;font-size:13.5px;line-height:1.6">The pre-restructure card (value picks + each-way at model-estimated prices) still runs on paper every week alongside the new bankers-led card above, so the July 2026 restructure gets judged on data, not memory.</div>
+      <div style="display:flex;flex-wrap:wrap;gap:8px 16px;margin-top:11px;padding-top:10px;border-top:1px solid var(--line);font-size:12.5px;color:var(--muted)"><span>Paper bank <b style="color:var(--txt)">${lg.bankNowPts} pts</b></span><span>Net <b style="color:${lg.profitPts>0?'var(--green)':lg.profitPts<0?'var(--red)':'var(--txt)'}">${lg.profitPts>=0?'+':''}${lg.profitPts} pts</b></span><span>${lg.settledCount} settled &middot; ${lg.pendingCount} open</span></div>
     </div>`));
   }
 

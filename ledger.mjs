@@ -23,13 +23,30 @@ export function saveLedger(l, file = LEDGER) { fs.writeFileSync(file, JSON.strin
 // Never mixed with the real ledger; never shown as real bets. Prices are the model's own market
 // estimates until a real odds feed lands, so treat the P&L as directional.
 export const SHADOW_LEDGER = path.join(__dirname, 'shadow-ledger.json');
+// Old-style selector (pre-restructure 2026-07-21) paper-traded in parallel with the new three-tier
+// card, so "did the restructure actually help" is answered by data rather than memory.
+export const LEGACY_SHADOW_LEDGER = path.join(__dirname, 'shadow-ledger-legacy.json');
 
 // Record this week's tracked bets as pending. The event hasn't started, so its pending bets
 // are fully REPLACED on every rebuild - that keeps a week idempotent even if the card or a
 // market changes between runs (no stale duplicates). Settled bets are never touched.
 export function appendWeek(ledger, board) {
   ledger.bets = ledger.bets.filter((b) => !(b.eventId === board.event.id && b.status === 'pending'));
+  let multiIdx = 0;
   for (const c of board.trackedBets) {
+    // Auto-card multiples (restructure tier 3): carry legs and settle via the exotic grader —
+    // every leg's cond must hit off the final leaderboard, exactly like the personal bet builders.
+    if (c.legs) {
+      ledger.bets.push({
+        id: `${board.event.id}:multi:${multiIdx++}`,
+        weekNumber: board.bankroll.weekNumber, eventId: board.event.id, eventName: board.event.name,
+        placedAt: board.generatedAt, player: c.name, market: 'accumulator', marketLabel: c.marketLabel,
+        legs: c.legs, eachWay: false, stakePts: c.points, priceDecimal: c.priceDecimal, priceFractional: c.priceFractional,
+        pickType: c.pickType || 'model', exotic: true, priceEstimated: !!c.priceEstimated,
+        modelProb: c.modelProb, status: 'pending', finishPos: null, returnPts: null, profitPts: null,
+      });
+      continue;
+    }
     const id = `${board.event.id}:${c.playerId}:${c.market}`;
     ledger.bets.push({
       id, weekNumber: board.bankroll.weekNumber, eventId: board.event.id, eventName: board.event.name,
@@ -37,6 +54,7 @@ export function appendWeek(ledger, board) {
       market: c.market, marketLabel: c.marketLabel, eachWay: c.eachWay, eachWayPlaces: c.eachWayPlaces || (c.eachWay ? 5 : null),
       stakePts: c.points, priceDecimal: c.priceDecimal, priceFractional: c.priceFractional,
       pickType: c.pickType || (c.judgment ? 'judgment' : 'model'), // provenance: model | conditions | judgment | toms-call
+      priceEstimated: !!c.priceEstimated,
       modelProb: c.modelProb, status: 'pending', finishPos: null, returnPts: null, profitPts: null,
     });
   }
@@ -53,7 +71,8 @@ function gradeBet(bet, pos, cut) {
     if (placed(places)) ret += side * (1 + (bet.priceDecimal - 1) / 5);              // place part
     return ret;
   }
-  const need = { win: 1, top5: 5, top10: 10, top20: 20 }[bet.market];
+  if (bet.market === 'makeCut') return !cut && Number.isFinite(pos) ? bet.stakePts * bet.priceDecimal : 0;
+  const need = { win: 1, top5: 5, top10: 10, top20: 20, top30: 30 }[bet.market];
   return placed(need) ? bet.stakePts * bet.priceDecimal : 0;
 }
 

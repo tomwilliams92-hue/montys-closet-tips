@@ -11,7 +11,7 @@ import { fileURLToPath } from 'node:url';
 import { getSchedule, getField, getStat, getEventSG, getLeaderboard, getCourseHistory, getCourseTypeHistory, getBookmakerOdds } from './pga-api.mjs';
 import { profileFor, COURSE_TYPE_EVENTS } from './course-profiles.mjs';
 import { buildModel } from './model.mjs';
-import { loadLedger, saveLedger, appendWeek, appendPersonalBets, settle, summary, SHADOW_LEDGER } from './ledger.mjs';
+import { loadLedger, saveLedger, appendWeek, appendPersonalBets, settle, summary, SHADOW_LEDGER, LEGACY_SHADOW_LEDGER } from './ledger.mjs';
 import { getRealWinnerOdds } from './odds-api.mjs';
 import { runDeepDive } from './deepdive.mjs';
 
@@ -79,7 +79,7 @@ const parsePrice = (p) => {
 // (2.75). Refresh weekly. Each-way win picks require a real price (the model price is a long-shot
 // artifact for course-history specialists).
 const POUNDS_PER_POINT = 5;                   // in-house suggested stake plan: £5 per point
-// The Open Championship 2026 (Royal Birkdale) - Tom's hand-picked card with real book prices.
+// 3M Open 2026 (TPC Twin Cities) - model-led card with real book prices.
 // `eachWay: true` = 1pt e/w to win (half win, half place); `places` overrides the 8-place default.
 // `judgment: true` = story-led pick where the win-market edge is not the case for the bet
 // (place-led or conditions/eye-test); uses `story` and shows no model edge chip.
@@ -87,39 +87,48 @@ const POUNDS_PER_POINT = 5;                   // in-house suggested stake plan: 
 // MANUAL_CARD_EVENT (guard in buildManualCard), so a leftover card can never bleed onto a later
 // week - on any other event it is simply ignored and The Green Book auto-selects. To hand-pick a
 // week: set BOTH the event id below AND the picks. Empty array = always auto-select.
-// Prices from the latest published market lists on build night (12 Jul, pre-tournament) - the
-// market will move after the Scottish Open result, so re-check each price before betting.
-// NO SCHEFFLER this week by house rule after the Scottish Open missed cut - and at 4/1-5/1
-// there is no each-way value in him anyway. All-e/w card, smaller stake after a losing week:
-// judgment flyers went 0-for-3 at the Scottish, so the card is place-led: seven picks, all e/w, 10pt total.
-// Si Woo Kim 70/1 sits above the backtested 50/1 e/w ceiling - flagged as the card's long shot,
-// taken because BOTH halves are model-positive at the real price (not a pure lottery ticket).
+// Prices from DraftKings' full-field list, 19 Jul 9:47pm ET (day before build) - re-check every
+// price before betting, especially Lee Hodges where sportsbettingdime showed 98/1 the same day
+// (used the DraftKings 96/1 for consistency across the card).
+// TPC Twin Cities had NO course profile on file before this build (was falling back to a neutral
+// read) - added one to course-profiles.mjs (long, generous, bomber/approach-friendly birdie-fest;
+// see R2026525). This is the first properly-weighted read of the 3M Open.
+// NO SCHEFFLER by standing house rule (Tom, 12 Jul) - also the field's clear favourite here anyway,
+// so no value case even without the rule. THIS WEEK'S SHAPE (Tom, 20 Jul): after a bruising Open
+// week (0-for-9 on the outrights) he wants a mix - a leaner e/w side plus combined coupons, which
+// have worked better for him than pure e/w. e/w side is the three cleanest standalone cases: Doug
+// Ghim (+37% win edge, BEST BET), Keita Nakajima (+100% win edge, but no course history and priced
+// above the 50/1 e/w ceiling - kept to a single point), and Lee Hodges (thin +4% WIN edge but the
+// PLACE half is strongly model-positive - 11% top-8 vs ~5% implied at 96/1 - and he actually won
+// this event in 2023, so it's a conditions/course-history pick, not a model one). Mitchell and Homa
+// moved OFF the e/w side (negative win edge, conditions-only cases) and ONTO three proposed coupons
+// awaiting Tom's real combined price from his book (see PERSONAL_CARD note below) - mirrors the
+// Open's two winning bet builders: Ghim/Kitayama/Mitchell to Make The Cut, Ghim/Hodges/Homa Top 30,
+// Ghim/Hodges Top 20. e/w side is 5pts; coupons will add roughly 6pts once priced - about 11pts
+// total, the disciplined end of the house range after back-to-back losing weeks (Scottish, Open).
 // Every pick carries `type:` — its PROVENANCE, persisted to the ledger so review.mjs can answer
 // "who actually picks the winners": 'model' (model edge at a real price led), 'conditions'
 // (course/weather-fit led), 'judgment' (eye-test / data-thin), 'toms-call' (Tom's override).
-const MANUAL_CARD_EVENT = 'R2026100'; // The Open Championship, Royal Birkdale
-// Tom's ACTUAL Open card (his own live bets, 14 Jul) — he bypassed the straight Green Book slate:
-// he kept five Green Book picks and added three of his own (Conners, Bhatia, Svensson), all e/w to
-// win. `points` = total stake in points at £5/pt (e.g. £12.50 e/w = £25 total = 5pt; a 1pt e/w bet
-// is £2.50 win + £2.50 place). `places` overrides the 8-place default (his "Each Way Extra" bets
-// pay 12). These become the rich player cards AND feed the P&L.
+const MANUAL_CARD_EVENT = 'R2026525'; // 3M Open, TPC Twin Cities
 const MANUAL_CARD = [
-  { name: 'Matt Fitzpatrick',  market: 'win', eachWay: true, points: 5, price: '15/1',  places: 8,  type: 'model' },      // £12.50 e/w — BEST BET
-  { name: 'Viktor Hovland',    market: 'win', eachWay: true, points: 3, price: '34/1',  places: 8,  type: 'toms-call' },  // £7.50 e/w
-  { name: 'Wyndham Clark',     market: 'win', eachWay: true, points: 3, price: '29/1',  places: 8,  type: 'model' },      // £7.50 e/w
-  { name: 'Chris Gotterup',    market: 'win', eachWay: true, points: 3, price: '29/1',  places: 8,  type: 'model' },      // £7.50 e/w
-  { name: 'Collin Morikawa',   market: 'win', eachWay: true, points: 3, price: '29/1',  places: 8,  type: 'model' },      // £7.50 e/w
-  { name: 'Aaron Rai',         market: 'win', eachWay: true, points: 3, price: '46/1',  places: 10, type: 'toms-call' },  // £7.50 e/w, 10 places
-  { name: 'Corey Conners',     market: 'win', eachWay: true, points: 2, price: '71/1',  places: 12, type: 'toms-call' },  // £5 e/w, 12 places
-  { name: 'Akshay Bhatia',     market: 'win', eachWay: true, points: 1, price: '101/1', places: 8,  type: 'toms-call' },  // £2.50 e/w
-  { name: 'Jesper Svensson',   market: 'win', eachWay: true, points: 1, price: '181/1', places: 12, type: 'toms-call' },  // £2.50 e/w, 12 places
+  { name: 'Doug Ghim',       market: 'win', eachWay: true, points: 2, price: '47/1', places: 8, type: 'model' },       // £5 e/w — BEST BET
+  { name: 'Lee Hodges',      market: 'win', eachWay: true, points: 2, price: '96/1', places: 8, type: 'conditions' },  // £5 e/w, 2023 champion, place-value long-shot
+  { name: 'Keita Nakajima',  market: 'win', eachWay: true, points: 1, price: '92/1', places: 8, type: 'model' },       // £2.50 e/w, small flyer
 ];
-const BEST_BET_NAME = 'Matt Fitzpatrick';       // headline pick — each-way to win, 2pt total
+// Mitchell and Homa dropped from the e/w side (5 Jul): their win-market edge is negative, they're
+// only conditions plays there, and Tom wants coupons for that kind of case now (he's had better
+// success with combined make-cut/top-20/top-30 tickets than pure e/w) - both still carry exposure
+// through the PERSONAL_CARD coupons below once priced. e/w side kept leaner (5pt) to leave room
+// for coupon stakes within the 8-14pt house range after two losing weeks.
+const BEST_BET_NAME = 'Doug Ghim';               // headline pick — each-way to win, 2pt total
+// Card restructure (2026-07-21): publish the model's banker singles + doubles (tiers 1 & 3)
+// alongside a manual-card week's e/w picks. Flip to false to run a manual-only card.
+// Validated before staking via the season replay (node backtest.mjs 21) per the plan's build order.
+const INCLUDE_AUTO_BANKERS = true;
 const REMOVE = ['Scottie Scheffler'];            // never feature these (also pulled from flutters/watchlist)
-// Scheffler pulled from the watchlist for the Open: the recent-form calc missed his Scottish Open
-// MC (getEventSG's EVENT_ONLY stat appears not to return a value for players who don't complete
-// all 4 rounds, so a missed cut is silently skipped rather than penalised - a real model blind
-// spot, not just stale copy). Revisit REMOVE once that recency gap is fixed properly.
+// Standing house rule since the Scottish Open (Tom, 12 Jul): no Scottie Scheffler bets. He's the
+// clear favourite at TPC Twin Cities too (model 39.4%, DraftKings +270) so the rule costs nothing
+// this week regardless - watchlist only.
 
 // EXTRA CARD - hand-added bets on a NON-PGA-Tour event the pipeline can't price or settle
 // (different tour, no strokes-gained feed, no auto-settlement). DISPLAY-ONLY: shown on the
@@ -127,6 +136,11 @@ const REMOVE = ['Scottie Scheffler'];            // never feature these (also pu
 // BMW International Open is finished — off-pipeline cards are display-only and must be nulled
 // once the event is over so they stop showing. Repopulate only for a live off-tour event.
 const EXTRA_CARD = null;
+
+// NOTE (restructure, 21 Jul): the model now publishes its OWN doubles from banker legs (tier 3),
+// so the earlier hand-proposed coupons are superseded. Tom's coupons from his book are still
+// welcome any week as PERSONAL_CARD entries (gated to the event id) — but ONLY with his real
+// quoted oddsDecimal/stake/toReturn, never an invented combined price.
 
 // PERSONAL CARD - Tom's own "exotic" Open bets that the outright card can't hold: bet builders
 // (multi-leg accumulators), a 72-hole matchup, and a miss-cut single. These now FEED THE P&L as
@@ -167,8 +181,8 @@ const PERSONAL_CARD = {
 // The P&L recap is auto-built from the ledger regardless. Refresh both weekly.
 const EDITORIAL_EVENT = MANUAL_CARD_EVENT; // editorial applies only to this event
 const EDITORIAL = {
-  story: "A change of plan for the season's last major: this week the board follows Tom's own card, not a straight Green Book slate. After a losing Scottish Open, the call was to trust judgment over the model — so this is a hand-built card that takes the Green Book picks worth keeping (Fitzpatrick, Clark, Gotterup, Morikawa, Hovland) and adds three of Tom's own in Corey Conners, Akshay Bhatia and Jesper Svensson, all each-way across the outright market. On top of the eight outrights there are two bet builders around the make-cut and top-30 markets, a Corey Conners v Ryan Fox 72-hole matchup, and Bryson DeChambeau to miss the cut — three straight missed cuts and a course that doesn't suit him. The Green Book's own ratings still sit on the Full Board and Field Watch tabs for context, but the card below is exactly what's been backed.",
-  courseIntro: "Royal Birkdale, and the ground is the story: a dry summer has left the fairways burnt and running, and Open week is forecast hot and sunny — up to 27°C — with an east wind gusting towards 30mph. Firm, fast and windy is the fullest links examination there is: the ball won't stop where it lands, driver becomes optional, and the Claret Jug will go to whoever controls flight and bounce for 72 holes. Birkdale's flat-bottomed dune valleys make it the fairest course on the rota — no blind luck, just relentless shot-making — and it has a habit of crowning proper champions. Jumping out to us: Matt Fitzpatrick, the form links horse in the field, and Tommy Fleetwood — Southport's own son, on the course he grew up on.",
+  story: "A mixed card after a bruising Open Championship — the outright side went 0-for-9, saved only by two bet builders, and the bank is down to 81.25pts. TPC Twin Cities had no course profile on file until this build, so this is genuinely the first properly-weighted read of the 3M Open: a long, generous, approach-and-putting birdie-fest rather than the neutral fallback. The e/w side is kept to the three cleanest standalone cases. Best bet is Doug Ghim, red-hot (four straight T31-or-better, including a fairways-and-greens-perfect round at the John Deere) and rated a +37% win-market edge at 47/1. Keita Nakajima is the card's biggest edge on paper (+100%) — serious recent form the market hasn't priced at all — but with no course history and a price beyond the backtested each-way zone he's kept to a single point. Lee Hodges is the opposite case: barely any win-market edge, but he's the last man to actually win here (2023, by seven) and the model rates his place chance more than double the market's implied price at 96/1. This week also debuts the restructured card. A season replay of the model showed the losses were coming from one place — To Win each-way bets priced off the model's own estimates — while the high-probability markets were quietly profitable. So the card now runs in three tiers: a core of BANKERS (top-30 finish singles this week: Sudarshan Yellamaraju, Maverick McNealy and Hideki Matsuyama — grinders backed to clear a market, never a claim they'll contend), the lean each-way side above at real prices only, and two small doubles built from banker legs. The banker and double prices are the model's own fair prices, clearly flagged — take them only if your book matches or beats them. A hard rule now sits in the build: no To Win bet ever publishes without a real, sourced price again. Defending champion Kurt Kitayama is a pure fade for the outright win — market's second favourite on name and course history alone, but his own form has been trending down for three starts. Eleven points staked in total — the disciplined end of the house range after back-to-back losing weeks, now with the exposure hard-capped so no week can bleed like the Open again.",
+  courseIntro: "TPC Twin Cities plays long — 7,431 yards, one of the longest par 71s on tour — but generously: wide Palmer/Lehman landing areas mean driving accuracy matters less here than at most tour stops, even with water touching 14 holes. Big, receptive Bentgrass greens (the field has gained 70%+ GIR here historically) turn the week into a putting contest rather than a survival test — every champion in the event's history has finished 15-under or better. The forecast is hot and dry throughout (mid-80s building to a scorching 100°F on Sunday) with no rain and gusts up to 35mph by Saturday, so expect the course to firm up and run out as the week goes on — a mild tilt toward ball-strikers who control flight and bounce over pure length merchants.",
   spotlight: null,
 };
 
@@ -181,7 +195,9 @@ function buildManualCard(board, model) {
   const out = [];
   for (const e of MANUAL_CARD) {
     const price = parsePrice(e.price);
-    if (e.eachWay && e.market === 'win' && !price) { console.error(`[build] manual card: ${e.name} each-way needs a real price - skipped`); continue; }
+    // GUARDRAIL (card restructure 2026-07-21): NO To Win pick — each-way or straight — may ever
+    // publish on a model-estimated price. Real sourced price or it doesn't go on the card.
+    if (e.market === 'win' && !price) { console.error(`[build] manual card: ${e.name} To Win needs a real price - skipped (guardrail)`); continue; }
     const id = model.playerIdByName(e.name);
     if (!id) { console.error(`[build] manual card: ${e.name} not in field - skipped`); continue; }
     const c = model.makeBet(id, e.market);
@@ -193,6 +209,7 @@ function buildManualCard(board, model) {
     // as a judgment pick: no edge chip, honest "limited data" copy. Tom backs these on his own read.
     const judgment = !!e.judgment || !!c.dataThin;
     if (price) { // override the model estimate with Tom's real market price
+      c.priceSourced = true; // real quote from Tom's book — satisfies the To Win guardrail
       c.marketOdds = { prob: 1 / price.decimal, decimal: price.decimal, fractional: price.fractional };
       c.marketProb = 1 / price.decimal;
       c.edgePct = Math.round((c.modelProb / c.marketProb - 1) * 100);
@@ -372,7 +389,8 @@ async function main() {
   const oddsNote = realOdds
     ? 'Win-market prices are the best available across UK bookmakers (live); place-market prices (top 5/10/20) are model estimates.'
     : 'Prices are model estimates until a live odds feed is connected.';
-  notes.push(`Selections are made by The Green Book — the model that ranks every player by VALUE (its probability vs the best price, the edge). Win/Top-5/Top-10/Top-20 probabilities come from a Monte Carlo simulation built on course-fit strokes-gained, recency-weighted recent form (last 8 events), trend, season class, world ranking, course history at this event, and course-conditional driving-distance and scrambling. ${oddsNote}`);
+  notes.push(`Selections are made by The Green Book — the model that ranks every player by VALUE (its probability vs the best price, the edge). Win/Top-5/Top-10/Top-20/Top-30/Make-Cut probabilities come from a Monte Carlo simulation built on course-fit strokes-gained, recency-weighted recent form (last 8 events), trend, season class, world ranking, course history at this event, and course-conditional driving-distance and scrambling. ${oddsNote}`);
+  notes.push('The card runs a three-tier structure: BANKERS — make-cut / top-20 / top-30 singles in the model\'s calibrated probability range — are the core; a lean EACH-WAY side is only ever published at real, sourced prices in the 20/1-50/1 band (never a model estimate); and 1-2 small DOUBLES are built from banker legs on different players. Weekly exposure is hard-capped at ~10pts.');
   if (model.courseHistoryCount) notes.push(`Course history: finishes at this event over the last 4 stagings feed the model for ${model.courseHistoryCount} of the field (debutants are treated neutrally, not penalised).`);
   if (profile.grass) notes.push(`Greens/grass: ${profile.grass}. Surface type informs the course read; per-player grass-specific putting splits would need a paid feed, so it is not yet a separate player input.`);
   notes.push('Each-way to-win bets are 1pt e/w at 8 places (Bet365 terms), priced in the 20/1-50/1 backtested sweet spot. Tracked bets feed the P&L (points/units); untracked "flutters" do not. Bets settle the following week off the final leaderboard.');
@@ -417,20 +435,60 @@ async function main() {
     notes,
   };
 
-  // ---- AI deep-dive: re-select picks by value + write storylines (falls back if no key) ----
-  try {
-    const dd = await runDeepDive({ event: board.event, courseProfile: board.courseProfile, previousEvent, players: model.deepDivePayload });
-    if (dd && dd.trackedBets && dd.trackedBets.length) { applyDeepDive(board, dd, model.makeBet); console.error('[build] applied AI deep-dive picks'); }
-  } catch (e) { console.error('[build] deep-dive skipped, keeping algorithmic picks:', e.message); }
+  // ---- AI deep-dive re-selection: RETIRED by the card restructure (2026-07-21). The three-tier
+  // card (bankers / real-priced each-way / multiples) is deterministic model output; an AI pass
+  // re-picking win-market bets at model-estimated prices was part of the old failure mode.
+  // runDeepDive stays importable for one-off analysis; flip USE_DEEPDIVE_CARD to re-enable.
+  const USE_DEEPDIVE_CARD = false;
+  if (USE_DEEPDIVE_CARD) {
+    try {
+      const dd = await runDeepDive({ event: board.event, courseProfile: board.courseProfile, previousEvent, players: model.deepDivePayload });
+      if (dd && dd.trackedBets && dd.trackedBets.length) { applyDeepDive(board, dd, model.makeBet); console.error('[build] applied AI deep-dive picks'); }
+    } catch (e) { console.error('[build] deep-dive skipped, keeping algorithmic picks:', e.message); }
+  }
 
-  // SHADOW snapshot: the model's own card as it stands right now, BEFORE any hand-curated card
-  // replaces it. Paper-traded into shadow-ledger.json below, so "trust the model or trust Tom"
-  // becomes measurable over a season. Taken after the deep-dive (if any) - i.e. exactly what The
-  // Green Book would have published left to its own devices.
+  // GUARDRAIL (belt & braces): the published card must NEVER contain a To Win bet at a
+  // model-estimated price — the documented −72.5% ROI failure mode (this week's original auto-card
+  // put up five To Win e/w at 40–66/1 with zero players priced by the feed). Auto e/w picks
+  // already require a live-feed price in model.mjs; this catches anything else that slips through.
+  {
+    const before = board.trackedBets.length;
+    board.trackedBets = board.trackedBets.filter((c) => c.market !== 'win' || c.bookie || c.priceSourced);
+    if (board.trackedBets.length !== before) console.error(`[build] GUARDRAIL: dropped ${before - board.trackedBets.length} To Win pick(s) at unverified prices — bankers-only auto card.`);
+    board.bankroll.stakedThisWeekPoints = board.trackedBets.reduce((a, c) => a + c.points, 0);
+    if (board.bestBet && board.bestBet.market === 'win' && !(board.bestBet.bookie || board.bestBet.priceSourced)) board.bestBet = board.trackedBets[0] || null;
+  }
+
+  // SHADOW snapshots for the model-vs-man A/B — taken BEFORE the manual card overrides anything:
+  //   shadowBets       = the NEW three-tier auto card (what the restructured Green Book publishes)
+  //   legacyShadowBets = the OLD selector's card (value picks + e/w at model prices), paper-traded
+  //                      in parallel so old-style vs new-style becomes a measurable comparison.
   const shadowBets = (board.trackedBets || []).map((c) => ({ ...c }));
+  const legacyShadowBets = (model.legacyTrackedBets || []).map((c) => ({ ...c }));
 
   // hand-curated card for the week (Tom's research): replaces the auto-selection when set
   buildManualCard(board, model);
+  // Card restructure: on a manual-card week Tom's real-priced e/w picks are tier 2, but the model's
+  // banker singles + doubles (tiers 1 & 3) still publish alongside them so the card keeps its
+  // calibrated core. Gated on INCLUDE_AUTO_BANKERS (validated by the 2026-07-21 season replay —
+  // see THE-GREEN-BOOK-backtest.md). A banker/multi duplicating a manual pick's exact market is out.
+  if (INCLUDE_AUTO_BANKERS && MANUAL_CARD.length && board.event.id === MANUAL_CARD_EVENT) {
+    const have = new Set(board.trackedBets.map((c) => `${c.playerId}:${c.market}`));
+    const extra = (model.trackedBets || []).filter((c) => (c.tier === 'banker' || c.tier === 'multi') && !have.has(`${c.playerId}:${c.market}`));
+    if (extra.length) {
+      board.trackedBets = [...board.trackedBets, ...extra];
+      // Merged-week exposure cap ~11pts (manual e/w + model bankers/doubles): shed the model's
+      // lowest-conviction banker singles first — Tom's own picks are never trimmed.
+      const total = () => board.trackedBets.reduce((a, c) => a + c.points, 0);
+      while (total() > 11) {
+        const shed = [...board.trackedBets].reverse().find((c) => c.tier === 'banker') || [...board.trackedBets].reverse().find((c) => c.tier === 'multi');
+        if (!shed) break;
+        board.trackedBets.splice(board.trackedBets.indexOf(shed), 1);
+      }
+      board.bankroll.stakedThisWeekPoints = total();
+      console.error(`[build] merged model banker/multi picks into the manual-card week (total ${total()}pts)`);
+    }
+  }
   // watchlist must never feature a player we're actually backing (the manual card is applied AFTER
   // the model builds the watchlist), so filter against the final card and trim to ~6 to-watch names.
   {
@@ -474,6 +532,18 @@ async function main() {
     };
     console.error('[build] SHADOW CARD (paper):', shadowBets.map((c) => `${c.points}pt ${c.name} ${c.marketLabel} ${c.priceFractional}${c.eachWay ? ' e/w' : ''}`).join(' | ') || 'none');
   } catch (e) { console.error('[build] shadow ledger failed (non-fatal):', e.message); board.shadow = null; }
+
+  // ---- LEGACY shadow ledger: the OLD selector run in parallel (paper), for the restructure A/B ----
+  try {
+    const legacy = loadLedger(LEGACY_SHADOW_LEDGER);
+    legacy.note = legacy.note || 'PAPER record: the OLD-STYLE (pre-restructure 2026-07-21) selector — value picks + each-way at model-estimated prices — run in parallel against the new three-tier card so the restructure is judged on data. Not real bets.';
+    await settle(legacy, completedIds, getLeaderboard);
+    if (legacyShadowBets.length) appendWeek(legacy, { ...board, trackedBets: legacyShadowBets });
+    saveLedger(legacy, LEGACY_SHADOW_LEDGER);
+    const lp = summary(legacy);
+    board.shadowLegacy = { pnl: { startBankPts: lp.startBankPts, bankNowPts: lp.bankNowPts, profitPts: lp.profitPts, settledCount: lp.settledCount, won: lp.won, roiPct: lp.roiPct, pendingCount: lp.pendingCount, pendingStakePts: lp.pendingStakePts } };
+    console.error('[build] LEGACY SHADOW CARD (paper, old-style):', legacyShadowBets.map((c) => `${c.points}pt ${c.name} ${c.marketLabel} ${c.priceFractional}${c.eachWay ? ' e/w' : ''}`).join(' | ') || 'none');
+  } catch (e) { console.error('[build] legacy shadow ledger failed (non-fatal):', e.message); board.shadowLegacy = null; }
 
   buildEditorial(board, ledger);
 

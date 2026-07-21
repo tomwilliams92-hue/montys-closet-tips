@@ -15,6 +15,25 @@ export const DEFAULT_PROFILE = {
 
 // Keyed by PGA Tour tournament id (e.g. Travelers 2026 = R2026034).
 export const COURSE_PROFILES = {
+  // 3M Open - TPC Twin Cities, Blaine MN
+  R2026525: {
+    course: 'TPC Twin Cities',
+    par: 71,
+    yards: 7431,
+    grass: 'Bentgrass tee-to-green (cool-season)',
+    archetype: 'Bomber-friendly birdie-fest',
+    summary:
+      'A long, generous Palmer/Lehman design with wide landing areas but water in play on 14 holes. Large, receptive Bentgrass greens (avg. ~6,500 sq ft, 70%+ tour-wide GIR) mean approach play sets up chances rather than defends par, so the week turns into a putting contest - every champion in tournament history has finished 15-under or better.',
+    tags: [
+      'One of the longest par 71s on tour at 7,431 yards - length is an edge, not a requirement',
+      'Wide, generous fairways - driving accuracy matters less than at a tight course',
+      'Water on 14 holes - the real hazard is attacking pins near it, not narrow tee shots',
+      'Big, receptive greens and high GIR% - approach sets up birdies more than it defends',
+      'Historically a birdie-fest - 15-under has won every playing - hot putter decides it',
+    ],
+    weights: { ott: 0.28, app: 0.32, arg: 0.15, putt: 0.25 },
+  },
+
   // Travelers Championship - TPC River Highlands, Cromwell CT
   R2026034: {
     course: 'TPC River Highlands',

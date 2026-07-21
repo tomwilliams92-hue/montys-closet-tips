@@ -28,19 +28,39 @@ const isMajor = (n) => MAJOR_RE.test(n || '') && !/Scottish|Canadian|Mexico|Aust
 // season-to-date stat THROUGH a given (prior) event = the state going into the next one
 const seasonThrough = (statId, year, throughId) => getStat(statId, year, { tournamentId: throughId, queryType: 'THROUGH_EVENT' });
 
-function settle(bet, fr) {
+const LEG_NEED = { win: 1, top5: 5, top10: 10, top20: 20, top30: 30 };
+function settle(bet, positions) {
+  // Multi (restructure tier 3): every leg's cond must hit for the double/treble to pay.
+  if (bet.legs) {
+    let allHit = true, unknown = false;
+    const txt = [];
+    for (const l of bet.legs) {
+      const fr = positions.get(String(l.playerId));
+      if (!fr) { unknown = true; txt.push(`${l.player} ?`); continue; }
+      const pos = fr.cut ? null : fr.pos;
+      const hit = l.cond === 'makeCut' ? !fr.cut : Number.isFinite(pos) && pos <= LEG_NEED[l.cond];
+      if (!hit) allHit = false;
+      txt.push(`${l.player} ${fr.cut ? 'MC' : fr.posText}`);
+    }
+    const hit = allHit && !unknown;
+    return { hit, profit: (hit ? bet.points * bet.priceDecimal : 0) - bet.points, finishPos: txt.join(', ') };
+  }
+  const fr = positions.get(String(bet.playerId));
   const pos = fr && !fr.cut ? fr.pos : null;
   const placed = (n) => Number.isFinite(pos) && pos <= n;
-  const need = { win: 1, top5: 5, top10: 10, top20: 20 }[bet.market];
-  let ret = 0;
+  let ret = 0, hit = false;
   if (bet.market === 'win') { // each-way: half win, half top-5 place at 1/5
     const side = bet.points / 2;
     if (pos === 1) ret += side * bet.priceDecimal;
     if (placed(5)) ret += side * (1 + (bet.priceDecimal - 1) / 5);
+    hit = placed(5);
+  } else if (bet.market === 'makeCut') {
+    hit = !!fr && !fr.cut && Number.isFinite(fr.pos);
+    ret = hit ? bet.points * bet.priceDecimal : 0;
   } else {
-    ret = placed(need) ? bet.points * bet.priceDecimal : 0;
+    hit = placed(LEG_NEED[bet.market]);
+    ret = hit ? bet.points * bet.priceDecimal : 0;
   }
-  const hit = placed(need);
   return { hit, profit: ret - bet.points, finishPos: fr ? (fr.cut ? 'MC' : fr.posText) : 'n/a' };
 }
 
@@ -80,11 +100,11 @@ async function main() {
       const picks = model.trackedBets;
       let evProfit = 0;
       for (const c of picks) {
-        const fr = resultLb.positions.get(String(c.playerId));
-        const r = settle(c, fr);
+        const r = settle(c, resultLb.positions);
         bets++; staked += c.points; profit += r.profit; evProfit += r.profit; if (r.hit) hits++;
-        (byMarket[c.marketLabel] ||= { n: 0, hit: 0, profit: 0, pred: 0 });
-        byMarket[c.marketLabel].n++; if (r.hit) byMarket[c.marketLabel].hit++; byMarket[c.marketLabel].profit += r.profit; byMarket[c.marketLabel].pred += (c.modelProb || 0);
+        const mk = c.legs ? 'Double (banker legs)' : c.marketLabel; // group all doubles for a usable calibration sample
+        (byMarket[mk] ||= { n: 0, hit: 0, profit: 0, pred: 0 });
+        byMarket[mk].n++; if (r.hit) byMarket[mk].hit++; byMarket[mk].profit += r.profit; byMarket[mk].pred += (c.modelProb || 0);
         rowsOut.push({ event: E.tournamentName, player: c.name, market: c.marketLabel, price: c.priceFractional, finish: r.finishPos, hit: r.hit, profit: Math.round(r.profit * 10) / 10 });
       }
       console.error(`  ${E.tournamentName.slice(0, 34).padEnd(34)} picks ${picks.length}  net ${evProfit >= 0 ? '+' : ''}${evProfit.toFixed(1)}pt`);

@@ -11,7 +11,7 @@
 import { noteFor, storyFor } from './player-notes.mjs';
 
 // oddschecker market slugs for the "Back it" deep links
-const OC_MARKET = { win: 'winner', top5: 'top-5-finish', top10: 'top-10-finish', top20: 'top-20-finish' };
+const OC_MARKET = { win: 'winner', top5: 'top-5-finish', top10: 'top-10-finish', top20: 'top-20-finish', top30: 'top-30-finish', makeCut: 'to-make-the-cut' };
 
 // ---- stats helpers --------------------------------------------------------
 function stats(values) {
@@ -50,9 +50,20 @@ function oddsFrom(prob) {
 const headshot = (id) => `https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_${id}.png`;
 const SG_LABELS = { ott: 'off the tee', app: 'approach', arg: 'around the green', putt: 'putting' };
 const MARKETS = ['win', 'top5', 'top10', 'top20'];
-const MK_LABEL = { win: 'To Win', top5: 'Top 5', top10: 'Top 10', top20: 'Top 20' };
-const FLOOR = { win: 0.02, top5: 0.10, top10: 0.20, top20: 0.33 }; // min model prob to bet a market
+// The two banker-tier markets added by the card restructure (CARD-RESTRUCTURE-PLAN.md). They ride
+// the same Monte Carlo; kept out of MARKETS so every existing loop (deep-dive payload, full board,
+// bestMarket) is untouched.
+const EXTRA_MARKETS = ['top30', 'makeCut'];
+const MK_LABEL = { win: 'To Win', top5: 'Top 5', top10: 'Top 10', top20: 'Top 20', top30: 'Top 30', makeCut: 'Make The Cut' };
+const FLOOR = { win: 0.02, top5: 0.10, top10: 0.20, top20: 0.33, top30: 0.42, makeCut: 0.60 }; // min model prob to bet a market
 const EDGE_MIN = 0.08; // 8% edge to count as value
+// Banker-market calibration shade (Tom, 2026-07-21: "bankers usually don't win" — the raw sim runs
+// hot on exactly these high-probability markets). Factors ≈ actual/stated hit rate from the
+// 21-event season replay (THE-GREEN-BOOK-backtest.md): make-cut hit 63% when the model said 68%;
+// top-20 hit 36% vs 44% stated (shaded conservatively — 33-bet sample); top-30 was within noise.
+// Applied to the MODEL side only, so claimed edges shrink. Re-derive from the replay as the sample
+// grows; never hand-tune on a feeling.
+const CAL = { makeCut: 0.93, top20: 0.85 };
 
 function strengthText(sg, profile) {
   const comps = ['ott', 'app', 'arg', 'putt'].map((k) => ({ k, val: sg[k] ?? -99 })).filter((c) => c.val > -90).sort((a, b) => b.val - a.val);
@@ -119,14 +130,23 @@ function runSim(comps) {
   const n = comps.length;
   const rng = mulberry32(SEED);
   const gumbel = () => -Math.log(-Math.log(rng()));
-  const c1 = new Array(n).fill(0), c5 = new Array(n).fill(0), c10 = new Array(n).fill(0), c20 = new Array(n).fill(0);
-  const perf = new Array(n), idx = new Array(n);
+  // 36-hole stage for P(make cut): a SEPARATE rng stream so adding it never perturbs the existing
+  // win/top-N draws (historical picks stay reproducible). Over 36 holes skill accumulates half as
+  // much against the same round-to-round noise, so the discrimination parameter scales by 1/sqrt(2).
+  const rng36 = mulberry32(SEED ^ 0x5bd1e995);
+  const gumbel36 = () => -Math.log(-Math.log(rng36()));
+  const T36 = T_SIM / Math.SQRT2;
+  const CUT_LINE = Math.min(n, 65); // top 65 and ties at 36 holes (continuous scores -> ties negligible)
+  const c1 = new Array(n).fill(0), c5 = new Array(n).fill(0), c10 = new Array(n).fill(0), c20 = new Array(n).fill(0), c30 = new Array(n).fill(0), cCut = new Array(n).fill(0);
+  const perf = new Array(n), idx = new Array(n), perf36 = new Array(n), idx36 = new Array(n);
   for (let s = 0; s < N_SIM; s++) {
-    for (let i = 0; i < n; i++) { perf[i] = T_SIM * comps[i] + gumbel(); idx[i] = i; }
+    for (let i = 0; i < n; i++) { perf[i] = T_SIM * comps[i] + gumbel(); idx[i] = i; perf36[i] = T36 * comps[i] + gumbel36(); idx36[i] = i; }
     idx.sort((a, b) => perf[b] - perf[a]);
-    for (let r = 0; r < n; r++) { const p = idx[r]; if (r < 1) c1[p]++; if (r < 5) c5[p]++; if (r < 10) c10[p]++; if (r < 20) c20[p]++; }
+    for (let r = 0; r < n; r++) { const p = idx[r]; if (r < 1) c1[p]++; if (r < 5) c5[p]++; if (r < 10) c10[p]++; if (r < 20) c20[p]++; if (r < 30) c30[p]++; }
+    idx36.sort((a, b) => perf36[b] - perf36[a]);
+    for (let r = 0; r < CUT_LINE; r++) cCut[idx36[r]]++;
   }
-  return comps.map((_, i) => ({ win: c1[i] / N_SIM, top5: c5[i] / N_SIM, top10: c10[i] / N_SIM, top20: c20[i] / N_SIM }));
+  return comps.map((_, i) => ({ win: c1[i] / N_SIM, top5: c5[i] / N_SIM, top10: c10[i] / N_SIM, top20: c20[i] / N_SIM, top30: c30[i] / N_SIM, makeCut: cCut[i] / N_SIM }));
 }
 
 // ---- the model ------------------------------------------------------------
@@ -248,10 +268,11 @@ export function buildModel({ field, profile, sg, driving, scrambling = null, rec
   const marketP = runSim(rows.map((r) => cStat.mean + (r.marketComposite - mStat.mean) * (cStat.sd / mStat.sd)));
   rows.forEach((r, i) => {
     r.winProb = modelP[i].win;
-    for (const m of MARKETS) {
-      r[m] = oddsFrom(modelP[i][m]);          // model odds
-      r['m_' + m] = oddsFrom(marketP[i][m]);  // estimated market odds
-      r['edge_' + m] = marketP[i][m] > 0 ? modelP[i][m] / marketP[i][m] - 1 : 0;
+    for (const m of [...MARKETS, ...EXTRA_MARKETS]) {
+      const p = modelP[i][m] * (CAL[m] || 1);  // calibration-shaded model probability
+      r[m] = oddsFrom(p);                      // model odds
+      r['m_' + m] = oddsFrom(marketP[i][m]);   // estimated market odds
+      r['edge_' + m] = marketP[i][m] > 0 ? p / marketP[i][m] - 1 : 0;
     }
     // real best-price WINNER odds (the-odds-api) override the win-market estimate when present
     if (realOdds) {
@@ -283,7 +304,7 @@ export function buildModel({ field, profile, sg, driving, scrambling = null, rec
     else if (r.lastWeekFinish && !r.letdownFlag) bits.push(`finished ${r.lastWeekFinish} last week`);
     if (r.playerNote) bits.push(r.playerNote.note);
     else if (r.letdownFlag) bits.push(r.letdownFlag.toLowerCase());
-    const phrase = m === 'win' ? 'to win' : 'to finish ' + label;
+    const phrase = m === 'win' ? 'to win' : m === 'makeCut' ? 'to make the cut' : 'to finish ' + label;
     const valueLine = `the value: the model makes him ${pct(modelProb)} ${phrase} where the best price implies about ${pct(marketProb)} - a +${Math.round(edge * 100)}% edge`;
     bits.push(valueLine);
     const dataRationale = bits.map((b) => b.charAt(0).toUpperCase() + b.slice(1)).join('. ') + '.';
@@ -345,17 +366,92 @@ export function buildModel({ field, profile, sg, driving, scrambling = null, rec
     return c;
   });
 
-  const trackedBets = [...valueBets];
-  const valueStake = [3, 2, 2, 1, 1];
-  valueBets.forEach((c, i) => { c.points = valueStake[i] || 1; });
-  for (const c of ewPicks) { c.points = 2; trackedBets.push(c); } // 1pt each-way = 2pt total (1 win + 1 place), 8 places
+  // ---- LEGACY CARD (pre-restructure selection) ----------------------------------------------
+  // Kept ONLY so the shadow ledger can paper-trade old-style vs new-style in parallel. Never
+  // published: this is exactly the card the old selector would have put up (value picks + each-way
+  // at model-estimated prices — the −72.5% ROI failure mode the restructure removes).
+  const legacyStake = [3, 2, 2, 1, 1];
+  valueBets.forEach((c, i) => { c.points = legacyStake[i] || 1; });
+  for (const c of ewPicks) c.points = 2; // 1pt each-way = 2pt total (1 win + 1 place), 8 places
+  const legacyTrackedBets = [...valueBets, ...ewPicks].map((c) => ({
+    ...c, tracked: true, pickType: 'model', priceDecimal: c.marketOdds.decimal, priceFractional: c.marketOdds.fractional,
+  }));
+
+  // ---- THREE-TIER AUTO CARD (card restructure, 2026-07-21 — CARD-RESTRUCTURE-PLAN.md) --------
+  // The 94-bet backtest showed the model is well-calibrated in the 10–45% probability range and the
+  // bleeding was the win e/w MARKET (−72.5% ROI on model-estimated longshot prices), while the
+  // high-probability place markets were profitable. So the card is rebuilt around them.
+  //
+  // Tier 1 BANKERS (core, ~5pts): 3–4 singles in make-cut / top-20 / top-30.
+  const BANKER_MARKETS = ['makeCut', 'top30', 'top20'];
+  const bankerBest = (r) => BANKER_MARKETS
+    .filter((m) => r[m].prob >= FLOOR[m] && r['edge_' + m] >= EDGE_MIN)
+    .map((m) => ({ m, vs: r['edge_' + m] * Math.sqrt(r[m].prob) }))
+    .sort((a, b) => b.vs - a.vs)[0];
+  const bankerPool = [];
+  for (const r of rows) {
+    if (r.dataThin || r.recentEvents < 2 || (r.playerNote && r.playerNote.adjust < 0)) continue;
+    const bm = bankerBest(r);
+    if (bm) bankerPool.push({ c: candidate(r, bm.m), vs: bm.vs });
+  }
+  bankerPool.sort((a, b) => b.vs - a.vs);
+  const bankers = bankerPool.slice(0, 4).map(({ c }) => c);
+  const bankerStake = [2, 1, 1, 1];
+  bankers.forEach((c, i) => { c.points = bankerStake[i] || 1; c.tier = 'banker'; c.priceEstimated = !c.bookie; });
+
+  // Tier 2 EACH-WAY (~3pts): HARD GUARDRAIL — a To Win e/w pick may only publish at a sourced REAL
+  // price (live odds feed), never a model estimate. Band hard-limited to 20/1–50/1 per the season
+  // learnings. 1–2 picks max, 1pt e/w (2pt total) each. No real prices -> no e/w tier at all.
+  const bankerIds = new Set(bankers.map((c) => c.playerId));
+  const ewReal = rows
+    .filter((r) => !r.dataThin && !r.letdownPenalty && !r.playerNote && !bankerIds.has(r.playerId)
+      && r.winBookie && r.m_win.decimal >= 21 && r.m_win.decimal <= 51)
+    .map((r) => ({ r, score: ewScore(r) }))
+    .sort((a, b) => b.score - a.score)
+    .slice(0, 2)
+    .map(({ r }) => {
+      const c = candidate(r, 'win');
+      c.marquee = 'Each-way to win'; c.eachWayPlaces = 8;
+      c.ewPlaceProb = Math.round(top8(r) * 100); c.points = 2; c.tier = 'eachway';
+      c.rationale += ` Each-way angle: the model has him about ${c.ewPlaceProb}% to finish inside the top 8, so at 8 places (1/5 odds) the place half of the bet is where the value is.`;
+      return c;
+    });
+
+  // Tier 3 MULTIPLES (~2pts): 1–2 small doubles built from banker legs on DIFFERENT players, so the
+  // combined chance is ≈ the product of the legs (near-independent). Every leg has already cleared
+  // its own edge test as a banker or the combo is refused (multis compound the bookmaker's margin).
+  const multis = [];
+  for (let i = 0; i + 1 < bankers.length && multis.length < 2; i += 2) {
+    const legsC = [bankers[i], bankers[i + 1]];
+    const dec = legsC.reduce((a, c) => a * c.marketOdds.decimal, 1);
+    const prob = legsC.reduce((a, c) => a * c.modelProb, 1);
+    multis.push({
+      multi: true, tracked: true, pickType: 'model', tier: 'multi', points: 1,
+      market: 'accumulator', marketLabel: `Double — ${legsC.map((c) => c.marketLabel).join(' / ')}`,
+      name: legsC.map((c) => c.name).join(' + '),
+      legs: legsC.map((c) => ({ playerId: c.playerId, player: c.name, market: c.marketLabel, cond: c.market })),
+      modelProb: prob, marketProb: 1 / dec,
+      marketOdds: { prob: 1 / dec, decimal: dec, fractional: toFractional(dec) },
+      priceEstimated: true,
+      edgePct: Math.round((prob * dec - 1) * 100),
+      rationale: `Two banker legs on different players, so the combined chance is close to the product of the parts — the model makes the double about ${pct(prob)} at a combined ${dec.toFixed(2)}. Each leg stands on its own as a banker; the double just concentrates the value into one small ticket.`,
+    });
+  }
+
+  // Assemble with a hard exposure cap so one week can never repeat The Open's −15pts.
+  const trackedBets = [...bankers, ...ewReal, ...multis];
+  const MAX_WEEK_PTS = 10;
+  while (trackedBets.reduce((a, c) => a + c.points, 0) > MAX_WEEK_PTS && bankers.length > 3) {
+    const shed = bankers.pop(); // lowest-conviction banker goes first
+    trackedBets.splice(trackedBets.indexOf(shed), 1);
+  }
   trackedBets.forEach((c) => {
     c.tracked = true; // stakes are in POINTS/units only - no monetary value (users set their own)
-    c.pickType = 'model'; // auto selections are model-led by definition (provenance for the learning loop)
+    c.pickType = c.pickType || 'model'; // auto selections are model-led by definition (provenance for the learning loop)
     c.priceDecimal = c.marketOdds.decimal; c.priceFractional = c.marketOdds.fractional;
   });
-  const trackedIds = new Set(trackedBets.map((c) => c.playerId));
-  const bestBet = valueBets[0] || null;
+  const trackedIds = new Set(trackedBets.flatMap((c) => (c.legs ? c.legs.map((l) => l.playerId) : [c.playerId])));
+  const bestBet = bankers[0] || ewReal[0] || null;
 
   // flutters removed from the board - keep an empty list so downstream code stays happy.
   const flutters = [];
@@ -435,7 +531,7 @@ export function buildModel({ field, profile, sg, driving, scrambling = null, rec
   return {
     dataThinCount: rows.filter((r) => r.dataThin).length,
     courseHistoryCount: rows.filter((r) => r.courseHist && r.courseHist.starts).length,
-    trackedBets, flutters, bestBet, watchlist, eachWayValue,
+    trackedBets, legacyTrackedBets, flutters, bestBet, watchlist, eachWayValue,
     top5Sel: selFor('top5', 6), top10Sel: selFor('top10', 6), top20Sel: selFor('top20', 8),
     placesTable, fieldRanking, worldRankings,
     ewTerms: '1pt each-way at 1/5 odds, 8 places (Bet365 terms on a full-field event). Backtest sweet spot is 20/1-50/1; below ~16/1 the place return is too thin to back each-way, above ~50/1 it is a lottery ticket. Always check each book\'s place terms before betting.',
