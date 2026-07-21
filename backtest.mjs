@@ -28,7 +28,7 @@ const isMajor = (n) => MAJOR_RE.test(n || '') && !/Scottish|Canadian|Mexico|Aust
 // season-to-date stat THROUGH a given (prior) event = the state going into the next one
 const seasonThrough = (statId, year, throughId) => getStat(statId, year, { tournamentId: throughId, queryType: 'THROUGH_EVENT' });
 
-const LEG_NEED = { win: 1, top5: 5, top10: 10, top20: 20, top30: 30 };
+const LEG_NEED = { win: 1, top5: 5, top10: 10, top20: 20, top30: 30, top40: 40 };
 function settle(bet, positions) {
   // Multi (restructure tier 3): every leg's cond must hit for the double/treble to pay.
   if (bet.legs) {

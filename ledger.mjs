@@ -114,6 +114,7 @@ function legResult(leg, positions) {
     case 'top10': return within(10);
     case 'top20': return within(20);
     case 'top30': return within(30);
+    case 'top40': return within(40);
     case 'matchup': {
       const opp = positions.get(String(leg.opponentId));
       if (!opp) return null;

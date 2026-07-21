@@ -219,7 +219,7 @@
 <div class="rgbar"><div class="in"><span class="age">18+</span> When the fun stops, stop. Please gamble responsibly &middot; <a href="https://www.begambleaware.org" target="_blank" rel="noopener">BeGambleAware.org</a></div></div>
 <main class="wrap" id="app"></main>
 
-<script src="data.js?v=1784637116909"></script>
+<script src="data.js?v=1784656810246"></script>
 <script>
 const B = window.BOARD;
 const $ = (h)=>{const t=document.createElement('template');t.innerHTML=h.trim();return t.content.firstChild;};
@@ -263,13 +263,15 @@ const FLAGS={USA:'us',ENG:'gb-eng',SCO:'gb-sct',WAL:'gb-wls',NIR:'gb-nir',IRL:'i
 const flag=(code)=>{const c=FLAGS[(code||'').toUpperCase()];return c?`<img class="natflag" src="https://flagcdn.com/24x18/${c}.png" alt="${code}">`:'';};
 
 function valueCard(c) {
-  const flut = !c.tracked;
+  const flut = !c.tracked && !c.paper;
   // each-way reads as "1pt each-way (£5) · 2pt / £10 total"; place bets as "3pt (£15)"
   const stakeLabel = c.eachWay
     ? `${ptsGbp(c.points/2)} each-way${c.eachWayPlaces?` (${c.eachWayPlaces} places)`:''} &middot; ${ptsGbp(c.points)} total`
     : ptsGbp(c.points);
   const unitNote = PPP ? `tracked in the P&L &middot; in-house plan at ${gbp(1)}/point` : 'tracked in the P&L (points only - set your own unit)';
-  const stakeBox = flut
+  const stakeBox = c.paper
+    ? `<div class="stake" style="background:rgba(43,140,255,.08);border-color:rgba(43,140,255,.28)"><div class="big">Paper &middot; ${stakeLabel}</div><div class="ew">The Green Book's own pick — no real money down; settles in the shadow record for the model-vs-Tom test</div></div>`
+    : flut
     ? `<div class="stake flut"><div class="big">Flutter &middot; ${stakeLabel}</div><div class="ew">Just for fun - not tracked in the P&L</div></div>`
     : `<div class="stake"><div class="big">Suggested stake: ${stakeLabel}</div><div class="ew">${unitNote}</div></div>`;
   const chips = [];
@@ -359,8 +361,8 @@ function render() {
     <div class="bb-odds"><div class="o">${bb.marketOdds.fractional}</div><div class="l">Best Price</div><div class="edgechip">${bb.judgment?'Judgement pick':`${edgeStr(bb.edgePct)} edge`}</div>
       ${backButton(bb)}</div></div></div>`));
 
-  t1.appendChild($(B.personalCard
-    ? `<div class="shead accent-gold"><h2>Tom's Open Card &mdash; Each-Way Outrights</h2><div class="ln"></div><div class="tag">the exact bets placed &middot; pending in the P&L</div></div>`
+  t1.appendChild($((B.personalCard || B.greenBookCard)
+    ? `<div class="shead accent-gold"><h2>Tom's Card &mdash; Each-Way Outrights</h2><div class="ln"></div><div class="tag">the exact bets placed &middot; these feed the P&L</div></div>`
     : `<div class="shead accent-blue"><h2>Tracked Bets</h2><div class="ln"></div><div class="tag">value-ranked &middot; feed the P&L</div></div>`));
   // Card restructure: singles render as rich player cards; tier-3 doubles (legs) as bet-slip cards.
   const cardSingles = B.trackedBets.filter(c=>!c.legs), cardMultis = B.trackedBets.filter(c=>c.legs);
@@ -395,6 +397,25 @@ function render() {
       t1.appendChild($(`<div class="shead accent-gold"><h2>Builders, Matchup &amp; Singles</h2><div class="ln"></div><div class="tag">also pending in the P&L</div></div>`));
       if (pc.note) t1.appendChild($(`<div class="card-base" style="padding:16px 19px;margin-bottom:14px;border-left:3px solid var(--gold)"><div style="color:#dce8fa;font-size:13.5px;line-height:1.62">${pc.note}</div></div>`));
       t1.appendChild($(`<div class="grid2">${slips.join('')}</div>`));
+    }
+  }
+
+  // TOM vs THE GREEN BOOK — the model's own card, published on paper next to Tom's real card so
+  // the two can be judged head-to-head on results (settles in the shadow record, not the P&L).
+  if (B.greenBookCard && B.greenBookCard.length) {
+    const gbSingles = B.greenBookCard.filter(c=>!c.legs), gbMultis = B.greenBookCard.filter(c=>c.legs);
+    t1.appendChild($(`<div class="shead" style="margin-top:34px"><h2 style="color:var(--green)">The Green Book's Card &mdash; Model Picks</h2><div class="ln"></div><div class="tag">paper only &middot; the model-vs-Tom head-to-head</div></div>`));
+    t1.appendChild($(`<div class="card-base" style="padding:14px 17px;margin-bottom:14px;border-left:3px solid var(--green)"><div style="color:#dce8fa;font-size:13.5px;line-height:1.6">The restructured Green Book picked this card on its own — no human edits. It is <b>not staked</b>: it runs on paper against Tom's card above, settles off the same leaderboard into the shadow record, and over the coming weeks the two records answer "back the model or back the man" with a number. Prices are the model's own fair prices — take one only if your book matches or beats it.</div></div>`));
+    const gbGrid=$(`<div class="grid3"></div>`); gbSingles.forEach(c=>gbGrid.appendChild(valueCard(c))); t1.appendChild(gbGrid);
+    if (gbMultis.length) {
+      const legRowG = (l)=>`<div class="tomleg"><span class="p">${l.player}</span><span class="m">${l.market}</span></div>`;
+      const slipsG = gbMultis.map(c=>`<div class="card-base tombb" style="border-color:rgba(54,211,153,.3)">
+          <div class="bbhead"><span class="bbtag" style="color:var(--green)">${c.marketLabel}</span><span class="bbodds" style="color:var(--green)">${c.marketOdds.fractional}</span></div>
+          ${c.legs.map(legRowG).join('')}
+          <div class="bbstake"><span>Paper stake <b>${ptsGbp(c.points)}</b></span><span>Model chance <b>${pct(c.modelProb)}</b></span></div>
+          <div style="margin-top:9px;font-size:12.5px;color:#dce8fa;line-height:1.5">${c.rationale}</div>
+        </div>`).join('');
+      t1.appendChild($(`<div class="grid2" style="margin-top:14px">${slipsG}</div>`));
     }
   }
 
