@@ -109,10 +109,11 @@ const BEST_BET_NAME = 'Max Homa';                // headline by stake — Tom's 
 // Green Book section instead (board.greenBookCard). Flip back to true to merge banker/double tiers
 // into a future manual-card week.
 const INCLUDE_AUTO_BANKERS = false;
-const REMOVE = ['Scottie Scheffler'];            // never feature these (also pulled from flutters/watchlist)
-// Standing house rule since the Scottish Open (Tom, 12 Jul): no Scottie Scheffler OUTRIGHT bets.
-// Tom's own bet builder this week carries a Scheffler Top-20 leg — his call, on his slip, logged
-// as toms-call; the house rule still keeps Scheffler off the model card and watchlist.
+const REMOVE = [];                               // never feature these (also pulled from flutters/watchlist)
+// The no-Scheffler house rule (Tom, 12 Jul) is BYPASSED for the 3M Open at Tom's instruction
+// (21 Jul: "he's a class above this field") — his builder carries a Scheffler Top-20 leg and
+// Scheffler may appear on the watchlist again. Default position for future weeks stays
+// avoid-Scheffler unless Tom says otherwise; re-add him to REMOVE when the bypass ends.
 
 // EXTRA CARD - hand-added bets on a NON-PGA-Tour event the pipeline can't price or settle
 // (different tour, no strokes-gained feed, no auto-settlement). DISPLAY-ONLY: shown on the
@@ -132,13 +133,13 @@ const EXTRA_CARD = null;
 // `cond` so the ledger can grade it: makeCut | missCut | top30 | top20 | top10 | top5 | win |
 // matchup (needs `opponent`). `stake`/`toReturn` are in £; `points` = stake in points (£5/pt).
 // Gated on PERSONAL_CARD_EVENT so it can't bleed onto a later week. Set to null to hide.
-// Tom's 3M Open bet builder (21 Jul, his real slip): quoted at 6/1 with a "25% extra winnings"
-// boost — his book shows £10 returning £72.50, so the EFFECTIVE decimal recorded here is 7.25
-// (72.50/10). NOTE for Tom: 6/1 winnings £60 + 25% would be £85 back — £72.50 implies the base
-// was nearer 5/1 before the boost. Recorded at his stated return; worth re-checking the slip.
+// Tom's 3M Open bet builder (21 Jul, his real slip): 6/1 with a "25% extra winnings" boost —
+// the boost applies to WINNINGS only, not the stake (Tom confirmed). His book shows £10
+// returning £72.50; the ledger just needs return/stake, so oddsDecimal = 7.25 reproduces the
+// slip exactly. Never second-guess his book's boost arithmetic — record the slip's numbers.
 const PERSONAL_CARD_EVENT = 'R2026525'; // 3M Open, TPC Twin Cities
 const PERSONAL_CARD = {
-  note: "Tom's bet builder — one ticket, four legs, boosted 25% extra winnings at his book: Scheffler to keep doing the boring thing (top 20), Jackson Suber to make the cut, and Max Homa and Johnny Keefer — both also carried each-way above — to go top 40. £10 on at an effective 6.25/1 after the boost, returning £72.50. Settles leg-by-leg off the final leaderboard; every leg must land.",
+  note: "Tom's bet builder — one ticket, four legs, 6/1 boosted with 25% extra winnings (boost on the winnings, not the stake): Scheffler to keep doing the boring thing (top 20), Jackson Suber to make the cut, and Max Homa and Johnny Keefer — both also carried each-way above — to go top 40. £10 on, returning £72.50 with the boost. Settles leg-by-leg off the final leaderboard; every leg must land.",
   betBuilders: [
     {
       oddsDecimal: 7.25, stake: 10, points: 2, toReturn: 72.50,
