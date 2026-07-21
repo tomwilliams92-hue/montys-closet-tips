@@ -417,6 +417,27 @@ export function buildModel({ field, profile, sg, driving, scrambling = null, rec
       return c;
     });
 
+  // PAPER each-way tier: when no live-feed price exists the model still names its 1–2 each-way
+  // picks at its OWN estimated prices. These can never go on the real card (the guardrail exists
+  // because that exact bet type at estimated prices bled −72.5% ROI) — but they publish on the
+  // paper Green Book card and settle in the shadow record, otherwise the model-vs-Tom head-to-head
+  // would pit an all-e/w human card against a bankers-only model card.
+  const ewPaper = ewReal.length ? [] : rows
+    .filter((r) => !r.dataThin && !r.letdownPenalty && !r.playerNote && !bankerIds.has(r.playerId)
+      && r.m_win.decimal >= 21 && r.m_win.decimal <= 51)
+    .map((r) => ({ r, score: ewScore(r) }))
+    .sort((a, b) => b.score - a.score)
+    .slice(0, 2)
+    .map(({ r }) => {
+      const c = candidate(r, 'win');
+      c.marquee = 'Each-way to win'; c.eachWayPlaces = 8;
+      c.ewPlaceProb = Math.round(top8(r) * 100); c.points = 2; c.tier = 'eachway';
+      c.priceEstimated = true; c.paperOnly = true; c.tracked = false; c.pickType = 'model';
+      c.priceDecimal = c.marketOdds.decimal; c.priceFractional = c.marketOdds.fractional;
+      c.rationale += ` Each-way angle: the model has him about ${c.ewPlaceProb}% to finish inside the top 8, so at 8 places (1/5 odds) the place half of the bet is where the value is.`;
+      return c;
+    });
+
   // Tier 3 MULTIPLES (~2pts): 1–2 small doubles built from banker legs on DIFFERENT players, so the
   // combined chance is ≈ the product of the legs (near-independent). Every leg has already cleared
   // its own edge test as a banker or the combo is refused (multis compound the bookmaker's margin).
@@ -531,7 +552,7 @@ export function buildModel({ field, profile, sg, driving, scrambling = null, rec
   return {
     dataThinCount: rows.filter((r) => r.dataThin).length,
     courseHistoryCount: rows.filter((r) => r.courseHist && r.courseHist.starts).length,
-    trackedBets, legacyTrackedBets, flutters, bestBet, watchlist, eachWayValue,
+    trackedBets, legacyTrackedBets, ewPaper, flutters, bestBet, watchlist, eachWayValue,
     top5Sel: selFor('top5', 6), top10Sel: selFor('top10', 6), top20Sel: selFor('top20', 8),
     placesTable, fieldRanking, worldRankings,
     ewTerms: '1pt each-way at 1/5 odds, 8 places (Bet365 terms on a full-field event). Backtest sweet spot is 20/1-50/1; below ~16/1 the place return is too thin to back each-way, above ~50/1 it is a lottery ticket. Always check each book\'s place terms before betting.',
