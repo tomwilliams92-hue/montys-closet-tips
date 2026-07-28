@@ -89,8 +89,8 @@ const POUNDS_PER_POINT = 5;                   // in-house suggested stake plan: 
 // persisted to the ledger so review.mjs can answer "who actually picks the winners": 'model'
 // (model edge at a real price led) · 'conditions' (course/weather-fit led) · 'judgment'
 // (eye-test / data-thin) · 'toms-call' (Tom's override).
-// ROCKET CLASSIC (R2026524, Detroit Golf Club, 30 Jul–2 Aug) — back to ONE card after the
-// split-board weeks: The Green Book picks it under the full restructure rules. E/W tier at REAL
+// ROCKET CLASSIC (R2026524, Detroit Golf Club, 30 Jul–2 Aug) — head-to-head round 3, BOTH cards
+// real money: The Green Book's 10pts under the full restructure rules + Tom's 15pts below. E/W tier at REAL
 // sourced prices only — win odds from the Golf News Net odds board dated 27 Jul 2026 (book not
 // named; Clark +2000 = 20/1, Bhatia +4100 ≈ 40/1 UK). Both clear the +20% edge test at those
 // quotes (model: Clark 8.7% to win vs 4.8% implied; Bhatia 4.4% vs 2.4%) and both bring course
@@ -105,6 +105,18 @@ const MANUAL_CARD_EVENT = 'R2026524'; // Rocket Classic, Detroit Golf Club
 const MANUAL_CARD = [
   { name: 'Wyndham Clark', market: 'win', eachWay: true, points: 2, price: '20/1', type: 'model' }, // best bet — model #1, +83% edge at the real quote
   { name: 'Akshay Bhatia', market: 'win', eachWay: true, points: 1, price: '40/1', type: 'model' }, // top-8 ~32% vs ~11% implied place at 40/1
+  // TOM'S CARD (28 Jul, his call — head-to-head round 3, both cards real money this week).
+  // Prices are his bet365 decimal quotes, entered as numbers per the house convention
+  // ("21/1" from Tom = 21.00 on the slip). "1pt each way" = 1pt win + 1pt place = points 2
+  // (£5 e/w at £5/pt, same as his 3M card). PLACES ASSUMED 8 at 1/5 — Tom to confirm the slip
+  // (his 3M slip was Each Way Extra, 10 places; update `places:` before the weekend if so).
+  { name: 'Jake Knapp',     market: 'win', eachWay: true, points: 2, price: 21.00,  type: 'toms-call' }, // model fades on the thumb comeback; Tom backs the class + T4 here
+  { name: 'Hideki Matsuyama', market: 'win', eachWay: true, points: 2, price: 23.00, type: 'toms-call' }, // T3 last week, model's fairest-priced of Tom's seven
+  { name: 'Ryan Gerard',    market: 'win', eachWay: true, points: 2, price: 33.00,  type: 'toms-call' }, // model has him a top-30 grinder (44%), not a contender
+  { name: 'Davis Thompson', market: 'win', eachWay: true, points: 2, price: 34.00,  type: 'toms-call' }, // T2 here, form up — US boards had 78/1, so shop the price
+  { name: 'Jackson Suber',  market: 'win', eachWay: true, points: 2, price: 56.00,  type: 'toms-call' }, // T6 here last year; model's favourite of Tom's longshots (place +29%)
+  { name: 'Billy Horschel', market: 'win', eachWay: true, points: 2, price: 91.00,  type: 'toms-call' }, // one hot week back from OWGR 164 — pure flyer
+  { name: 'Kevin Roy',      market: 'win', eachWay: true, points: 2, price: 126.00, type: 'toms-call' }, // T8 here in 2 starts; place half prices fair at 126.00
 ];
 const BEST_BET_NAME = 'Wyndham Clark';           // model rank, real-price edge and course fit all agree
 // Merge the model's banker/double tiers into the card (top-30 singles + doubles from those legs).
@@ -135,17 +147,19 @@ const EXTRA_CARD = null;
 // the boost applies to WINNINGS only, not the stake (Tom confirmed). His book shows £10
 // returning £72.50; the ledger just needs return/stake, so oddsDecimal = 7.25 reproduces the
 // slip exactly. Never second-guess his book's boost arithmetic — record the slip's numbers.
-const PERSONAL_CARD_EVENT = 'R2026525'; // 3M Open, TPC Twin Cities
+const PERSONAL_CARD_EVENT = 'R2026524'; // Rocket Classic, Detroit Golf Club
+// Tom's double (28 Jul): Matsuyama top 30 + Gerard top 30 at 3.60 (his bet365 decimal quote —
+// he reads it "3.6/1"). STAKE ASSUMED £5 (1pt, returning £18) — Tom didn't state it; correct
+// stake/points/toReturn from his slip if different. Model view: Gerard t30 44%, Matsuyama t30
+// ~50% → combo ~22% vs the 27.8% the price implies — slightly against, close to fair.
 const PERSONAL_CARD = {
-  note: "Tom's bet builder — one ticket, four legs, 6/1 boosted with 25% extra winnings (boost on the winnings, not the stake): Scheffler to keep doing the boring thing (top 20), Jackson Suber to make the cut, and Max Homa and Johnny Keefer — both also carried each-way above — to go top 40. £10 on, returning £72.50 with the boost. Settles leg-by-leg off the final leaderboard; every leg must land.",
+  note: "Tom's double — one ticket, two legs at 3.60: Hideki Matsuyama and Ryan Gerard both to finish top 30. Both also feature on the cards above (Matsuyama each-way for Tom, Gerard as a Green Book banker), so this is the same read expressed twice: grinders to hang around the frame. £5 on, returning £18. Settles leg-by-leg off the final leaderboard; both legs must land.",
   betBuilders: [
     {
-      oddsDecimal: 7.25, stake: 10, points: 2, toReturn: 72.50,
+      oddsDecimal: 3.60, stake: 5, points: 1, toReturn: 18.00,
       legs: [
-        { player: 'Scottie Scheffler', market: 'Top 20 Finish (Inc Ties)', cond: 'top20' },
-        { player: 'Jackson Suber',     market: 'To Make The Cut',          cond: 'makeCut' },
-        { player: 'Max Homa',          market: 'Top 40 Finish (Inc Ties)', cond: 'top40' },
-        { player: 'Johnny Keefer',     market: 'Top 40 Finish (Inc Ties)', cond: 'top40' },
+        { player: 'Hideki Matsuyama', market: 'Top 30 Finish (Inc Ties)', cond: 'top30' },
+        { player: 'Ryan Gerard',      market: 'Top 30 Finish (Inc Ties)', cond: 'top30' },
       ],
     },
   ],
@@ -158,7 +172,7 @@ const PERSONAL_CARD = {
 // The P&L recap is auto-built from the ledger regardless. Refresh both weekly.
 const EDITORIAL_EVENT = MANUAL_CARD_EVENT; // editorial applies only to this event
 const EDITORIAL = {
-  story: "The head-to-head has a scoreboard now, and nobody's smiling. At the 3M Open, Tom's five each-way swings and the boosted builder all missed — 13 points gone, the bank at its season low of 68.25 — while The Green Book's paper card bled slower (-8.3 on 11 paper points), its one bright spot Hideki Matsuyama cashing a top-30 banker at T3. Jackson Koivun won at a record 25-under in his third professional start; nobody saw that coming, including us. So after two split weeks the series stands one apiece: Tom took The Open on two landed bet builders (-1.1 points against the model's -14), the model took the 3M. Season-long, the ledger says the model's real-money picks are losing slower (-19% ROI) than the human ones (Tom's calls -47%, judgment picks -100%) — but everything is losing, and the only tier in actual profit anywhere is the place-market grind the restructure was built around. So this week the board reverts to one card, The Green Book's, played by the book: a banker core of four top-30 grinders — Xander Schauffele, Ryan Gerard, Patrick Cantlay and Christiaan Bezuidenhout — two small doubles built from those legs, and an each-way tier that finally has REAL prices under it: Wyndham Clark at 20/1 and Akshay Bhatia at 40/1 from the 27 July odds boards, both clearing the +20% edge test the rules demand. Ten points, no chasing, and the place-market grind doing the heavy lifting — exactly what the restructure was built for.",
+  story: "The head-to-head has a scoreboard now, and nobody's smiling. At the 3M Open, Tom's five each-way swings and the boosted builder all missed — 13 points gone, the bank at its season low of 68.25 — while The Green Book's paper card bled slower (-8.3 on 11 paper points), its one bright spot Hideki Matsuyama cashing a top-30 banker at T3. Jackson Koivun won at a record 25-under in his third professional start; nobody saw that coming, including us. So after two split weeks the series stands one apiece: Tom took The Open on two landed bet builders (-1.1 points against the model's -14), the model took the 3M. Season-long, the ledger says the model's real-money picks are losing slower (-19% ROI) than the human ones (Tom's calls -47%, judgment picks -100%) — but everything is losing, and the only tier in actual profit anywhere is the place-market grind the restructure was built around. So the head-to-head goes to round three — and this time both cards are real money. The Green Book plays it by the book: a banker core of four top-30 grinders — Xander Schauffele, Ryan Gerard, Patrick Cantlay and Christiaan Bezuidenhout — two small doubles built from those legs, and an each-way tier that finally has REAL prices under it: Wyndham Clark at 20/1 and Akshay Bhatia at 40/1 from the 27 July odds boards, both clearing the +20% edge test the rules demand. Ten points, no chasing. Tom answers with seven each-way swings at his bet365 quotes — Jake Knapp at 21.00 fresh off the thumb-splint comeback (T4 here when fit, and the model's least favourite pick on the board), Hideki Matsuyama at 23.00 off his 3M podium, Ryan Gerard at 33.00, Detroit specialist Davis Thompson at 34.00, last year's T6 Jackson Suber at 56.00, Billy Horschel at 91.00 and Kevin Roy at 126.00 — plus a Matsuyama/Gerard top-30 double at 3.60. Fifteen points of Tom, ten of machine: the biggest week of the season, and the ledger referees as always.",
   courseIntro: "Detroit Golf Club is as gentle as the PGA Tour gets: a flat Donald Ross parkland with wide fairways, four reachable par 5s and soft, receptive greens — winners here finish between 18- and 26-under, so the week is a wedge-and-putter contest and birdie conversion is the whole game. The forecast keeps it that way: hot and dry to start (88-92°F Thursday-Friday), light winds all four days and only a passing chance of a Saturday shower, so the greens should stay receptive and the low scores keep coming. That reads for sharp short-iron players with hot putters over pure length — exactly the profile of Wyndham Clark (elite approach-putting combo, T8 here) and Akshay Bhatia (runner-up here in 2024, best putting numbers on our board). One more wrinkle: this is the final Rocket Classic at Detroit Golf Club, so the course-history book closes this week.",
   spotlight: null,
 };
@@ -460,10 +474,13 @@ async function main() {
     const extra = (model.trackedBets || []).filter((c) => (c.tier === 'banker' || c.tier === 'multi') && !have.has(`${c.playerId}:${c.market}`));
     if (extra.length) {
       board.trackedBets = [...board.trackedBets, ...extra];
-      // Merged-week exposure cap ~11pts (manual e/w + model bankers/doubles): shed the model's
-      // lowest-conviction banker singles first — Tom's own picks are never trimmed.
+      // Merged-week exposure cap ~11pts on the HOUSE side only (manual model-tagged e/w + model
+      // bankers/doubles): shed the model's lowest-conviction banker singles first. Tom's toms-call
+      // picks are his own money — they are never trimmed AND never count toward the house cap
+      // (otherwise a big Tom week would un-publish the model's already-committed bankers).
       const total = () => board.trackedBets.reduce((a, c) => a + c.points, 0);
-      while (total() > 11) {
+      const houseTotal = () => board.trackedBets.filter((c) => c.pickType !== 'toms-call').reduce((a, c) => a + c.points, 0);
+      while (houseTotal() > 11) {
         const shed = [...board.trackedBets].reverse().find((c) => c.tier === 'banker') || [...board.trackedBets].reverse().find((c) => c.tier === 'multi');
         if (!shed) break;
         board.trackedBets.splice(board.trackedBets.indexOf(shed), 1);

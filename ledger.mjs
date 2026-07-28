@@ -83,7 +83,9 @@ function gradeBet(bet, pos, cut) {
 export function appendPersonalBets(ledger, board) {
   const pc = board.personalCard;
   if (!pc) return;
-  ledger.bets = ledger.bets.filter((b) => !(b.eventId === board.event.id && b.status === 'pending' && b.exotic));
+  // Replace only the PERSONAL exotics this function owns (`:personal:` ids) — the model's auto
+  // doubles are exotic too (`:multi:` ids, appendWeek) and must survive a personal-card rebuild.
+  ledger.bets = ledger.bets.filter((b) => !(b.eventId === board.event.id && b.status === 'pending' && b.exotic && String(b.id).includes(':personal:')));
   const push = (kind, subject, marketLabel, legs, points, dec, i) => {
     ledger.bets.push({
       id: `${board.event.id}:personal:${kind}:${i}`,
