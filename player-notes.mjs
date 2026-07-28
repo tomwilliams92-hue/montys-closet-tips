@@ -19,13 +19,11 @@ export const PLAYER_NOTES = {
 // week, it leads the write-up (the value line is still appended automatically). Refresh these
 // each week for the actual selections - this is the human, story-driven layer.
 export const STORYLINES = {
-  // 3M Open (TPC Twin Cities) - week of 20 Jul 2026. Replaces the Open Championship set,
+  // Rocket Classic (Detroit Golf Club) - week of 27 Jul 2026. Replaces the 3M Open set,
   // which is done and settled - never leave a finished event's copy live on the board.
-  'doug ghim': "The best golf of Ghim's career is happening right now: four straight finishes of T31 or better, including a stretch at the John Deere Classic where he became the first player on the PGA Tour since 2014 to hit every fairway and every green in regulation in a single round. Four starts already at TPC Twin Cities, and a long, generous track suits a ball-striker this straight.",
-  'lee hodges': "The last man to win at TPC Twin Cities - he ran away with the 2023 title by seven shots - and he arrives in form, two shots from a playoff at last week's John Deere Classic. A proven course winner at a price the market hasn't caught up to.",
-  'keith mitchell': "One of the tour's more underrated ball-strikers: third for proximity and ninth for driving distance in a stacked field at the Travelers two starts ago, and trending up across his last four. A long, generous course built for exactly this game.",
-  'max homa': "A six-time PGA Tour winner finding form again - runner-up three tournaments ago at TPC Deere Run - with course pedigree here too: T3 at the 2020 3M Open. The market already knows this story, so it's a conditions play rather than a priced value bet.",
-  'keita nakajima': "Japan's rising star is playing well above his OWGR ranking right now, gaining 1.75 strokes a round across his last three starts. No course history to lean on yet, which is why this stays a single point.",
+  'wyndham clark': "This year's U.S. Open champion is playing the best golf on tour right now — gaining 2.42 strokes a round across his last three starts — and he arrives at a course that fits like a glove: T8 in two prior Detroit starts, with the sharp wedge play and hot putter this birdie-fest demands. The market has him fifth-favourite; our numbers make him the man to beat in the final Rocket Classic at Detroit Golf Club.",
+  'akshay bhatia': "A three-time tour winner, including this season's Arnold Palmer Invitational, and a proven Detroit performer — runner-up here in 2024. He's warming up at the right time (nearly two strokes a round gained over his last two starts) and the putter, his best club, is the one that separates the field at Detroit Golf Club.",
+  'xander schauffele': "The two-time major champion hasn't hit top gear this season, but his floor is what we're backing: relentless cut-making class and a tee-to-green game that keeps him near the frame even in ordinary weeks. On the tour's most forgiving course, the model makes him more likely than not to be inside the top 30.",
 };
 
 const norm = (s) => s.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/[^a-z ]/g, '').trim();

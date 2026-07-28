@@ -15,6 +15,25 @@ export const DEFAULT_PROFILE = {
 
 // Keyed by PGA Tour tournament id (e.g. Travelers 2026 = R2026034).
 export const COURSE_PROFILES = {
+  // Rocket Classic - Detroit Golf Club, Detroit MI
+  R2026524: {
+    course: 'Detroit Golf Club',
+    par: 72,
+    yards: 7370,
+    grass: 'Bentgrass/Poa greens, cool-season fairways',
+    archetype: 'Birdie-fest, wedges & hot putter',
+    summary:
+      'A flat, benign Donald Ross parkland with wide landing areas and soft, receptive greens. There is almost no defence: winning scores live between 18- and 26-under, so the week is a wedge-and-putter contest. Length helps set up short irons on the par 5s, but the separator is relentless birdie conversion - hot putters and sharp sub-150-yard approach play decide it.',
+    tags: [
+      'Donald Ross parkland, flat and benign - a pure birdie-fest, winners reach 18-26 under',
+      'Wide fairways and soft greens - little penalty off the tee, GIR% runs high',
+      'Four reachable par 5s - length is a scoring edge but not a requirement',
+      'Wedge play and putting separate the field - most approaches from under 150 yards',
+      'First-time winners thrive here (Lashley, Davis, Potgieter) - form over pedigree',
+    ],
+    weights: { ott: 0.22, app: 0.30, arg: 0.15, putt: 0.33 },
+  },
+
   // 3M Open - TPC Twin Cities, Blaine MN
   R2026525: {
     course: 'TPC Twin Cities',

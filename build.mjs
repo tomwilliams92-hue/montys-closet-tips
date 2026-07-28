@@ -89,35 +89,29 @@ const POUNDS_PER_POINT = 5;                   // in-house suggested stake plan: 
 // persisted to the ledger so review.mjs can answer "who actually picks the winners": 'model'
 // (model edge at a real price led) · 'conditions' (course/weather-fit led) · 'judgment'
 // (eye-test / data-thin) · 'toms-call' (Tom's override).
-// TOM vs THE GREEN BOOK (21 Jul, Tom's call): this week the board is SPLIT. Tom's hand-picked
-// card below is the real money and the ONLY thing in the public P&L; the model's restructured
-// three-tier card publishes alongside it as a clearly-labelled PAPER section (board.greenBookCard)
-// and settles in shadow-ledger.json — a live head-to-head test of "the model's picks or mine".
-// Prices/places from Tom's ACTUAL bet365 slip (placed 21 Jul 19:07, ref GY7192426735W):
-// Each Way Extra, 1/5 odds, 10 PLACES. bet365 quotes DECIMAL odds (81.00 decimal = 80/1
-// fractional — same money), and Tom reads his slip in decimals, so these are entered as numbers
-// and DISPLAYED decimal-style to match the slip (buildManualCard handles that). £55 total staked,
-// £1,900 max return — the ledger reproduces it exactly. Jesper Svensson confirmed by Tom (NOT
-// Adam — both are in this field). points = TOTAL stake at £5/pt: £5 e/w = points 2; Homa's
-// £7.50 e/w = points 3.
-const MANUAL_CARD_EVENT = 'R2026525'; // 3M Open, TPC Twin Cities
+// ROCKET CLASSIC (R2026524, Detroit Golf Club, 30 Jul–2 Aug) — back to ONE card after the
+// split-board weeks: The Green Book picks it under the full restructure rules. E/W tier at REAL
+// sourced prices only — win odds from the Golf News Net odds board dated 27 Jul 2026 (book not
+// named; Clark +2000 = 20/1, Bhatia +4100 ≈ 40/1 UK). Both clear the +20% edge test at those
+// quotes (model: Clark 8.7% to win vs 4.8% implied; Bhatia 4.4% vs 2.4%) and both bring course
+// form (Clark T8 in 2 starts here, Bhatia T2 in 2024) with form trending up — three legs each.
+// Bankers/doubles come from the model tier via INCLUDE_AUTO_BANKERS (model-estimate place
+// prices, flagged on the board): Schauffele, Gerard, Cantlay, Bezuidenhout top-30s + two small
+// doubles. 10pts total — at the merged-week cap. Bezuidenhout WD rumours checked 28 Jul: that
+// was the 2025 event (stale Newsweek piece); the only 2026 WD is Jason Day (heavy.com, 27 Jul).
+// TOM: re-check price AND each-way places at bet365 before betting — 8 places at 1/5 assumed;
+// books move and the odds board is a US aggregate, not a slip.
+const MANUAL_CARD_EVENT = 'R2026524'; // Rocket Classic, Detroit Golf Club
 const MANUAL_CARD = [
-  { name: 'Jesper Svensson',           market: 'win', eachWay: true, points: 2, price: 81.00, places: 10, type: 'toms-call' },
-  { name: 'Johnny Keefer',             market: 'win', eachWay: true, points: 2, price: 46.00, places: 10, type: 'toms-call' },
-  { name: 'Kevin Yu',                  market: 'win', eachWay: true, points: 2, price: 81.00, places: 10, type: 'toms-call' },
-  { name: 'Rasmus Neergaard-Petersen', market: 'win', eachWay: true, points: 2, price: 51.00, places: 10, type: 'toms-call' },
-  { name: 'Max Homa',                  market: 'win', eachWay: true, points: 3, price: 36.00, places: 10, type: 'toms-call' }, // £7.50 e/w — biggest stake on the card
+  { name: 'Wyndham Clark', market: 'win', eachWay: true, points: 2, price: '20/1', type: 'model' }, // best bet — model #1, +83% edge at the real quote
+  { name: 'Akshay Bhatia', market: 'win', eachWay: true, points: 1, price: '40/1', type: 'model' }, // top-8 ~32% vs ~11% implied place at 40/1
 ];
-const BEST_BET_NAME = 'Max Homa';                // headline by stake — Tom's 1.5pt e/w
-// Split-board week: the model's card is NOT merged into the P&L card — it publishes as the paper
-// Green Book section instead (board.greenBookCard). Flip back to true to merge banker/double tiers
-// into a future manual-card week.
-const INCLUDE_AUTO_BANKERS = false;
-const REMOVE = [];                               // never feature these (also pulled from flutters/watchlist)
-// The no-Scheffler house rule (Tom, 12 Jul) is BYPASSED for the 3M Open at Tom's instruction
-// (21 Jul: "he's a class above this field") — his builder carries a Scheffler Top-20 leg and
-// Scheffler may appear on the watchlist again. Default position for future weeks stays
-// avoid-Scheffler unless Tom says otherwise; re-add him to REMOVE when the bypass ends.
+const BEST_BET_NAME = 'Wyndham Clark';           // model rank, real-price edge and course fit all agree
+// Merge the model's banker/double tiers into the card (top-30 singles + doubles from those legs).
+const INCLUDE_AUTO_BANKERS = true;
+const REMOVE = ['Scottie Scheffler'];            // house rule restored — the 3M bypass ended with that event
+// The no-Scheffler house rule (Tom, 12 Jul) is back in force: the 3M Open bypass was for that
+// event only. Only Tom reopens it.
 
 // EXTRA CARD - hand-added bets on a NON-PGA-Tour event the pipeline can't price or settle
 // (different tour, no strokes-gained feed, no auto-settlement). DISPLAY-ONLY: shown on the
@@ -164,8 +158,8 @@ const PERSONAL_CARD = {
 // The P&L recap is auto-built from the ledger regardless. Refresh both weekly.
 const EDITORIAL_EVENT = MANUAL_CARD_EVENT; // editorial applies only to this event
 const EDITORIAL = {
-  story: "Something different this week: a head-to-head. After a bruising Open (0-for-9 on the outrights, bank down to 81.25pts), the board is split in two — Tom's hand-picked card carries the real money and the public P&L, while The Green Book's newly restructured card publishes alongside it on paper. Same event, same field, two philosophies: Tom goes hunting each-way prices, the model grinds high-probability markets. The results will referee. Tom's card is five each-way plays, placed for real at bet365 on Each Way Extra terms — 10 places at 1/5 odds, where the place half does the heavy lifting: Max Homa leads the staking at 36.00 (£7.50 e/w) with rookie Johnny Keefer at 46.00, Rasmus Neergaard-Petersen at 51.00, and Kevin Yu and Jesper Svensson both at 81.00 behind him (£5 e/w apiece — prices shown as bet365 quotes them, in decimals). On top sits a boosted four-leg builder: Scheffler top 20, Jackson Suber to make the cut, and Homa and Keefer both top 40 — £10 returning £72.50 after a 25% winnings boost. The Green Book's paper card, picked by the restructured model with no human edits, runs the full three tiers: top-30 grinders Sudarshan Yellamaraju, Maverick McNealy and Hideki Matsuyama as banker singles, two small doubles from banker legs, and its own each-way swings — Doug Ghim and Keita Nakajima at around 40/1. Every price on that card is the model's own estimate, clearly flagged, backed with nothing but pride. A season replay showed the live losses all came from To Win each-way bets at estimated prices, so a hard rule now sits in the build: no To Win bet ever goes on the REAL card without a real, sourced price — the model's e/w opinions live on paper until an odds feed prices the event. Defending champion Kurt Kitayama is a pure fade for the outright win — market's second favourite on name and course history alone, but trending down three starts. Thirteen points of real money staked; the model's eleven on paper. May the better card win.",
-  courseIntro: "TPC Twin Cities plays long — 7,431 yards, one of the longest par 71s on tour — but generously: wide Palmer/Lehman landing areas mean driving accuracy matters less here than at most tour stops, even with water touching 14 holes. Big, receptive Bentgrass greens (the field has gained 70%+ GIR here historically) turn the week into a putting contest rather than a survival test — every champion in the event's history has finished 15-under or better. The forecast is hot and dry throughout (mid-80s building to a scorching 100°F on Sunday) with no rain and gusts up to 35mph by Saturday, so expect the course to firm up and run out as the week goes on — a mild tilt toward ball-strikers who control flight and bounce over pure length merchants.",
+  story: "The head-to-head has a scoreboard now, and nobody's smiling. At the 3M Open, Tom's five each-way swings and the boosted builder all missed — 13 points gone, the bank at its season low of 68.25 — while The Green Book's paper card bled slower (-8.3 on 11 paper points), its one bright spot Hideki Matsuyama cashing a top-30 banker at T3. Jackson Koivun won at a record 25-under in his third professional start; nobody saw that coming, including us. So after two split weeks the series stands one apiece: Tom took The Open on two landed bet builders (-1.1 points against the model's -14), the model took the 3M. Season-long, the ledger says the model's real-money picks are losing slower (-19% ROI) than the human ones (Tom's calls -47%, judgment picks -100%) — but everything is losing, and the only tier in actual profit anywhere is the place-market grind the restructure was built around. So this week the board reverts to one card, The Green Book's, played by the book: a banker core of four top-30 grinders — Xander Schauffele, Ryan Gerard, Patrick Cantlay and Christiaan Bezuidenhout — two small doubles built from those legs, and an each-way tier that finally has REAL prices under it: Wyndham Clark at 20/1 and Akshay Bhatia at 40/1 from the 27 July odds boards, both clearing the +20% edge test the rules demand. Ten points, no chasing, and the place-market grind doing the heavy lifting — exactly what the restructure was built for.",
+  courseIntro: "Detroit Golf Club is as gentle as the PGA Tour gets: a flat Donald Ross parkland with wide fairways, four reachable par 5s and soft, receptive greens — winners here finish between 18- and 26-under, so the week is a wedge-and-putter contest and birdie conversion is the whole game. The forecast keeps it that way: hot and dry to start (88-92°F Thursday-Friday), light winds all four days and only a passing chance of a Saturday shower, so the greens should stay receptive and the low scores keep coming. That reads for sharp short-iron players with hot putters over pure length — exactly the profile of Wyndham Clark (elite approach-putting combo, T8 here) and Akshay Bhatia (runner-up here in 2024, best putting numbers on our board). One more wrinkle: this is the final Rocket Classic at Detroit Golf Club, so the course-history book closes this week.",
   spotlight: null,
 };
 
