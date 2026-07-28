@@ -90,7 +90,8 @@ const POUNDS_PER_POINT = 5;                   // in-house suggested stake plan: 
 // (model edge at a real price led) · 'conditions' (course/weather-fit led) · 'judgment'
 // (eye-test / data-thin) · 'toms-call' (Tom's override).
 // ROCKET CLASSIC (R2026524, Detroit Golf Club, 30 Jul–2 Aug) — head-to-head round 3, BOTH cards
-// real money: The Green Book's 10pts under the full restructure rules + Tom's 6pts below. E/W tier at REAL
+// real money: The Green Book's 10pts under the full restructure rules + Tom's 8pts (6 below
+// + his £10 Schauffele/Cantlay top-30 double in PERSONAL_CARD). E/W tier at REAL
 // sourced prices only — win odds from the Golf News Net odds board dated 27 Jul 2026 (book not
 // named; Clark +2000 = 20/1, Bhatia +4100 ≈ 40/1 UK). Both clear the +20% edge test at those
 // quotes (model: Clark 8.7% to win vs 4.8% implied; Bhatia 4.4% vs 2.4%) and both bring course
@@ -145,11 +146,23 @@ const EXTRA_CARD = null;
 // returning £72.50; the ledger just needs return/stake, so oddsDecimal = 7.25 reproduces the
 // slip exactly. Never second-guess his book's boost arithmetic — record the slip's numbers.
 const PERSONAL_CARD_EVENT = 'R2026524'; // Rocket Classic, Detroit Golf Club
-// Tom's Matsuyama/Gerard top-30 double (28 Jul) was WITHDRAWN with the card trim the same day —
-// he asked for the model's preferred pairing instead (Schauffele × Cantlay, the two highest
-// calibrated top-30 probs: 53.0% × 48.3% ≈ 25.6%, fair price ~2.9/1 — worth taking at 3/1+).
-// Repopulate with his real slip numbers if he places it.
-const PERSONAL_CARD = null;
+// Tom's double (28 Jul, placed at bet365): the model's preferred pairing — Schauffele × Cantlay
+// both top 30 — at 2.90 decimal, £10 returning £29 (reconciles: 10 × 2.90 = 29 ✓). Honest note:
+// the guidance was "take at 4.0+"; 2.90 implies 34.5% vs the model's 25.6%, so the book priced
+// this one tight. His earlier Matsuyama/Gerard double stays withdrawn (never placed).
+const PERSONAL_CARD = {
+  note: "Tom's double — one ticket, two legs at 2.90: Xander Schauffele and Patrick Cantlay both to finish top 30. The model's own preferred pairing (its two strongest calibrated top-30 probabilities, 53% and 48%), though the book quoted it shorter than the model's fair price — the class case carries it. £10 on, returning £29. Settles leg-by-leg off the final leaderboard; both legs must land.",
+  betBuilders: [
+    {
+      oddsDecimal: 2.90, stake: 10, points: 2, toReturn: 29.00,
+      legs: [
+        { player: 'Xander Schauffele', market: 'Top 30 Finish (Inc Ties)', cond: 'top30' },
+        { player: 'Patrick Cantlay',   market: 'Top 30 Finish (Inc Ties)', cond: 'top30' },
+      ],
+    },
+  ],
+  singles: [],
+};
 
 // Weekly editorial - the recap is auto-built from the ledger; week-ahead + spotlight are hand-written.
 // Hand-written editorial for ONE event (gated on EDITORIAL_EVENT so it can't leak onto a later
@@ -157,7 +170,7 @@ const PERSONAL_CARD = null;
 // The P&L recap is auto-built from the ledger regardless. Refresh both weekly.
 const EDITORIAL_EVENT = MANUAL_CARD_EVENT; // editorial applies only to this event
 const EDITORIAL = {
-  story: "The head-to-head has a scoreboard now, and nobody's smiling. At the 3M Open, Tom's five each-way swings and the boosted builder all missed — 13 points gone, the bank at its season low of 68.25 — while The Green Book's paper card bled slower (-8.3 on 11 paper points), its one bright spot Hideki Matsuyama cashing a top-30 banker at T3. Jackson Koivun won at a record 25-under in his third professional start; nobody saw that coming, including us. So after two split weeks the series stands one apiece: Tom took The Open on two landed bet builders (-1.1 points against the model's -14), the model took the 3M. Season-long, the ledger says the model's real-money picks are losing slower (-19% ROI) than the human ones (Tom's calls -47%, judgment picks -100%) — but everything is losing, and the only tier in actual profit anywhere is the place-market grind the restructure was built around. So the head-to-head goes to round three — and this time both cards are real money. The Green Book plays it by the book: a banker core of four top-30 grinders — Xander Schauffele, Ryan Gerard, Patrick Cantlay and Christiaan Bezuidenhout — two small doubles built from those legs, and an each-way tier that finally has REAL prices under it: Wyndham Clark at 20/1 and Akshay Bhatia at 40/1 from the 27 July odds boards, both clearing the +20% edge test the rules demand. Ten points, no chasing. Tom answers with three each-way picks at his bet365 quotes — and this week, for the first time, he ran his shortlist past the model and kept only what the numbers liked: Hideki Matsuyama at 23.00 off his 3M podium, Detroit specialist Davis Thompson at 34.00 (T2 here, hottest form on the card), and last year's T6 Jackson Suber at 56.00, whose place price the model rates the best value Tom's ever brought it. Six points of Tom, ten of machine, and the ledger referees as always.",
+  story: "The head-to-head has a scoreboard now, and nobody's smiling. At the 3M Open, Tom's five each-way swings and the boosted builder all missed — 13 points gone, the bank at its season low of 68.25 — while The Green Book's paper card bled slower (-8.3 on 11 paper points), its one bright spot Hideki Matsuyama cashing a top-30 banker at T3. Jackson Koivun won at a record 25-under in his third professional start; nobody saw that coming, including us. So after two split weeks the series stands one apiece: Tom took The Open on two landed bet builders (-1.1 points against the model's -14), the model took the 3M. Season-long, the ledger says the model's real-money picks are losing slower (-19% ROI) than the human ones (Tom's calls -47%, judgment picks -100%) — but everything is losing, and the only tier in actual profit anywhere is the place-market grind the restructure was built around. So the head-to-head goes to round three — and this time both cards are real money. The Green Book plays it by the book: a banker core of four top-30 grinders — Xander Schauffele, Ryan Gerard, Patrick Cantlay and Christiaan Bezuidenhout — two small doubles built from those legs, and an each-way tier that finally has REAL prices under it: Wyndham Clark at 20/1 and Akshay Bhatia at 40/1 from the 27 July odds boards, both clearing the +20% edge test the rules demand. Ten points, no chasing. Tom answers with three each-way picks at his bet365 quotes — and this week, for the first time, he ran his shortlist past the model and kept only what the numbers liked: Hideki Matsuyama at 23.00 off his 3M podium, Detroit specialist Davis Thompson at 34.00 (T2 here, hottest form on the card), and last year's T6 Jackson Suber at 56.00, whose place price the model rates the best value Tom's ever brought it. He's also taken the model's advice on the double, backing its preferred Schauffele/Cantlay top-30 pairing at 2.90 (£10 returning £29) — the book squeezed the price, but it's the first bet on the board picked by the machine and staked by the man. Eight points of Tom, ten of machine, and the ledger referees as always.",
   courseIntro: "Detroit Golf Club is as gentle as the PGA Tour gets: a flat Donald Ross parkland with wide fairways, four reachable par 5s and soft, receptive greens — winners here finish between 18- and 26-under, so the week is a wedge-and-putter contest and birdie conversion is the whole game. The forecast keeps it that way: hot and dry to start (88-92°F Thursday-Friday), light winds all four days and only a passing chance of a Saturday shower, so the greens should stay receptive and the low scores keep coming. That reads for sharp short-iron players with hot putters over pure length — exactly the profile of Wyndham Clark (elite approach-putting combo, T8 here) and Akshay Bhatia (runner-up here in 2024, best putting numbers on our board). One more wrinkle: this is the final Rocket Classic at Detroit Golf Club, so the course-history book closes this week.",
   spotlight: null,
 };
