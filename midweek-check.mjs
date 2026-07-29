@@ -42,6 +42,15 @@ try {
   const field = await getField(eventId);
   const inField = new Set(field.players.map((p) => String(p.id)));
   for (const b of picks) {
+    // Exotics (doubles/builders) have no top-level playerId — check each LEG's player instead
+    // of the combined "A + B" display name (which is never a field entry).
+    if (b.legs) {
+      for (const leg of b.legs) {
+        if (inField.has(String(leg.playerId))) console.log(`  OK   ${leg.player} (leg of ${b.marketLabel} ${b.priceFractional}) still in the field`);
+        else { console.log(`  WD?  ${leg.player} (leg of ${b.marketLabel}) is NOT in the current field - check for a withdrawal NOW`); problems.push(`${leg.player} (leg of ${b.player}) may have withdrawn`); }
+      }
+      continue;
+    }
     if (inField.has(String(b.playerId))) console.log(`  OK   ${b.player} (${b.marketLabel} ${b.priceFractional}) still in the field`);
     else { console.log(`  WD?  ${b.player} is NOT in the current field - check for a withdrawal NOW`); problems.push(`${b.player} may have withdrawn`); }
   }
