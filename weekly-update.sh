@@ -22,6 +22,11 @@ LOG="weekly-update.log"
     exit 0
   fi
 
+  # Refresh the SG trends report for the upcoming event (TRENDS.md, local-only scouting input
+  # for the green-book-picks skill). Non-fatal: the board never depends on it.
+  node trends.mjs < /dev/null > /dev/null && echo "✓ TRENDS.md refreshed." \
+    || echo "✗ trends.mjs failed - TRENDS.md may be stale (non-fatal)."
+
   if git rev-parse --git-dir > /dev/null 2>&1; then
     if git diff --quiet -- data.js data.json index.html ledger.json shadow-ledger.json; then
       echo "No change in picks - nothing to publish."

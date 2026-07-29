@@ -60,4 +60,13 @@ _These persist across runs. Add durable lessons here; review.mjs never overwrite
 - **Non-PGA players are floored, not rated.** DP World Tour/LIV players (e.g. Hatton) get 250/1 from the model because it can't see their strokes-gained — a data gap, not a verdict. Treat these as eye-test/place-terms judgement picks until a DataGolf feed is added.
 - **Each-way sweet spot is 20/1–50/1.** Below ~16/1 the place return is too thin; above ~50/1 it's a lottery ticket. Backtest-derived — revisit once there are more settled e/w bets.
 - **Card restructure (2026-07-21, agreed with Tom — CARD-RESTRUCTURE-PLAN.md).** The live bleeding was the win e/w MARKET at model-estimated longshot prices (−72.5% ROI live), not the model. The card is now three tiers: BANKERS (make-cut/top-20/top-30 singles, the core), a lean EACH-WAY side at REAL sourced prices only (hard 20/1–50/1 band; a To Win pick can never publish on a model estimate — enforced in build.mjs), and 1–2 small DOUBLES from banker legs. Weekly exposure hard-capped (~10pts auto / ~11pts merged). The old selector paper-trades on in shadow-ledger-legacy.json ("Restructure A/B").
+- **Component SG surges are invisible to the composite — read TRENDS.md before picking (the
+  Jake Knapp case, 2026 Rocket Classic).** The model's form input is SG:Total per recent event,
+  so Knapp's post-injury ball-striking surge (+0.79 OTT / +1.83 approach per round at the 3M)
+  was blended away, and a stale injury note in player-notes.mjs was still docking him 0.9 strokes
+  a month after he'd returned — Tom spotted him by eye at 21.00 while the model priced him a
+  no-bet. Fixes now in place: `trends.mjs` auto-generates a per-component trends report
+  (TRENDS.md, refreshed by the Monday job) with a ⚠ stale-note check, and the skill reads it at
+  step §1. Lesson: date every player note, and re-verify any negative adjust the moment the
+  numbers turn.
 - **Bankers don't win — and aren't asked to (Tom).** A banker is a grinder backed to clear a market, never a contend/win claim; nobody converts banker status into wins (peak early-2025 Scheffler excepted, and he's off the card by house rule). The 21-event replay of the new selector showed the sim runs HOT on exactly these markets (make-cut 63% actual vs 68% stated; top-20 36% vs 44%), so model.mjs now carries a calibration shade `CAL = { makeCut: 0.93, top20: 0.85 }` on the model side only. Re-derive from the replay as the sample grows; never hand-tune.
