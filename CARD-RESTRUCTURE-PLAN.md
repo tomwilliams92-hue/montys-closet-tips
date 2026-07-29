@@ -32,7 +32,7 @@ each-way bets and has seen better returns on multiples (make-the-cut, top 10/20/
 3. Extend backtest.mjs to cut/top-30 + multi structure → validate over the 21-event season
    replay BEFORE staking. (Backtest stays OUT of the public ledger — hard rule.)
 4. ledger.mjs leg-level settlement for multis; board rendering for multis.
-5. Update `green-book-picks` skill (three-tier workflow, manual price sourcing for cut/top-30 —
+5. Update `golf-tips` skill (three-tier workflow, manual price sourcing for cut/top-30 —
    pgatour feed only covers win/top-5/10/20) + `montys-tips-writeup` for new card shape.
 6. Shadow ledger runs old-style vs new-style in parallel.
 

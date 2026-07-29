@@ -1,7 +1,7 @@
 // dryrun.mjs
 // Consult The Green Book WITHOUT writing anything - no ledger, no data.js, no board.
 // Runs the exact same data pulls + model as build.mjs and prints the model's full read,
-// so picks can be researched before committing a card. Used by the green-book-picks skill.
+// so picks can be researched before committing a card. Used by the golf-tips skill.
 //
 //   node dryrun.mjs                     -> next event that hasn't started yet
 //   node dryrun.mjs R2026100            -> force a specific tournament id

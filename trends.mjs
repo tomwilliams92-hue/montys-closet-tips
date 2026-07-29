@@ -12,7 +12,7 @@
 // and diluted by season-long averages. Tom spotted it by eye; the pipeline had no way to. This
 // report compares each player's RECENT per-component strokes-gained (last 3 measured starts,
 // recency-weighted like the model) against his SEASON baseline and surfaces the movers, so the
-// weekly selection (green-book-picks skill §1) starts from the trends, not just the composite.
+// weekly selection (golf-tips skill §1) starts from the trends, not just the composite.
 // It also cross-references player-notes.mjs: a player carrying a negative note adjust while his
 // numbers surge is flagged as a possible STALE NOTE — exactly what suppressed Knapp's rating.
 
