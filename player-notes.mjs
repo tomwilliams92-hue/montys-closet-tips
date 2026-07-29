@@ -10,8 +10,8 @@
 
 export const PLAYER_NOTES = {
   'jake knapp': {
-    adjust: -0.9, tag: 'Injury doubt',
-    note: 'Returning from a thumb sprain that forced three straight withdrawals, including the PGA Championship (as of late June 2026). Elite when fit - 3rd in SG: Total this season - but until he completes a full tournament he is a back-with-caution, not a confident play.',
+    adjust: -0.2, tag: 'Comeback',
+    note: 'Back from the thumb injury and now multiple completed starts into the comeback with the custom splint (as of 28 Jul 2026) - gained ~2 strokes a round at the 3M Open with the ball-striking leading (+0.79 OTT, +1.83 approach per round). Small residual caution for the splint, but the elite pre-injury form (3rd in SG: Total) is visibly returning.',
   },
 };
 
