@@ -112,14 +112,15 @@ const MANUAL_CARD = [
   // "1pt each way" = 1pt win + 1pt place = points 2 (£5 e/w at £5/pt, same as his 3M card).
   // PLACES ASSUMED 8 at 1/5 — Tom to confirm the slip (his 3M slip was Each Way Extra, 10
   // places; update `places:` before the weekend if so).
-  { name: 'Hideki Matsuyama', market: 'win', eachWay: true, points: 2, price: 23.00, type: 'toms-call' }, // T3 last week, fairest-priced of Tom's picks
-  // Knapp re-added 28 Jul on Tom's ball-striking read (+0.79 OTT / +1.83 app per rd at the 3M) —
-  // vindicated by the stale-note fix: with the injury dock refreshed the model now makes him
-  // 2.3% win / 18.6% top-8, close to fair at his 21.00 quote, with T4 course form. PRICE IS HIS
-  // EARLIER QUOTE — confirm the slip when placed.
-  { name: 'Jake Knapp',     market: 'win', eachWay: true, points: 2, price: 21.00,  type: 'toms-call' },
-  { name: 'Davis Thompson', market: 'win', eachWay: true, points: 2, price: 34.00,  type: 'toms-call' }, // T2 here, form up — US boards had 78/1, so shop the price
-  { name: 'Jackson Suber',  market: 'win', eachWay: true, points: 2, price: 56.00,  type: 'toms-call' }, // T6 here last year; model's favourite of Tom's longshots (place +29%)
+  // Tom's REAL slip (placed 30 Jul 09:23, ref ET3083226855W): Each Way Extra, 1/5 odds,
+  // 10 PLACES on all five. £5 e/w = points 2; £2.50 e/w = points 1 (£5/pt). £40 total staked,
+  // £925 total return — the ledger reproduces it exactly (Horschel's line confirmed by the
+  // slip arithmetic: £925 only reconciles with 91.00 at £2.50 e/w).
+  { name: 'Hideki Matsuyama', market: 'win', eachWay: true, points: 2, price: 23.00, places: 10, type: 'toms-call' }, // T3 last week — to return £142
+  { name: 'Jake Knapp',     market: 'win', eachWay: true, points: 2, price: 21.00,  places: 10, type: 'toms-call' }, // Tom's ball-striking comeback call — to return £130
+  { name: 'Davis Thompson', market: 'win', eachWay: true, points: 2, price: 34.00,  places: 10, type: 'toms-call' }, // T2 here, form up — to return £208
+  { name: 'Jackson Suber',  market: 'win', eachWay: true, points: 1, price: 56.00,  places: 10, type: 'toms-call' }, // field's #1 OTT mover — to return £170
+  { name: 'Billy Horschel', market: 'win', eachWay: true, points: 1, price: 91.00,  places: 10, type: 'toms-call' }, // top ball-striking surge (trends) — to return £275
 ];
 const BEST_BET_NAME = 'Wyndham Clark';           // model rank, real-price edge and course fit all agree
 // Merge the model's banker/double tiers into the card (top-30 singles + doubles from those legs).
@@ -151,18 +152,20 @@ const EXTRA_CARD = null;
 // returning £72.50; the ledger just needs return/stake, so oddsDecimal = 7.25 reproduces the
 // slip exactly. Never second-guess his book's boost arithmetic — record the slip's numbers.
 const PERSONAL_CARD_EVENT = 'R2026524'; // Rocket Classic, Detroit Golf Club
-// Tom's double (28 Jul, placed at bet365): the model's preferred pairing — Schauffele × Cantlay
-// both top 30 — at 2.90 decimal, £10 returning £29 (reconciles: 10 × 2.90 = 29 ✓). Honest note:
-// the guidance was "take at 4.0+"; 2.90 implies 34.5% vs the model's 25.6%, so the book priced
-// this one tight. His earlier Matsuyama/Gerard double stays withdrawn (never placed).
+// Tom's bet builder (placed 30 Jul 09:23): the model's Schauffele/Cantlay top-30 pairing PLUS
+// a Knapp top-30 leg he added for the boost — 6.00 with a 25% WINNINGS boost (boost on winnings,
+// not stake): £10 returning £72.50, so oddsDecimal 7.25 reproduces the slip exactly (same
+// pattern as the 3M builder — never second-guess the book's boost arithmetic). This supersedes
+// the plain 2-leg double at 2.90 recorded 28 Jul (replaced before it settled).
 const PERSONAL_CARD = {
-  note: "Tom's double — one ticket, two legs at 2.90: Xander Schauffele and Patrick Cantlay both to finish top 30. The model's own preferred pairing (its two strongest calibrated top-30 probabilities, 53% and 48%), though the book quoted it shorter than the model's fair price — the class case carries it. £10 on, returning £29. Settles leg-by-leg off the final leaderboard; both legs must land.",
+  note: "Tom's bet builder — one ticket, three legs at 6.00 with a 25% winnings boost: Xander Schauffele, Patrick Cantlay and Jake Knapp all to finish top 30. The Schauffele/Cantlay pairing is the model's own preferred double (its two strongest calibrated top-30 probabilities, 53% and 48%); the Knapp leg is Tom's comeback conviction riding shotgun. £10 on, returning £72.50 with the boost. Settles leg-by-leg off the final leaderboard; every leg must land.",
   betBuilders: [
     {
-      oddsDecimal: 2.90, stake: 10, points: 2, toReturn: 29.00,
+      oddsDecimal: 7.25, stake: 10, points: 2, toReturn: 72.50,
       legs: [
         { player: 'Xander Schauffele', market: 'Top 30 Finish (Inc Ties)', cond: 'top30' },
         { player: 'Patrick Cantlay',   market: 'Top 30 Finish (Inc Ties)', cond: 'top30' },
+        { player: 'Jake Knapp',        market: 'Top 30 Finish (Inc Ties)', cond: 'top30' },
       ],
     },
   ],
