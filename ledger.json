@@ -979,10 +979,10 @@
       "pickType": "model",
       "priceEstimated": false,
       "modelProb": 0.1135625,
-      "status": "pending",
-      "finishPos": null,
-      "returnPts": null,
-      "profitPts": null
+      "status": "lost",
+      "finishPos": "CUT",
+      "returnPts": 0,
+      "profitPts": -2
     },
     {
       "id": "R2026524:56630:win",
@@ -1002,10 +1002,10 @@
       "pickType": "model",
       "priceEstimated": false,
       "modelProb": 0.056625,
-      "status": "pending",
-      "finishPos": null,
-      "returnPts": null,
-      "profitPts": null
+      "status": "lost",
+      "finishPos": "CUT",
+      "returnPts": 0,
+      "profitPts": -1
     },
     {
       "id": "R2026524:32839:win",
@@ -1025,10 +1025,10 @@
       "pickType": "toms-call",
       "priceEstimated": false,
       "modelProb": 0.030520833333333334,
-      "status": "pending",
-      "finishPos": null,
-      "returnPts": null,
-      "profitPts": null
+      "status": "won",
+      "finishPos": "T5",
+      "returnPts": 5.4,
+      "profitPts": 3.4
     },
     {
       "id": "R2026524:47420:win",
@@ -1048,10 +1048,10 @@
       "pickType": "toms-call",
       "priceEstimated": false,
       "modelProb": 0.020375,
-      "status": "pending",
-      "finishPos": null,
-      "returnPts": null,
-      "profitPts": null
+      "status": "lost",
+      "finishPos": "CUT",
+      "returnPts": 0,
+      "profitPts": -2
     },
     {
       "id": "R2026524:58168:win",
@@ -1071,10 +1071,10 @@
       "pickType": "toms-call",
       "priceEstimated": false,
       "modelProb": 0.0166875,
-      "status": "pending",
-      "finishPos": null,
-      "returnPts": null,
-      "profitPts": null
+      "status": "won",
+      "finishPos": "T8",
+      "returnPts": 7.6,
+      "profitPts": 5.6
     },
     {
       "id": "R2026524:60019:win",
@@ -1094,10 +1094,10 @@
       "pickType": "toms-call",
       "priceEstimated": false,
       "modelProb": 0.008416666666666666,
-      "status": "pending",
-      "finishPos": null,
-      "returnPts": null,
-      "profitPts": null
+      "status": "lost",
+      "finishPos": "T50",
+      "returnPts": 0,
+      "profitPts": -1
     },
     {
       "id": "R2026524:29420:win",
@@ -1117,10 +1117,10 @@
       "pickType": "toms-call",
       "priceEstimated": false,
       "modelProb": 0.0053125,
-      "status": "pending",
-      "finishPos": null,
-      "returnPts": null,
-      "profitPts": null
+      "status": "lost",
+      "finishPos": "CUT",
+      "returnPts": 0,
+      "profitPts": -1
     },
     {
       "id": "R2026524:48081:top30",
@@ -1140,10 +1140,10 @@
       "pickType": "model",
       "priceEstimated": true,
       "modelProb": 0.5325,
-      "status": "pending",
-      "finishPos": null,
-      "returnPts": null,
-      "profitPts": null
+      "status": "won",
+      "finishPos": "2",
+      "returnPts": 4.21,
+      "profitPts": 2.21
     },
     {
       "id": "R2026524:59018:top30",
@@ -1163,10 +1163,10 @@
       "pickType": "model",
       "priceEstimated": true,
       "modelProb": 0.4323125,
-      "status": "pending",
-      "finishPos": null,
-      "returnPts": null,
-      "profitPts": null
+      "status": "won",
+      "finishPos": "T8",
+      "returnPts": 2.58,
+      "profitPts": 1.58
     },
     {
       "id": "R2026524:35450:top30",
@@ -1186,10 +1186,10 @@
       "pickType": "model",
       "priceEstimated": true,
       "modelProb": 0.4794583333333333,
-      "status": "pending",
-      "finishPos": null,
-      "returnPts": null,
-      "profitPts": null
+      "status": "won",
+      "finishPos": "T8",
+      "returnPts": 2.3,
+      "profitPts": 1.3
     },
     {
       "id": "R2026524:45522:top30",
@@ -1209,10 +1209,10 @@
       "pickType": "model",
       "priceEstimated": true,
       "modelProb": 0.4654583333333333,
-      "status": "pending",
-      "finishPos": null,
-      "returnPts": null,
-      "profitPts": null
+      "status": "lost",
+      "finishPos": "T45",
+      "returnPts": 0,
+      "profitPts": -1
     },
     {
       "id": "R2026524:multi:0",
@@ -1245,10 +1245,10 @@
       "exotic": true,
       "priceEstimated": true,
       "modelProb": 0.23020640625,
-      "status": "pending",
-      "finishPos": null,
-      "returnPts": null,
-      "profitPts": null
+      "status": "won",
+      "finishPos": "Xander Schauffele 2, Ryan Gerard T8",
+      "returnPts": 5.43,
+      "profitPts": 4.43
     },
     {
       "id": "R2026524:multi:1",
@@ -1281,10 +1281,10 @@
       "exotic": true,
       "priceEstimated": true,
       "modelProb": 0.2231678767361111,
-      "status": "pending",
-      "finishPos": null,
-      "returnPts": null,
-      "profitPts": null
+      "status": "lost",
+      "finishPos": "Patrick Cantlay T8, Christiaan Bezuidenhout T45",
+      "returnPts": 0,
+      "profitPts": -1
     },
     {
       "id": "R2026524:personal:accumulator:0",
@@ -1321,6 +1321,111 @@
       "priceFractional": "7.25",
       "pickType": "toms-call",
       "exotic": true,
+      "status": "lost",
+      "finishPos": "Xander Schauffele 2, Patrick Cantlay T8, Jake Knapp MC",
+      "returnPts": 0,
+      "profitPts": -2
+    },
+    {
+      "id": "R2026013:46442:top30",
+      "weekNumber": 34,
+      "eventId": "R2026013",
+      "eventName": "Wyndham Championship",
+      "placedAt": "2026-08-03T06:06:17.125Z",
+      "playerId": "46442",
+      "player": "Maverick McNealy",
+      "market": "top30",
+      "marketLabel": "Top 30",
+      "eachWay": false,
+      "eachWayPlaces": null,
+      "stakePts": 2,
+      "priceDecimal": 2.280610063191904,
+      "priceFractional": "5/4",
+      "pickType": "model",
+      "priceEstimated": true,
+      "modelProb": 0.503375,
+      "status": "pending",
+      "finishPos": null,
+      "returnPts": null,
+      "profitPts": null
+    },
+    {
+      "id": "R2026013:39546:top30",
+      "weekNumber": 34,
+      "eventId": "R2026013",
+      "eventName": "Wyndham Championship",
+      "placedAt": "2026-08-03T06:06:17.125Z",
+      "playerId": "39546",
+      "player": "Keith Mitchell",
+      "market": "top30",
+      "marketLabel": "Top 30",
+      "eachWay": false,
+      "eachWayPlaces": null,
+      "stakePts": 1,
+      "priceDecimal": 2.714471526324719,
+      "priceFractional": "7/4",
+      "pickType": "model",
+      "priceEstimated": true,
+      "modelProb": 0.4234375,
+      "status": "pending",
+      "finishPos": null,
+      "returnPts": null,
+      "profitPts": null
+    },
+    {
+      "id": "R2026013:52375:top30",
+      "weekNumber": 34,
+      "eventId": "R2026013",
+      "eventName": "Wyndham Championship",
+      "placedAt": "2026-08-03T06:06:17.125Z",
+      "playerId": "52375",
+      "player": "Doug Ghim",
+      "market": "top30",
+      "marketLabel": "Top 30",
+      "eachWay": false,
+      "eachWayPlaces": null,
+      "stakePts": 1,
+      "priceDecimal": 1.8425396337952475,
+      "priceFractional": "5/6",
+      "pickType": "model",
+      "priceEstimated": true,
+      "modelProb": 0.5892083333333333,
+      "status": "pending",
+      "finishPos": null,
+      "returnPts": null,
+      "profitPts": null
+    },
+    {
+      "id": "R2026013:multi:0",
+      "weekNumber": 34,
+      "eventId": "R2026013",
+      "eventName": "Wyndham Championship",
+      "placedAt": "2026-08-03T06:06:17.125Z",
+      "player": "Maverick McNealy + Keith Mitchell",
+      "market": "accumulator",
+      "marketLabel": "Double — Top 30 / Top 30",
+      "legs": [
+        {
+          "playerId": "46442",
+          "player": "Maverick McNealy",
+          "market": "Top 30",
+          "cond": "top30"
+        },
+        {
+          "playerId": "39546",
+          "player": "Keith Mitchell",
+          "market": "Top 30",
+          "cond": "top30"
+        }
+      ],
+      "eachWay": false,
+      "stakePts": 1,
+      "priceDecimal": 6.1906510791840414,
+      "priceFractional": "5/1",
+      "pickType": "model",
+      "exotic": true,
+      "priceEstimated": true,
+      "modelProb": 0.21314785156250002,
       "status": "pending",
       "finishPos": null,
       "returnPts": null,
