@@ -15,6 +15,25 @@ export const DEFAULT_PROFILE = {
 
 // Keyed by PGA Tour tournament id (e.g. Travelers 2026 = R2026034).
 export const COURSE_PROFILES = {
+  // Wyndham Championship - Sedgefield Country Club, Greensboro NC
+  R2026013: {
+    course: 'Sedgefield Country Club',
+    par: 70,
+    yards: 7131,
+    grass: 'Champion Bermuda greens, Bermuda fairways (warm-season)',
+    archetype: 'Precision irons on a short Ross parkland',
+    summary:
+      'A classic Donald Ross parkland playing par 70 at 7,131 yards - short by tour standards, with tight tree-lined corridors and small, crowned Bermuda greens that shed anything imprecise. Driver is optional; the week is decided by flighted short/mid irons into the right sections and holing out on grainy Bermuda. The regular-season finale brings FedEx-bubble desperation golf, and winning scores still run low (high-teens under), so it is a precision birdie contest, not a slog.',
+    tags: [
+      'Donald Ross design, par 70 at 7,131 yards - one of the shorter tour stops',
+      'Small crowned Bermuda greens - misses feed off the surfaces, sharp wedge/short-game test',
+      'Tight tree-lined corridors - position off the tee beats raw distance',
+      'Approach play is the separator - sub-150-yard scoring clubs all day',
+      'Season finale: FedEx bubble pressure - form and course comfort over pedigree',
+    ],
+    weights: { ott: 0.18, app: 0.36, arg: 0.18, putt: 0.28 },
+  },
+
   // Rocket Classic - Detroit Golf Club, Detroit MI
   R2026524: {
     course: 'Detroit Golf Club',

@@ -89,40 +89,31 @@ const POUNDS_PER_POINT = 5;                   // in-house suggested stake plan: 
 // persisted to the ledger so review.mjs can answer "who actually picks the winners": 'model'
 // (model edge at a real price led) · 'conditions' (course/weather-fit led) · 'judgment'
 // (eye-test / data-thin) · 'toms-call' (Tom's override).
-// ROCKET CLASSIC (R2026524, Detroit Golf Club, 30 Jul–2 Aug) — head-to-head round 3, BOTH cards
-// real money: The Green Book's 10pts under the full restructure rules + Tom's 10pts (8 below
-// + his £10 Schauffele/Cantlay top-30 double in PERSONAL_CARD). E/W tier at REAL
-// sourced prices only — win odds from the Golf News Net odds board dated 27 Jul 2026 (book not
-// named; Clark +2000 = 20/1, Bhatia +4100 ≈ 40/1 UK). Both clear the +20% edge test at those
-// quotes (model: Clark 8.7% to win vs 4.8% implied; Bhatia 4.4% vs 2.4%) and both bring course
-// form (Clark T8 in 2 starts here, Bhatia T2 in 2024) with form trending up — three legs each.
-// Bankers/doubles come from the model tier via INCLUDE_AUTO_BANKERS (model-estimate place
-// prices, flagged on the board): Schauffele, Gerard, Cantlay, Bezuidenhout top-30s + two small
-// doubles. 10pts total — at the merged-week cap. Bezuidenhout WD rumours checked 28 Jul: that
-// was the 2025 event (stale Newsweek piece); the only 2026 WD is Jason Day (heavy.com, 27 Jul).
-// TOM: re-check price AND each-way places at bet365 before betting — 8 places at 1/5 assumed;
-// books move and the odds board is a US aggregate, not a slip.
-const MANUAL_CARD_EVENT = 'R2026524'; // Rocket Classic, Detroit Golf Club
+// WYNDHAM CHAMPIONSHIP (R2026013, Sedgefield CC, 6–9 Aug) — Green Book v2, card built 5 Aug.
+// New Sedgefield course profile added this week (precision-irons Ross parkland, app 0.36).
+// Sources: TRENDS.md (ball-striking surges), model dryrun on the new profile, no Tom shortlist
+// this week (his names welcome any time — the card rebuilds idempotently). E/W tier at REAL
+// sourced prices: Tom Kim 33/1 (FanDuel +3300 via pgatour.com odds outlook, 3 Aug), Davis
+// Thompson 40/1 (bet365 via Today's Golfer tips, 3 Aug, 8 places 1/5). Kim clears the win-edge
+// test outright (model 4.5% vs 2.9% implied at 34.0 → +53%; top-10 40.9% vs 13.2% implied
+// place) and won here in 2022 — all three gate legs. Thompson is place-led value (win edge
+// +11% only, but top-10 26.5% vs 11.1% implied place at 40/1) with the field's quietest big
+// ball-striking surge (+0.60 OTT / +0.57 app) and a 15.0 course scoring average — trend + fit
+// + place value. Bankers/doubles from the model tier via INCLUDE_AUTO_BANKERS (model-estimate
+// place prices, flagged): the build-time pull certified only McNealy top-30 — the earlier
+// dryrun also offered Bezuidenhout/Cole + a double, but its market estimates moved on the
+// fresh data and those legs fell below the banker threshold, so they stay off (the gate is
+// the gate). 6pts total house money after a +7.52 week — lean by design, no chasing.
+// WD check 5 Aug (midweek-check + news sweep): Patrick Cantlay WD'd Monday (never a candidate
+// here); every card name confirmed in the field. Tom Kim WD headlines in search are from 2023
+// — date-checked, he plays. TOM: check bet365's Kim price/places before betting — 33/1 is a
+// FanDuel quote; if bet365 is far shorter, shop it or leave it.
+const MANUAL_CARD_EVENT = 'R2026013'; // Wyndham Championship, Sedgefield CC
 const MANUAL_CARD = [
-  { name: 'Wyndham Clark', market: 'win', eachWay: true, points: 2, price: '20/1', type: 'model' }, // best bet — model #1, +83% edge at the real quote
-  { name: 'Akshay Bhatia', market: 'win', eachWay: true, points: 1, price: '40/1', type: 'model' }, // top-8 ~32% vs ~11% implied place at 40/1
-  // TOM'S CARD (28 Jul, trimmed after the model read — kept the three the numbers liked, dropped
-  // Knapp/Gerard/Horschel/Roy and the Matsuyama-Gerard double). Prices are his bet365 decimal
-  // quotes, entered as numbers per the house convention ("23/1" from Tom = 23.00 on the slip).
-  // "1pt each way" = 1pt win + 1pt place = points 2 (£5 e/w at £5/pt, same as his 3M card).
-  // PLACES ASSUMED 8 at 1/5 — Tom to confirm the slip (his 3M slip was Each Way Extra, 10
-  // places; update `places:` before the weekend if so).
-  // Tom's REAL slip (placed 30 Jul 09:23, ref ET3083226855W): Each Way Extra, 1/5 odds,
-  // 10 PLACES on all five. £5 e/w = points 2; £2.50 e/w = points 1 (£5/pt). £40 total staked,
-  // £925 total return — the ledger reproduces it exactly (Horschel's line confirmed by the
-  // slip arithmetic: £925 only reconciles with 91.00 at £2.50 e/w).
-  { name: 'Hideki Matsuyama', market: 'win', eachWay: true, points: 2, price: 23.00, places: 10, type: 'toms-call' }, // T3 last week — to return £142
-  { name: 'Jake Knapp',     market: 'win', eachWay: true, points: 2, price: 21.00,  places: 10, type: 'toms-call' }, // Tom's ball-striking comeback call — to return £130
-  { name: 'Davis Thompson', market: 'win', eachWay: true, points: 2, price: 34.00,  places: 10, type: 'toms-call' }, // T2 here, form up — to return £208
-  { name: 'Jackson Suber',  market: 'win', eachWay: true, points: 1, price: 56.00,  places: 10, type: 'toms-call' }, // field's #1 OTT mover — to return £170
-  { name: 'Billy Horschel', market: 'win', eachWay: true, points: 1, price: 91.00,  places: 10, type: 'toms-call' }, // top ball-striking surge (trends) — to return £275
+  { name: 'Tom Kim',        market: 'win', eachWay: true, points: 2, price: '33/1', type: 'model' }, // best bet — won here 2022, ball-striking surge, +53% edge at the real quote
+  { name: 'Davis Thompson', market: 'win', eachWay: true, points: 2, price: '40/1', type: 'model' }, // place-led: top-10 26.5% vs 11.1% implied at 40/1; T7-T8 last two starts
 ];
-const BEST_BET_NAME = 'Wyndham Clark';           // model rank, real-price edge and course fit all agree
+const BEST_BET_NAME = 'Tom Kim';                 // the only pick where all three gate legs agree at full strength
 // Merge the model's banker/double tiers into the card (top-30 singles + doubles from those legs).
 const INCLUDE_AUTO_BANKERS = true;
 const REMOVE = ['Scottie Scheffler'];            // house rule restored — the 3M bypass ended with that event
@@ -151,26 +142,11 @@ const EXTRA_CARD = null;
 // the boost applies to WINNINGS only, not the stake (Tom confirmed). His book shows £10
 // returning £72.50; the ledger just needs return/stake, so oddsDecimal = 7.25 reproduces the
 // slip exactly. Never second-guess his book's boost arithmetic — record the slip's numbers.
-const PERSONAL_CARD_EVENT = 'R2026524'; // Rocket Classic, Detroit Golf Club
-// Tom's bet builder (placed 30 Jul 09:23): the model's Schauffele/Cantlay top-30 pairing PLUS
-// a Knapp top-30 leg he added for the boost — 6.00 with a 25% WINNINGS boost (boost on winnings,
-// not stake): £10 returning £72.50, so oddsDecimal 7.25 reproduces the slip exactly (same
-// pattern as the 3M builder — never second-guess the book's boost arithmetic). This supersedes
-// the plain 2-leg double at 2.90 recorded 28 Jul (replaced before it settled).
-const PERSONAL_CARD = {
-  note: "Tom's bet builder — one ticket, three legs at 6.00 with a 25% winnings boost: Xander Schauffele, Patrick Cantlay and Jake Knapp all to finish top 30. The Schauffele/Cantlay pairing is the model's own preferred double (its two strongest calibrated top-30 probabilities, 53% and 48%); the Knapp leg is Tom's comeback conviction riding shotgun. £10 on, returning £72.50 with the boost. Settles leg-by-leg off the final leaderboard; every leg must land.",
-  betBuilders: [
-    {
-      oddsDecimal: 7.25, stake: 10, points: 2, toReturn: 72.50,
-      legs: [
-        { player: 'Xander Schauffele', market: 'Top 30 Finish (Inc Ties)', cond: 'top30' },
-        { player: 'Patrick Cantlay',   market: 'Top 30 Finish (Inc Ties)', cond: 'top30' },
-        { player: 'Jake Knapp',        market: 'Top 30 Finish (Inc Ties)', cond: 'top30' },
-      ],
-    },
-  ],
-  singles: [],
-};
+const PERSONAL_CARD_EVENT = 'R2026013'; // Wyndham Championship, Sedgefield CC
+// No personal card yet this week — Tom's Rocket builder settled with the event. When he brings
+// his Wyndham slips (builders are his proven specialty: +165% ROI on 3-leg builders), add them
+// here with the REAL slip numbers and rebuild.
+const PERSONAL_CARD = null;
 
 // Weekly editorial - the recap is auto-built from the ledger; week-ahead + spotlight are hand-written.
 // Hand-written editorial for ONE event (gated on EDITORIAL_EVENT so it can't leak onto a later
@@ -178,8 +154,8 @@ const PERSONAL_CARD = {
 // The P&L recap is auto-built from the ledger regardless. Refresh both weekly.
 const EDITORIAL_EVENT = MANUAL_CARD_EVENT; // editorial applies only to this event
 const EDITORIAL = {
-  story: "The head-to-head has a scoreboard now, and nobody's smiling. At the 3M Open, Tom's five each-way swings and the boosted builder all missed — 13 points gone, the bank at its season low of 68.25 — while The Green Book's paper card bled slower (-8.3 on 11 paper points), its one bright spot Hideki Matsuyama cashing a top-30 banker at T3. Jackson Koivun won at a record 25-under in his third professional start; nobody saw that coming, including us. So after two split weeks the series stands one apiece: Tom took The Open on two landed bet builders (-1.1 points against the model's -14), the model took the 3M. Season-long, the ledger says the model's real-money picks are losing slower (-19% ROI) than the human ones (Tom's calls -47%, judgment picks -100%) — but everything is losing, and the only tier in actual profit anywhere is the place-market grind the restructure was built around. So the head-to-head goes to round three — and this time both cards are real money. The Green Book plays it by the book: a banker core of four top-30 grinders — Xander Schauffele, Ryan Gerard, Patrick Cantlay and Christiaan Bezuidenhout — two small doubles built from those legs, and an each-way tier that finally has REAL prices under it: Wyndham Clark at 20/1 and Akshay Bhatia at 40/1 from the 27 July odds boards, both clearing the +20% edge test the rules demand. Ten points, no chasing. Tom answers with four each-way picks at his bet365 quotes — and this week, for the first time, he ran his shortlist past the model and trimmed it to what the numbers could live with: Hideki Matsuyama at 23.00 off his 3M podium, Jake Knapp at 21.00 — Tom's ball-striking spot, backed by a T4 at Detroit and a comeback surge the model itself had underrated behind a stale injury note until this week — Detroit specialist Davis Thompson at 34.00 (T2 here, hottest form on the card), and last year's T6 Jackson Suber at 56.00, whose place price the model rates the best value Tom's ever brought it. He's also taken the model's advice on the double, backing its preferred Schauffele/Cantlay top-30 pairing at 2.90 (£10 returning £29) — the book squeezed the price, but it's the first bet on the board picked by the machine and staked by the man. Ten points of Tom, ten of machine, and the ledger referees as always.",
-  courseIntro: "Detroit Golf Club is as gentle as the PGA Tour gets: a flat Donald Ross parkland with wide fairways, four reachable par 5s and soft, receptive greens — winners here finish between 18- and 26-under, so the week is a wedge-and-putter contest and birdie conversion is the whole game. The forecast keeps it that way: hot and dry to start (88-92°F Thursday-Friday), light winds all four days and only a passing chance of a Saturday shower, so the greens should stay receptive and the low scores keep coming. That reads for sharp short-iron players with hot putters over pure length — exactly the profile of Wyndham Clark (elite approach-putting combo, T8 here) and Akshay Bhatia (runner-up here in 2024, best putting numbers on our board). One more wrinkle: this is the final Rocket Classic at Detroit Golf Club, so the course-history book closes this week.",
+  story: "A winning week — the first one both cards can toast. Michael Thorbjornsen stole the Rocket Classic with a Sunday 63, but underneath him the board cashed all over: the Green Book's banker core landed three of four top-30s — Xander Schauffele ran second, Ryan Gerard and Patrick Cantlay both T8 — and the Schauffele/Gerard double at 9/2 paid with them, +4.52 on its ten points even with both each-way swings missing the cut. Tom's card answered with Hideki Matsuyama T5 at 23.00 and Davis Thompson T8 at 34.00 for +3.00 on his ten. That's +7.52 on the week, the bank up off its season low to 75.77, and head-to-head round three goes to the machine by a point and a half — the series now 2-1 to the model, with the honest footnote that Tom's each-way picks have cashed more tickets than its own two weeks running. On to Greensboro and the regular-season finale, where the card leans on a brand-new Sedgefield read: a precision-irons Donald Ross test, and the trends report lit up in exactly that column. The best bet is Tom Kim at 33/1 — a 2022 winner at Sedgefield, gaining two strokes a round over his last three starts with the ball-striking surging, and the model makes his win chance half again what the price implies. Davis Thompson keeps his place on the card after cashing on it last week: T7 and T8 in his last two starts, the quietest big ball-striking surge in the field, a 15.0 scoring average here — and at 40/1 with eight places, the place half of the ticket is the value. The banker tier is a single grinder this week — Maverick McNealy to make the top 30 — because the model's fresh numbers wouldn't certify anyone else at the threshold, and the rule is the gate decides, not the card shape. Six points of house money after a winning week — lean by design, no chasing — and one wrinkle to know: Patrick Cantlay, last week's banker, withdrew Monday. The FedEx bubble makes this the most desperate leaderboard of the regular season; the ledger, as always, referees.",
+  courseIntro: "Sedgefield Country Club is the tour's late-summer throwback: a Donald Ross parkland at just 7,131 yards, par 70, with tight tree-lined corridors and small, crowned Bermuda greens that shed anything struck without conviction. Driver is optional — position and flighted short irons are everything, and winning scores still reach the high teens under par, so it's a precision birdie contest rather than a slog. The forecast reads hot and heavy — 87-92°F all four days with light 10-11mph winds and a decent chance of Friday thunderstorms — so the greens should soften as the week goes on and the approach-play separator only sharpens. That's the profile behind the card: Tom Kim won here in 2022 flushing exactly these irons, Davis Thompson averages 15th across three Sedgefield starts, and the banker tier is built on grinders whose games travel to fiddly position golf. Final wrinkle of the regular season: only the FedEx Cup top 70 advance next week, so expect bubble desperation golf from Thursday morning.",
   spotlight: null,
 };
 
