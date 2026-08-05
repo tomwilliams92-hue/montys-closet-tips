@@ -1331,7 +1331,7 @@
       "weekNumber": 34,
       "eventId": "R2026013",
       "eventName": "Wyndham Championship",
-      "placedAt": "2026-08-05T07:58:30.234Z",
+      "placedAt": "2026-08-05T09:21:21.734Z",
       "playerId": "55182",
       "player": "Tom Kim",
       "market": "win",
@@ -1354,7 +1354,7 @@
       "weekNumber": 34,
       "eventId": "R2026013",
       "eventName": "Wyndham Championship",
-      "placedAt": "2026-08-05T07:58:30.234Z",
+      "placedAt": "2026-08-05T09:21:21.734Z",
       "playerId": "58168",
       "player": "Davis Thompson",
       "market": "win",
@@ -1377,7 +1377,7 @@
       "weekNumber": 34,
       "eventId": "R2026013",
       "eventName": "Wyndham Championship",
-      "placedAt": "2026-08-05T07:58:30.234Z",
+      "placedAt": "2026-08-05T09:21:21.734Z",
       "playerId": "46442",
       "player": "Maverick McNealy",
       "market": "top30",
@@ -1390,6 +1390,46 @@
       "pickType": "model",
       "priceEstimated": true,
       "modelProb": 0.47570833333333334,
+      "status": "pending",
+      "finishPos": null,
+      "returnPts": null,
+      "profitPts": null
+    },
+    {
+      "id": "R2026013:personal:accumulator:0",
+      "weekNumber": 34,
+      "eventId": "R2026013",
+      "eventName": "Wyndham Championship",
+      "placedAt": "2026-08-05T09:21:21.734Z",
+      "player": "Hideki Matsuyama + Cameron Young + Maverick McNealy",
+      "market": "accumulator",
+      "marketLabel": "Bet Builder (3-leg)",
+      "legs": [
+        {
+          "player": "Hideki Matsuyama",
+          "market": "Top 20 Finish (Inc Ties)",
+          "cond": "top20",
+          "playerId": "32839"
+        },
+        {
+          "player": "Cameron Young",
+          "market": "Top 20 Finish (Inc Ties)",
+          "cond": "top20",
+          "playerId": "57366"
+        },
+        {
+          "player": "Maverick McNealy",
+          "market": "Top 40 Finish (Inc Ties)",
+          "cond": "top40",
+          "playerId": "46442"
+        }
+      ],
+      "eachWay": false,
+      "stakePts": 2,
+      "priceDecimal": 7.25,
+      "priceFractional": "7.25",
+      "pickType": "toms-call",
+      "exotic": true,
       "status": "pending",
       "finishPos": null,
       "returnPts": null,

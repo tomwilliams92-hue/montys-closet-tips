@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-05T07:58:30.234Z",
+  "generatedAt": "2026-08-05T09:21:21.734Z",
   "event": {
     "id": "R2026013",
     "name": "Wyndham Championship",
@@ -3750,7 +3750,38 @@
   ],
   "greenBookCard": null,
   "extraCard": null,
-  "personalCard": null,
+  "personalCard": {
+    "note": "Tom's bet builder — one ticket, three legs with a bet boost: Hideki Matsuyama and Cameron Young both to finish top 20, Maverick McNealy to finish top 40. The Matsuyama and McNealy legs ride the house card's own reads (the model has them 63% and better-than-even for these finishes); the defending champion Young leg is rated 79% for a top-20 week. £10 on, returning £72.50 with the boost. Settles leg-by-leg off the final leaderboard; every leg must land.",
+    "betBuilders": [
+      {
+        "oddsDecimal": 7.25,
+        "stake": 10,
+        "points": 2,
+        "toReturn": 72.5,
+        "legs": [
+          {
+            "player": "Hideki Matsuyama",
+            "market": "Top 20 Finish (Inc Ties)",
+            "cond": "top20",
+            "playerId": "32839"
+          },
+          {
+            "player": "Cameron Young",
+            "market": "Top 20 Finish (Inc Ties)",
+            "cond": "top20",
+            "playerId": "57366"
+          },
+          {
+            "player": "Maverick McNealy",
+            "market": "Top 40 Finish (Inc Ties)",
+            "cond": "top40",
+            "playerId": "46442"
+          }
+        ]
+      }
+    ],
+    "singles": []
+  },
   "pnl": {
     "startBankPts": 100,
     "settledCount": 54,
@@ -3765,9 +3796,9 @@
     "maxDrawdownPts": 49.5,
     "ddPeakPts": 114.75,
     "ddTroughPts": 65.25,
-    "pendingCount": 3,
-    "pendingStakePts": 6,
-    "totalBets": 57,
+    "pendingCount": 4,
+    "pendingStakePts": 8,
+    "totalBets": 58,
     "byMarket": [
       {
         "market": "Top 10",
@@ -3852,11 +3883,51 @@
     ],
     "openBets": [
       {
+        "id": "R2026013:personal:accumulator:0",
+        "weekNumber": 34,
+        "eventId": "R2026013",
+        "eventName": "Wyndham Championship",
+        "placedAt": "2026-08-05T09:21:21.734Z",
+        "player": "Hideki Matsuyama + Cameron Young + Maverick McNealy",
+        "market": "accumulator",
+        "marketLabel": "Bet Builder (3-leg)",
+        "legs": [
+          {
+            "player": "Hideki Matsuyama",
+            "market": "Top 20 Finish (Inc Ties)",
+            "cond": "top20",
+            "playerId": "32839"
+          },
+          {
+            "player": "Cameron Young",
+            "market": "Top 20 Finish (Inc Ties)",
+            "cond": "top20",
+            "playerId": "57366"
+          },
+          {
+            "player": "Maverick McNealy",
+            "market": "Top 40 Finish (Inc Ties)",
+            "cond": "top40",
+            "playerId": "46442"
+          }
+        ],
+        "eachWay": false,
+        "stakePts": 2,
+        "priceDecimal": 7.25,
+        "priceFractional": "7.25",
+        "pickType": "toms-call",
+        "exotic": true,
+        "status": "pending",
+        "finishPos": null,
+        "returnPts": null,
+        "profitPts": null
+      },
+      {
         "id": "R2026013:46442:top30",
         "weekNumber": 34,
         "eventId": "R2026013",
         "eventName": "Wyndham Championship",
-        "placedAt": "2026-08-05T07:58:30.234Z",
+        "placedAt": "2026-08-05T09:21:21.734Z",
         "playerId": "46442",
         "player": "Maverick McNealy",
         "market": "top30",
@@ -3879,7 +3950,7 @@
         "weekNumber": 34,
         "eventId": "R2026013",
         "eventName": "Wyndham Championship",
-        "placedAt": "2026-08-05T07:58:30.234Z",
+        "placedAt": "2026-08-05T09:21:21.734Z",
         "playerId": "58168",
         "player": "Davis Thompson",
         "market": "win",
@@ -3902,7 +3973,7 @@
         "weekNumber": 34,
         "eventId": "R2026013",
         "eventName": "Wyndham Championship",
-        "placedAt": "2026-08-05T07:58:30.234Z",
+        "placedAt": "2026-08-05T09:21:21.734Z",
         "playerId": "55182",
         "player": "Tom Kim",
         "market": "win",
@@ -3923,11 +3994,51 @@
     ],
     "allBets": [
       {
+        "id": "R2026013:personal:accumulator:0",
+        "weekNumber": 34,
+        "eventId": "R2026013",
+        "eventName": "Wyndham Championship",
+        "placedAt": "2026-08-05T09:21:21.734Z",
+        "player": "Hideki Matsuyama + Cameron Young + Maverick McNealy",
+        "market": "accumulator",
+        "marketLabel": "Bet Builder (3-leg)",
+        "legs": [
+          {
+            "player": "Hideki Matsuyama",
+            "market": "Top 20 Finish (Inc Ties)",
+            "cond": "top20",
+            "playerId": "32839"
+          },
+          {
+            "player": "Cameron Young",
+            "market": "Top 20 Finish (Inc Ties)",
+            "cond": "top20",
+            "playerId": "57366"
+          },
+          {
+            "player": "Maverick McNealy",
+            "market": "Top 40 Finish (Inc Ties)",
+            "cond": "top40",
+            "playerId": "46442"
+          }
+        ],
+        "eachWay": false,
+        "stakePts": 2,
+        "priceDecimal": 7.25,
+        "priceFractional": "7.25",
+        "pickType": "toms-call",
+        "exotic": true,
+        "status": "pending",
+        "finishPos": null,
+        "returnPts": null,
+        "profitPts": null
+      },
+      {
         "id": "R2026013:46442:top30",
         "weekNumber": 34,
         "eventId": "R2026013",
         "eventName": "Wyndham Championship",
-        "placedAt": "2026-08-05T07:58:30.234Z",
+        "placedAt": "2026-08-05T09:21:21.734Z",
         "playerId": "46442",
         "player": "Maverick McNealy",
         "market": "top30",
@@ -3950,7 +4061,7 @@
         "weekNumber": 34,
         "eventId": "R2026013",
         "eventName": "Wyndham Championship",
-        "placedAt": "2026-08-05T07:58:30.234Z",
+        "placedAt": "2026-08-05T09:21:21.734Z",
         "playerId": "58168",
         "player": "Davis Thompson",
         "market": "win",
@@ -3973,7 +4084,7 @@
         "weekNumber": 34,
         "eventId": "R2026013",
         "eventName": "Wyndham Championship",
-        "placedAt": "2026-08-05T07:58:30.234Z",
+        "placedAt": "2026-08-05T09:21:21.734Z",
         "playerId": "55182",
         "player": "Tom Kim",
         "market": "win",

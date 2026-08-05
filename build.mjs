@@ -150,10 +150,25 @@ const EXTRA_CARD = null;
 // returning £72.50; the ledger just needs return/stake, so oddsDecimal = 7.25 reproduces the
 // slip exactly. Never second-guess his book's boost arithmetic — record the slip's numbers.
 const PERSONAL_CARD_EVENT = 'R2026013'; // Wyndham Championship, Sedgefield CC
-// No personal card yet this week — Tom's Rocket builder settled with the event. When he brings
-// his Wyndham slips (builders are his proven specialty: +165% ROI on 3-leg builders), add them
-// here with the REAL slip numbers and rebuild.
-const PERSONAL_CARD = null;
+// Tom's treble (placed 5 Aug, bet365 with a bet boost): Matsuyama top-20, Young top-20,
+// McNealy top-40 — £10 returning £72.50 boosted, so oddsDecimal 7.25 reproduces the slip
+// exactly (house convention: record the slip's numbers, never second-guess the book's boost
+// arithmetic). He softened two legs from the suggested Young-t10/McNealy-t30 shape — model
+// combined probability ~29% vs the 13.8% the 7.25 return implies: the biggest edge on the card.
+const PERSONAL_CARD = {
+  note: "Tom's bet builder — one ticket, three legs with a bet boost: Hideki Matsuyama and Cameron Young both to finish top 20, Maverick McNealy to finish top 40. The Matsuyama and McNealy legs ride the house card's own reads (the model has them 63% and better-than-even for these finishes); the defending champion Young leg is rated 79% for a top-20 week. £10 on, returning £72.50 with the boost. Settles leg-by-leg off the final leaderboard; every leg must land.",
+  betBuilders: [
+    {
+      oddsDecimal: 7.25, stake: 10, points: 2, toReturn: 72.50,
+      legs: [
+        { player: 'Hideki Matsuyama', market: 'Top 20 Finish (Inc Ties)', cond: 'top20' },
+        { player: 'Cameron Young',    market: 'Top 20 Finish (Inc Ties)', cond: 'top20' },
+        { player: 'Maverick McNealy', market: 'Top 40 Finish (Inc Ties)', cond: 'top40' },
+      ],
+    },
+  ],
+  singles: [],
+};
 
 // Weekly editorial - the recap is auto-built from the ledger; week-ahead + spotlight are hand-written.
 // Hand-written editorial for ONE event (gated on EDITORIAL_EVENT so it can't leak onto a later
