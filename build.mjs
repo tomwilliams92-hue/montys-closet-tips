@@ -106,8 +106,15 @@ const POUNDS_PER_POINT = 5;                   // in-house suggested stake plan: 
 // the gate). 6pts total house money after a +7.52 week — lean by design, no chasing.
 // WD check 5 Aug (midweek-check + news sweep): Patrick Cantlay WD'd Monday (never a candidate
 // here); every card name confirmed in the field. Tom Kim WD headlines in search are from 2023
-// — date-checked, he plays. TOM: check bet365's Kim price/places before betting — 33/1 is a
-// FanDuel quote; if bet365 is far shorter, shop it or leave it.
+// — date-checked, he plays. THIRD-SOURCE CHECK (golfbettingsystem.co.uk tips, 4 Aug, added as
+// a standing input by Tom 5 Aug): their card independently has Kim 33/1 e/w (Betfred, 8 places
+// 1/5 — corroborates our price AND terms; they rank him 1st in field for season SG:Approach).
+// Their Gerard 30/1 scrapes 2 gate legs (form + place value; course fit fails on a 65.0 avg in
+// 2 starts) but would be a THIRD e/w pick — tier cap says no. Harman 55/1, M.Kim 66/1, Riley
+// 150/1 all outside the band (Harman/M.Kim already on the watchlist). Their forecast runs
+// hotter than Open-Meteo (up to 99°F Sunday) — firming Bermuda late only sharpens the
+// approach-play premium behind Kim. TOM: check bet365's Kim price/places before betting —
+// 33/1 is FanDuel/Betfred; if bet365 is far shorter, shop it or leave it.
 const MANUAL_CARD_EVENT = 'R2026013'; // Wyndham Championship, Sedgefield CC
 const MANUAL_CARD = [
   { name: 'Tom Kim',        market: 'win', eachWay: true, points: 2, price: '33/1', type: 'model' }, // best bet — won here 2022, ball-striking surge, +53% edge at the real quote
