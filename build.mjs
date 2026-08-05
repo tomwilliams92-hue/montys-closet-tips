@@ -129,6 +129,10 @@ const MANUAL_CARD = [
   { name: 'Tom Kim',        market: 'win',   eachWay: true,  points: 2, price: 23.00, places: 10, type: 'model' }, // best bet — won here 2022, ball-striking surge; struck at bet365
   { name: 'Davis Thompson', market: 'win',   eachWay: true,  points: 2, price: 34.00, places: 10, type: 'model' }, // place-led; cashed at this exact price last week; struck at bet365
   { name: 'Hideki Matsuyama', market: 'top10', points: 2, price: 3.00, type: 'toms-call' }, // Tom's £10 straight top-10 — the e/w place half without the dead win half
+  // Wallace (Tom's shortlist, 5 Aug — "Wallace or Kirk?"; the gate said Wallace, comfortably):
+  // struck at bet365 56.00 with 10 places vs a 40/1 board read — model t10 24.8% vs 8.3%
+  // implied place, e/w EV ~+119%, the best value on the card. £2.50 e/w = 1pt, returns £170.
+  { name: 'Matt Wallace', market: 'win', eachWay: true, points: 1, price: 56.00, places: 10, type: 'toms-call' },
 ];
 const BEST_BET_NAME = 'Tom Kim';                 // the only pick where all three gate legs agree at full strength
 // Merge the model's banker/double tiers into the card (top-30 singles + doubles from those legs).
