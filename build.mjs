@@ -116,9 +116,19 @@ const POUNDS_PER_POINT = 5;                   // in-house suggested stake plan: 
 // approach-play premium behind Kim. TOM: check bet365's Kim price/places before betting —
 // 33/1 is FanDuel/Betfred; if bet365 is far shorter, shop it or leave it.
 const MANUAL_CARD_EVENT = 'R2026013'; // Wyndham Championship, Sedgefield CC
+// CARD MATCHED TO TOM'S REAL SLIPS (5 Aug, bet365, 1-10 places at 1/5 quoted): Kim 23.00 and
+// Thompson 34.00 replace the 33/1/40/1 board quotes the picks were published at (Rocket
+// precedent — the ledger records what was actually struck). Both still clear the gate at the
+// shorter quotes: Kim e/w EV +68% (place half +129%), Thompson +51% (place half +107%).
+// Prices entered as NUMBERS per house convention (bet365 displays decimal; 23.00 = 22/1 money).
+// TOM: send the slips' "to return" figures to reconcile — at £5 e/w they should read ~£142
+// (Kim) and ~£203.50 (Thompson); if they don't, the price or places on the slip differ.
+// Matsuyama: Tom converted the e/w (15/1 was a negative win half) into a straight top-10 at
+// 3.00 — £10 returns £30; model t10 45.7% vs 33.3% implied, +37% EV. The right conversion.
 const MANUAL_CARD = [
-  { name: 'Tom Kim',        market: 'win', eachWay: true, points: 2, price: '33/1', type: 'model' }, // best bet — won here 2022, ball-striking surge, +53% edge at the real quote
-  { name: 'Davis Thompson', market: 'win', eachWay: true, points: 2, price: '40/1', type: 'model' }, // place-led: top-10 26.5% vs 11.1% implied at 40/1; T7-T8 last two starts
+  { name: 'Tom Kim',        market: 'win',   eachWay: true,  points: 2, price: 23.00, places: 10, type: 'model' }, // best bet — won here 2022, ball-striking surge; struck at bet365
+  { name: 'Davis Thompson', market: 'win',   eachWay: true,  points: 2, price: 34.00, places: 10, type: 'model' }, // place-led; cashed at this exact price last week; struck at bet365
+  { name: 'Hideki Matsuyama', market: 'top10', points: 2, price: 3.00, type: 'toms-call' }, // Tom's £10 straight top-10 — the e/w place half without the dead win half
 ];
 const BEST_BET_NAME = 'Tom Kim';                 // the only pick where all three gate legs agree at full strength
 // Merge the model's banker/double tiers into the card (top-30 singles + doubles from those legs).
