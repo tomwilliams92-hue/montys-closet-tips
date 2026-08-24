@@ -814,10 +814,10 @@
       "pickType": "model",
       "priceEstimated": true,
       "modelProb": 0.4231666666666667,
-      "status": "pending",
-      "finishPos": null,
-      "returnPts": null,
-      "profitPts": null
+      "status": "lost",
+      "finishPos": "T44",
+      "returnPts": 0,
+      "profitPts": -2
     },
     {
       "id": "R2026028:37378:top30",
@@ -837,10 +837,10 @@
       "pickType": "model",
       "priceEstimated": true,
       "modelProb": 0.6295,
-      "status": "pending",
-      "finishPos": null,
-      "returnPts": null,
-      "profitPts": null
+      "status": "lost",
+      "finishPos": "T47",
+      "returnPts": 0,
+      "profitPts": -1
     },
     {
       "id": "R2026028:52453:top30",
@@ -860,10 +860,10 @@
       "pickType": "model",
       "priceEstimated": true,
       "modelProb": 0.5992708333333333,
-      "status": "pending",
-      "finishPos": null,
-      "returnPts": null,
-      "profitPts": null
+      "status": "lost",
+      "finishPos": "T41",
+      "returnPts": 0,
+      "profitPts": -1
     },
     {
       "id": "R2026028:multi:0",
@@ -896,10 +896,10 @@
       "exotic": true,
       "priceEstimated": true,
       "modelProb": 0.26638341666666665,
-      "status": "pending",
-      "finishPos": null,
-      "returnPts": null,
-      "profitPts": null
+      "status": "lost",
+      "finishPos": "Alex Fitzpatrick T44, Min Woo Lee T47",
+      "returnPts": 0,
+      "profitPts": -1
     },
     {
       "id": "R2026028:52955:win",
@@ -919,10 +919,10 @@
       "pickType": "model",
       "priceEstimated": true,
       "modelProb": 0.022958333333333334,
-      "status": "pending",
-      "finishPos": null,
-      "returnPts": null,
-      "profitPts": null
+      "status": "lost",
+      "finishPos": "T16",
+      "returnPts": 0,
+      "profitPts": -2
     },
     {
       "id": "R2026028:30911:win",
@@ -942,6 +942,52 @@
       "pickType": "model",
       "priceEstimated": true,
       "modelProb": 0.035104166666666665,
+      "status": "lost",
+      "finishPos": "T47",
+      "returnPts": 0,
+      "profitPts": -2
+    },
+    {
+      "id": "R2026060:40098:win",
+      "weekNumber": 37,
+      "eventId": "R2026060",
+      "eventName": "TOUR Championship",
+      "placedAt": "2026-08-24T06:05:05.555Z",
+      "playerId": "40098",
+      "player": "Matt Fitzpatrick",
+      "market": "win",
+      "marketLabel": "To Win",
+      "eachWay": true,
+      "eachWayPlaces": 8,
+      "stakePts": 2,
+      "priceDecimal": 42.14223002633889,
+      "priceFractional": "40/1",
+      "pickType": "model",
+      "priceEstimated": true,
+      "modelProb": 0.028125,
+      "status": "pending",
+      "finishPos": null,
+      "returnPts": null,
+      "profitPts": null
+    },
+    {
+      "id": "R2026060:28237:win",
+      "weekNumber": 37,
+      "eventId": "R2026060",
+      "eventName": "TOUR Championship",
+      "placedAt": "2026-08-24T06:05:05.555Z",
+      "playerId": "28237",
+      "player": "Rory McIlroy",
+      "market": "win",
+      "marketLabel": "To Win",
+      "eachWay": true,
+      "eachWayPlaces": 8,
+      "stakePts": 2,
+      "priceDecimal": 41.343669250645995,
+      "priceFractional": "40/1",
+      "pickType": "model",
+      "priceEstimated": true,
+      "modelProb": 0.0266875,
       "status": "pending",
       "finishPos": null,
       "returnPts": null,

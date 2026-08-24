@@ -1604,10 +1604,10 @@
       "pickType": "model",
       "priceEstimated": true,
       "modelProb": 0.4231666666666667,
-      "status": "pending",
-      "finishPos": null,
-      "returnPts": null,
-      "profitPts": null
+      "status": "lost",
+      "finishPos": "T44",
+      "returnPts": 0,
+      "profitPts": -2
     },
     {
       "id": "R2026028:37378:top30",
@@ -1627,10 +1627,10 @@
       "pickType": "model",
       "priceEstimated": true,
       "modelProb": 0.6295,
-      "status": "pending",
-      "finishPos": null,
-      "returnPts": null,
-      "profitPts": null
+      "status": "lost",
+      "finishPos": "T47",
+      "returnPts": 0,
+      "profitPts": -1
     },
     {
       "id": "R2026028:52453:top30",
@@ -1650,10 +1650,10 @@
       "pickType": "model",
       "priceEstimated": true,
       "modelProb": 0.5992708333333333,
-      "status": "pending",
-      "finishPos": null,
-      "returnPts": null,
-      "profitPts": null
+      "status": "lost",
+      "finishPos": "T41",
+      "returnPts": 0,
+      "profitPts": -1
     },
     {
       "id": "R2026028:multi:0",
@@ -1686,10 +1686,10 @@
       "exotic": true,
       "priceEstimated": true,
       "modelProb": 0.26638341666666665,
-      "status": "pending",
-      "finishPos": null,
-      "returnPts": null,
-      "profitPts": null
+      "status": "lost",
+      "finishPos": "Alex Fitzpatrick T44, Min Woo Lee T47",
+      "returnPts": 0,
+      "profitPts": -1
     }
   ]
 }
