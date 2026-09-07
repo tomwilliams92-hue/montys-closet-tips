@@ -965,10 +965,10 @@
       "pickType": "model",
       "priceEstimated": true,
       "modelProb": 0.028125,
-      "status": "pending",
-      "finishPos": null,
-      "returnPts": null,
-      "profitPts": null
+      "status": "lost",
+      "finishPos": "T21",
+      "returnPts": 0,
+      "profitPts": -2
     },
     {
       "id": "R2026060:28237:win",
@@ -988,10 +988,10 @@
       "pickType": "model",
       "priceEstimated": true,
       "modelProb": 0.0266875,
-      "status": "pending",
-      "finishPos": null,
-      "returnPts": null,
-      "profitPts": null
+      "status": "won",
+      "finishPos": "T4",
+      "returnPts": 9.07,
+      "profitPts": 7.07
     }
   ],
   "note": "PAPER record: what The Green Book auto-card would have done each week. Not real bets; prices are model estimates until a real odds feed is wired."
