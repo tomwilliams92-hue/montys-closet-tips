@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-07T06:05:48.524Z",
+  "generatedAt": "2026-09-14T06:17:09.091Z",
   "event": {
     "id": "R2026557",
     "name": "Biltmore Championship Asheville",
@@ -7,7 +7,7 @@
     "city": "Asheville",
     "state": "North Carolina",
     "dateRange": "September 17-20, 2026",
-    "fieldSize": 0,
+    "fieldSize": 128,
     "logo": "https://res.cloudinary.com/pgatour-prod/image/upload/q_auto,f_auto/tournaments/logos/2026/r557"
   },
   "courseProfile": {
@@ -43,25 +43,3361 @@
     "isMajor": false,
     "champion": "Scottie Scheffler"
   },
-  "trackedBets": [],
+  "trackedBets": [
+    {
+      "playerId": "50497",
+      "name": "Adrien Dumont de Chassart",
+      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_50497.png",
+      "country": "BEL",
+      "owgr": "192",
+      "market": "makeCut",
+      "marketLabel": "Make The Cut",
+      "eachWay": false,
+      "modelProb": 0.6405181249999999,
+      "modelOdds": {
+        "prob": 0.6405181249999999,
+        "decimal": 1.5612360696272258,
+        "fractional": "4/7"
+      },
+      "marketProb": 0.5068333333333334,
+      "marketOdds": {
+        "prob": 0.5068333333333334,
+        "decimal": 1.9730351857941466,
+        "fractional": "1/1"
+      },
+      "edgePct": 26,
+      "valueScore": 0.21109723539075684,
+      "confidence": 1,
+      "trend": "down",
+      "sg": {
+        "total": 0.192,
+        "ott": -0.402,
+        "app": 0.002,
+        "arg": 0.387,
+        "putt": 0.205
+      },
+      "recentSG": -0.6807463556851312,
+      "recentEvents": 3,
+      "dataThin": false,
+      "letdownFlag": null,
+      "playerNote": null,
+      "playerNoteTag": null,
+      "lastWeekFinish": null,
+      "playedLastWeek": false,
+      "courseHistory": null,
+      "courseType": null,
+      "placeProbTop8": null,
+      "bookie": null,
+      "ocLink": "https://www.oddschecker.com/golf/biltmore-championship-asheville/to-make-the-cut",
+      "rationale": "Gaining on around the green (+0.39/rd). Form cooling (-0.68 SG/rd over 3 starts). Did not play last week, so arrives fresh. The value: the model makes him 64% to make the cut where the best price implies about 51% - a +26% edge.",
+      "points": 2,
+      "tier": "banker",
+      "priceEstimated": true,
+      "tracked": true,
+      "pickType": "model",
+      "priceDecimal": 1.9730351857941466,
+      "priceFractional": "1/1"
+    },
+    {
+      "playerId": "37338",
+      "name": "Zecheng Dou",
+      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_37338.png",
+      "country": "CHN",
+      "owgr": "189",
+      "market": "top30",
+      "marketLabel": "Top 30",
+      "eachWay": false,
+      "modelProb": 0.4468958333333333,
+      "modelOdds": {
+        "prob": 0.4468958333333333,
+        "decimal": 2.237657918045779,
+        "fractional": "5/4"
+      },
+      "marketProb": 0.3501875,
+      "marketOdds": {
+        "prob": 0.3501875,
+        "decimal": 2.85561306442977,
+        "fractional": "15/8"
+      },
+      "edgePct": 28,
+      "valueScore": 0.1846147564481448,
+      "confidence": 1,
+      "trend": "flat",
+      "sg": {
+        "total": 0.318,
+        "ott": -0.072,
+        "app": 0.18,
+        "arg": 0.156,
+        "putt": 0.053
+      },
+      "recentSG": 0.1530064612717674,
+      "recentEvents": 4,
+      "dataThin": false,
+      "letdownFlag": null,
+      "playerNote": null,
+      "playerNoteTag": null,
+      "lastWeekFinish": null,
+      "playedLastWeek": false,
+      "courseHistory": null,
+      "courseType": null,
+      "placeProbTop8": null,
+      "bookie": null,
+      "ocLink": "https://www.oddschecker.com/golf/biltmore-championship-asheville/top-30-finish",
+      "rationale": "Fits the course - strongest on approach, what wins here. Steady (0.15 SG/rd over last 4 starts). Did not play last week, so arrives fresh. The value: the model makes him 45% to finish top 30 where the best price implies about 35% - a +28% edge.",
+      "points": 1,
+      "tier": "banker",
+      "priceEstimated": true,
+      "tracked": true,
+      "pickType": "model",
+      "priceDecimal": 2.85561306442977,
+      "priceFractional": "15/8"
+    },
+    {
+      "playerId": "36799",
+      "name": "Stephan Jaeger",
+      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_36799.png",
+      "country": "GER",
+      "owgr": "115",
+      "market": "top30",
+      "marketLabel": "Top 30",
+      "eachWay": false,
+      "modelProb": 0.4720625,
+      "modelOdds": {
+        "prob": 0.4720625,
+        "decimal": 2.118363564146697,
+        "fractional": "11/10"
+      },
+      "marketProb": 0.409125,
+      "marketOdds": {
+        "prob": 0.409125,
+        "decimal": 2.444240757714635,
+        "fractional": "6/4"
+      },
+      "edgePct": 15,
+      "valueScore": 0.10569470248143292,
+      "confidence": 1,
+      "trend": "flat",
+      "sg": {
+        "total": 0.193,
+        "ott": -0.246,
+        "app": -0.058,
+        "arg": 0.252,
+        "putt": 0.244
+      },
+      "recentSG": 0.2158107020097234,
+      "recentEvents": 4,
+      "dataThin": false,
+      "letdownFlag": null,
+      "playerNote": null,
+      "playerNoteTag": null,
+      "lastWeekFinish": null,
+      "playedLastWeek": false,
+      "courseHistory": null,
+      "courseType": null,
+      "placeProbTop8": null,
+      "bookie": null,
+      "ocLink": "https://www.oddschecker.com/golf/biltmore-championship-asheville/top-30-finish",
+      "rationale": "Gaining on around the green (+0.25/rd). Steady (0.22 SG/rd over last 4 starts). Did not play last week, so arrives fresh. The value: the model makes him 47% to finish top 30 where the best price implies about 41% - a +15% edge.",
+      "points": 1,
+      "tier": "banker",
+      "priceEstimated": true,
+      "tracked": true,
+      "pickType": "model",
+      "priceDecimal": 2.444240757714635,
+      "priceFractional": "6/4"
+    },
+    {
+      "multi": true,
+      "tracked": true,
+      "pickType": "model",
+      "tier": "multi",
+      "points": 1,
+      "market": "accumulator",
+      "marketLabel": "Double — Make The Cut / Top 30",
+      "name": "Adrien Dumont de Chassart + Zecheng Dou",
+      "legs": [
+        {
+          "playerId": "50497",
+          "player": "Adrien Dumont de Chassart",
+          "market": "Make The Cut",
+          "cond": "makeCut"
+        },
+        {
+          "playerId": "37338",
+          "player": "Zecheng Dou",
+          "market": "Top 30",
+          "cond": "top30"
+        }
+      ],
+      "modelProb": 0.2862448812369791,
+      "marketProb": 0.17748669791666666,
+      "marketOdds": {
+        "prob": 0.17748669791666666,
+        "decimal": 5.634225053133384,
+        "fractional": "9/2"
+      },
+      "priceEstimated": true,
+      "edgePct": 61,
+      "rationale": "Two banker legs on different players, so the combined chance is close to the product of the parts — the model makes the double about 29% at a combined 5.63. Each leg stands on its own as a banker; the double just concentrates the value into one small ticket.",
+      "priceDecimal": 5.634225053133384,
+      "priceFractional": "9/2"
+    }
+  ],
   "flutters": [],
-  "bestBet": null,
-  "watchlist": [],
-  "eachWayValue": [],
-  "top5Sel": [],
-  "top10Sel": [],
-  "top20Sel": [],
-  "placesTable": [],
-  "worldRankings": [],
-  "fieldRanking": [],
+  "bestBet": {
+    "playerId": "50497",
+    "name": "Adrien Dumont de Chassart",
+    "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_50497.png",
+    "country": "BEL",
+    "owgr": "192",
+    "market": "makeCut",
+    "marketLabel": "Make The Cut",
+    "eachWay": false,
+    "modelProb": 0.6405181249999999,
+    "modelOdds": {
+      "prob": 0.6405181249999999,
+      "decimal": 1.5612360696272258,
+      "fractional": "4/7"
+    },
+    "marketProb": 0.5068333333333334,
+    "marketOdds": {
+      "prob": 0.5068333333333334,
+      "decimal": 1.9730351857941466,
+      "fractional": "1/1"
+    },
+    "edgePct": 26,
+    "valueScore": 0.21109723539075684,
+    "confidence": 1,
+    "trend": "down",
+    "sg": {
+      "total": 0.192,
+      "ott": -0.402,
+      "app": 0.002,
+      "arg": 0.387,
+      "putt": 0.205
+    },
+    "recentSG": -0.6807463556851312,
+    "recentEvents": 3,
+    "dataThin": false,
+    "letdownFlag": null,
+    "playerNote": null,
+    "playerNoteTag": null,
+    "lastWeekFinish": null,
+    "playedLastWeek": false,
+    "courseHistory": null,
+    "courseType": null,
+    "placeProbTop8": null,
+    "bookie": null,
+    "ocLink": "https://www.oddschecker.com/golf/biltmore-championship-asheville/to-make-the-cut",
+    "rationale": "Gaining on around the green (+0.39/rd). Form cooling (-0.68 SG/rd over 3 starts). Did not play last week, so arrives fresh. The value: the model makes him 64% to make the cut where the best price implies about 51% - a +26% edge.",
+    "points": 2,
+    "tier": "banker",
+    "priceEstimated": true,
+    "tracked": true,
+    "pickType": "model",
+    "priceDecimal": 1.9730351857941466,
+    "priceFractional": "1/1"
+  },
+  "watchlist": [
+    {
+      "playerId": "58168",
+      "name": "Davis Thompson",
+      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_58168.png",
+      "country": "USA",
+      "owgr": "114",
+      "trend": "up",
+      "recentSG": 2.252927113702624,
+      "recentEvents": 3,
+      "winOdds": "10/1",
+      "why": "On the rise — ranked OWGR #114 but playing well above it lately (2.25 SG/rd over his last 3). A name to know.",
+      "tag": "Riser"
+    },
+    {
+      "playerId": "45242",
+      "name": "Kevin Yu",
+      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_45242.png",
+      "country": "TPE",
+      "owgr": "101",
+      "trend": "up",
+      "recentSG": 1.8790226728905972,
+      "recentEvents": 4,
+      "winOdds": "20/1",
+      "why": "On the rise — ranked OWGR #101 but playing well above it lately (1.88 SG/rd over his last 4). A name to know.",
+      "tag": "Riser"
+    },
+    {
+      "playerId": "29420",
+      "name": "Billy Horschel",
+      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_29420.png",
+      "country": "USA",
+      "owgr": "158",
+      "trend": "up",
+      "recentSG": 1.5832502910360884,
+      "recentEvents": 3,
+      "winOdds": "66/1",
+      "why": "On the rise — ranked OWGR #158 but playing well above it lately (1.58 SG/rd over his last 3). A name to know.",
+      "tag": "Riser"
+    },
+    {
+      "playerId": "57900",
+      "name": "Chandler Phillips",
+      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_57900.png",
+      "country": "USA",
+      "owgr": "136",
+      "trend": "up",
+      "recentSG": 1.57044470314319,
+      "recentEvents": 3,
+      "winOdds": "50/1",
+      "why": "On the rise — ranked OWGR #136 but playing well above it lately (1.57 SG/rd over his last 3). A name to know.",
+      "tag": "Riser"
+    },
+    {
+      "playerId": "51997",
+      "name": "Andrew Novak",
+      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_51997.png",
+      "country": "USA",
+      "owgr": "79",
+      "trend": "up",
+      "recentSG": 1.5433333333333334,
+      "recentEvents": 2,
+      "winOdds": "40/1",
+      "why": "On the rise — ranked OWGR #79 but playing well above it lately (1.54 SG/rd over his last 2). A name to know.",
+      "tag": "Riser"
+    },
+    {
+      "playerId": "52375",
+      "name": "Doug Ghim",
+      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_52375.png",
+      "country": "USA",
+      "owgr": "157",
+      "trend": "up",
+      "recentSG": 1.3486218202374223,
+      "recentEvents": 3,
+      "winOdds": "16/1",
+      "why": "On the rise — ranked OWGR #157 but playing well above it lately (1.35 SG/rd over his last 3). A name to know.",
+      "tag": "Riser"
+    }
+  ],
+  "eachWayValue": [
+    {
+      "playerId": "45522",
+      "name": "Christiaan Bezuidenhout",
+      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_45522.png",
+      "country": "RSA",
+      "owgr": "96",
+      "market": "win",
+      "marketLabel": "To Win",
+      "eachWay": true,
+      "modelProb": 0.027125,
+      "modelOdds": {
+        "prob": 0.027125,
+        "decimal": 36.86635944700461,
+        "fractional": "33/1"
+      },
+      "marketProb": 0.020875,
+      "marketOdds": {
+        "prob": 0.020875,
+        "decimal": 47.90419161676646,
+        "fractional": "50/1"
+      },
+      "edgePct": 30,
+      "valueScore": 0.04931038650299581,
+      "confidence": 1,
+      "trend": "flat",
+      "sg": {
+        "total": 0.75,
+        "ott": -0.32,
+        "app": 0.398,
+        "arg": 0.217,
+        "putt": 0.455
+      },
+      "recentSG": 0.5789501039501039,
+      "recentEvents": 4,
+      "dataThin": false,
+      "letdownFlag": null,
+      "playerNote": null,
+      "playerNoteTag": null,
+      "lastWeekFinish": null,
+      "playedLastWeek": false,
+      "courseHistory": null,
+      "courseType": null,
+      "placeProbTop8": 0.22244583333333334,
+      "bookie": null,
+      "ocLink": "https://www.oddschecker.com/golf/biltmore-championship-asheville/winner",
+      "rationale": "Gaining on putting (+0.46/rd). Steady (0.58 SG/rd over last 4 starts). Did not play last week, so arrives fresh. The value: the model makes him 2.7% to win where the best price implies about 2.1% - a +30% edge.",
+      "eachWayPlaces": 8,
+      "ewPlaceProb": 22
+    },
+    {
+      "playerId": "48001",
+      "name": "Zach Bauchou",
+      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_48001.png",
+      "country": "USA",
+      "owgr": "154",
+      "market": "win",
+      "marketLabel": "To Win",
+      "eachWay": true,
+      "modelProb": 0.027791666666666666,
+      "modelOdds": {
+        "prob": 0.027791666666666666,
+        "decimal": 35.98200899550225,
+        "fractional": "33/1"
+      },
+      "marketProb": 0.028208333333333332,
+      "marketOdds": {
+        "prob": 0.028208333333333332,
+        "decimal": 35.450516986706056,
+        "fractional": "33/1"
+      },
+      "edgePct": -1,
+      "valueScore": -0.002462456840861164,
+      "confidence": 1,
+      "trend": "up",
+      "sg": {
+        "total": 0.473,
+        "ott": -0.073,
+        "app": 0.26,
+        "arg": 0.077,
+        "putt": 0.208
+      },
+      "recentSG": 1.1820452179423349,
+      "recentEvents": 4,
+      "dataThin": false,
+      "letdownFlag": null,
+      "playerNote": null,
+      "playerNoteTag": null,
+      "lastWeekFinish": null,
+      "playedLastWeek": false,
+      "courseHistory": null,
+      "courseType": null,
+      "placeProbTop8": 0.22907083333333333,
+      "bookie": null,
+      "ocLink": "https://www.oddschecker.com/golf/biltmore-championship-asheville/winner",
+      "rationale": "Fits the course - strongest on approach, what wins here. Trending up (1.18 SG/rd over last 4 starts). Did not play last week, so arrives fresh. The value: the model makes him 2.8% to win where the best price implies about 2.8% - a +-1% edge.",
+      "eachWayPlaces": 8,
+      "ewPlaceProb": 23
+    },
+    {
+      "playerId": "39335",
+      "name": "Kevin Roy",
+      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_39335.png",
+      "country": "USA",
+      "owgr": "117",
+      "market": "win",
+      "marketLabel": "To Win",
+      "eachWay": true,
+      "modelProb": 0.0248125,
+      "modelOdds": {
+        "prob": 0.0248125,
+        "decimal": 40.30226700251889,
+        "fractional": "40/1"
+      },
+      "marketProb": 0.025979166666666668,
+      "marketOdds": {
+        "prob": 0.025979166666666668,
+        "decimal": 38.492381716118686,
+        "fractional": "40/1"
+      },
+      "edgePct": -4,
+      "valueScore": -0.007073866111574245,
+      "confidence": 1,
+      "trend": "up",
+      "sg": {
+        "total": 0.29,
+        "ott": 0.164,
+        "app": -0.2,
+        "arg": 0.193,
+        "putt": 0.132
+      },
+      "recentSG": 1.14249695994979,
+      "recentEvents": 4,
+      "dataThin": false,
+      "letdownFlag": null,
+      "playerNote": null,
+      "playerNoteTag": null,
+      "lastWeekFinish": null,
+      "playedLastWeek": false,
+      "courseHistory": null,
+      "courseType": null,
+      "placeProbTop8": 0.19640000000000002,
+      "bookie": null,
+      "ocLink": "https://www.oddschecker.com/golf/biltmore-championship-asheville/winner",
+      "rationale": "Solid all-round numbers for this test. Trending up (1.14 SG/rd over last 4 starts). Did not play last week, so arrives fresh. The value: the model makes him 2.5% to win where the best price implies about 2.6% - a +-4% edge.",
+      "eachWayPlaces": 8,
+      "ewPlaceProb": 20
+    }
+  ],
+  "top5Sel": [
+    {
+      "playerId": "59143",
+      "name": "Mac Meissner",
+      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_59143.png",
+      "country": "USA",
+      "owgr": "88",
+      "market": "top5",
+      "marketLabel": "Top 5",
+      "eachWay": false,
+      "modelProb": 0.11308333333333333,
+      "modelOdds": {
+        "prob": 0.11308333333333333,
+        "decimal": 8.843036109064112,
+        "fractional": "8/1"
+      },
+      "marketProb": 0.0836875,
+      "marketOdds": {
+        "prob": 0.0836875,
+        "decimal": 11.949215832710978,
+        "fractional": "11/1"
+      },
+      "edgePct": 35,
+      "valueScore": 0.11812028409457039,
+      "confidence": 1,
+      "trend": "down",
+      "sg": {
+        "total": 0.637,
+        "ott": -0.001,
+        "app": 0.138,
+        "arg": 0.259,
+        "putt": 0.242
+      },
+      "recentSG": 0.34515120525931325,
+      "recentEvents": 3,
+      "dataThin": false,
+      "letdownFlag": null,
+      "playerNote": null,
+      "playerNoteTag": null,
+      "lastWeekFinish": null,
+      "playedLastWeek": false,
+      "courseHistory": null,
+      "courseType": null,
+      "placeProbTop8": null,
+      "bookie": null,
+      "ocLink": "https://www.oddschecker.com/golf/biltmore-championship-asheville/top-5-finish",
+      "rationale": "Gaining on around the green (+0.26/rd). Form cooling (0.35 SG/rd over 3 starts). Did not play last week, so arrives fresh. The value: the model makes him 11% to finish top 5 where the best price implies about 8.4% - a +35% edge."
+    },
+    {
+      "playerId": "45522",
+      "name": "Christiaan Bezuidenhout",
+      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_45522.png",
+      "country": "RSA",
+      "owgr": "96",
+      "market": "top5",
+      "marketLabel": "Top 5",
+      "eachWay": false,
+      "modelProb": 0.13914583333333333,
+      "modelOdds": {
+        "prob": 0.13914583333333333,
+        "decimal": 7.186704596496481,
+        "fractional": "6/1"
+      },
+      "marketProb": 0.1138125,
+      "marketOdds": {
+        "prob": 0.1138125,
+        "decimal": 8.786381109280615,
+        "fractional": "8/1"
+      },
+      "edgePct": 22,
+      "valueScore": 0.08303046640210858,
+      "confidence": 1,
+      "trend": "flat",
+      "sg": {
+        "total": 0.75,
+        "ott": -0.32,
+        "app": 0.398,
+        "arg": 0.217,
+        "putt": 0.455
+      },
+      "recentSG": 0.5789501039501039,
+      "recentEvents": 4,
+      "dataThin": false,
+      "letdownFlag": null,
+      "playerNote": null,
+      "playerNoteTag": null,
+      "lastWeekFinish": null,
+      "playedLastWeek": false,
+      "courseHistory": null,
+      "courseType": null,
+      "placeProbTop8": null,
+      "bookie": null,
+      "ocLink": "https://www.oddschecker.com/golf/biltmore-championship-asheville/top-5-finish",
+      "rationale": "Gaining on putting (+0.46/rd). Steady (0.58 SG/rd over last 4 starts). Did not play last week, so arrives fresh. The value: the model makes him 14% to finish top 5 where the best price implies about 11% - a +22% edge."
+    },
+    {
+      "playerId": "48001",
+      "name": "Zach Bauchou",
+      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_48001.png",
+      "country": "USA",
+      "owgr": "154",
+      "market": "top5",
+      "marketLabel": "Top 5",
+      "eachWay": false,
+      "modelProb": 0.14233333333333334,
+      "modelOdds": {
+        "prob": 0.14233333333333334,
+        "decimal": 7.02576112412178,
+        "fractional": "6/1"
+      },
+      "marketProb": 0.15133333333333332,
+      "marketOdds": {
+        "prob": 0.15133333333333332,
+        "decimal": 6.607929515418503,
+        "fractional": "11/2"
+      },
+      "edgePct": -6,
+      "valueScore": -0.022436815744896563,
+      "confidence": 1,
+      "trend": "up",
+      "sg": {
+        "total": 0.473,
+        "ott": -0.073,
+        "app": 0.26,
+        "arg": 0.077,
+        "putt": 0.208
+      },
+      "recentSG": 1.1820452179423349,
+      "recentEvents": 4,
+      "dataThin": false,
+      "letdownFlag": null,
+      "playerNote": null,
+      "playerNoteTag": null,
+      "lastWeekFinish": null,
+      "playedLastWeek": false,
+      "courseHistory": null,
+      "courseType": null,
+      "placeProbTop8": null,
+      "bookie": null,
+      "ocLink": "https://www.oddschecker.com/golf/biltmore-championship-asheville/top-5-finish",
+      "rationale": "Fits the course - strongest on approach, what wins here. Trending up (1.18 SG/rd over last 4 starts). Did not play last week, so arrives fresh. The value: the model makes him 14% to finish top 5 where the best price implies about 15% - a +-6% edge."
+    },
+    {
+      "playerId": "39335",
+      "name": "Kevin Roy",
+      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_39335.png",
+      "country": "USA",
+      "owgr": "117",
+      "market": "top5",
+      "marketLabel": "Top 5",
+      "eachWay": false,
+      "modelProb": 0.122875,
+      "modelOdds": {
+        "prob": 0.122875,
+        "decimal": 8.138351983723297,
+        "fractional": "7/1"
+      },
+      "marketProb": 0.1339375,
+      "marketOdds": {
+        "prob": 0.1339375,
+        "decimal": 7.466168922071863,
+        "fractional": "13/2"
+      },
+      "edgePct": -8,
+      "valueScore": -0.02895228603453668,
+      "confidence": 1,
+      "trend": "up",
+      "sg": {
+        "total": 0.29,
+        "ott": 0.164,
+        "app": -0.2,
+        "arg": 0.193,
+        "putt": 0.132
+      },
+      "recentSG": 1.14249695994979,
+      "recentEvents": 4,
+      "dataThin": false,
+      "letdownFlag": null,
+      "playerNote": null,
+      "playerNoteTag": null,
+      "lastWeekFinish": null,
+      "playedLastWeek": false,
+      "courseHistory": null,
+      "courseType": null,
+      "placeProbTop8": null,
+      "bookie": null,
+      "ocLink": "https://www.oddschecker.com/golf/biltmore-championship-asheville/top-5-finish",
+      "rationale": "Solid all-round numbers for this test. Trending up (1.14 SG/rd over last 4 starts). Did not play last week, so arrives fresh. The value: the model makes him 12% to finish top 5 where the best price implies about 13% - a +-8% edge."
+    },
+    {
+      "playerId": "52375",
+      "name": "Doug Ghim",
+      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_52375.png",
+      "country": "USA",
+      "owgr": "157",
+      "market": "top5",
+      "marketLabel": "Top 5",
+      "eachWay": false,
+      "modelProb": 0.28225,
+      "modelOdds": {
+        "prob": 0.28225,
+        "decimal": 3.5429583702391496,
+        "fractional": "5/2"
+      },
+      "marketProb": 0.3108125,
+      "marketOdds": {
+        "prob": 0.3108125,
+        "decimal": 3.217373818620551,
+        "fractional": "9/4"
+      },
+      "edgePct": -9,
+      "valueScore": -0.048821904418473734,
+      "confidence": 2,
+      "trend": "up",
+      "sg": {
+        "total": 0.943,
+        "ott": 0.588,
+        "app": 0.134,
+        "arg": 0.269,
+        "putt": -0.047
+      },
+      "recentSG": 1.3486218202374223,
+      "recentEvents": 3,
+      "dataThin": false,
+      "letdownFlag": null,
+      "playerNote": null,
+      "playerNoteTag": null,
+      "lastWeekFinish": null,
+      "playedLastWeek": false,
+      "courseHistory": null,
+      "courseType": null,
+      "placeProbTop8": null,
+      "bookie": null,
+      "ocLink": "https://www.oddschecker.com/golf/biltmore-championship-asheville/top-5-finish",
+      "rationale": "Gaining on off the tee (+0.59/rd). Trending up (1.35 SG/rd over last 3 starts). Did not play last week, so arrives fresh. The value: the model makes him 28% to finish top 5 where the best price implies about 31% - a +-9% edge."
+    },
+    {
+      "playerId": "52686",
+      "name": "Rasmus Højgaard",
+      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_52686.png",
+      "country": "DEN",
+      "owgr": "73",
+      "market": "top5",
+      "marketLabel": "Top 5",
+      "eachWay": false,
+      "modelProb": 0.1626875,
+      "modelOdds": {
+        "prob": 0.1626875,
+        "decimal": 6.146753745678064,
+        "fractional": "5/1"
+      },
+      "marketProb": 0.18095833333333333,
+      "marketOdds": {
+        "prob": 0.18095833333333333,
+        "decimal": 5.526134008749712,
+        "fractional": "9/2"
+      },
+      "edgePct": -10,
+      "valueScore": -0.04072460316359601,
+      "confidence": 2,
+      "trend": "up",
+      "sg": {
+        "total": 0.588,
+        "ott": 0.269,
+        "app": -0.036,
+        "arg": -0.075,
+        "putt": 0.429
+      },
+      "recentSG": 1.0716291690220463,
+      "recentEvents": 3,
+      "dataThin": false,
+      "letdownFlag": null,
+      "playerNote": null,
+      "playerNoteTag": null,
+      "lastWeekFinish": null,
+      "playedLastWeek": false,
+      "courseHistory": null,
+      "courseType": null,
+      "placeProbTop8": null,
+      "bookie": null,
+      "ocLink": "https://www.oddschecker.com/golf/biltmore-championship-asheville/top-5-finish",
+      "rationale": "Gaining on putting (+0.43/rd). Trending up (1.07 SG/rd over last 3 starts). Did not play last week, so arrives fresh. The value: the model makes him 16% to finish top 5 where the best price implies about 18% - a +-10% edge."
+    }
+  ],
+  "top10Sel": [
+    {
+      "playerId": "59143",
+      "name": "Mac Meissner",
+      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_59143.png",
+      "country": "USA",
+      "owgr": "88",
+      "market": "top10",
+      "marketLabel": "Top 10",
+      "eachWay": false,
+      "modelProb": 0.22760416666666666,
+      "modelOdds": {
+        "prob": 0.22760416666666666,
+        "decimal": 4.393592677345538,
+        "fractional": "7/2"
+      },
+      "marketProb": 0.1791875,
+      "marketOdds": {
+        "prob": 0.1791875,
+        "decimal": 5.580746424834322,
+        "fractional": "9/2"
+      },
+      "edgePct": 27,
+      "valueScore": 0.12890723116982564,
+      "confidence": 1,
+      "trend": "down",
+      "sg": {
+        "total": 0.637,
+        "ott": -0.001,
+        "app": 0.138,
+        "arg": 0.259,
+        "putt": 0.242
+      },
+      "recentSG": 0.34515120525931325,
+      "recentEvents": 3,
+      "dataThin": false,
+      "letdownFlag": null,
+      "playerNote": null,
+      "playerNoteTag": null,
+      "lastWeekFinish": null,
+      "playedLastWeek": false,
+      "courseHistory": null,
+      "courseType": null,
+      "placeProbTop8": null,
+      "bookie": null,
+      "ocLink": "https://www.oddschecker.com/golf/biltmore-championship-asheville/top-10-finish",
+      "rationale": "Gaining on around the green (+0.26/rd). Form cooling (0.35 SG/rd over 3 starts). Did not play last week, so arrives fresh. The value: the model makes him 23% to finish top 10 where the best price implies about 18% - a +27% edge."
+    },
+    {
+      "playerId": "45522",
+      "name": "Christiaan Bezuidenhout",
+      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_45522.png",
+      "country": "RSA",
+      "owgr": "96",
+      "market": "top10",
+      "marketLabel": "Top 10",
+      "eachWay": false,
+      "modelProb": 0.27797916666666667,
+      "modelOdds": {
+        "prob": 0.27797916666666667,
+        "decimal": 3.5973918908791127,
+        "fractional": "5/2"
+      },
+      "marketProb": 0.24420833333333333,
+      "marketOdds": {
+        "prob": 0.24420833333333333,
+        "decimal": 4.094864357618154,
+        "fractional": "3/1"
+      },
+      "edgePct": 14,
+      "valueScore": 0.07291005437551787,
+      "confidence": 1,
+      "trend": "flat",
+      "sg": {
+        "total": 0.75,
+        "ott": -0.32,
+        "app": 0.398,
+        "arg": 0.217,
+        "putt": 0.455
+      },
+      "recentSG": 0.5789501039501039,
+      "recentEvents": 4,
+      "dataThin": false,
+      "letdownFlag": null,
+      "playerNote": null,
+      "playerNoteTag": null,
+      "lastWeekFinish": null,
+      "playedLastWeek": false,
+      "courseHistory": null,
+      "courseType": null,
+      "placeProbTop8": null,
+      "bookie": null,
+      "ocLink": "https://www.oddschecker.com/golf/biltmore-championship-asheville/top-10-finish",
+      "rationale": "Gaining on putting (+0.46/rd). Steady (0.58 SG/rd over last 4 starts). Did not play last week, so arrives fresh. The value: the model makes him 28% to finish top 10 where the best price implies about 24% - a +14% edge."
+    },
+    {
+      "playerId": "48001",
+      "name": "Zach Bauchou",
+      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_48001.png",
+      "country": "USA",
+      "owgr": "154",
+      "market": "top10",
+      "marketLabel": "Top 10",
+      "eachWay": false,
+      "modelProb": 0.28689583333333335,
+      "modelOdds": {
+        "prob": 0.28689583333333335,
+        "decimal": 3.4855856510057364,
+        "fractional": "5/2"
+      },
+      "marketProb": 0.3158958333333333,
+      "marketOdds": {
+        "prob": 0.3158958333333333,
+        "decimal": 3.1656004748400712,
+        "fractional": "9/4"
+      },
+      "edgePct": -9,
+      "valueScore": -0.049171812934776155,
+      "confidence": 1,
+      "trend": "up",
+      "sg": {
+        "total": 0.473,
+        "ott": -0.073,
+        "app": 0.26,
+        "arg": 0.077,
+        "putt": 0.208
+      },
+      "recentSG": 1.1820452179423349,
+      "recentEvents": 4,
+      "dataThin": false,
+      "letdownFlag": null,
+      "playerNote": null,
+      "playerNoteTag": null,
+      "lastWeekFinish": null,
+      "playedLastWeek": false,
+      "courseHistory": null,
+      "courseType": null,
+      "placeProbTop8": null,
+      "bookie": null,
+      "ocLink": "https://www.oddschecker.com/golf/biltmore-championship-asheville/top-10-finish",
+      "rationale": "Fits the course - strongest on approach, what wins here. Trending up (1.18 SG/rd over last 4 starts). Did not play last week, so arrives fresh. The value: the model makes him 29% to finish top 10 where the best price implies about 32% - a +-9% edge."
+    },
+    {
+      "playerId": "52375",
+      "name": "Doug Ghim",
+      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_52375.png",
+      "country": "USA",
+      "owgr": "157",
+      "market": "top10",
+      "marketLabel": "Top 10",
+      "eachWay": false,
+      "modelProb": 0.5117916666666666,
+      "modelOdds": {
+        "prob": 0.5117916666666666,
+        "decimal": 1.9539200521045348,
+        "fractional": "10/11"
+      },
+      "marketProb": 0.5728958333333334,
+      "marketOdds": {
+        "prob": 0.5728958333333334,
+        "decimal": 1.7455180188370485,
+        "fractional": "8/11"
+      },
+      "edgePct": -11,
+      "valueScore": -0.07630302698912546,
+      "confidence": 2,
+      "trend": "up",
+      "sg": {
+        "total": 0.943,
+        "ott": 0.588,
+        "app": 0.134,
+        "arg": 0.269,
+        "putt": -0.047
+      },
+      "recentSG": 1.3486218202374223,
+      "recentEvents": 3,
+      "dataThin": false,
+      "letdownFlag": null,
+      "playerNote": null,
+      "playerNoteTag": null,
+      "lastWeekFinish": null,
+      "playedLastWeek": false,
+      "courseHistory": null,
+      "courseType": null,
+      "placeProbTop8": null,
+      "bookie": null,
+      "ocLink": "https://www.oddschecker.com/golf/biltmore-championship-asheville/top-10-finish",
+      "rationale": "Gaining on off the tee (+0.59/rd). Trending up (1.35 SG/rd over last 3 starts). Did not play last week, so arrives fresh. The value: the model makes him 51% to finish top 10 where the best price implies about 57% - a +-11% edge."
+    },
+    {
+      "playerId": "39335",
+      "name": "Kevin Roy",
+      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_39335.png",
+      "country": "USA",
+      "owgr": "117",
+      "market": "top10",
+      "marketLabel": "Top 10",
+      "eachWay": false,
+      "modelProb": 0.24541666666666667,
+      "modelOdds": {
+        "prob": 0.24541666666666667,
+        "decimal": 4.074702886247878,
+        "fractional": "3/1"
+      },
+      "marketProb": 0.27658333333333335,
+      "marketOdds": {
+        "prob": 0.27658333333333335,
+        "decimal": 3.6155468514612834,
+        "fractional": "5/2"
+      },
+      "edgePct": -11,
+      "valueScore": -0.0558234118352967,
+      "confidence": 1,
+      "trend": "up",
+      "sg": {
+        "total": 0.29,
+        "ott": 0.164,
+        "app": -0.2,
+        "arg": 0.193,
+        "putt": 0.132
+      },
+      "recentSG": 1.14249695994979,
+      "recentEvents": 4,
+      "dataThin": false,
+      "letdownFlag": null,
+      "playerNote": null,
+      "playerNoteTag": null,
+      "lastWeekFinish": null,
+      "playedLastWeek": false,
+      "courseHistory": null,
+      "courseType": null,
+      "placeProbTop8": null,
+      "bookie": null,
+      "ocLink": "https://www.oddschecker.com/golf/biltmore-championship-asheville/top-10-finish",
+      "rationale": "Solid all-round numbers for this test. Trending up (1.14 SG/rd over last 4 starts). Did not play last week, so arrives fresh. The value: the model makes him 25% to finish top 10 where the best price implies about 28% - a +-11% edge."
+    },
+    {
+      "playerId": "60004",
+      "name": "Jacob Bridgeman",
+      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_60004.png",
+      "country": "USA",
+      "owgr": "28",
+      "market": "top10",
+      "marketLabel": "Top 10",
+      "eachWay": false,
+      "modelProb": 0.468,
+      "modelOdds": {
+        "prob": 0.468,
+        "decimal": 2.1367521367521367,
+        "fractional": "11/10"
+      },
+      "marketProb": 0.5381458333333333,
+      "marketOdds": {
+        "prob": 0.5381458333333333,
+        "decimal": 1.8582323564709071,
+        "fractional": "5/6"
+      },
+      "edgePct": -13,
+      "valueScore": -0.08917124361369198,
+      "confidence": 2,
+      "trend": "flat",
+      "sg": {
+        "total": 0.932,
+        "ott": 0.077,
+        "app": 0.258,
+        "arg": -0.097,
+        "putt": 0.693
+      },
+      "recentSG": 0.8768956477305547,
+      "recentEvents": 4,
+      "dataThin": false,
+      "letdownFlag": null,
+      "playerNote": null,
+      "playerNoteTag": null,
+      "lastWeekFinish": "T4",
+      "playedLastWeek": true,
+      "courseHistory": null,
+      "courseType": null,
+      "placeProbTop8": null,
+      "bookie": null,
+      "ocLink": "https://www.oddschecker.com/golf/biltmore-championship-asheville/top-10-finish",
+      "rationale": "Gaining on putting (+0.69/rd). Steady (0.88 SG/rd over last 4 starts). Finished T4 last week. The value: the model makes him 47% to finish top 10 where the best price implies about 54% - a +-13% edge."
+    }
+  ],
+  "top20Sel": [
+    {
+      "playerId": "59143",
+      "name": "Mac Meissner",
+      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_59143.png",
+      "country": "USA",
+      "owgr": "88",
+      "market": "top20",
+      "marketLabel": "Top 20",
+      "eachWay": false,
+      "modelProb": 0.39123020833333333,
+      "modelOdds": {
+        "prob": 0.39123020833333333,
+        "decimal": 2.5560398422710415,
+        "fractional": "6/4"
+      },
+      "marketProb": 0.4051666666666667,
+      "marketOdds": {
+        "prob": 0.4051666666666667,
+        "decimal": 2.4681201151789387,
+        "fractional": "6/4"
+      },
+      "edgePct": -3,
+      "valueScore": -0.021514680580931728,
+      "confidence": 1,
+      "trend": "down",
+      "sg": {
+        "total": 0.637,
+        "ott": -0.001,
+        "app": 0.138,
+        "arg": 0.259,
+        "putt": 0.242
+      },
+      "recentSG": 0.34515120525931325,
+      "recentEvents": 3,
+      "dataThin": false,
+      "letdownFlag": null,
+      "playerNote": null,
+      "playerNoteTag": null,
+      "lastWeekFinish": null,
+      "playedLastWeek": false,
+      "courseHistory": null,
+      "courseType": null,
+      "placeProbTop8": null,
+      "bookie": null,
+      "ocLink": "https://www.oddschecker.com/golf/biltmore-championship-asheville/top-20-finish",
+      "rationale": "Gaining on around the green (+0.26/rd). Form cooling (0.35 SG/rd over 3 starts). Did not play last week, so arrives fresh. The value: the model makes him 39% to finish top 20 where the best price implies about 41% - a +-3% edge."
+    },
+    {
+      "playerId": "60019",
+      "name": "Jackson Suber",
+      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_60019.png",
+      "country": "USA",
+      "owgr": "102",
+      "market": "top20",
+      "marketLabel": "Top 20",
+      "eachWay": false,
+      "modelProb": 0.3445333333333333,
+      "modelOdds": {
+        "prob": 0.3445333333333333,
+        "decimal": 2.9024767801857587,
+        "fractional": "15/8"
+      },
+      "marketProb": 0.3875416666666667,
+      "marketOdds": {
+        "prob": 0.3875416666666667,
+        "decimal": 2.5803677023975915,
+        "fractional": "6/4"
+      },
+      "edgePct": -11,
+      "valueScore": -0.06514031184515941,
+      "confidence": 1,
+      "trend": "flat",
+      "sg": {
+        "total": 0.36,
+        "ott": 0.09,
+        "app": 0.426,
+        "arg": 0.122,
+        "putt": -0.277
+      },
+      "recentSG": 0.5628671565856416,
+      "recentEvents": 3,
+      "dataThin": false,
+      "letdownFlag": null,
+      "playerNote": null,
+      "playerNoteTag": null,
+      "lastWeekFinish": null,
+      "playedLastWeek": false,
+      "courseHistory": null,
+      "courseType": null,
+      "placeProbTop8": null,
+      "bookie": null,
+      "ocLink": "https://www.oddschecker.com/golf/biltmore-championship-asheville/top-20-finish",
+      "rationale": "Fits the course - strongest on approach, what wins here. Steady (0.56 SG/rd over last 3 starts). Did not play last week, so arrives fresh. The value: the model makes him 34% to finish top 20 where the best price implies about 39% - a +-11% edge."
+    },
+    {
+      "playerId": "45522",
+      "name": "Christiaan Bezuidenhout",
+      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_45522.png",
+      "country": "RSA",
+      "owgr": "96",
+      "market": "top20",
+      "marketLabel": "Top 20",
+      "eachWay": false,
+      "modelProb": 0.45983229166666667,
+      "modelOdds": {
+        "prob": 0.45983229166666667,
+        "decimal": 2.1747059050061277,
+        "fractional": "11/10"
+      },
+      "marketProb": 0.5218958333333333,
+      "marketOdds": {
+        "prob": 0.5218958333333333,
+        "decimal": 1.9160911740050297,
+        "fractional": "10/11"
+      },
+      "edgePct": -12,
+      "valueScore": -0.08064036012750185,
+      "confidence": 1,
+      "trend": "flat",
+      "sg": {
+        "total": 0.75,
+        "ott": -0.32,
+        "app": 0.398,
+        "arg": 0.217,
+        "putt": 0.455
+      },
+      "recentSG": 0.5789501039501039,
+      "recentEvents": 4,
+      "dataThin": false,
+      "letdownFlag": null,
+      "playerNote": null,
+      "playerNoteTag": null,
+      "lastWeekFinish": null,
+      "playedLastWeek": false,
+      "courseHistory": null,
+      "courseType": null,
+      "placeProbTop8": null,
+      "bookie": null,
+      "ocLink": "https://www.oddschecker.com/golf/biltmore-championship-asheville/top-20-finish",
+      "rationale": "Gaining on putting (+0.46/rd). Steady (0.58 SG/rd over last 4 starts). Did not play last week, so arrives fresh. The value: the model makes him 46% to finish top 20 where the best price implies about 52% - a +-12% edge."
+    },
+    {
+      "playerId": "52375",
+      "name": "Doug Ghim",
+      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_52375.png",
+      "country": "USA",
+      "owgr": "157",
+      "market": "top20",
+      "marketLabel": "Top 20",
+      "eachWay": false,
+      "modelProb": 0.6909260416666666,
+      "modelOdds": {
+        "prob": 0.6909260416666666,
+        "decimal": 1.4473329121996596,
+        "fractional": "4/9"
+      },
+      "marketProb": 0.8826875,
+      "marketOdds": {
+        "prob": 0.8826875,
+        "decimal": 1.132903773985697,
+        "fractional": "1/6"
+      },
+      "edgePct": -22,
+      "valueScore": -0.18058019944262632,
+      "confidence": 2,
+      "trend": "up",
+      "sg": {
+        "total": 0.943,
+        "ott": 0.588,
+        "app": 0.134,
+        "arg": 0.269,
+        "putt": -0.047
+      },
+      "recentSG": 1.3486218202374223,
+      "recentEvents": 3,
+      "dataThin": false,
+      "letdownFlag": null,
+      "playerNote": null,
+      "playerNoteTag": null,
+      "lastWeekFinish": null,
+      "playedLastWeek": false,
+      "courseHistory": null,
+      "courseType": null,
+      "placeProbTop8": null,
+      "bookie": null,
+      "ocLink": "https://www.oddschecker.com/golf/biltmore-championship-asheville/top-20-finish",
+      "rationale": "Gaining on off the tee (+0.59/rd). Trending up (1.35 SG/rd over last 3 starts). Did not play last week, so arrives fresh. The value: the model makes him 69% to finish top 20 where the best price implies about 88% - a +-22% edge."
+    },
+    {
+      "playerId": "58168",
+      "name": "Davis Thompson",
+      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_58168.png",
+      "country": "USA",
+      "owgr": "114",
+      "market": "top20",
+      "marketLabel": "Top 20",
+      "eachWay": false,
+      "modelProb": 0.7769354166666667,
+      "modelOdds": {
+        "prob": 0.7769354166666667,
+        "decimal": 1.287108269938782,
+        "fractional": "2/7"
+      },
+      "marketProb": 0.9931458333333333,
+      "marketOdds": {
+        "prob": 0.9931458333333333,
+        "decimal": 1.0309278350515465,
+        "fractional": "1/6"
+      },
+      "edgePct": -22,
+      "valueScore": -0.19189163730184172,
+      "confidence": 2,
+      "trend": "up",
+      "sg": {
+        "total": 0.577,
+        "ott": 0.267,
+        "app": 0.635,
+        "arg": -0.001,
+        "putt": -0.324
+      },
+      "recentSG": 2.252927113702624,
+      "recentEvents": 3,
+      "dataThin": false,
+      "letdownFlag": null,
+      "playerNote": null,
+      "playerNoteTag": null,
+      "lastWeekFinish": null,
+      "playedLastWeek": false,
+      "courseHistory": null,
+      "courseType": null,
+      "placeProbTop8": null,
+      "bookie": null,
+      "ocLink": "https://www.oddschecker.com/golf/biltmore-championship-asheville/top-20-finish",
+      "rationale": "Fits the course - strongest on approach, what wins here. Trending up (2.25 SG/rd over last 3 starts). Did not play last week, so arrives fresh. The value: the model makes him 78% to finish top 20 where the best price implies about 99% - a +-22% edge."
+    },
+    {
+      "playerId": "35658",
+      "name": "Kristoffer Ventura",
+      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_35658.png",
+      "country": "NOR",
+      "owgr": "185",
+      "market": "top20",
+      "marketLabel": "Top 20",
+      "eachWay": false,
+      "modelProb": 0.334475,
+      "modelOdds": {
+        "prob": 0.334475,
+        "decimal": 2.9897600717542416,
+        "fractional": "2/1"
+      },
+      "marketProb": 0.43052083333333335,
+      "marketOdds": {
+        "prob": 0.43052083333333335,
+        "decimal": 2.3227679651584805,
+        "fractional": "11/8"
+      },
+      "edgePct": -22,
+      "valueScore": -0.12902271843082452,
+      "confidence": 1,
+      "trend": "up",
+      "sg": {
+        "total": 0.239,
+        "ott": 0.607,
+        "app": -0.215,
+        "arg": -0.202,
+        "putt": 0.049
+      },
+      "recentSG": 1.0490497391440787,
+      "recentEvents": 4,
+      "dataThin": false,
+      "letdownFlag": null,
+      "playerNote": null,
+      "playerNoteTag": null,
+      "lastWeekFinish": null,
+      "playedLastWeek": false,
+      "courseHistory": null,
+      "courseType": null,
+      "placeProbTop8": null,
+      "bookie": null,
+      "ocLink": "https://www.oddschecker.com/golf/biltmore-championship-asheville/top-20-finish",
+      "rationale": "Gaining on off the tee (+0.61/rd). Trending up (1.05 SG/rd over last 4 starts). Did not play last week, so arrives fresh. The value: the model makes him 33% to finish top 20 where the best price implies about 43% - a +-22% edge."
+    },
+    {
+      "playerId": "60004",
+      "name": "Jacob Bridgeman",
+      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_60004.png",
+      "country": "USA",
+      "owgr": "28",
+      "market": "top20",
+      "marketLabel": "Top 20",
+      "eachWay": false,
+      "modelProb": 0.6543760416666666,
+      "modelOdds": {
+        "prob": 0.6543760416666666,
+        "decimal": 1.528173307587858,
+        "fractional": "8/15"
+      },
+      "marketProb": 0.8603958333333334,
+      "marketOdds": {
+        "prob": 0.8603958333333334,
+        "decimal": 1.1622557446911548,
+        "fractional": "1/6"
+      },
+      "edgePct": -24,
+      "valueScore": -0.193697644887313,
+      "confidence": 2,
+      "trend": "flat",
+      "sg": {
+        "total": 0.932,
+        "ott": 0.077,
+        "app": 0.258,
+        "arg": -0.097,
+        "putt": 0.693
+      },
+      "recentSG": 0.8768956477305547,
+      "recentEvents": 4,
+      "dataThin": false,
+      "letdownFlag": null,
+      "playerNote": null,
+      "playerNoteTag": null,
+      "lastWeekFinish": "T4",
+      "playedLastWeek": true,
+      "courseHistory": null,
+      "courseType": null,
+      "placeProbTop8": null,
+      "bookie": null,
+      "ocLink": "https://www.oddschecker.com/golf/biltmore-championship-asheville/top-20-finish",
+      "rationale": "Gaining on putting (+0.69/rd). Steady (0.88 SG/rd over last 4 starts). Finished T4 last week. The value: the model makes him 65% to finish top 20 where the best price implies about 86% - a +-24% edge."
+    },
+    {
+      "playerId": "35461",
+      "name": "Beau Hossler",
+      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_35461.png",
+      "country": "USA",
+      "owgr": "94",
+      "market": "top20",
+      "marketLabel": "Top 20",
+      "eachWay": false,
+      "modelProb": 0.641696875,
+      "modelOdds": {
+        "prob": 0.641696875,
+        "decimal": 1.5583681937051663,
+        "fractional": "4/7"
+      },
+      "marketProb": 0.8484375,
+      "marketOdds": {
+        "prob": 0.8484375,
+        "decimal": 1.1786372007366483,
+        "fractional": "1/6"
+      },
+      "edgePct": -24,
+      "valueScore": -0.19519600793538472,
+      "confidence": 2,
+      "trend": "up",
+      "sg": {
+        "total": 0.798,
+        "ott": 0.177,
+        "app": -0.155,
+        "arg": 0.205,
+        "putt": 0.571
+      },
+      "recentSG": 1.2596467657788413,
+      "recentEvents": 4,
+      "dataThin": false,
+      "letdownFlag": null,
+      "playerNote": null,
+      "playerNoteTag": null,
+      "lastWeekFinish": null,
+      "playedLastWeek": false,
+      "courseHistory": null,
+      "courseType": null,
+      "placeProbTop8": null,
+      "bookie": null,
+      "ocLink": "https://www.oddschecker.com/golf/biltmore-championship-asheville/top-20-finish",
+      "rationale": "Gaining on putting (+0.57/rd). Trending up (1.26 SG/rd over last 4 starts). Did not play last week, so arrives fresh. The value: the model makes him 64% to finish top 20 where the best price implies about 85% - a +-24% edge."
+    }
+  ],
+  "placesTable": [
+    {
+      "modelRank": 1,
+      "name": "Davis Thompson",
+      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_58168.png",
+      "letdownFlag": null,
+      "dataThin": false,
+      "owgr": "114",
+      "courseHistory": null,
+      "courseType": null,
+      "win": {
+        "prob": 0.09033333333333333,
+        "decimal": 11.07011070110701,
+        "fractional": "10/1"
+      },
+      "top5": {
+        "prob": 0.39345833333333335,
+        "decimal": 2.541565180557026,
+        "fractional": "6/4"
+      },
+      "top10": {
+        "prob": 0.6535833333333333,
+        "decimal": 1.5300267754685708,
+        "fractional": "8/15"
+      },
+      "top20": {
+        "prob": 0.7769354166666667,
+        "decimal": 1.287108269938782,
+        "fractional": "2/7"
+      },
+      "m_win": {
+        "prob": 0.16535416666666666,
+        "decimal": 6.047625047247071,
+        "fractional": "5/1"
+      },
+      "edge_win": -45,
+      "edge_top20": -22
+    },
+    {
+      "modelRank": 2,
+      "name": "Doug Ghim",
+      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_52375.png",
+      "letdownFlag": null,
+      "dataThin": false,
+      "owgr": "157",
+      "courseHistory": null,
+      "courseType": null,
+      "win": {
+        "prob": 0.059291666666666666,
+        "decimal": 16.865776528460998,
+        "fractional": "16/1"
+      },
+      "top5": {
+        "prob": 0.28225,
+        "decimal": 3.5429583702391496,
+        "fractional": "5/2"
+      },
+      "top10": {
+        "prob": 0.5117916666666666,
+        "decimal": 1.9539200521045348,
+        "fractional": "10/11"
+      },
+      "top20": {
+        "prob": 0.6909260416666666,
+        "decimal": 1.4473329121996596,
+        "fractional": "4/9"
+      },
+      "m_win": {
+        "prob": 0.06316666666666666,
+        "decimal": 15.8311345646438,
+        "fractional": "14/1"
+      },
+      "edge_win": -6,
+      "edge_top20": -22
+    },
+    {
+      "modelRank": 3,
+      "name": "Jacob Bridgeman",
+      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_60004.png",
+      "letdownFlag": null,
+      "dataThin": false,
+      "owgr": "28",
+      "courseHistory": null,
+      "courseType": null,
+      "win": {
+        "prob": 0.0535,
+        "decimal": 18.69158878504673,
+        "fractional": "18/1"
+      },
+      "top5": {
+        "prob": 0.25204166666666666,
+        "decimal": 3.9675979500743925,
+        "fractional": "3/1"
+      },
+      "top10": {
+        "prob": 0.468,
+        "decimal": 2.1367521367521367,
+        "fractional": "11/10"
+      },
+      "top20": {
+        "prob": 0.6543760416666666,
+        "decimal": 1.528173307587858,
+        "fractional": "8/15"
+      },
+      "m_win": {
+        "prob": 0.0596875,
+        "decimal": 16.75392670157068,
+        "fractional": "16/1"
+      },
+      "edge_win": -10,
+      "edge_top20": -24
+    },
+    {
+      "modelRank": 4,
+      "name": "Beau Hossler",
+      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_35461.png",
+      "letdownFlag": null,
+      "dataThin": false,
+      "owgr": "94",
+      "courseHistory": null,
+      "courseType": null,
+      "win": {
+        "prob": 0.049875,
+        "decimal": 20.050125313283207,
+        "fractional": "20/1"
+      },
+      "top5": {
+        "prob": 0.23970833333333333,
+        "decimal": 4.171736485312011,
+        "fractional": "3/1"
+      },
+      "top10": {
+        "prob": 0.4475208333333333,
+        "decimal": 2.234532842977515,
+        "fractional": "5/4"
+      },
+      "top20": {
+        "prob": 0.641696875,
+        "decimal": 1.5583681937051663,
+        "fractional": "4/7"
+      },
+      "m_win": {
+        "prob": 0.05539583333333333,
+        "decimal": 18.05189921022941,
+        "fractional": "18/1"
+      },
+      "edge_win": -10,
+      "edge_top20": -24
+    },
+    {
+      "modelRank": 5,
+      "name": "Kevin Yu",
+      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_45242.png",
+      "letdownFlag": null,
+      "dataThin": false,
+      "owgr": "101",
+      "courseHistory": null,
+      "courseType": null,
+      "win": {
+        "prob": 0.04625,
+        "decimal": 21.62162162162162,
+        "fractional": "20/1"
+      },
+      "top5": {
+        "prob": 0.22239583333333332,
+        "decimal": 4.49648711943794,
+        "fractional": "7/2"
+      },
+      "top10": {
+        "prob": 0.4213125,
+        "decimal": 2.3735350838154576,
+        "fractional": "11/8"
+      },
+      "top20": {
+        "prob": 0.6176666666666667,
+        "decimal": 1.6189962223421477,
+        "fractional": "8/13"
+      },
+      "m_win": {
+        "prob": 0.07435416666666667,
+        "decimal": 13.449145418884841,
+        "fractional": "12/1"
+      },
+      "edge_win": -38,
+      "edge_top20": -32
+    },
+    {
+      "modelRank": 6,
+      "name": "Rasmus Højgaard",
+      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_52686.png",
+      "letdownFlag": null,
+      "dataThin": false,
+      "owgr": "73",
+      "courseHistory": null,
+      "courseType": null,
+      "win": {
+        "prob": 0.03272916666666666,
+        "decimal": 30.5537873965627,
+        "fractional": "28/1"
+      },
+      "top5": {
+        "prob": 0.1626875,
+        "decimal": 6.146753745678064,
+        "fractional": "5/1"
+      },
+      "top10": {
+        "prob": 0.32004166666666667,
+        "decimal": 3.124593151933342,
+        "fractional": "2/1"
+      },
+      "top20": {
+        "prob": 0.5072375,
+        "decimal": 1.971463072032332,
+        "fractional": "1/1"
+      },
+      "m_win": {
+        "prob": 0.0354375,
+        "decimal": 28.218694885361554,
+        "fractional": "28/1"
+      },
+      "edge_win": -8,
+      "edge_top20": -27
+    },
+    {
+      "modelRank": 7,
+      "name": "Zach Bauchou",
+      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_48001.png",
+      "letdownFlag": null,
+      "dataThin": false,
+      "owgr": "154",
+      "courseHistory": null,
+      "courseType": null,
+      "win": {
+        "prob": 0.027791666666666666,
+        "decimal": 35.98200899550225,
+        "fractional": "33/1"
+      },
+      "top5": {
+        "prob": 0.14233333333333334,
+        "decimal": 7.02576112412178,
+        "fractional": "6/1"
+      },
+      "top10": {
+        "prob": 0.28689583333333335,
+        "decimal": 3.4855856510057364,
+        "fractional": "5/2"
+      },
+      "top20": {
+        "prob": 0.4699260416666666,
+        "decimal": 2.127994431747904,
+        "fractional": "11/10"
+      },
+      "m_win": {
+        "prob": 0.028208333333333332,
+        "decimal": 35.450516986706056,
+        "fractional": "33/1"
+      },
+      "edge_win": -1,
+      "edge_top20": -25
+    },
+    {
+      "modelRank": 8,
+      "name": "Christiaan Bezuidenhout",
+      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_45522.png",
+      "letdownFlag": null,
+      "dataThin": false,
+      "owgr": "96",
+      "courseHistory": null,
+      "courseType": null,
+      "win": {
+        "prob": 0.027125,
+        "decimal": 36.86635944700461,
+        "fractional": "33/1"
+      },
+      "top5": {
+        "prob": 0.13914583333333333,
+        "decimal": 7.186704596496481,
+        "fractional": "6/1"
+      },
+      "top10": {
+        "prob": 0.27797916666666667,
+        "decimal": 3.5973918908791127,
+        "fractional": "5/2"
+      },
+      "top20": {
+        "prob": 0.45983229166666667,
+        "decimal": 2.1747059050061277,
+        "fractional": "11/10"
+      },
+      "m_win": {
+        "prob": 0.020875,
+        "decimal": 47.90419161676646,
+        "fractional": "50/1"
+      },
+      "edge_win": 30,
+      "edge_top20": -12
+    },
+    {
+      "modelRank": 9,
+      "name": "Kevin Roy",
+      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_39335.png",
+      "letdownFlag": null,
+      "dataThin": false,
+      "owgr": "117",
+      "courseHistory": null,
+      "courseType": null,
+      "win": {
+        "prob": 0.0248125,
+        "decimal": 40.30226700251889,
+        "fractional": "40/1"
+      },
+      "top5": {
+        "prob": 0.122875,
+        "decimal": 8.138351983723297,
+        "fractional": "7/1"
+      },
+      "top10": {
+        "prob": 0.24541666666666667,
+        "decimal": 4.074702886247878,
+        "fractional": "3/1"
+      },
+      "top20": {
+        "prob": 0.41301145833333336,
+        "decimal": 2.42124033080196,
+        "fractional": "11/8"
+      },
+      "m_win": {
+        "prob": 0.025979166666666668,
+        "decimal": 38.492381716118686,
+        "fractional": "40/1"
+      },
+      "edge_win": -4,
+      "edge_top20": -27
+    },
+    {
+      "modelRank": 10,
+      "name": "Andrew Novak",
+      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_51997.png",
+      "letdownFlag": null,
+      "dataThin": false,
+      "owgr": "79",
+      "courseHistory": null,
+      "courseType": null,
+      "win": {
+        "prob": 0.0236875,
+        "decimal": 42.21635883905013,
+        "fractional": "40/1"
+      },
+      "top5": {
+        "prob": 0.11883333333333333,
+        "decimal": 8.415147265077138,
+        "fractional": "15/2"
+      },
+      "top10": {
+        "prob": 0.2439375,
+        "decimal": 4.0994107097104795,
+        "fractional": "3/1"
+      },
+      "top20": {
+        "prob": 0.4127989583333333,
+        "decimal": 2.422486733100001,
+        "fractional": "11/8"
+      },
+      "m_win": {
+        "prob": 0.03283333333333333,
+        "decimal": 30.456852791878173,
+        "fractional": "28/1"
+      },
+      "edge_win": -28,
+      "edge_top20": -39
+    },
+    {
+      "modelRank": 11,
+      "name": "Denny McCarthy",
+      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_47993.png",
+      "letdownFlag": null,
+      "dataThin": false,
+      "owgr": "90",
+      "courseHistory": null,
+      "courseType": null,
+      "win": {
+        "prob": 0.023208333333333334,
+        "decimal": 43.08797127468581,
+        "fractional": "40/1"
+      },
+      "top5": {
+        "prob": 0.11958333333333333,
+        "decimal": 8.362369337979095,
+        "fractional": "15/2"
+      },
+      "top10": {
+        "prob": 0.24354166666666666,
+        "decimal": 4.1060735671514115,
+        "fractional": "3/1"
+      },
+      "top20": {
+        "prob": 0.4118604166666666,
+        "decimal": 2.4280070614538705,
+        "fractional": "11/8"
+      },
+      "m_win": {
+        "prob": 0.028395833333333332,
+        "decimal": 35.21643433602348,
+        "fractional": "33/1"
+      },
+      "edge_win": -18,
+      "edge_top20": -34
+    },
+    {
+      "modelRank": 12,
+      "name": "Mac Meissner",
+      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_59143.png",
+      "letdownFlag": null,
+      "dataThin": false,
+      "owgr": "88",
+      "courseHistory": null,
+      "courseType": null,
+      "win": {
+        "prob": 0.022770833333333334,
+        "decimal": 43.91582799634035,
+        "fractional": "40/1"
+      },
+      "top5": {
+        "prob": 0.11308333333333333,
+        "decimal": 8.843036109064112,
+        "fractional": "8/1"
+      },
+      "top10": {
+        "prob": 0.22760416666666666,
+        "decimal": 4.393592677345538,
+        "fractional": "7/2"
+      },
+      "top20": {
+        "prob": 0.39123020833333333,
+        "decimal": 2.5560398422710415,
+        "fractional": "6/4"
+      },
+      "m_win": {
+        "prob": 0.015083333333333334,
+        "decimal": 66.29834254143645,
+        "fractional": "66/1"
+      },
+      "edge_win": 51,
+      "edge_top20": -3
+    },
+    {
+      "modelRank": 13,
+      "name": "Chandler Phillips",
+      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_57900.png",
+      "letdownFlag": null,
+      "dataThin": false,
+      "owgr": "136",
+      "courseHistory": null,
+      "courseType": null,
+      "win": {
+        "prob": 0.021416666666666667,
+        "decimal": 46.69260700389105,
+        "fractional": "50/1"
+      },
+      "top5": {
+        "prob": 0.11058333333333334,
+        "decimal": 9.04295403165034,
+        "fractional": "8/1"
+      },
+      "top10": {
+        "prob": 0.22985416666666666,
+        "decimal": 4.350584609806943,
+        "fractional": "7/2"
+      },
+      "top20": {
+        "prob": 0.39514374999999996,
+        "decimal": 2.530724578080762,
+        "fractional": "6/4"
+      },
+      "m_win": {
+        "prob": 0.027333333333333334,
+        "decimal": 36.58536585365854,
+        "fractional": "33/1"
+      },
+      "edge_win": -22,
+      "edge_top20": -37
+    },
+    {
+      "modelRank": 14,
+      "name": "Jackson Suber",
+      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_60019.png",
+      "letdownFlag": null,
+      "dataThin": false,
+      "owgr": "102",
+      "courseHistory": null,
+      "courseType": null,
+      "win": {
+        "prob": 0.0190625,
+        "decimal": 52.459016393442624,
+        "fractional": "50/1"
+      },
+      "top5": {
+        "prob": 0.09539583333333333,
+        "decimal": 10.4826381305962,
+        "fractional": "9/1"
+      },
+      "top10": {
+        "prob": 0.1959375,
+        "decimal": 5.103668261562999,
+        "fractional": "4/1"
+      },
+      "top20": {
+        "prob": 0.3445333333333333,
+        "decimal": 2.9024767801857587,
+        "fractional": "15/8"
+      },
+      "m_win": {
+        "prob": 0.014770833333333334,
+        "decimal": 67.70098730606487,
+        "fractional": "66/1"
+      },
+      "edge_win": 29,
+      "edge_top20": -11
+    },
+    {
+      "modelRank": 15,
+      "name": "Kristoffer Ventura",
+      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_35658.png",
+      "letdownFlag": null,
+      "dataThin": false,
+      "owgr": "185",
+      "courseHistory": null,
+      "courseType": null,
+      "win": {
+        "prob": 0.017354166666666667,
+        "decimal": 57.62304921968787,
+        "fractional": "50/1"
+      },
+      "top5": {
+        "prob": 0.09229166666666666,
+        "decimal": 10.835214446952596,
+        "fractional": "10/1"
+      },
+      "top10": {
+        "prob": 0.187875,
+        "decimal": 5.322687957418497,
+        "fractional": "9/2"
+      },
+      "top20": {
+        "prob": 0.334475,
+        "decimal": 2.9897600717542416,
+        "fractional": "2/1"
+      },
+      "m_win": {
+        "prob": 0.016125,
+        "decimal": 62.01550387596899,
+        "fractional": "66/1"
+      },
+      "edge_win": 8,
+      "edge_top20": -22
+    },
+    {
+      "modelRank": 16,
+      "name": "Mackenzie Hughes",
+      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_35506.png",
+      "letdownFlag": null,
+      "dataThin": false,
+      "owgr": "159",
+      "courseHistory": null,
+      "courseType": null,
+      "win": {
+        "prob": 0.017208333333333332,
+        "decimal": 58.11138014527845,
+        "fractional": "50/1"
+      },
+      "top5": {
+        "prob": 0.08779166666666667,
+        "decimal": 11.390602752728999,
+        "fractional": "10/1"
+      },
+      "top10": {
+        "prob": 0.185375,
+        "decimal": 5.394470667565745,
+        "fractional": "9/2"
+      },
+      "top20": {
+        "prob": 0.32521354166666666,
+        "decimal": 3.0749027081565,
+        "fractional": "2/1"
+      },
+      "m_win": {
+        "prob": 0.013270833333333334,
+        "decimal": 75.35321821036106,
+        "fractional": "80/1"
+      },
+      "edge_win": 30,
+      "edge_top20": -9
+    },
+    {
+      "modelRank": 17,
+      "name": "Michael Kim",
+      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_39975.png",
+      "letdownFlag": null,
+      "dataThin": false,
+      "owgr": "64",
+      "courseHistory": null,
+      "courseType": null,
+      "win": {
+        "prob": 0.017104166666666667,
+        "decimal": 58.465286236297196,
+        "fractional": "50/1"
+      },
+      "top5": {
+        "prob": 0.08666666666666667,
+        "decimal": 11.538461538461538,
+        "fractional": "11/1"
+      },
+      "top10": {
+        "prob": 0.17760416666666667,
+        "decimal": 5.63049853372434,
+        "fractional": "9/2"
+      },
+      "top20": {
+        "prob": 0.31600520833333334,
+        "decimal": 3.1645048044434922,
+        "fractional": "9/4"
+      },
+      "m_win": {
+        "prob": 0.01475,
+        "decimal": 67.79661016949153,
+        "fractional": "66/1"
+      },
+      "edge_win": 16,
+      "edge_top20": -18
+    },
+    {
+      "modelRank": 18,
+      "name": "Emiliano Grillo",
+      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_31646.png",
+      "letdownFlag": null,
+      "dataThin": false,
+      "owgr": "103",
+      "courseHistory": null,
+      "courseType": null,
+      "win": {
+        "prob": 0.0168125,
+        "decimal": 59.479553903345725,
+        "fractional": "66/1"
+      },
+      "top5": {
+        "prob": 0.0825,
+        "decimal": 12.121212121212121,
+        "fractional": "11/1"
+      },
+      "top10": {
+        "prob": 0.17420833333333333,
+        "decimal": 5.740253527864148,
+        "fractional": "9/2"
+      },
+      "top20": {
+        "prob": 0.31113541666666666,
+        "decimal": 3.2140346178311963,
+        "fractional": "9/4"
+      },
+      "m_win": {
+        "prob": 0.019895833333333335,
+        "decimal": 50.26178010471204,
+        "fractional": "50/1"
+      },
+      "edge_win": -15,
+      "edge_top20": -36
+    },
+    {
+      "modelRank": 19,
+      "name": "Billy Horschel",
+      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_29420.png",
+      "letdownFlag": null,
+      "dataThin": false,
+      "owgr": "158",
+      "courseHistory": null,
+      "courseType": null,
+      "win": {
+        "prob": 0.0168125,
+        "decimal": 59.479553903345725,
+        "fractional": "66/1"
+      },
+      "top5": {
+        "prob": 0.08222916666666667,
+        "decimal": 12.16113503927033,
+        "fractional": "11/1"
+      },
+      "top10": {
+        "prob": 0.17085416666666667,
+        "decimal": 5.8529447628338005,
+        "fractional": "5/1"
+      },
+      "top20": {
+        "prob": 0.3046010416666666,
+        "decimal": 3.2829828635134075,
+        "fractional": "9/4"
+      },
+      "m_win": {
+        "prob": 0.020958333333333332,
+        "decimal": 47.71371769383698,
+        "fractional": "50/1"
+      },
+      "edge_win": -20,
+      "edge_top20": -40
+    },
+    {
+      "modelRank": 20,
+      "name": "John Parry",
+      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_28723.png",
+      "letdownFlag": null,
+      "dataThin": false,
+      "owgr": "105",
+      "courseHistory": null,
+      "courseType": null,
+      "win": {
+        "prob": 0.015416666666666667,
+        "decimal": 64.86486486486487,
+        "fractional": "66/1"
+      },
+      "top5": {
+        "prob": 0.07747916666666667,
+        "decimal": 12.906695348211885,
+        "fractional": "12/1"
+      },
+      "top10": {
+        "prob": 0.1601875,
+        "decimal": 6.2426843542723365,
+        "fractional": "5/1"
+      },
+      "top20": {
+        "prob": 0.28673333333333334,
+        "decimal": 3.4875610323180655,
+        "fractional": "5/2"
+      },
+      "m_win": {
+        "prob": 0.012145833333333333,
+        "decimal": 82.3327615780446,
+        "fractional": "80/1"
+      },
+      "edge_win": 27,
+      "edge_top20": -14
+    }
+  ],
+  "worldRankings": [
+    {
+      "owgr": "28",
+      "name": "Jacob Bridgeman",
+      "country": "USA",
+      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_60004.png",
+      "winOdds": "18/1",
+      "value": false
+    },
+    {
+      "owgr": "37",
+      "name": "J.T. Poston",
+      "country": "USA",
+      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_49771.png",
+      "winOdds": "100/1",
+      "value": false
+    },
+    {
+      "owgr": "52",
+      "name": "Marco Penge",
+      "country": "ENG",
+      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_51003.png",
+      "winOdds": "80/1",
+      "value": false
+    },
+    {
+      "owgr": "54",
+      "name": "Corey Conners",
+      "country": "CAN",
+      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_39997.png",
+      "winOdds": "80/1",
+      "value": false
+    },
+    {
+      "owgr": "59",
+      "name": "Nico Echavarria",
+      "country": "COL",
+      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_51349.png",
+      "winOdds": "200/1",
+      "value": false
+    },
+    {
+      "owgr": "64",
+      "name": "Michael Kim",
+      "country": "USA",
+      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_39975.png",
+      "winOdds": "50/1",
+      "value": false
+    },
+    {
+      "owgr": "65",
+      "name": "Jackson Koivun",
+      "country": "USA",
+      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_66701.png",
+      "winOdds": "250/1",
+      "value": false
+    },
+    {
+      "owgr": "66",
+      "name": "Ryo Hisatsune",
+      "country": "JPN",
+      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_51287.png",
+      "winOdds": "100/1",
+      "value": false
+    },
+    {
+      "owgr": "68",
+      "name": "Pierceson Coody",
+      "country": "USA",
+      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_59836.png",
+      "winOdds": "100/1",
+      "value": false
+    },
+    {
+      "owgr": "71",
+      "name": "Johnny Keefer",
+      "country": "USA",
+      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_63454.png",
+      "winOdds": "150/1",
+      "value": false
+    },
+    {
+      "owgr": "73",
+      "name": "Rasmus Højgaard",
+      "country": "DEN",
+      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_52686.png",
+      "winOdds": "28/1",
+      "value": false
+    },
+    {
+      "owgr": "76",
+      "name": "Eric Cole",
+      "country": "USA",
+      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_47591.png",
+      "winOdds": "100/1",
+      "value": false
+    },
+    {
+      "owgr": "79",
+      "name": "Andrew Novak",
+      "country": "USA",
+      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_51997.png",
+      "winOdds": "40/1",
+      "value": false
+    },
+    {
+      "owgr": "80",
+      "name": "Nick Taylor",
+      "country": "CAN",
+      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_25493.png",
+      "winOdds": "100/1",
+      "value": false
+    },
+    {
+      "owgr": "82",
+      "name": "Steven Fisk",
+      "country": "USA",
+      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_57123.png",
+      "winOdds": "200/1",
+      "value": false
+    },
+    {
+      "owgr": "88",
+      "name": "Mac Meissner",
+      "country": "USA",
+      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_59143.png",
+      "winOdds": "40/1",
+      "value": false
+    },
+    {
+      "owgr": "89",
+      "name": "Max Greyserman",
+      "country": "USA",
+      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_51977.png",
+      "winOdds": "125/1",
+      "value": false
+    },
+    {
+      "owgr": "90",
+      "name": "Denny McCarthy",
+      "country": "USA",
+      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_47993.png",
+      "winOdds": "40/1",
+      "value": false
+    },
+    {
+      "owgr": "93",
+      "name": "Keita Nakajima",
+      "country": "JPN",
+      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_49228.png",
+      "winOdds": "250/1",
+      "value": false
+    },
+    {
+      "owgr": "94",
+      "name": "Beau Hossler",
+      "country": "USA",
+      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_35461.png",
+      "winOdds": "20/1",
+      "value": false
+    },
+    {
+      "owgr": "95",
+      "name": "Taylor Pendrith",
+      "country": "CAN",
+      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_40250.png",
+      "winOdds": "150/1",
+      "value": false
+    },
+    {
+      "owgr": "96",
+      "name": "Christiaan Bezuidenhout",
+      "country": "RSA",
+      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_45522.png",
+      "winOdds": "33/1",
+      "value": false
+    },
+    {
+      "owgr": "97",
+      "name": "Ricky Castillo",
+      "country": "USA",
+      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_59440.png",
+      "winOdds": "125/1",
+      "value": false
+    },
+    {
+      "owgr": "98",
+      "name": "Blades Brown",
+      "country": "USA",
+      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_66417.png",
+      "winOdds": "250/1",
+      "value": false
+    },
+    {
+      "owgr": "101",
+      "name": "Kevin Yu",
+      "country": "TPE",
+      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_45242.png",
+      "winOdds": "20/1",
+      "value": false
+    },
+    {
+      "owgr": "102",
+      "name": "Jackson Suber",
+      "country": "USA",
+      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_60019.png",
+      "winOdds": "50/1",
+      "value": false
+    },
+    {
+      "owgr": "103",
+      "name": "Emiliano Grillo",
+      "country": "ARG",
+      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_31646.png",
+      "winOdds": "66/1",
+      "value": false
+    },
+    {
+      "owgr": "105",
+      "name": "John Parry",
+      "country": "ENG",
+      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_28723.png",
+      "winOdds": "66/1",
+      "value": false
+    },
+    {
+      "owgr": "106",
+      "name": "Ben Kohles",
+      "country": "USA",
+      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_36884.png",
+      "winOdds": "250/1",
+      "value": false
+    },
+    {
+      "owgr": "107",
+      "name": "Andrew Putnam",
+      "country": "USA",
+      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_34256.png",
+      "winOdds": "125/1",
+      "value": false
+    },
+    {
+      "owgr": "108",
+      "name": "Rico Hoey",
+      "country": "PHI",
+      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_51696.png",
+      "winOdds": "80/1",
+      "value": false
+    },
+    {
+      "owgr": "110",
+      "name": "Chris Kirk",
+      "country": "USA",
+      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_30926.png",
+      "winOdds": "80/1",
+      "value": false
+    },
+    {
+      "owgr": "113",
+      "name": "Lucas Glover",
+      "country": "USA",
+      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_25900.png",
+      "winOdds": "250/1",
+      "value": false
+    },
+    {
+      "owgr": "114",
+      "name": "Davis Thompson",
+      "country": "USA",
+      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_58168.png",
+      "winOdds": "10/1",
+      "value": false
+    },
+    {
+      "owgr": "115",
+      "name": "Stephan Jaeger",
+      "country": "GER",
+      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_36799.png",
+      "winOdds": "80/1",
+      "value": true
+    },
+    {
+      "owgr": "117",
+      "name": "Kevin Roy",
+      "country": "USA",
+      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_39335.png",
+      "winOdds": "40/1",
+      "value": false
+    },
+    {
+      "owgr": "119",
+      "name": "Austin Smotherman",
+      "country": "USA",
+      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_50095.png",
+      "winOdds": "200/1",
+      "value": false
+    },
+    {
+      "owgr": "122",
+      "name": "Max McGreevy",
+      "country": "USA",
+      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_51950.png",
+      "winOdds": "100/1",
+      "value": false
+    },
+    {
+      "owgr": "124",
+      "name": "Haotong Li",
+      "country": "CHN",
+      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_35296.png",
+      "winOdds": "250/1",
+      "value": false
+    },
+    {
+      "owgr": "127",
+      "name": "Chandler Blanchet",
+      "country": "USA",
+      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_54788.png",
+      "winOdds": "250/1",
+      "value": false
+    },
+    {
+      "owgr": "129",
+      "name": "Davis Riley",
+      "country": "USA",
+      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_47995.png",
+      "winOdds": "250/1",
+      "value": false
+    },
+    {
+      "owgr": "131",
+      "name": "David Lipsky",
+      "country": "USA",
+      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_36326.png",
+      "winOdds": "150/1",
+      "value": false
+    },
+    {
+      "owgr": "132",
+      "name": "Tom Hoge",
+      "country": "USA",
+      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_35532.png",
+      "winOdds": "250/1",
+      "value": false
+    },
+    {
+      "owgr": "136",
+      "name": "Chandler Phillips",
+      "country": "USA",
+      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_57900.png",
+      "winOdds": "50/1",
+      "value": false
+    },
+    {
+      "owgr": "137",
+      "name": "Tony Finau",
+      "country": "USA",
+      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_29725.png",
+      "winOdds": "250/1",
+      "value": false
+    },
+    {
+      "owgr": "139",
+      "name": "Lee Hodges",
+      "country": "USA",
+      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_54628.png",
+      "winOdds": "125/1",
+      "value": false
+    },
+    {
+      "owgr": "142",
+      "name": "Zac Blair",
+      "country": "USA",
+      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_40058.png",
+      "winOdds": "250/1",
+      "value": false
+    },
+    {
+      "owgr": "143",
+      "name": "William Mouw",
+      "country": "USA",
+      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_63121.png",
+      "winOdds": "250/1",
+      "value": false
+    },
+    {
+      "owgr": "151",
+      "name": "Mark Hubbard",
+      "country": "USA",
+      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_36801.png",
+      "winOdds": "250/1",
+      "value": false
+    },
+    {
+      "owgr": "154",
+      "name": "Zach Bauchou",
+      "country": "USA",
+      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_48001.png",
+      "winOdds": "33/1",
+      "value": false
+    },
+    {
+      "owgr": "157",
+      "name": "Doug Ghim",
+      "country": "USA",
+      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_52375.png",
+      "winOdds": "16/1",
+      "value": false
+    },
+    {
+      "owgr": "158",
+      "name": "Billy Horschel",
+      "country": "USA",
+      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_29420.png",
+      "winOdds": "66/1",
+      "value": false
+    },
+    {
+      "owgr": "159",
+      "name": "Mackenzie Hughes",
+      "country": "CAN",
+      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_35506.png",
+      "winOdds": "50/1",
+      "value": false
+    },
+    {
+      "owgr": "164",
+      "name": "Ben James",
+      "country": "USA",
+      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_57869.png",
+      "winOdds": "250/1",
+      "value": false
+    },
+    {
+      "owgr": "172",
+      "name": "Taylor Moore",
+      "country": "USA",
+      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_49947.png",
+      "winOdds": "250/1",
+      "value": false
+    },
+    {
+      "owgr": "181",
+      "name": "Takumi Kanaya",
+      "country": "JPN",
+      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_47917.png",
+      "winOdds": "250/1",
+      "value": false
+    },
+    {
+      "owgr": "182",
+      "name": "Jesper Svensson",
+      "country": "SWE",
+      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_57586.png",
+      "winOdds": "250/1",
+      "value": false
+    },
+    {
+      "owgr": "185",
+      "name": "Kristoffer Ventura",
+      "country": "NOR",
+      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_35658.png",
+      "winOdds": "50/1",
+      "value": false
+    },
+    {
+      "owgr": "187",
+      "name": "A.J. Ewart",
+      "country": "CAN",
+      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_50286.png",
+      "winOdds": "100/1",
+      "value": false
+    },
+    {
+      "owgr": "189",
+      "name": "Zecheng Dou",
+      "country": "CHN",
+      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_37338.png",
+      "winOdds": "80/1",
+      "value": true
+    },
+    {
+      "owgr": "190",
+      "name": "Austin Eckroat",
+      "country": "USA",
+      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_57362.png",
+      "winOdds": "125/1",
+      "value": false
+    },
+    {
+      "owgr": "192",
+      "name": "Adrien Dumont de Chassart",
+      "country": "BEL",
+      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_50497.png",
+      "winOdds": "150/1",
+      "value": true
+    },
+    {
+      "owgr": "198",
+      "name": "Chad Ramey",
+      "country": "USA",
+      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_47983.png",
+      "winOdds": "200/1",
+      "value": false
+    },
+    {
+      "owgr": "201",
+      "name": "Vince Whaley",
+      "country": "USA",
+      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_51894.png",
+      "winOdds": "250/1",
+      "value": false
+    },
+    {
+      "owgr": "203",
+      "name": "Seamus Power",
+      "country": "IRL",
+      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_28252.png",
+      "winOdds": "66/1",
+      "value": false
+    },
+    {
+      "owgr": "204",
+      "name": "Adam Schenk",
+      "country": "USA",
+      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_47347.png",
+      "winOdds": "250/1",
+      "value": false
+    },
+    {
+      "owgr": "205",
+      "name": "Erik van Rooyen",
+      "country": "RSA",
+      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_40006.png",
+      "winOdds": "250/1",
+      "value": false
+    },
+    {
+      "owgr": "208",
+      "name": "Karl Vilips",
+      "country": "AUS",
+      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_54304.png",
+      "winOdds": "250/1",
+      "value": false
+    },
+    {
+      "owgr": "213",
+      "name": "Neal Shipley",
+      "country": "USA",
+      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_63807.png",
+      "winOdds": "250/1",
+      "value": false
+    },
+    {
+      "owgr": "220",
+      "name": "Joel Dahmen",
+      "country": "USA",
+      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_34076.png",
+      "winOdds": "125/1",
+      "value": false
+    },
+    {
+      "owgr": "230",
+      "name": "Patrick Fishburn",
+      "country": "USA",
+      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_54576.png",
+      "winOdds": "100/1",
+      "value": false
+    },
+    {
+      "owgr": "238",
+      "name": "Davis Chatfield",
+      "country": "USA",
+      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_59006.png",
+      "winOdds": "100/1",
+      "value": false
+    },
+    {
+      "owgr": "257",
+      "name": "Ben Silverman",
+      "country": "CAN",
+      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_39327.png",
+      "winOdds": "250/1",
+      "value": false
+    },
+    {
+      "owgr": "259",
+      "name": "Trace Crowe",
+      "country": "USA",
+      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_52514.png",
+      "winOdds": "250/1",
+      "value": false
+    },
+    {
+      "owgr": "267",
+      "name": "Hank Lebioda",
+      "country": "USA",
+      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_49766.png",
+      "winOdds": "200/1",
+      "value": false
+    },
+    {
+      "owgr": "271",
+      "name": "Lanto Griffin",
+      "country": "USA",
+      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_35310.png",
+      "winOdds": "250/1",
+      "value": false
+    },
+    {
+      "owgr": "277",
+      "name": "Pontus Nyholm",
+      "country": "SWE",
+      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_55851.png",
+      "winOdds": "250/1",
+      "value": false
+    },
+    {
+      "owgr": "280",
+      "name": "David Skinns",
+      "country": "ENG",
+      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_27139.png",
+      "winOdds": "250/1",
+      "value": false
+    },
+    {
+      "owgr": "289",
+      "name": "Paul Peterson",
+      "country": "USA",
+      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_36824.png",
+      "winOdds": "250/1",
+      "value": false
+    },
+    {
+      "owgr": "292",
+      "name": "Brice Garnett",
+      "country": "USA",
+      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_29535.png",
+      "winOdds": "250/1",
+      "value": false
+    },
+    {
+      "owgr": "302",
+      "name": "Jeffrey Kang",
+      "country": "USA",
+      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_47393.png",
+      "winOdds": "250/1",
+      "value": false
+    },
+    {
+      "owgr": "303",
+      "name": "Danny Walker",
+      "country": "USA",
+      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_54607.png",
+      "winOdds": "250/1",
+      "value": false
+    },
+    {
+      "owgr": "309",
+      "name": "Luke Clanton",
+      "country": "USA",
+      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_66743.png",
+      "winOdds": "250/1",
+      "value": false
+    },
+    {
+      "owgr": "312",
+      "name": "Matthieu Pavon",
+      "country": "FRA",
+      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_48153.png",
+      "winOdds": "250/1",
+      "value": false
+    },
+    {
+      "owgr": "320",
+      "name": "Adam Hadwin",
+      "country": "CAN",
+      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_33399.png",
+      "winOdds": "250/1",
+      "value": false
+    },
+    {
+      "owgr": "321",
+      "name": "John VanDerLaan",
+      "country": "USA",
+      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_55573.png",
+      "winOdds": "250/1",
+      "value": false
+    },
+    {
+      "owgr": "326",
+      "name": "Hayden Springer",
+      "country": "USA",
+      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_50484.png",
+      "winOdds": "250/1",
+      "value": false
+    },
+    {
+      "owgr": "331",
+      "name": "Christo Lamprecht",
+      "country": "RSA",
+      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_54422.png",
+      "winOdds": "250/1",
+      "value": false
+    },
+    {
+      "owgr": "333",
+      "name": "Justin Lower",
+      "country": "USA",
+      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_40162.png",
+      "winOdds": "250/1",
+      "value": false
+    },
+    {
+      "owgr": "336",
+      "name": "Jeremy Paul",
+      "country": "GER",
+      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_50582.png",
+      "winOdds": "250/1",
+      "value": false
+    },
+    {
+      "owgr": "343",
+      "name": "Gordon Sargent",
+      "country": "USA",
+      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_64442.png",
+      "winOdds": "250/1",
+      "value": false
+    },
+    {
+      "owgr": "348",
+      "name": "Jimmy Stanger",
+      "country": "USA",
+      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_51600.png",
+      "winOdds": "250/1",
+      "value": false
+    },
+    {
+      "owgr": "349",
+      "name": "David Ford",
+      "country": "USA",
+      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_65256.png",
+      "winOdds": "250/1",
+      "value": false
+    },
+    {
+      "owgr": "358",
+      "name": "Cam Davis",
+      "country": "AUS",
+      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_45157.png",
+      "winOdds": "250/1",
+      "value": false
+    },
+    {
+      "owgr": "359",
+      "name": "Kensei Hirata",
+      "country": "JPN",
+      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_49120.png",
+      "winOdds": "250/1",
+      "value": false
+    },
+    {
+      "owgr": "361",
+      "name": "Harry Higgs",
+      "country": "USA",
+      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_33597.png",
+      "winOdds": "250/1",
+      "value": false
+    },
+    {
+      "owgr": "366",
+      "name": "Isaiah Salinda",
+      "country": "USA",
+      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_56781.png",
+      "winOdds": "250/1",
+      "value": false
+    },
+    {
+      "owgr": "379",
+      "name": "S.Y. Noh",
+      "country": "KOR",
+      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_29289.png",
+      "winOdds": "250/1",
+      "value": false
+    },
+    {
+      "owgr": "381",
+      "name": "Will Gordon",
+      "country": "USA",
+      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_56762.png",
+      "winOdds": "250/1",
+      "value": false
+    },
+    {
+      "owgr": "403",
+      "name": "Tyler Duncan",
+      "country": "USA",
+      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_45609.png",
+      "winOdds": "250/1",
+      "value": false
+    },
+    {
+      "owgr": "408",
+      "name": "Kevin Streelman",
+      "country": "USA",
+      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_27214.png",
+      "winOdds": "250/1",
+      "value": false
+    },
+    {
+      "owgr": "416",
+      "name": "Troy Merritt",
+      "country": "USA",
+      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_32640.png",
+      "winOdds": "250/1",
+      "value": false
+    },
+    {
+      "owgr": "417",
+      "name": "Cameron Champ",
+      "country": "USA",
+      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_52372.png",
+      "winOdds": "250/1",
+      "value": false
+    },
+    {
+      "owgr": "423",
+      "name": "Nick Dunlap",
+      "country": "USA",
+      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_59866.png",
+      "winOdds": "250/1",
+      "value": false
+    },
+    {
+      "owgr": "428",
+      "name": "Dylan Wu",
+      "country": "USA",
+      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_54783.png",
+      "winOdds": "250/1",
+      "value": false
+    },
+    {
+      "owgr": "441",
+      "name": "Fabián Gómez",
+      "country": "ARG",
+      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_28679.png",
+      "winOdds": "250/1",
+      "value": false
+    },
+    {
+      "owgr": "459",
+      "name": "Alejandro Tosti",
+      "country": "ARG",
+      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_38991.png",
+      "winOdds": "250/1",
+      "value": false
+    },
+    {
+      "owgr": "470",
+      "name": "Aaron Wise",
+      "country": "USA",
+      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_49964.png",
+      "winOdds": "250/1",
+      "value": false
+    },
+    {
+      "owgr": "495",
+      "name": "Webb Simpson",
+      "country": "USA",
+      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_29221.png",
+      "winOdds": "250/1",
+      "value": false
+    },
+    {
+      "owgr": "509",
+      "name": "Patton Kizzire",
+      "country": "USA",
+      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_32757.png",
+      "winOdds": "250/1",
+      "value": false
+    },
+    {
+      "owgr": "517",
+      "name": "Camilo Villegas",
+      "country": "COL",
+      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_27770.png",
+      "winOdds": "250/1",
+      "value": false
+    },
+    {
+      "owgr": "522",
+      "name": "Adam Svensson",
+      "country": "CAN",
+      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_40115.png",
+      "winOdds": "250/1",
+      "value": false
+    },
+    {
+      "owgr": "531",
+      "name": "Luke List",
+      "country": "USA",
+      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_27129.png",
+      "winOdds": "250/1",
+      "value": false
+    },
+    {
+      "owgr": "555",
+      "name": "Ben Martin",
+      "country": "USA",
+      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_33413.png",
+      "winOdds": "250/1",
+      "value": false
+    },
+    {
+      "owgr": "569",
+      "name": "Peter Malnati",
+      "country": "USA",
+      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_34466.png",
+      "winOdds": "250/1",
+      "value": false
+    },
+    {
+      "owgr": "588",
+      "name": "Jonathan Byrd",
+      "country": "USA",
+      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_24925.png",
+      "winOdds": "250/1",
+      "value": false
+    },
+    {
+      "owgr": "599",
+      "name": "Marcelo Rozo",
+      "country": "COL",
+      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_37076.png",
+      "winOdds": "250/1",
+      "value": false
+    },
+    {
+      "owgr": "613",
+      "name": "Rafael Campos",
+      "country": "PUR",
+      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_32070.png",
+      "winOdds": "250/1",
+      "value": false
+    },
+    {
+      "owgr": "621",
+      "name": "Nick Hardy",
+      "country": "USA",
+      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_47988.png",
+      "winOdds": "250/1",
+      "value": false
+    },
+    {
+      "owgr": "719",
+      "name": "Brendan Valdes",
+      "country": "USA",
+      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_65110.png",
+      "winOdds": "250/1",
+      "value": false
+    }
+  ],
+  "fieldRanking": [
+    {
+      "modelRank": 1,
+      "name": "Davis Thompson",
+      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_58168.png",
+      "win": {
+        "prob": 0.09033333333333333,
+        "decimal": 11.07011070110701,
+        "fractional": "10/1"
+      },
+      "winProb": 0.09033333333333333,
+      "trend": "up",
+      "recentSG": 2.252927113702624,
+      "recentEvents": 3
+    },
+    {
+      "modelRank": 2,
+      "name": "Doug Ghim",
+      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_52375.png",
+      "win": {
+        "prob": 0.059291666666666666,
+        "decimal": 16.865776528460998,
+        "fractional": "16/1"
+      },
+      "winProb": 0.059291666666666666,
+      "trend": "up",
+      "recentSG": 1.3486218202374223,
+      "recentEvents": 3
+    },
+    {
+      "modelRank": 3,
+      "name": "Jacob Bridgeman",
+      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_60004.png",
+      "win": {
+        "prob": 0.0535,
+        "decimal": 18.69158878504673,
+        "fractional": "18/1"
+      },
+      "winProb": 0.0535,
+      "trend": "flat",
+      "recentSG": 0.8768956477305547,
+      "recentEvents": 4
+    },
+    {
+      "modelRank": 4,
+      "name": "Beau Hossler",
+      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_35461.png",
+      "win": {
+        "prob": 0.049875,
+        "decimal": 20.050125313283207,
+        "fractional": "20/1"
+      },
+      "winProb": 0.049875,
+      "trend": "up",
+      "recentSG": 1.2596467657788413,
+      "recentEvents": 4
+    },
+    {
+      "modelRank": 5,
+      "name": "Kevin Yu",
+      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_45242.png",
+      "win": {
+        "prob": 0.04625,
+        "decimal": 21.62162162162162,
+        "fractional": "20/1"
+      },
+      "winProb": 0.04625,
+      "trend": "up",
+      "recentSG": 1.8790226728905972,
+      "recentEvents": 4
+    },
+    {
+      "modelRank": 6,
+      "name": "Rasmus Højgaard",
+      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_52686.png",
+      "win": {
+        "prob": 0.03272916666666666,
+        "decimal": 30.5537873965627,
+        "fractional": "28/1"
+      },
+      "winProb": 0.03272916666666666,
+      "trend": "up",
+      "recentSG": 1.0716291690220463,
+      "recentEvents": 3
+    },
+    {
+      "modelRank": 7,
+      "name": "Zach Bauchou",
+      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_48001.png",
+      "win": {
+        "prob": 0.027791666666666666,
+        "decimal": 35.98200899550225,
+        "fractional": "33/1"
+      },
+      "winProb": 0.027791666666666666,
+      "trend": "up",
+      "recentSG": 1.1820452179423349,
+      "recentEvents": 4
+    },
+    {
+      "modelRank": 8,
+      "name": "Christiaan Bezuidenhout",
+      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_45522.png",
+      "win": {
+        "prob": 0.027125,
+        "decimal": 36.86635944700461,
+        "fractional": "33/1"
+      },
+      "winProb": 0.027125,
+      "trend": "flat",
+      "recentSG": 0.5789501039501039,
+      "recentEvents": 4
+    },
+    {
+      "modelRank": 9,
+      "name": "Kevin Roy",
+      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_39335.png",
+      "win": {
+        "prob": 0.0248125,
+        "decimal": 40.30226700251889,
+        "fractional": "40/1"
+      },
+      "winProb": 0.0248125,
+      "trend": "up",
+      "recentSG": 1.14249695994979,
+      "recentEvents": 4
+    },
+    {
+      "modelRank": 10,
+      "name": "Andrew Novak",
+      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_51997.png",
+      "win": {
+        "prob": 0.0236875,
+        "decimal": 42.21635883905013,
+        "fractional": "40/1"
+      },
+      "winProb": 0.0236875,
+      "trend": "up",
+      "recentSG": 1.5433333333333334,
+      "recentEvents": 2
+    },
+    {
+      "modelRank": 11,
+      "name": "Denny McCarthy",
+      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_47993.png",
+      "win": {
+        "prob": 0.023208333333333334,
+        "decimal": 43.08797127468581,
+        "fractional": "40/1"
+      },
+      "winProb": 0.023208333333333334,
+      "trend": "up",
+      "recentSG": 1.3376158323632132,
+      "recentEvents": 3
+    },
+    {
+      "modelRank": 12,
+      "name": "Mac Meissner",
+      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_59143.png",
+      "win": {
+        "prob": 0.022770833333333334,
+        "decimal": 43.91582799634035,
+        "fractional": "40/1"
+      },
+      "winProb": 0.022770833333333334,
+      "trend": "down",
+      "recentSG": 0.34515120525931325,
+      "recentEvents": 3
+    },
+    {
+      "modelRank": 13,
+      "name": "Chandler Phillips",
+      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_57900.png",
+      "win": {
+        "prob": 0.021416666666666667,
+        "decimal": 46.69260700389105,
+        "fractional": "50/1"
+      },
+      "winProb": 0.021416666666666667,
+      "trend": "up",
+      "recentSG": 1.57044470314319,
+      "recentEvents": 3
+    },
+    {
+      "modelRank": 14,
+      "name": "Jackson Suber",
+      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_60019.png",
+      "win": {
+        "prob": 0.0190625,
+        "decimal": 52.459016393442624,
+        "fractional": "50/1"
+      },
+      "winProb": 0.0190625,
+      "trend": "flat",
+      "recentSG": 0.5628671565856416,
+      "recentEvents": 3
+    },
+    {
+      "modelRank": 15,
+      "name": "Kristoffer Ventura",
+      "headshot": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,h_240,w_240,q_auto,f_auto/headshots_35658.png",
+      "win": {
+        "prob": 0.017354166666666667,
+        "decimal": 57.62304921968787,
+        "fractional": "50/1"
+      },
+      "winProb": 0.017354166666666667,
+      "trend": "up",
+      "recentSG": 1.0490497391440787,
+      "recentEvents": 4
+    }
+  ],
   "bankroll": {
     "startPoints": 100,
-    "stakedThisWeekPoints": 0,
+    "stakedThisWeekPoints": 5,
     "weekNumber": 38,
     "poundsPerPoint": 5
   },
   "ewTerms": "1pt each-way at 1/5 odds, 8 places (Bet365 terms on a full-field event). Backtest sweet spot is 20/1-50/1; below ~16/1 the place return is too thin to back each-way, above ~50/1 it is a lottery ticket. Always check each book's place terms before betting.",
   "notes": [
+    "47 players in the field have little/no PGA Tour strokes-gained data - they are excluded from value bets and flagged.",
     "Selections are made by The Green Book — the model that ranks every player by VALUE (its probability vs the best price, the edge). Win/Top-5/Top-10/Top-20/Top-30/Make-Cut probabilities come from a Monte Carlo simulation built on course-fit strokes-gained, recency-weighted recent form (last 8 events), trend, season class, world ranking, course history at this event, and course-conditional driving-distance and scrambling. Prices are model estimates until a live odds feed is connected.",
     "The card runs a three-tier structure: BANKERS — make-cut / top-20 / top-30 singles in the model's calibrated probability range — are the core; a lean EACH-WAY side is only ever published at real, sourced prices in the 20/1-50/1 band (never a model estimate); and 1-2 small DOUBLES are built from banker legs on different players. Weekly exposure is hard-capped at ~10pts.",
     "Each-way to-win bets are 1pt e/w at 8 places (Bet365 terms), priced in the 20/1-50/1 backtested sweet spot. Tracked bets feed the P&L (points/units); untracked \"flutters\" do not. Bets settle the following week off the final leaderboard."
@@ -83,9 +3419,9 @@
     "maxDrawdownPts": 49.5,
     "ddPeakPts": 114.75,
     "ddTroughPts": 65.25,
-    "pendingCount": 0,
-    "pendingStakePts": 0,
-    "totalBets": 68,
+    "pendingCount": 4,
+    "pendingStakePts": 5,
+    "totalBets": 72,
     "byMarket": [
       {
         "market": "Top 10",
@@ -168,8 +3504,219 @@
         "roiPct": 35.7
       }
     ],
-    "openBets": [],
+    "openBets": [
+      {
+        "id": "R2026557:multi:0",
+        "weekNumber": 38,
+        "eventId": "R2026557",
+        "eventName": "Biltmore Championship Asheville",
+        "placedAt": "2026-09-14T06:17:09.091Z",
+        "player": "Adrien Dumont de Chassart + Zecheng Dou",
+        "market": "accumulator",
+        "marketLabel": "Double — Make The Cut / Top 30",
+        "legs": [
+          {
+            "playerId": "50497",
+            "player": "Adrien Dumont de Chassart",
+            "market": "Make The Cut",
+            "cond": "makeCut"
+          },
+          {
+            "playerId": "37338",
+            "player": "Zecheng Dou",
+            "market": "Top 30",
+            "cond": "top30"
+          }
+        ],
+        "eachWay": false,
+        "stakePts": 1,
+        "priceDecimal": 5.634225053133384,
+        "priceFractional": "9/2",
+        "pickType": "model",
+        "exotic": true,
+        "priceEstimated": true,
+        "modelProb": 0.2862448812369791,
+        "status": "pending",
+        "finishPos": null,
+        "returnPts": null,
+        "profitPts": null
+      },
+      {
+        "id": "R2026557:36799:top30",
+        "weekNumber": 38,
+        "eventId": "R2026557",
+        "eventName": "Biltmore Championship Asheville",
+        "placedAt": "2026-09-14T06:17:09.091Z",
+        "playerId": "36799",
+        "player": "Stephan Jaeger",
+        "market": "top30",
+        "marketLabel": "Top 30",
+        "eachWay": false,
+        "eachWayPlaces": null,
+        "stakePts": 1,
+        "priceDecimal": 2.444240757714635,
+        "priceFractional": "6/4",
+        "pickType": "model",
+        "priceEstimated": true,
+        "modelProb": 0.4720625,
+        "status": "pending",
+        "finishPos": null,
+        "returnPts": null,
+        "profitPts": null
+      },
+      {
+        "id": "R2026557:37338:top30",
+        "weekNumber": 38,
+        "eventId": "R2026557",
+        "eventName": "Biltmore Championship Asheville",
+        "placedAt": "2026-09-14T06:17:09.091Z",
+        "playerId": "37338",
+        "player": "Zecheng Dou",
+        "market": "top30",
+        "marketLabel": "Top 30",
+        "eachWay": false,
+        "eachWayPlaces": null,
+        "stakePts": 1,
+        "priceDecimal": 2.85561306442977,
+        "priceFractional": "15/8",
+        "pickType": "model",
+        "priceEstimated": true,
+        "modelProb": 0.4468958333333333,
+        "status": "pending",
+        "finishPos": null,
+        "returnPts": null,
+        "profitPts": null
+      },
+      {
+        "id": "R2026557:50497:makeCut",
+        "weekNumber": 38,
+        "eventId": "R2026557",
+        "eventName": "Biltmore Championship Asheville",
+        "placedAt": "2026-09-14T06:17:09.091Z",
+        "playerId": "50497",
+        "player": "Adrien Dumont de Chassart",
+        "market": "makeCut",
+        "marketLabel": "Make The Cut",
+        "eachWay": false,
+        "eachWayPlaces": null,
+        "stakePts": 2,
+        "priceDecimal": 1.9730351857941466,
+        "priceFractional": "1/1",
+        "pickType": "model",
+        "priceEstimated": true,
+        "modelProb": 0.6405181249999999,
+        "status": "pending",
+        "finishPos": null,
+        "returnPts": null,
+        "profitPts": null
+      }
+    ],
     "allBets": [
+      {
+        "id": "R2026557:multi:0",
+        "weekNumber": 38,
+        "eventId": "R2026557",
+        "eventName": "Biltmore Championship Asheville",
+        "placedAt": "2026-09-14T06:17:09.091Z",
+        "player": "Adrien Dumont de Chassart + Zecheng Dou",
+        "market": "accumulator",
+        "marketLabel": "Double — Make The Cut / Top 30",
+        "legs": [
+          {
+            "playerId": "50497",
+            "player": "Adrien Dumont de Chassart",
+            "market": "Make The Cut",
+            "cond": "makeCut"
+          },
+          {
+            "playerId": "37338",
+            "player": "Zecheng Dou",
+            "market": "Top 30",
+            "cond": "top30"
+          }
+        ],
+        "eachWay": false,
+        "stakePts": 1,
+        "priceDecimal": 5.634225053133384,
+        "priceFractional": "9/2",
+        "pickType": "model",
+        "exotic": true,
+        "priceEstimated": true,
+        "modelProb": 0.2862448812369791,
+        "status": "pending",
+        "finishPos": null,
+        "returnPts": null,
+        "profitPts": null
+      },
+      {
+        "id": "R2026557:36799:top30",
+        "weekNumber": 38,
+        "eventId": "R2026557",
+        "eventName": "Biltmore Championship Asheville",
+        "placedAt": "2026-09-14T06:17:09.091Z",
+        "playerId": "36799",
+        "player": "Stephan Jaeger",
+        "market": "top30",
+        "marketLabel": "Top 30",
+        "eachWay": false,
+        "eachWayPlaces": null,
+        "stakePts": 1,
+        "priceDecimal": 2.444240757714635,
+        "priceFractional": "6/4",
+        "pickType": "model",
+        "priceEstimated": true,
+        "modelProb": 0.4720625,
+        "status": "pending",
+        "finishPos": null,
+        "returnPts": null,
+        "profitPts": null
+      },
+      {
+        "id": "R2026557:37338:top30",
+        "weekNumber": 38,
+        "eventId": "R2026557",
+        "eventName": "Biltmore Championship Asheville",
+        "placedAt": "2026-09-14T06:17:09.091Z",
+        "playerId": "37338",
+        "player": "Zecheng Dou",
+        "market": "top30",
+        "marketLabel": "Top 30",
+        "eachWay": false,
+        "eachWayPlaces": null,
+        "stakePts": 1,
+        "priceDecimal": 2.85561306442977,
+        "priceFractional": "15/8",
+        "pickType": "model",
+        "priceEstimated": true,
+        "modelProb": 0.4468958333333333,
+        "status": "pending",
+        "finishPos": null,
+        "returnPts": null,
+        "profitPts": null
+      },
+      {
+        "id": "R2026557:50497:makeCut",
+        "weekNumber": 38,
+        "eventId": "R2026557",
+        "eventName": "Biltmore Championship Asheville",
+        "placedAt": "2026-09-14T06:17:09.091Z",
+        "playerId": "50497",
+        "player": "Adrien Dumont de Chassart",
+        "market": "makeCut",
+        "marketLabel": "Make The Cut",
+        "eachWay": false,
+        "eachWayPlaces": null,
+        "stakePts": 2,
+        "priceDecimal": 1.9730351857941466,
+        "priceFractional": "1/1",
+        "pickType": "model",
+        "priceEstimated": true,
+        "modelProb": 0.6405181249999999,
+        "status": "pending",
+        "finishPos": null,
+        "returnPts": null,
+        "profitPts": null
+      },
       {
         "id": "R2026028:multi:0",
         "weekNumber": 36,
@@ -1869,10 +5416,53 @@
       "settledCount": 40,
       "won": 14,
       "roiPct": 18.9,
-      "pendingCount": 0,
-      "pendingStakePts": 0
+      "pendingCount": 6,
+      "pendingStakePts": 9
     },
-    "card": []
+    "card": [
+      {
+        "name": "Adrien Dumont de Chassart",
+        "marketLabel": "Make The Cut",
+        "points": 2,
+        "priceFractional": "1/1",
+        "eachWay": false
+      },
+      {
+        "name": "Zecheng Dou",
+        "marketLabel": "Top 30",
+        "points": 1,
+        "priceFractional": "15/8",
+        "eachWay": false
+      },
+      {
+        "name": "Stephan Jaeger",
+        "marketLabel": "Top 30",
+        "points": 1,
+        "priceFractional": "6/4",
+        "eachWay": false
+      },
+      {
+        "name": "Adrien Dumont de Chassart + Zecheng Dou",
+        "marketLabel": "Double — Make The Cut / Top 30",
+        "points": 1,
+        "priceFractional": "9/2",
+        "eachWay": false
+      },
+      {
+        "name": "Christiaan Bezuidenhout",
+        "marketLabel": "To Win",
+        "points": 2,
+        "priceFractional": "50/1",
+        "eachWay": true
+      },
+      {
+        "name": "Zach Bauchou",
+        "marketLabel": "To Win",
+        "points": 2,
+        "priceFractional": "33/1",
+        "eachWay": true
+      }
+    ]
   },
   "shadowLegacy": {
     "pnl": {
@@ -1882,8 +5472,8 @@
       "settledCount": 24,
       "won": 6,
       "roiPct": -5.2,
-      "pendingCount": 0,
-      "pendingStakePts": 0
+      "pendingCount": 4,
+      "pendingStakePts": 9
     }
   },
   "editorial": {
