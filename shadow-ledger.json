@@ -1011,10 +1011,10 @@
       "pickType": "model",
       "priceEstimated": true,
       "modelProb": 0.6405181249999999,
-      "status": "pending",
-      "finishPos": null,
-      "returnPts": null,
-      "profitPts": null
+      "status": "lost",
+      "finishPos": "CUT",
+      "returnPts": 0,
+      "profitPts": -2
     },
     {
       "id": "R2026557:37338:top30",
@@ -1034,10 +1034,10 @@
       "pickType": "model",
       "priceEstimated": true,
       "modelProb": 0.4468958333333333,
-      "status": "pending",
-      "finishPos": null,
-      "returnPts": null,
-      "profitPts": null
+      "status": "won",
+      "finishPos": "T7",
+      "returnPts": 2.86,
+      "profitPts": 1.86
     },
     {
       "id": "R2026557:36799:top30",
@@ -1057,10 +1057,10 @@
       "pickType": "model",
       "priceEstimated": true,
       "modelProb": 0.4720625,
-      "status": "pending",
-      "finishPos": null,
-      "returnPts": null,
-      "profitPts": null
+      "status": "lost",
+      "finishPos": "T57",
+      "returnPts": 0,
+      "profitPts": -1
     },
     {
       "id": "R2026557:multi:0",
@@ -1093,10 +1093,10 @@
       "exotic": true,
       "priceEstimated": true,
       "modelProb": 0.2862448812369791,
-      "status": "pending",
-      "finishPos": null,
-      "returnPts": null,
-      "profitPts": null
+      "status": "lost",
+      "finishPos": "Adrien Dumont de Chassart MC, Zecheng Dou T7",
+      "returnPts": 0,
+      "profitPts": -1
     },
     {
       "id": "R2026557:45522:win",
@@ -1116,10 +1116,10 @@
       "pickType": "model",
       "priceEstimated": true,
       "modelProb": 0.027125,
-      "status": "pending",
-      "finishPos": null,
-      "returnPts": null,
-      "profitPts": null
+      "status": "lost",
+      "finishPos": "CUT",
+      "returnPts": 0,
+      "profitPts": -2
     },
     {
       "id": "R2026557:48001:win",
@@ -1139,6 +1139,52 @@
       "pickType": "model",
       "priceEstimated": true,
       "modelProb": 0.027791666666666666,
+      "status": "lost",
+      "finishPos": "T24",
+      "returnPts": 0,
+      "profitPts": -2
+    },
+    {
+      "id": "R2026500:35450:win",
+      "weekNumber": 39,
+      "eventId": "R2026500",
+      "eventName": "Presidents Cup",
+      "placedAt": "2026-09-21T06:08:40.704Z",
+      "playerId": "35450",
+      "player": "Patrick Cantlay",
+      "market": "win",
+      "marketLabel": "To Win",
+      "eachWay": true,
+      "eachWayPlaces": 8,
+      "stakePts": 2,
+      "priceDecimal": 41.811846689895475,
+      "priceFractional": "40/1",
+      "pickType": "model",
+      "priceEstimated": true,
+      "modelProb": 0.026166666666666668,
+      "status": "pending",
+      "finishPos": null,
+      "returnPts": null,
+      "profitPts": null
+    },
+    {
+      "id": "R2026500:48081:win",
+      "weekNumber": 39,
+      "eventId": "R2026500",
+      "eventName": "Presidents Cup",
+      "placedAt": "2026-09-21T06:08:40.704Z",
+      "playerId": "48081",
+      "player": "Xander Schauffele",
+      "market": "win",
+      "marketLabel": "To Win",
+      "eachWay": true,
+      "eachWayPlaces": 8,
+      "stakePts": 2,
+      "priceDecimal": 34.833091436865026,
+      "priceFractional": "33/1",
+      "pickType": "model",
+      "priceEstimated": true,
+      "modelProb": 0.03127083333333333,
       "status": "pending",
       "finishPos": null,
       "returnPts": null,

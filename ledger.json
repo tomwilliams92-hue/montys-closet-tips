@@ -1709,10 +1709,10 @@
       "pickType": "model",
       "priceEstimated": true,
       "modelProb": 0.6405181249999999,
-      "status": "pending",
-      "finishPos": null,
-      "returnPts": null,
-      "profitPts": null
+      "status": "lost",
+      "finishPos": "CUT",
+      "returnPts": 0,
+      "profitPts": -2
     },
     {
       "id": "R2026557:37338:top30",
@@ -1732,10 +1732,10 @@
       "pickType": "model",
       "priceEstimated": true,
       "modelProb": 0.4468958333333333,
-      "status": "pending",
-      "finishPos": null,
-      "returnPts": null,
-      "profitPts": null
+      "status": "won",
+      "finishPos": "T7",
+      "returnPts": 2.86,
+      "profitPts": 1.86
     },
     {
       "id": "R2026557:36799:top30",
@@ -1755,10 +1755,10 @@
       "pickType": "model",
       "priceEstimated": true,
       "modelProb": 0.4720625,
-      "status": "pending",
-      "finishPos": null,
-      "returnPts": null,
-      "profitPts": null
+      "status": "lost",
+      "finishPos": "T57",
+      "returnPts": 0,
+      "profitPts": -1
     },
     {
       "id": "R2026557:multi:0",
@@ -1791,10 +1791,10 @@
       "exotic": true,
       "priceEstimated": true,
       "modelProb": 0.2862448812369791,
-      "status": "pending",
-      "finishPos": null,
-      "returnPts": null,
-      "profitPts": null
+      "status": "lost",
+      "finishPos": "Adrien Dumont de Chassart MC, Zecheng Dou T7",
+      "returnPts": 0,
+      "profitPts": -1
     }
   ]
 }
