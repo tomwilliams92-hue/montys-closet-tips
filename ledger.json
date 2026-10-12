@@ -1978,10 +1978,10 @@
       "pickType": "model",
       "priceEstimated": true,
       "modelProb": 0.4759791666666667,
-      "status": "pending",
-      "finishPos": null,
-      "returnPts": null,
-      "profitPts": null
+      "status": "won",
+      "finishPos": "T9",
+      "returnPts": 6.04,
+      "profitPts": 4.04
     },
     {
       "id": "R2026527:51634:makeCut",
@@ -2001,10 +2001,10 @@
       "pickType": "model",
       "priceEstimated": true,
       "modelProb": 0.782924375,
-      "status": "pending",
-      "finishPos": null,
-      "returnPts": null,
-      "profitPts": null
+      "status": "won",
+      "finishPos": "68",
+      "returnPts": 1.65,
+      "profitPts": 0.65
     },
     {
       "id": "R2026527:29725:makeCut",
@@ -2024,10 +2024,10 @@
       "pickType": "model",
       "priceEstimated": true,
       "modelProb": 0.703719375,
-      "status": "pending",
-      "finishPos": null,
-      "returnPts": null,
-      "profitPts": null
+      "status": "won",
+      "finishPos": "T41",
+      "returnPts": 1.71,
+      "profitPts": 0.71
     },
     {
       "id": "R2026527:35461:top30",
@@ -2047,10 +2047,10 @@
       "pickType": "model",
       "priceEstimated": true,
       "modelProb": 0.6229583333333333,
-      "status": "pending",
-      "finishPos": null,
-      "returnPts": null,
-      "profitPts": null
+      "status": "lost",
+      "finishPos": "T41",
+      "returnPts": 0,
+      "profitPts": -1
     },
     {
       "id": "R2026527:multi:0",
@@ -2083,10 +2083,10 @@
       "exotic": true,
       "priceEstimated": true,
       "modelProb": 0.37265569157552086,
-      "status": "pending",
-      "finishPos": null,
-      "returnPts": null,
-      "profitPts": null
+      "status": "won",
+      "finishPos": "Min Woo Lee T9, Sahith Theegala 68",
+      "returnPts": 4.98,
+      "profitPts": 3.98
     },
     {
       "id": "R2026527:multi:1",
@@ -2119,10 +2119,10 @@
       "exotic": true,
       "priceEstimated": true,
       "modelProb": 0.438387848984375,
-      "status": "pending",
-      "finishPos": null,
-      "returnPts": null,
-      "profitPts": null
+      "status": "lost",
+      "finishPos": "Tony Finau T41, Beau Hossler T41",
+      "returnPts": 0,
+      "profitPts": -1
     }
   ]
 }
