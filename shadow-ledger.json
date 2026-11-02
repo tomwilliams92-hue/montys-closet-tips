@@ -1628,10 +1628,10 @@
       "pickType": "model",
       "priceEstimated": true,
       "modelProb": 0.5216666666666666,
-      "status": "pending",
-      "finishPos": null,
-      "returnPts": null,
-      "profitPts": null
+      "status": "won",
+      "finishPos": "T25",
+      "returnPts": 5.35,
+      "profitPts": 3.35
     },
     {
       "id": "R2026528:58168:top30",
@@ -1651,10 +1651,10 @@
       "pickType": "model",
       "priceEstimated": true,
       "modelProb": 0.5336458333333334,
-      "status": "pending",
-      "finishPos": null,
-      "returnPts": null,
-      "profitPts": null
+      "status": "lost",
+      "finishPos": "T34",
+      "returnPts": 0,
+      "profitPts": -1
     },
     {
       "id": "R2026528:34076:makeCut",
@@ -1674,10 +1674,10 @@
       "pickType": "model",
       "priceEstimated": true,
       "modelProb": 0.6340856250000001,
-      "status": "pending",
-      "finishPos": null,
-      "returnPts": null,
-      "profitPts": null
+      "status": "won",
+      "finishPos": "T44",
+      "returnPts": 1.97,
+      "profitPts": 0.97
     },
     {
       "id": "R2026528:48153:makeCut",
@@ -1697,10 +1697,10 @@
       "pickType": "model",
       "priceEstimated": true,
       "modelProb": 0.65406125,
-      "status": "pending",
-      "finishPos": null,
-      "returnPts": null,
-      "profitPts": null
+      "status": "lost",
+      "finishPos": "CUT",
+      "returnPts": 0,
+      "profitPts": -1
     },
     {
       "id": "R2026528:multi:0",
@@ -1733,10 +1733,10 @@
       "exotic": true,
       "priceEstimated": true,
       "modelProb": 0.27838524305555556,
-      "status": "pending",
-      "finishPos": null,
-      "returnPts": null,
-      "profitPts": null
+      "status": "lost",
+      "finishPos": "Eric Cole T25, Davis Thompson T34",
+      "returnPts": 0,
+      "profitPts": -1
     },
     {
       "id": "R2026528:multi:1",
@@ -1769,10 +1769,10 @@
       "exotic": true,
       "priceEstimated": true,
       "modelProb": 0.41473083649453135,
-      "status": "pending",
-      "finishPos": null,
-      "returnPts": null,
-      "profitPts": null
+      "status": "lost",
+      "finishPos": "Joel Dahmen T44, Matthieu Pavon MC",
+      "returnPts": 0,
+      "profitPts": -1
     },
     {
       "id": "R2026528:40058:win",
@@ -1792,10 +1792,10 @@
       "pickType": "model",
       "priceEstimated": true,
       "modelProb": 0.028854166666666667,
-      "status": "pending",
-      "finishPos": null,
-      "returnPts": null,
-      "profitPts": null
+      "status": "lost",
+      "finishPos": "T25",
+      "returnPts": 0,
+      "profitPts": -2
     },
     {
       "id": "R2026528:50286:win",
@@ -1815,10 +1815,10 @@
       "pickType": "model",
       "priceEstimated": true,
       "modelProb": 0.0254375,
-      "status": "pending",
-      "finishPos": null,
-      "returnPts": null,
-      "profitPts": null
+      "status": "lost",
+      "finishPos": "T25",
+      "returnPts": 0,
+      "profitPts": -2
     },
     {
       "id": "R2026540:50497:makeCut",
@@ -1838,10 +1838,10 @@
       "pickType": "model",
       "priceEstimated": true,
       "modelProb": 0.6036281250000001,
-      "status": "pending",
-      "finishPos": null,
-      "returnPts": null,
-      "profitPts": null
+      "status": "won",
+      "finishPos": "T34",
+      "returnPts": 4.04,
+      "profitPts": 2.04
     },
     {
       "id": "R2026540:59143:makeCut",
@@ -1861,10 +1861,10 @@
       "pickType": "model",
       "priceEstimated": true,
       "modelProb": 0.656521875,
-      "status": "pending",
-      "finishPos": null,
-      "returnPts": null,
-      "profitPts": null
+      "status": "won",
+      "finishPos": "T48",
+      "returnPts": 1.83,
+      "profitPts": 0.83
     },
     {
       "id": "R2026540:35506:top30",
@@ -1884,10 +1884,10 @@
       "pickType": "model",
       "priceEstimated": true,
       "modelProb": 0.4459166666666667,
-      "status": "pending",
-      "finishPos": null,
-      "returnPts": null,
-      "profitPts": null
+      "status": "won",
+      "finishPos": "T4",
+      "returnPts": 2.69,
+      "profitPts": 1.69
     },
     {
       "id": "R2026540:34256:makeCut",
@@ -1907,10 +1907,10 @@
       "pickType": "model",
       "priceEstimated": true,
       "modelProb": 0.63065625,
-      "status": "pending",
-      "finishPos": null,
-      "returnPts": null,
-      "profitPts": null
+      "status": "lost",
+      "finishPos": "CUT",
+      "returnPts": 0,
+      "profitPts": -1
     },
     {
       "id": "R2026540:multi:0",
@@ -1943,10 +1943,10 @@
       "exotic": true,
       "priceEstimated": true,
       "modelProb": 0.39629506842773443,
-      "status": "pending",
-      "finishPos": null,
-      "returnPts": null,
-      "profitPts": null
+      "status": "won",
+      "finishPos": "Adrien Dumont de Chassart T34, Mac Meissner T48",
+      "returnPts": 3.69,
+      "profitPts": 2.69
     },
     {
       "id": "R2026540:multi:1",
@@ -1979,10 +1979,10 @@
       "exotic": true,
       "priceEstimated": true,
       "modelProb": 0.2812201328125,
-      "status": "pending",
-      "finishPos": null,
-      "returnPts": null,
-      "profitPts": null
+      "status": "lost",
+      "finishPos": "Mackenzie Hughes T4, Andrew Putnam MC",
+      "returnPts": 0,
+      "profitPts": -1
     },
     {
       "id": "R2026540:55182:win",
@@ -2002,10 +2002,10 @@
       "pickType": "model",
       "priceEstimated": true,
       "modelProb": 0.036083333333333335,
-      "status": "pending",
-      "finishPos": null,
-      "returnPts": null,
-      "profitPts": null
+      "status": "won",
+      "finishPos": "T6",
+      "returnPts": 7.11,
+      "profitPts": 5.11
     },
     {
       "id": "R2026540:48001:win",
@@ -2025,6 +2025,216 @@
       "pickType": "model",
       "priceEstimated": true,
       "modelProb": 0.026125,
+      "status": "lost",
+      "finishPos": "CUT",
+      "returnPts": 0,
+      "profitPts": -2
+    },
+    {
+      "id": "R2026457:35461:top30",
+      "weekNumber": 44,
+      "eventId": "R2026457",
+      "eventName": "World Wide Technology Championship",
+      "placedAt": "2026-11-02T07:05:08.880Z",
+      "playerId": "35461",
+      "player": "Beau Hossler",
+      "market": "top30",
+      "marketLabel": "Top 30",
+      "eachWay": false,
+      "eachWayPlaces": null,
+      "stakePts": 2,
+      "priceDecimal": 2.509672696852452,
+      "priceFractional": "6/4",
+      "pickType": "model",
+      "priceEstimated": true,
+      "modelProb": 0.500625,
+      "status": "pending",
+      "finishPos": null,
+      "returnPts": null,
+      "profitPts": null
+    },
+    {
+      "id": "R2026457:36799:top30",
+      "weekNumber": 44,
+      "eventId": "R2026457",
+      "eventName": "World Wide Technology Championship",
+      "placedAt": "2026-11-02T07:05:08.880Z",
+      "playerId": "36799",
+      "player": "Stephan Jaeger",
+      "market": "top30",
+      "marketLabel": "Top 30",
+      "eachWay": false,
+      "eachWayPlaces": null,
+      "stakePts": 1,
+      "priceDecimal": 2.485372546989075,
+      "priceFractional": "6/4",
+      "pickType": "model",
+      "priceEstimated": true,
+      "modelProb": 0.46247916666666666,
+      "status": "pending",
+      "finishPos": null,
+      "returnPts": null,
+      "profitPts": null
+    },
+    {
+      "id": "R2026457:60386:top30",
+      "weekNumber": 44,
+      "eventId": "R2026457",
+      "eventName": "World Wide Technology Championship",
+      "placedAt": "2026-11-02T07:05:08.880Z",
+      "playerId": "60386",
+      "player": "Sudarshan Yellamaraju",
+      "market": "top30",
+      "marketLabel": "Top 30",
+      "eachWay": false,
+      "eachWayPlaces": null,
+      "stakePts": 1,
+      "priceDecimal": 2.403003754693367,
+      "priceFractional": "11/8",
+      "pickType": "model",
+      "priceEstimated": true,
+      "modelProb": 0.47658333333333336,
+      "status": "pending",
+      "finishPos": null,
+      "returnPts": null,
+      "profitPts": null
+    },
+    {
+      "id": "R2026457:40058:top30",
+      "weekNumber": 44,
+      "eventId": "R2026457",
+      "eventName": "World Wide Technology Championship",
+      "placedAt": "2026-11-02T07:05:08.880Z",
+      "playerId": "40058",
+      "player": "Zac Blair",
+      "market": "top30",
+      "marketLabel": "Top 30",
+      "eachWay": false,
+      "eachWayPlaces": null,
+      "stakePts": 1,
+      "priceDecimal": 2.2641509433962264,
+      "priceFractional": "5/4",
+      "pickType": "model",
+      "priceEstimated": true,
+      "modelProb": 0.49916666666666665,
+      "status": "pending",
+      "finishPos": null,
+      "returnPts": null,
+      "profitPts": null
+    },
+    {
+      "id": "R2026457:multi:0",
+      "weekNumber": 44,
+      "eventId": "R2026457",
+      "eventName": "World Wide Technology Championship",
+      "placedAt": "2026-11-02T07:05:08.880Z",
+      "player": "Beau Hossler + Stephan Jaeger",
+      "market": "accumulator",
+      "marketLabel": "Double — Top 30 / Top 30",
+      "legs": [
+        {
+          "playerId": "35461",
+          "player": "Beau Hossler",
+          "market": "Top 30",
+          "cond": "top30"
+        },
+        {
+          "playerId": "36799",
+          "player": "Stephan Jaeger",
+          "market": "Top 30",
+          "cond": "top30"
+        }
+      ],
+      "eachWay": false,
+      "stakePts": 1,
+      "priceDecimal": 6.237471622685119,
+      "priceFractional": "5/1",
+      "pickType": "model",
+      "exotic": true,
+      "priceEstimated": true,
+      "modelProb": 0.2315286328125,
+      "status": "pending",
+      "finishPos": null,
+      "returnPts": null,
+      "profitPts": null
+    },
+    {
+      "id": "R2026457:multi:1",
+      "weekNumber": 44,
+      "eventId": "R2026457",
+      "eventName": "World Wide Technology Championship",
+      "placedAt": "2026-11-02T07:05:08.880Z",
+      "player": "Sudarshan Yellamaraju + Zac Blair",
+      "market": "accumulator",
+      "marketLabel": "Double — Top 30 / Top 30",
+      "legs": [
+        {
+          "playerId": "60386",
+          "player": "Sudarshan Yellamaraju",
+          "market": "Top 30",
+          "cond": "top30"
+        },
+        {
+          "playerId": "40058",
+          "player": "Zac Blair",
+          "market": "Top 30",
+          "cond": "top30"
+        }
+      ],
+      "eachWay": false,
+      "stakePts": 1,
+      "priceDecimal": 5.440763218173661,
+      "priceFractional": "9/2",
+      "pickType": "model",
+      "exotic": true,
+      "priceEstimated": true,
+      "modelProb": 0.23789451388888888,
+      "status": "pending",
+      "finishPos": null,
+      "returnPts": null,
+      "profitPts": null
+    },
+    {
+      "id": "R2026457:45522:win",
+      "weekNumber": 44,
+      "eventId": "R2026457",
+      "eventName": "World Wide Technology Championship",
+      "placedAt": "2026-11-02T07:05:08.880Z",
+      "playerId": "45522",
+      "player": "Christiaan Bezuidenhout",
+      "market": "win",
+      "marketLabel": "To Win",
+      "eachWay": true,
+      "eachWayPlaces": 8,
+      "stakePts": 2,
+      "priceDecimal": 31.978680879413727,
+      "priceFractional": "33/1",
+      "pickType": "model",
+      "priceEstimated": true,
+      "modelProb": 0.034791666666666665,
+      "status": "pending",
+      "finishPos": null,
+      "returnPts": null,
+      "profitPts": null
+    },
+    {
+      "id": "R2026457:60019:win",
+      "weekNumber": 44,
+      "eventId": "R2026457",
+      "eventName": "World Wide Technology Championship",
+      "placedAt": "2026-11-02T07:05:08.880Z",
+      "playerId": "60019",
+      "player": "Jackson Suber",
+      "market": "win",
+      "marketLabel": "To Win",
+      "eachWay": true,
+      "eachWayPlaces": 8,
+      "stakePts": 2,
+      "priceDecimal": 41.55844155844156,
+      "priceFractional": "40/1",
+      "pickType": "model",
+      "priceEstimated": true,
+      "modelProb": 0.024541666666666666,
       "status": "pending",
       "finishPos": null,
       "returnPts": null,
