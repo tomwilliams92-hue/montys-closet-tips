@@ -2638,6 +2638,29 @@
       "finishPos": null,
       "returnPts": null,
       "profitPts": null
+    },
+    {
+      "id": "R2026493:45522:top30",
+      "weekNumber": 45,
+      "eventId": "R2026493",
+      "eventName": "The RSM Classic",
+      "placedAt": "2026-11-16T07:05:09.971Z",
+      "playerId": "45522",
+      "player": "Christiaan Bezuidenhout",
+      "market": "top30",
+      "marketLabel": "Top 30",
+      "eachWay": false,
+      "eachWayPlaces": null,
+      "stakePts": 2,
+      "priceDecimal": 2.2666100014166313,
+      "priceFractional": "5/4",
+      "pickType": "model",
+      "priceEstimated": true,
+      "modelProb": 0.5006875,
+      "status": "pending",
+      "finishPos": null,
+      "returnPts": null,
+      "profitPts": null
     }
   ]
 }
