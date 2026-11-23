@@ -2634,10 +2634,10 @@
       "pickType": "model",
       "priceEstimated": true,
       "modelProb": 0.6191666666666666,
-      "status": "pending",
-      "finishPos": null,
-      "returnPts": null,
-      "profitPts": null
+      "status": "lost",
+      "finishPos": "CUT",
+      "returnPts": 0,
+      "profitPts": -2
     },
     {
       "id": "R2026493:45522:top30",
